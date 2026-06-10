@@ -1,0 +1,121 @@
+\begin{table}[!ht]\centering
+\caption{Gate outcomes by population. For each population S1 to S4, the number of candidates classified discovered (compresses and predicts), compressed only, predicted only, and neither; row sums match Table~S3 and the corpus totals of Fig.~2 of the main text (2,383 / 17 / 27 / 1,487).}\label{tab:sc1}
+\begin{tabular}{lrrrrr}\toprule
+Pop. & discovered & compressed only & predicted only & neither & total \\\midrule
+S1 & 120 & 1 & 8 & 359 & 488 \\
+S2 & 244 & 2 & 0 & 10 & 256 \\
+S3 & 336 & 13 & 19 & 615 & 983 \\
+S4 & 1,683 & 1 & 0 & 503 & 2,187 \\
+\midrule
+total & 2,383 & 17 & 27 & 1,487 & 3,914 \\
+\bottomrule\end{tabular}\end{table}
+
+\begin{table}[!ht]\centering
+\caption{Solver portfolio. Discoveries per solver family and per population; family totals match Fig.~S3. The final row gives the per-population ordinary-least-squares slope of $\log_2$ discovery time against description length (Section~3.3 of the main text).}\label{tab:sc2}
+\begin{tabular}{lrrrrr}\toprule
+Family & S1 & S2 & S3 & S4 & total \\\midrule
+CONCAT & 0 & 0 & 9 & 0 & 9 \\
+CTX\_X & 38 & 80 & 108 & 1,064 & 1,290 \\
+DARY & 57 & 147 & 123 & 477 & 804 \\
+FUNC & 7 & 8 & 48 & 4 & 67 \\
+FUNC\_L & 9 & 3 & 19 & 29 & 60 \\
+ITER & 2 & 2 & 4 & 5 & 13 \\
+ITER\_F & 0 & 0 & 1 & 1 & 2 \\
+ITER\_L & 0 & 0 & 0 & 1 & 1 \\
+NESTED\_LOOP & 5 & 0 & 24 & 102 & 131 \\
+STEP & 1 & 0 & 0 & 0 & 1 \\
+WIDE\_BIT & 1 & 4 & 0 & 0 & 5 \\
+\midrule
+slope & 0.048 & 0.060 & 0.045 & 0.058 & \\
+\bottomrule\end{tabular}\end{table}
+
+\begin{table}[!ht]\centering
+\caption{Alphabet asymmetry. Discovery rate by alphabet base for the multi-alphabet OEIS cohort (the 54/33/27 percent decay of Section~3.5); the twenty-six-sequence hard subset; and the count of inversion sequences that become easier at a larger base. Rates are discoveries over candidates at that base.}\label{tab:sc3}
+\begin{tabular}{lrrr}\toprule
+Cohort & base 2 & base 3 & base 4 \\\midrule
+multi-alphabet cohort & 45\% & 24\% & 25\% \\
+\bottomrule\end{tabular}
+\\[2pt]\footnotesize Hard subset (26 sequences) and inversion sequences (30 of 261) are listed in the deposited data; the paired binary-versus-larger-base outcomes feed the exact McNemar test ($p\approx0.016$).
+\end{table}
+
+\begin{table}[!ht]\centering
+\caption{Description-length distribution of discovered programs, in bits, per population.}\label{tab:sc4}
+\begin{tabular}{lrrrr}\toprule
+Pop. & min & median & mean & max \\\midrule
+S1 & 13 & 15.6 & 24.6 & 117 \\
+S2 & 13 & 15.0 & 18.8 & 75 \\
+S3 & 7 & 17.5 & 27.5 & 117 \\
+S4 & 13 & 17.9 & 24.6 & 117 \\
+\bottomrule\end{tabular}\end{table}
+
+\begin{table}[!ht]\centering
+\caption{Off-diagonal characterization. The predicted-only (27) and compressed-only (17) candidates, with population, solver family, and the compression deficit $|p|-\text{train\_bits}$ in bits (positive for predicted-only, negative for compressed-only). Includes the divisor-counting instance that misses compression by about 0.45 bits (Section~3.4 of the main text).}\label{tab:sc5}
+\begin{tabular}{llllr}\toprule
+candidate & pop. & family & class & deficit (bits) \\\midrule
+A246318\_a2 & S1 & DARY & compressed only & -20.55 \\
+eca\_167 & S2 & WIDE\_BIT & compressed only & -300.47 \\
+eca\_181 & S2 & WIDE\_BIT & compressed only & -300.47 \\
+A007093\_a4 & S3 & FUNC & compressed only & -52.91 \\
+A043096\_a2 & S3 & NESTED\_LOOP & compressed only & -16.19 \\
+A043096\_a3 & S3 & NESTED\_LOOP & compressed only & -64.16 \\
+A043096\_a4 & S3 & NESTED\_LOOP & compressed only & -98.19 \\
+A052382\_a3 & S3 & DARY & compressed only & -89.73 \\
+A052382\_a4 & S3 & ITER\_L & compressed only & -72.67 \\
+A055641\_a2 & S3 & FUNC & compressed only & -44.91 \\
+A055641\_a3 & S3 & FUNC & compressed only & -91.71 \\
+A055641\_a4 & S3 & FUNC & compressed only & -124.91 \\
+A122840\_a2 & S3 & FUNC & compressed only & -36.47 \\
+A122840\_a3 & S3 & FUNC & compressed only & -89.12 \\
+A122840\_a4 & S3 & FUNC & compressed only & -115.47 \\
+A002654\_a4 & S3 & NESTED\_LOOP & compressed only & -41.22 \\
+tot3\_0331 & S4 & STEP & compressed only & -535.88 \\
+A079314\_a3 & S1 & NESTED\_LOOP & predicted only & 3.04 \\
+A085587\_a2 & S1 & FUNC\_L & predicted only & 15.73 \\
+A147562\_a3 & S1 & FUNC\_L & predicted only & 11.43 \\
+A151922\_a3 & S1 & FUNC\_L & predicted only & 16.20 \\
+A169699\_a2 & S1 & FUNC\_L & predicted only & 14.78 \\
+A267700\_a3 & S1 & NESTED\_LOOP & predicted only & 39.85 \\
+A001606\_a2 & S1 & FUNC\_L & predicted only & 4.53 \\
+A039951\_a2 & S1 & FUNC & predicted only & 2.73 \\
+A003754\_a2 & S3 & ITER & predicted only & 10.78 \\
+A004488\_a2 & S3 & FUNC\_L & predicted only & 6.54 \\
+A007931\_a3 & S3 & STEP & predicted only & 1.97 \\
+A010785\_a2 & S3 & ITER & predicted only & 6.09 \\
+A051885\_a2 & S3 & FUNC & predicted only & 4.09 \\
+A056964\_a2 & S3 & NESTED\_LOOP & predicted only & 35.56 \\
+A059893\_a2 & S3 & FUNC\_L & predicted only & 9.58 \\
+A075928\_a2 & S3 & FUNC\_L & predicted only & 28.96 \\
+A000005\_a2 & S3 & WIDE\_BIT & predicted only & 0.45 \\
+A000045\_a2 & S3 & CTX\_X & predicted only & 3.11 \\
+A000069\_a3 & S3 & NESTED\_LOOP & predicted only & 45.46 \\
+A000203\_a3 & S3 & NESTED\_LOOP & predicted only & 37.53 \\
+A000203\_a4 & S3 & NESTED\_LOOP & predicted only & 16.78 \\
+A000203\_a5 & S3 & NESTED\_LOOP & predicted only & 0.68 \\
+A000292\_a2 & S3 & FUNC & predicted only & 1.73 \\
+A000292\_a7 & S3 & NESTED\_LOOP & predicted only & 11.97 \\
+A001157\_a4 & S3 & NESTED\_LOOP & predicted only & 56.78 \\
+A001969\_a3 & S3 & NESTED\_LOOP & predicted only & 28.40 \\
+A002487\_a3 & S3 & NESTED\_LOOP & predicted only & 7.42 \\
+\bottomrule\end{tabular}\end{table}
+
+\begin{table}[!ht]\centering
+\caption{Held-out surplus $m\log_2|\Sigma|-|p|$ over the 2,383 discoveries, per population. Positive surplus is the regime where the false-acceptance bound of SI-B is informative; the corpus median is 173.4 bits with 96.6 percent of discoveries positive.}\label{tab:sc6}
+\begin{tabular}{lrrrr}\toprule
+Pop. & median & mean & \% positive & non-positive \\\midrule
+S1 & 5.0 & 2.7 & 85.0\% & 18 \\
+S2 & 110.0 & 106.2 & 100.0\% & 0 \\
+S3 & 6.6 & 7.5 & 81.2\% & 63 \\
+S4 & 180.3 & 173.5 & 100.0\% & 0 \\
+\midrule
+total & 173.4 & 134.6 & 96.6\% & 81 \\
+\bottomrule\end{tabular}\end{table}
+
+\begin{table}[!ht]\centering
+\caption{Total-ratio distribution. Description length over raw bits across the corpus, the vertical axis of Fig.~2 of the main text, per gate class.}\label{tab:sc7}
+\begin{tabular}{lrrrr}\toprule
+class & min & median & mean & max \\\midrule
+discovered & 0.017 & 0.028 & 0.076 & 0.702 \\
+compressed only & 0.074 & 0.249 & 0.281 & 0.604 \\
+predicted only & 0.583 & 0.799 & 0.844 & 1.239 \\
+neither & 0.043 & 0.324 & 0.392 & 2.212 \\
+\bottomrule\end{tabular}\end{table}

@@ -1,0 +1,322 @@
+id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
+A005265_a2_shuf,self,,2,53,33,20,33,19,compressed_only,13.53,53.00,0.2554,14.746,"DARY d=2 LOAD(R0,1) init=0"
+A071028_a3_shuf,self,,3,99,75,24,23,0,neither,109.25,156.91,0.6962,591.838,NESTED_LOOP L=6
+A071035_a3_shuf,self,,3,100,75,25,12,0,neither,55.16,158.50,0.3480,591.923,P2H_ITER d=5 r0=1
+A071036_a2_shuf,self,,2,99,75,24,18,0,neither,75.47,99.00,0.7624,600.154,WIDE_BIT nr=3 bit=255
+A071037_a2_shuf,self,,2,99,75,24,22,0,neither,98.40,99.00,0.9939,592.196,NESTED_LOOP L=5
+A071047_a3_shuf,self,,3,68,48,20,12,0,neither,54.16,107.78,0.5025,591.445,P2H_ITER d=5 r0=1
+A072495_a3_shuf,self,,3,70,50,20,12,0,neither,49.16,110.95,0.4431,590.449,P2H_FUNC d=5 R0
+A079315_a2_shuf,self,,2,61,41,20,41,20,not_compressed_predicted,45.87,61.00,0.7520,41.711,FUNC_L d=4
+A093514_a3_shuf,self,,3,62,42,20,11,0,neither,49.87,98.27,0.5075,591.424,ITER d=4
+A093516_a3_shuf,self,,3,61,41,20,11,0,neither,56.32,96.68,0.5826,591.235,P2H_FUNC d=6 R0
+A128154_a3_shuf,self,,3,50,30,20,12,0,neither,57.32,79.25,0.7233,592.038,P2H_FUNC d=6 R0
+A128159_a2_shuf,self,,2,53,33,20,23,0,neither,72.30,53.00,1.3642,600.063,WIDE_BIT nr=3 bit=255
+A173456_a2_shuf,self,,2,49,29,20,29,19,compressed_only,13.53,49.00,0.2762,10.177,"DARY d=2 LOAD(R0,1) init=0"
+A173457_a2_shuf,self,,2,61,41,20,41,20,not_compressed_predicted,46.87,61.00,0.7684,21.033,FUNC_L d=4
+A231348_a3_shuf,self,,3,65,45,20,11,0,neither,42.87,103.02,0.4161,591.849,FUNC d=4
+A265225_a2_shuf,self,,2,53,33,20,21,0,neither,102.40,53.00,1.9321,591.912,NESTED_LOOP L=5
+A266282_a3_shuf,self,,3,86,65,21,17,0,neither,48.87,136.31,0.3585,590.134,P2H_ITER d=4 r0=1
+A266441_a3_shuf,self,,3,86,65,21,13,0,neither,43.87,136.31,0.3218,594.498,P2H_FUNC d=4 R1
+A266716_a3_shuf,self,,3,86,65,21,14,0,neither,53.45,136.31,0.3921,590.747,STEP off=39 halt=2
+A266786_a2_shuf,self,,2,86,65,21,18,0,neither,53.16,86.00,0.6182,592.473,P2H_ITER d=5 r0=0
+A267015_a2_shuf,self,,2,86,65,21,17,0,neither,43.87,86.00,0.5101,592.619,P2H_FUNC d=4 R1
+A267463_a3_shuf,self,,3,86,65,21,16,0,neither,47.12,136.31,0.3457,592.310,FUNC_L d=4
+A267576_a2_shuf,self,,2,86,65,21,19,0,neither,57.47,86.00,0.6683,600.052,ITER d=4
+A267870_a3_shuf,self,,3,86,65,21,53,0,neither,53.88,136.31,0.3953,594.469,STEP off=53 halt=0
+A277799_a2_shuf,self,,2,43,23,20,19,0,neither,77.06,43.00,1.7921,600.058,WIDE_BIT nr=3 bit=255
+A299477_a3_shuf,self,,3,49,29,20,14,0,neither,59.32,77.66,0.7639,590.846,P2H_FUNC d=6 R0
+A334496_a2_shuf,self,,2,42,22,20,21,0,neither,72.30,42.00,1.7215,600.057,WIDE_BIT nr=3 bit=255
+A334499_a2_shuf,self,,2,40,20,20,17,0,neither,51.55,40.00,1.2887,600.066,FUNC_L d=4
+collatz_k11_c3_b3_shuf,self,,3,200,150,50,36,0,neither,42.87,316.99,0.1352,591.901,P2H_FUNC d=4 R1
+collatz_k11_c7_b2_shuf,self,,2,200,150,50,54,0,neither,57.41,200.00,0.2871,594.184,FUNC_L d=5
+collatz_k3_c3_b2_shuf,self,,2,200,150,50,114,0,neither,22.90,200.00,0.1145,593.805,FUNC d=2
+collatz_k5_c1_b2_shuf,self,,2,200,150,50,34,0,neither,56.30,200.00,0.2815,592.883,FUNC_L d=4
+collatz_k5_c1_b3_shuf,self,,3,200,150,50,25,0,neither,81.16,316.99,0.2560,591.443,NESTED_LOOP L=4
+collatz_k5_c3_b2_shuf,self,,2,200,150,50,86,0,neither,84.33,200.00,0.4217,592.237,NESTED_LOOP L=4
+collatz_k5_c3_b3_shuf,self,,3,200,150,50,32,0,neither,64.08,316.99,0.2021,591.598,STEP off=114 halt=28
+collatz_k9_c5_b4_shuf,self,,4,200,150,50,23,0,neither,56.30,400.00,0.1408,593.472,FUNC_L d=4
+collatz_k9_c7_b4_shuf,self,,4,200,150,50,81,0,neither,84.33,400.00,0.2108,593.510,NESTED_LOOP L=4
+eca_015_shuf,self,,2,500,375,125,17,0,neither,63.51,500.00,0.1270,600.066,WIDE_BIT nr=2 bit=187
+eca_027_shuf,self,,2,500,375,125,19,0,neither,73.89,500.00,0.1478,600.054,WIDE_BIT nr=3 bit=255
+eca_030_shuf,self,,2,500,375,125,21,0,neither,73.89,500.00,0.1478,600.013,WIDE_BIT nr=3 bit=255
+eca_032_shuf,self,,2,500,375,125,311,0,neither,23.65,500.00,0.0473,593.802,DB_EXT(INC(R0))
+eca_047_shuf,self,,2,500,375,125,21,0,neither,73.89,500.00,0.1478,600.078,WIDE_BIT nr=3 bit=255
+eca_048_shuf,self,,2,500,375,125,375,124,compressed_only,13.53,500.00,0.0271,12.437,DARY d=2 INC(R1) init=0
+eca_064_shuf,self,,2,500,375,125,325,0,neither,23.65,500.00,0.0473,593.883,DB_EXT(INC(R0))
+eca_084_shuf,self,,2,500,375,125,235,0,neither,23.65,500.00,0.0473,593.945,DB_EXT(INC(R0))
+eca_088_shuf,self,,2,500,375,125,375,124,compressed_only,13.53,500.00,0.0271,12.659,DARY d=2 INC(R1) init=0
+eca_107_shuf,self,,2,500,375,125,16,0,neither,55.41,500.00,0.1108,592.664,FUNC_L d=5
+eca_109_shuf,self,,2,500,375,125,22,0,neither,106.40,500.00,0.2128,592.768,NESTED_LOOP L=5
+eca_111_shuf,self,,2,500,375,125,18,0,neither,77.06,500.00,0.1541,600.062,WIDE_BIT nr=3 bit=255
+eca_114_shuf,self,,2,500,375,125,22,0,neither,66.94,500.00,0.1339,600.050,WIDE_BIT nr=3 bit=187
+eca_120_shuf,self,,2,500,375,125,80,0,neither,44.87,500.00,0.0897,593.772,P2H_FUNC d=4 R1
+eca_134_shuf,self,,2,500,375,125,207,0,neither,23.65,500.00,0.0473,595.466,DB_EXT(INC(R0))
+eca_145_shuf,self,,2,500,375,125,22,0,neither,65.32,500.00,0.1306,592.097,NESTED_LOOP L=3
+eca_174_shuf,self,,2,500,375,125,95,0,neither,59.47,500.00,0.1189,593.534,FUNC_L d=4
+eca_200_shuf,self,,2,500,375,125,121,0,neither,22.90,500.00,0.0458,593.632,FUNC d=2
+eca_241_shuf,self,,2,500,375,125,267,0,neither,72.30,500.00,0.1446,600.014,WIDE_BIT nr=3 bit=255
+eca_250_shuf,self,,2,500,375,125,17,0,neither,50.12,500.00,0.1002,593.113,P2H_ITER d=4 r0=2
+A000002_a3_shuf,self,,3,108,81,27,14,0,neither,56.69,171.18,0.3312,590.576,STEP off=77 halt=1
+A000120_a7_shuf,self,,7,105,79,26,7,0,neither,72.42,294.77,0.2457,591.441,P2H_FUNC d=8 R0
+A000203_a5_shuf,self,,5,70,50,20,7,0,neither,62.40,162.53,0.3839,590.599,P2H_FUNC d=7 R0
+A000217_a5_shuf,self,,5,54,34,20,10,0,neither,55.41,125.38,0.4419,589.592,FUNC_L d=5
+A000290_a5_shuf,self,,5,51,31,20,12,0,neither,72.42,118.42,0.6116,589.974,P2H_FUNC d=8 R0
+A000326_a7_shuf,self,,7,47,27,20,6,0,neither,55.09,131.95,0.4175,590.067,STEP off=22 halt=2
+A000796_a3_shuf,self,,3,105,79,26,10,0,neither,39.35,166.42,0.2365,590.569,ITER d=3
+A000961_a4_shuf,self,,4,64,44,20,9,0,neither,40.87,128.00,0.3193,590.309,P2H_FUNC d=4 R0
+A001055_a4_shuf,self,,4,103,78,25,11,0,neither,52.95,206.00,0.2570,593.330,STEP off=23 halt=3
+A001065_a7_shuf,self,,7,80,60,20,6,0,neither,48.87,224.59,0.2176,591.032,ITER d=4
+A001113_a2_shuf,self,,2,105,79,26,20,0,neither,72.30,105.00,0.6886,600.026,WIDE_BIT nr=3 bit=255
+A001157_a5_shuf,self,,5,50,30,20,10,0,neither,45.87,116.10,0.3951,591.534,FUNC d=4
+A001227_a4_shuf,self,,4,105,79,26,9,0,neither,53.33,210.00,0.2539,590.315,STEP off=65 halt=1
+A001358_a3_shuf,self,,3,61,41,20,13,0,neither,77.67,96.68,0.8034,590.545,P2H_ITER d=8 r0=2
+A001477_a7_shuf,self,,7,78,58,20,6,0,neither,55.16,218.97,0.2519,591.034,FUNC_L d=5
+A001481_a3_shuf,self,,3,66,46,20,12,0,neither,51.14,104.61,0.4889,590.326,STEP off=38 halt=0
+A001481_a7_shuf,self,,7,66,46,20,5,0,neither,55.16,185.29,0.2977,590.112,FUNC_L d=5
+A001622_a5_shuf,self,,5,105,79,26,7,0,neither,49.12,243.80,0.2015,591.559,P2H_ITER d=4 r0=2
+A001969_a3_shuf,self,,3,65,45,20,11,0,neither,54.41,103.02,0.5281,590.316,P2H_ITER d=5 r0=2
+A002113_a2_shuf,self,,2,61,41,20,17,0,neither,56.41,61.00,0.9248,594.921,P2H_ITER d=5 r0=2
+A002378_a4_shuf,self,,4,51,31,20,13,0,neither,63.57,102.00,0.6233,590.592,P2H_ITER d=6 r0=2
+A003484_a4_shuf,self,,4,102,77,25,11,0,neither,53.20,204.00,0.2608,590.925,STEP off=39 halt=1
+A004011_a4_shuf,self,,4,53,33,20,33,20,discovered,46.87,106.00,0.4422,65.914,FUNC_L d=4
+A004018_a2_shuf,self,,2,102,77,25,77,24,compressed_only,64.32,102.00,0.6306,308.429,NESTED_LOOP L=3
+A004159_a2_shuf,self,,2,80,60,20,18,0,neither,45.87,80.00,0.5734,594.349,FUNC d=4
+A005349_a4_shuf,self,,4,61,41,20,10,0,neither,76.67,122.00,0.6285,590.028,P2H_ITER d=8 r0=2
+A005811_a4_shuf,self,,4,94,71,23,8,0,neither,48.26,188.00,0.2567,591.897,STEP off=5 halt=1
+A006995_a2_shuf,self,,2,58,38,20,38,19,compressed_only,13.53,58.00,0.2334,10.319,"DARY d=2 LOAD(R0,1) init=0"
+A007090_a3_shuf,self,,3,64,44,20,13,0,neither,69.65,101.44,0.6866,590.092,P2H_ITER d=7 r0=2
+A007091_a4_shuf,self,,4,66,46,20,9,0,neither,47.10,132.00,0.3568,590.926,STEP off=7 halt=3
+A007092_a3_shuf,self,,3,66,46,20,13,0,neither,52.16,104.61,0.4986,590.823,P2H_ITER d=5 r0=0
+A007094_a4_shuf,self,,4,74,54,20,9,0,neither,61.32,148.00,0.4143,592.586,P2H_ITER d=6 r0=0
+A007095_a2_shuf,self,,2,77,57,20,17,0,neither,64.12,77.00,0.8327,600.024,WIDE_BIT nr=2 bit=255
+A007770_a3_shuf,self,,3,54,34,20,12,0,neither,69.65,85.59,0.8138,589.868,P2H_ITER d=7 r0=2
+A008277_a2_shuf,self,,2,66,46,20,21,0,neither,56.16,66.00,0.8509,617.950,ITER_L d=5
+A008279_a5_shuf,self,,5,55,35,20,8,0,neither,56.16,127.71,0.4398,590.303,P2H_ITER d=5 r0=1
+A008292_a5_shuf,self,,5,55,35,20,9,0,neither,69.40,127.71,0.5435,589.962,P2H_ITER d=7 r0=1
+A011531_a3_shuf,self,,3,53,33,20,11,0,neither,51.16,84.00,0.6090,590.505,P2H_FUNC d=5 R0
+A018252_a4_shuf,self,,4,65,45,20,9,0,neither,48.12,130.00,0.3701,592.271,FUNC_L d=4
+A020652_a7_shuf,self,,7,97,73,24,5,0,neither,50.52,272.31,0.1855,590.840,STEP off=45 halt=0
+A025487_a3_shuf,self,,3,54,34,20,19,0,neither,61.76,85.59,0.7216,591.163,FUNC_L d=5
+A027642_a3_shuf,self,,3,62,42,20,11,0,neither,56.77,98.27,0.5777,590.749,STEP off=35 halt=4
+A029447_a3_shuf,self,,3,49,29,20,9,0,neither,53.96,77.66,0.6949,1221.018,ITER d=4
+A029447_a4_shuf,self,,4,49,29,20,9,0,neither,55.47,98.00,0.5660,591.302,FUNC_L d=4
+A029518_a3_shuf,self,,3,41,21,20,13,0,neither,44.87,64.98,0.6905,591.244,FUNC d=4
+A031347_a4_shuf,self,,4,87,66,21,11,0,neither,57.00,174.00,0.3276,590.887,STEP off=28 halt=8
+A035327_a4_shuf,self,,4,82,62,20,9,0,neither,62.32,164.00,0.3800,592.263,P2H_ITER d=6 r0=0
+A036554_a4_shuf,self,,4,59,39,20,15,0,neither,58.41,118.00,0.4950,590.026,P2H_ITER d=5 r0=2
+A038567_a3_shuf,self,,3,78,58,20,12,0,neither,60.32,123.63,0.4879,591.772,P2H_ITER d=6 r0=0
+A038569_a2_shuf,self,,2,94,71,23,17,0,neither,61.12,94.00,0.6502,600.079,WIDE_BIT nr=2 bit=255
+A038618_a4_shuf,self,,4,58,38,20,14,0,neither,63.40,116.00,0.5466,590.738,P2H_FUNC d=7 R0
+A043529_a4_shuf,self,,4,91,69,22,20,0,neither,42.60,182.00,0.2341,592.716,ITER d=3
+A043537_a2_shuf,self,,2,90,68,22,20,0,neither,81.16,90.00,0.9018,592.334,NESTED_LOOP L=4
+A044813_a3_shuf,self,,3,59,39,20,12,0,neither,41.87,93.51,0.4477,590.121,P2H_FUNC d=4 R0
+A048724_a3_shuf,self,,3,65,45,20,12,0,neither,50.16,103.02,0.4869,589.826,P2H_FUNC d=5 R0
+A054055_a3_shuf,self,,3,105,79,26,10,0,neither,37.35,166.42,0.2244,590.906,FUNC d=3
+A054055_a4_shuf,self,,4,105,79,26,9,0,neither,57.16,210.00,0.2722,590.982,P2H_ITER d=5 r0=1
+A055012_a3_shuf,self,,3,60,40,20,12,0,neither,49.37,95.10,0.5191,590.094,ITER d=3
+A056964_a2_shuf,self,,2,65,45,20,22,0,neither,53.16,65.00,0.8179,592.497,FUNC_L d=5
+A062028_a2_shuf,self,,2,71,51,20,17,0,neither,62.32,71.00,0.8778,592.460,P2H_ITER d=6 r0=0
+A062756_a3_shuf,self,,3,105,79,26,11,0,neither,50.84,166.42,0.3055,593.681,STEP off=30 halt=2
+A078972_a2_shuf,self,,2,55,35,20,35,17,compressed_only,21.43,55.00,0.3897,40.739,CTX_X nr=1 d=5 perm=(0) out=R0 L=1
+A078972_a3_shuf,self,,3,55,35,20,14,0,neither,41.85,87.17,0.4801,590.883,STEP off=0 halt=0
+A091924_a4_shuf,self,,4,49,29,20,15,0,neither,65.40,98.00,0.6674,589.695,P2H_FUNC d=7 R0
+A112798_a7_shuf,self,,7,102,77,25,7,0,neither,53.39,286.35,0.1865,592.417,STEP off=67 halt=0
+A175298_a2_shuf,self,,2,73,53,20,53,19,compressed_only,13.53,73.00,0.1854,10.465,"DARY d=2 LOAD(R0,1) init=0"
+A206913_a3_shuf,self,,3,69,49,20,31,0,neither,49.16,109.36,0.4495,590.432,P2H_FUNC d=5 R0
+A206914_a3_shuf,self,,3,68,48,20,12,0,neither,54.16,107.78,0.5025,591.491,FUNC_L d=5
+A226898_a5_shuf,self,,5,92,69,23,9,0,neither,53.16,213.62,0.2489,592.986,P2H_ITER d=5 r0=1
+A233564_a3_shuf,self,,3,62,42,20,12,0,neither,61.32,98.27,0.6240,590.604,P2H_ITER d=6 r0=0
+A235394_a3_shuf,self,,3,52,32,20,12,0,neither,48.87,82.42,0.5929,590.226,ITER d=4
+A235394_a4_shuf,self,,4,52,32,20,8,0,neither,49.70,104.00,0.4779,589.614,STEP off=14 halt=0
+A235395_a2_shuf,self,,2,49,29,20,29,19,compressed_only,13.53,49.00,0.2762,10.242,"DARY d=2 LOAD(R0,1) init=0"
+A246655_a3_shuf,self,,3,61,41,20,12,0,neither,57.41,96.68,0.5938,591.136,P2H_ITER d=5 r0=2
+A276086_a2_shuf,self,,2,74,54,20,16,0,neither,42.87,74.00,0.5793,592.327,P2H_FUNC d=4 R0
+A385776_a2_shuf,self,,2,41,21,20,21,19,compressed_only,13.53,41.00,0.3301,11.152,"DARY d=2 LOAD(R0,1) init=0"
+tot3_0001_shuf,self,,3,500,375,125,17,0,neither,69.40,792.48,0.0876,592.354,P2H_ITER d=7 r0=0
+tot3_0006_shuf,self,,3,500,375,125,205,0,neither,61.61,792.48,0.0777,594.452,STEP off=128 halt=6
+tot3_0014_shuf,self,,3,500,375,125,12,0,neither,67.57,792.48,0.0853,592.396,STEP off=278 halt=60
+tot3_0023_shuf,self,,3,500,375,125,17,0,neither,62.57,792.48,0.0790,592.287,P2H_ITER d=6 r0=2
+tot3_0045_shuf,self,,3,500,375,125,359,0,neither,64.88,792.48,0.0819,594.550,STEP off=268 halt=13
+tot3_0051_shuf,self,,3,500,375,125,148,0,neither,82.75,792.48,0.1044,592.721,NESTED_LOOP L=4
+tot3_0072_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,14.611,DARY d=2 INC(R1) init=0
+tot3_0104_shuf,self,,3,500,375,125,16,0,neither,59.47,792.48,0.0750,592.382,STEP off=271 halt=2
+tot3_0133_shuf,self,,3,500,375,125,140,0,neither,50.89,792.48,0.0642,594.622,STEP off=1 halt=138
+tot3_0135_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,14.912,DARY d=2 INC(R1) init=0
+tot3_0145_shuf,self,,3,500,375,125,14,0,neither,51.43,792.48,0.0649,592.361,STEP off=28 halt=0
+tot3_0146_shuf,self,,3,500,375,125,11,0,neither,38.60,792.48,0.0487,592.283,ITER d=3
+tot3_0153_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,14.270,DARY d=2 INC(R1) init=0
+tot3_0156_shuf,self,,3,500,375,125,28,0,neither,64.32,792.48,0.0812,592.516,NESTED_LOOP L=3
+tot3_0160_shuf,self,,3,500,375,125,11,0,neither,56.51,792.48,0.0713,592.534,STEP off=63 halt=2
+tot3_0176_shuf,self,,3,500,375,125,11,0,neither,58.10,792.48,0.0733,592.328,STEP off=255 halt=0
+tot3_0190_shuf,self,,3,500,375,125,69,0,neither,55.63,792.48,0.0702,594.559,STEP off=336 halt=0
+tot3_0205_shuf,self,,3,500,375,125,73,0,neither,63.45,792.48,0.0801,592.539,STEP off=103 halt=56
+tot3_0237_shuf,self,,3,500,375,125,58,0,neither,54.64,792.48,0.0689,592.723,STEP off=122 halt=0
+tot3_0244_shuf,self,,3,500,375,125,23,0,neither,77.99,792.48,0.0984,592.722,NESTED_LOOP L=4
+tot3_0248_shuf,self,,3,500,375,125,12,0,neither,54.59,792.48,0.0689,593.261,STEP off=196 halt=0
+tot3_0249_shuf,self,,3,500,375,125,280,0,neither,58.06,792.48,0.0733,594.468,STEP off=220 halt=2
+tot3_0254_shuf,self,,3,500,375,125,16,0,neither,56.33,792.48,0.0711,592.775,STEP off=172 halt=1
+tot3_0267_shuf,self,,3,500,375,125,225,0,neither,58.49,792.48,0.0738,594.480,STEP off=275 halt=2
+tot3_0280_shuf,self,,3,500,375,125,247,0,neither,53.66,792.48,0.0677,595.197,STEP off=1 halt=48
+tot3_0288_shuf,self,,3,500,375,125,158,0,neither,62.23,792.48,0.0785,594.573,STEP off=175 halt=6
+tot3_0312_shuf,self,,3,500,375,125,277,0,neither,90.38,792.48,0.1140,593.009,NESTED_LOOP L=5
+tot3_0314_shuf,self,,3,500,375,125,13,0,neither,58.35,792.48,0.0736,592.507,STEP off=131 halt=8
+tot3_0321_shuf,self,,3,500,375,125,214,0,neither,61.46,792.48,0.0776,594.674,STEP off=119 halt=6
+tot3_0342_shuf,self,,3,500,375,125,321,0,neither,65.13,792.48,0.0822,594.638,STEP off=306 halt=13
+tot3_0352_shuf,self,,3,500,375,125,85,0,neither,63.07,792.48,0.0796,594.557,STEP off=86 halt=56
+tot3_0359_shuf,self,,3,500,375,125,14,0,neither,57.97,792.48,0.0731,592.301,STEP off=238 halt=1
+tot3_0362_shuf,self,,3,500,375,125,197,0,neither,51.66,792.48,0.0652,594.762,STEP off=1 halt=48
+tot3_0376_shuf,self,,3,500,375,125,13,0,neither,56.83,792.48,0.0717,592.367,STEP off=134 halt=1
+tot3_0403_shuf,self,,3,500,375,125,15,0,neither,60.15,792.48,0.0759,592.406,STEP off=230 halt=7
+tot3_0451_shuf,self,,3,500,375,125,117,0,neither,49.50,792.48,0.0625,594.640,STEP off=0 halt=114
+tot3_0458_shuf,self,,3,500,375,125,16,0,neither,60.38,792.48,0.0762,592.523,STEP off=259 halt=2
+tot3_0480_shuf,self,,3,500,375,125,102,0,neither,38.35,792.48,0.0484,594.157,FUNC_L d=3
+tot3_0482_shuf,self,,3,500,375,125,17,0,neither,56.02,792.48,0.0707,592.633,STEP off=39 halt=4
+tot3_0496_shuf,self,,3,500,375,125,17,0,neither,36.35,792.48,0.0459,592.562,FUNC d=3
+tot3_0498_shuf,self,,3,500,375,125,68,0,neither,87.50,792.48,0.1104,594.591,NESTED_LOOP L=4
+tot3_0507_shuf,self,,3,500,375,125,165,0,neither,54.16,792.48,0.0683,594.663,FUNC_L d=5
+tot3_0515_shuf,self,,3,500,375,125,17,0,neither,59.60,792.48,0.0752,592.672,STEP off=174 halt=2
+tot3_0521_shuf,self,,3,500,375,125,13,0,neither,60.31,792.48,0.0761,592.512,STEP off=41 halt=15
+tot3_0545_shuf,self,,3,500,375,125,19,0,neither,64.09,792.48,0.0809,592.644,STEP off=196 halt=12
+tot3_0548_shuf,self,,3,500,375,125,15,0,neither,63.43,792.48,0.0800,592.441,STEP off=289 halt=10
+tot3_0560_shuf,self,,3,500,375,125,13,0,neither,62.60,792.48,0.0790,592.582,STEP off=214 halt=9
+tot3_0562_shuf,self,,3,500,375,125,13,0,neither,59.77,792.48,0.0754,592.514,STEP off=45 halt=7
+tot3_0569_shuf,self,,3,500,375,125,13,0,neither,63.07,792.48,0.0796,592.522,STEP off=88 halt=23
+tot3_0593_shuf,self,,3,500,375,125,17,0,neither,57.90,792.48,0.0731,592.410,STEP off=230 halt=1
+tot3_0594_shuf,self,,3,500,375,125,90,0,neither,87.50,792.48,0.1104,594.456,NESTED_LOOP L=4
+tot3_0600_shuf,self,,3,500,375,125,11,0,neither,41.87,792.48,0.0528,592.456,P2H_FUNC d=4 R1
+tot3_0604_shuf,self,,3,500,375,125,96,0,neither,63.32,792.48,0.0799,594.613,STEP off=90 halt=60
+tot3_0664_shuf,self,,3,500,375,125,13,0,neither,43.87,792.48,0.0554,592.673,FUNC d=4
+tot3_0674_shuf,self,,3,500,375,125,14,0,neither,64.70,792.48,0.0816,592.606,STEP off=187 halt=24
+tot3_0696_shuf,self,,3,500,375,125,89,0,neither,36.35,792.48,0.0459,592.608,FUNC d=3
+tot3_0706_shuf,self,,3,500,375,125,10,0,neither,48.87,792.48,0.0617,592.670,ITER d=4
+tot3_0731_shuf,self,,3,500,375,125,13,0,neither,56.29,792.48,0.0710,592.688,STEP off=103 halt=0
+tot3_0744_shuf,self,,3,500,375,125,110,0,neither,63.20,792.48,0.0797,594.457,STEP off=291 halt=9
+tot3_0763_shuf,self,,3,500,375,125,13,0,neither,49.37,792.48,0.0623,592.424,ITER d=3
+tot3_0767_shuf,self,,3,500,375,125,248,0,neither,52.66,792.48,0.0665,594.846,STEP off=0 halt=48
+tot3_0816_shuf,self,,3,500,375,125,134,0,neither,29.90,792.48,0.0377,592.929,FUNC d=2
+tot3_0818_shuf,self,,3,500,375,125,13,0,neither,59.70,792.48,0.0753,592.601,STEP off=103 halt=5
+tot3_0839_shuf,self,,3,500,375,125,10,0,neither,51.16,792.48,0.0646,592.422,P2H_FUNC d=5 R0
+tot3_0843_shuf,self,,3,500,375,125,11,0,neither,56.88,792.48,0.0718,592.628,STEP off=201 halt=2
+tot3_0863_shuf,self,,3,500,375,125,375,125,discovered,21.43,792.48,0.0270,57.090,CTX_X nr=1 d=5 perm=(0) out=R0 L=1
+tot3_0870_shuf,self,,3,500,375,125,15,0,neither,58.04,792.48,0.0732,592.497,STEP off=91 halt=3
+tot3_0892_shuf,self,,3,500,375,125,15,0,neither,66.07,792.48,0.0834,592.494,STEP off=313 halt=28
+tot3_0899_shuf,self,,3,500,375,125,12,0,neither,59.63,792.48,0.0752,592.427,STEP off=337 halt=1
+tot3_0951_shuf,self,,3,500,375,125,103,0,neither,85.92,792.48,0.1084,594.626,NESTED_LOOP L=4
+tot3_0953_shuf,self,,3,500,375,125,16,0,neither,55.46,792.48,0.0700,593.098,STEP off=184 halt=0
+tot3_0964_shuf,self,,3,500,375,125,13,0,neither,57.66,792.48,0.0728,592.588,STEP off=109 halt=7
+tot3_0977_shuf,self,,3,500,375,125,11,0,neither,56.55,792.48,0.0714,592.521,STEP off=117 halt=0
+tot3_0984_shuf,self,,3,500,375,125,64,0,neither,48.12,792.48,0.0607,593.221,FUNC_L d=4
+tot3_1017_shuf,self,,3,500,375,125,239,0,neither,63.11,792.48,0.0796,594.456,STEP off=192 halt=8
+tot3_1025_shuf,self,,3,500,375,125,113,0,neither,49.45,792.48,0.0624,594.603,STEP off=0 halt=111
+tot3_1035_shuf,self,,3,500,375,125,112,0,neither,63.19,792.48,0.0797,595.134,STEP off=289 halt=9
+tot3_1054_shuf,self,,3,500,375,125,13,0,neither,62.31,792.48,0.0786,592.435,STEP off=77 halt=19
+tot3_1069_shuf,self,,3,500,375,125,14,0,neither,58.64,792.48,0.0740,592.433,STEP off=297 halt=2
+tot3_1097_shuf,self,,3,500,375,125,135,0,neither,60.38,792.48,0.0762,594.567,STEP off=324 halt=4
+tot3_1105_shuf,self,,3,500,375,125,362,0,neither,51.99,792.48,0.0656,595.094,STEP off=0 halt=89
+tot3_1115_shuf,self,,3,500,375,125,14,0,neither,54.99,792.48,0.0694,592.333,STEP off=89 halt=1
+tot3_1127_shuf,self,,3,500,375,125,13,0,neither,55.42,792.48,0.0699,592.367,STEP off=68 halt=0
+tot3_1130_shuf,self,,3,500,375,125,13,0,neither,58.74,792.48,0.0741,592.356,STEP off=357 halt=0
+tot3_1144_shuf,self,,3,500,375,125,15,0,neither,47.12,792.48,0.0595,592.428,FUNC_L d=4
+tot3_1148_shuf,self,,3,500,375,125,11,0,neither,47.87,792.48,0.0604,592.278,P2H_ITER d=4 r0=1
+tot3_1157_shuf,self,,3,500,375,125,13,0,neither,47.87,792.48,0.0604,592.285,P2H_ITER d=4 r0=1
+tot3_1167_shuf,self,,3,500,375,125,132,0,neither,24.90,792.48,0.0314,592.317,FUNC d=2
+tot3_1194_shuf,self,,3,500,375,125,364,0,neither,52.75,792.48,0.0666,594.864,STEP off=0 halt=359
+tot3_1197_shuf,self,,3,500,375,125,251,0,neither,62.99,792.48,0.0795,594.451,STEP off=180 halt=8
+tot3_1200_shuf,self,,3,500,375,125,15,0,neither,59.49,792.48,0.0751,592.310,STEP off=274 halt=2
+tot3_1204_shuf,self,,3,500,375,125,13,0,neither,54.84,792.48,0.0692,592.421,STEP off=52 halt=1
+tot3_1213_shuf,self,,3,500,375,125,16,0,neither,57.00,792.48,0.0719,592.453,STEP off=56 halt=3
+tot3_1217_shuf,self,,3,500,375,125,11,0,neither,43.87,792.48,0.0554,592.324,P2H_FUNC d=4 R0
+tot3_1218_shuf,self,,3,500,375,125,330,0,neither,65.08,792.48,0.0821,594.581,STEP off=297 halt=13
+tot3_1239_shuf,self,,3,500,375,125,15,0,neither,54.22,792.48,0.0684,592.308,STEP off=163 halt=0
+tot3_1250_shuf,self,,3,500,375,125,164,0,neither,50.88,792.48,0.0642,594.535,STEP off=0 halt=53
+tot3_1251_shuf,self,,3,500,375,125,308,0,neither,65.21,792.48,0.0823,594.456,STEP off=319 halt=13
+tot3_1270_shuf,self,,3,500,375,125,17,0,neither,62.26,792.48,0.0786,592.335,STEP off=73 halt=13
+tot3_1282_shuf,self,,3,500,375,125,17,0,neither,63.87,792.48,0.0806,592.307,STEP off=227 halt=15
+tot3_1316_shuf,self,,3,500,375,125,12,0,neither,58.55,792.48,0.0739,592.328,STEP off=323 halt=0
+tot3_1318_shuf,self,,3,500,375,125,12,0,neither,43.87,792.48,0.0554,592.351,FUNC_L d=4
+tot3_1325_shuf,self,,3,500,375,125,12,0,neither,62.70,792.48,0.0791,592.401,STEP off=349 halt=3
+tot3_1329_shuf,self,,3,500,375,125,16,0,neither,54.05,792.48,0.0682,592.335,STEP off=17 halt=6
+tot3_1349_shuf,self,,3,500,375,125,325,0,neither,52.77,792.48,0.0666,594.800,STEP off=1 halt=80
+tot3_1350_shuf,self,,3,500,375,125,141,0,neither,58.12,792.48,0.0733,594.448,STEP off=258 halt=0
+tot3_1355_shuf,self,,3,500,375,125,15,0,neither,61.27,792.48,0.0773,592.409,STEP off=80 halt=12
+tot3_1371_shuf,self,,3,500,375,125,16,0,neither,57.10,792.48,0.0720,592.309,STEP off=224 halt=2
+tot3_1376_shuf,self,,3,500,375,125,14,0,neither,55.89,792.48,0.0705,592.282,ITER d=4
+tot3_1411_shuf,self,,3,500,375,125,107,0,neither,57.69,792.48,0.0728,594.438,STEP off=182 halt=2
+tot3_1418_shuf,self,,3,500,375,125,141,0,neither,60.34,792.48,0.0761,594.427,STEP off=318 halt=4
+tot3_1425_shuf,self,,3,500,375,125,59,0,neither,68.41,792.48,0.0863,592.605,STEP off=154 halt=157
+tot3_1442_shuf,self,,3,500,375,125,16,0,neither,56.84,792.48,0.0717,592.286,STEP off=223 halt=0
+tot3_1446_shuf,self,,3,500,375,125,13,0,neither,63.49,792.48,0.0801,592.275,STEP off=187 halt=15
+tot3_1450_shuf,self,,3,500,375,125,14,0,neither,59.79,792.48,0.0754,592.369,STEP off=144 halt=4
+tot3_1464_shuf,self,,3,500,375,125,99,0,neither,57.03,792.48,0.0720,594.455,STEP off=246 halt=0
+tot3_1476_shuf,self,,3,500,375,125,242,0,neither,63.08,792.48,0.0796,594.463,STEP off=189 halt=8
+tot3_1485_shuf,self,,3,500,375,125,238,0,neither,63.13,792.48,0.0797,594.463,STEP off=193 halt=8
+tot3_1516_shuf,self,,3,500,375,125,70,0,neither,61.68,792.48,0.0778,594.094,STEP off=125 halt=22
+tot3_1534_shuf,self,,3,500,375,125,295,0,neither,63.16,792.48,0.0797,594.207,STEP off=205 halt=18
+tot3_1537_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,13.893,"DARY d=2 LOAD(R0,2) init=0"
+tot3_1553_shuf,self,,3,500,375,125,14,0,neither,64.06,792.48,0.0808,592.318,STEP off=323 halt=12
+tot3_1597_shuf,self,,3,500,375,125,203,0,neither,63.87,792.48,0.0806,594.162,STEP off=297 halt=18
+tot3_1608_shuf,self,,3,500,375,125,11,0,neither,45.87,792.48,0.0579,592.320,P2H_ITER d=4 r0=1
+tot3_1621_shuf,self,,3,500,375,125,15,0,neither,55.00,792.48,0.0694,592.298,STEP off=146 halt=0
+tot3_1624_shuf,self,,3,500,375,125,22,0,neither,85.92,792.48,0.1084,592.400,NESTED_LOOP L=4
+tot3_1626_shuf,self,,3,500,375,125,375,125,discovered,22.16,792.48,0.0280,57.115,CTX_X nr=1 d=6 perm=(0) out=R0 L=1
+tot3_1642_shuf,self,,3,500,375,125,14,0,neither,56.30,792.48,0.0710,592.363,FUNC_L d=4
+tot3_1646_shuf,self,,3,500,375,125,261,0,neither,63.46,792.48,0.0801,594.176,STEP off=239 halt=18
+tot3_1678_shuf,self,,3,500,375,125,208,0,neither,56.32,792.48,0.0711,592.357,P2H_FUNC d=6 R0
+tot3_1682_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,13.942,"DARY d=2 LOAD(R0,2) init=0"
+tot3_1690_shuf,self,,3,500,375,125,70,0,neither,61.68,792.48,0.0778,594.132,STEP off=125 halt=22
+tot3_1699_shuf,self,,3,500,375,125,375,125,discovered,21.43,792.48,0.0270,56.842,CTX_X nr=1 d=5 perm=(0) out=R0 L=1
+tot3_1700_shuf,self,,3,500,375,125,375,125,discovered,17.95,792.48,0.0227,35.894,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+tot3_1710_shuf,self,,3,500,375,125,318,0,neither,65.15,792.48,0.0822,594.582,STEP off=309 halt=13
+tot3_1713_shuf,self,,3,500,375,125,212,0,neither,61.41,792.48,0.0775,594.464,STEP off=116 halt=6
+tot3_1714_shuf,self,,3,500,375,125,15,0,neither,65.53,792.48,0.0827,592.285,STEP off=320 halt=22
+tot3_1721_shuf,self,,3,500,375,125,80,0,neither,55.33,792.48,0.0698,594.098,STEP off=172 halt=0
+tot3_1727_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,14.087,"DARY d=2 LOAD(R0,2) init=0"
+tot3_1756_shuf,self,,3,500,375,125,25,0,neither,64.74,792.48,0.0817,593.729,STEP off=277 halt=18
+tot3_1784_shuf,self,,3,500,375,125,13,0,neither,60.35,792.48,0.0762,592.280,STEP off=217 halt=8
+tot3_1817_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,13.667,"DARY d=2 LOAD(R0,2) init=0"
+tot3_1842_shuf,self,,3,500,375,125,12,0,neither,49.42,792.48,0.0624,592.310,STEP off=8 halt=1
+tot3_1874_shuf,self,,3,500,375,125,16,0,neither,61.99,792.48,0.0782,592.414,STEP off=82 halt=16
+tot3_1897_shuf,self,,3,500,375,125,219,0,neither,63.77,792.48,0.0805,594.183,STEP off=281 halt=18
+tot3_1940_shuf,self,,3,500,375,125,375,123,compressed_only,13.53,792.48,0.0171,13.791,"DARY d=2 LOAD(R0,2) init=0"
+tot3_1942_shuf,self,,3,500,375,125,169,0,neither,64.08,792.48,0.0809,594.153,STEP off=331 halt=18
+tot3_1943_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,13.934,"DARY d=2 LOAD(R0,2) init=0"
+tot3_1962_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,14.199,DARY d=2 INC(R1) init=0
+tot3_1966_shuf,self,,3,500,375,125,13,0,neither,52.89,792.48,0.0667,592.288,STEP off=85 halt=0
+tot3_1973_shuf,self,,3,500,375,125,126,0,neither,55.32,792.48,0.0698,594.082,STEP off=171 halt=0
+tot3_1981_shuf,self,,3,500,375,125,375,124,compressed_only,19.29,792.48,0.0243,58.231,CTX_X nr=1 d=3 perm=(0) out=R0 L=1
+tot3_1982_shuf,self,,3,500,375,125,125,0,neither,49.64,792.48,0.0626,594.472,STEP off=0 halt=122
+tot3_1998_shuf,self,,3,500,375,125,211,0,neither,61.51,792.48,0.0776,594.465,STEP off=122 halt=6
+tot3_1999_shuf,self,,3,500,375,125,40,0,neither,26.90,792.48,0.0339,592.286,FUNC d=2
+tot3_2025_shuf,self,,3,500,375,125,149,0,neither,60.76,792.48,0.0767,594.472,STEP off=235 halt=4
+tot3_2029_shuf,self,,3,500,375,125,20,0,neither,77.99,792.48,0.0984,592.338,NESTED_LOOP L=4
+tot3_2041_shuf,self,,3,500,375,125,15,0,neither,59.90,792.48,0.0756,592.343,STEP off=340 halt=2
+tot3_2059_shuf,self,,3,500,375,125,375,124,compressed_only,13.53,792.48,0.0171,13.899,"DARY d=2 LOAD(R0,2) init=0"
+tot3_2062_shuf,self,,3,500,375,125,60,0,neither,64.35,792.48,0.0812,594.265,STEP off=135 halt=66
+tot3_2076_shuf,self,,3,500,375,125,15,0,neither,76.67,792.48,0.0967,592.294,P2H_ITER d=8 r0=2
+tot3_2084_shuf,self,,3,500,375,125,264,0,neither,63.69,792.48,0.0804,594.118,STEP off=235 halt=20
+tot3_2097_shuf,self,,3,500,375,125,375,125,discovered,90.38,792.48,0.1140,339.232,NESTED_LOOP L=5
+tot3_2125_shuf,self,,3,500,375,125,85,0,neither,58.30,792.48,0.0736,594.152,STEP off=170 halt=1
+tot3_2134_shuf,self,,3,500,375,125,138,0,neither,84.33,792.48,0.1064,594.389,NESTED_LOOP L=4
+tot3_2151_shuf,self,,3,500,375,125,375,85,compressed_only,64.75,792.48,0.0817,321.973,STEP off=251 halt=13
+tot3_2152_shuf,self,,3,500,375,125,133,0,neither,64.48,792.48,0.0814,594.176,STEP off=354 halt=20
+tot3_2175_shuf,self,,3,500,375,125,180,0,neither,64.02,792.48,0.0808,594.163,STEP off=320 halt=18
+eca_009_shuf,self,,2,500,375,125,17,0,neither,77.06,500.00,0.1541,600.066,WIDE_BIT nr=3 bit=255
+eca_021_shuf,self,,2,500,375,125,18,0,neither,77.06,500.00,0.1541,613.704,WIDE_BIT nr=3 bit=255
+eca_025_shuf,self,,2,500,375,125,20,0,neither,48.38,500.00,0.0968,600.082,FUNC_L d=4
+eca_031_shuf,self,,2,500,375,125,17,0,neither,63.51,500.00,0.1270,616.992,WIDE_BIT nr=2 bit=187
+eca_043_shuf,self,,2,500,375,125,15,0,neither,70.65,500.00,0.1413,591.857,P2H_ITER d=7 r0=2
+eca_055_shuf,self,,2,500,375,125,19,0,neither,77.06,500.00,0.1541,600.074,WIDE_BIT nr=3 bit=255
+eca_065_shuf,self,,2,500,375,125,16,0,neither,69.13,500.00,0.1383,600.082,WIDE_BIT nr=3 bit=255
+eca_083_shuf,self,,2,500,375,125,16,0,neither,51.12,500.00,0.1022,591.808,ITER d=4
+eca_085_shuf,self,,2,500,375,125,19,0,neither,60.51,500.00,0.1210,600.081,WIDE_BIT nr=2 bit=187
+eca_095_shuf,self,,2,500,375,125,20,0,neither,109.25,500.00,0.2185,591.851,NESTED_LOOP L=6
+eca_099_shuf,self,,2,500,375,125,15,0,neither,48.12,500.00,0.0962,591.947,P2H_ITER d=4 r0=2
+eca_115_shuf,self,,2,500,375,125,26,0,neither,75.47,500.00,0.1509,611.498,WIDE_BIT nr=3 bit=255
+eca_117_shuf,self,,2,500,375,125,16,0,neither,55.05,500.00,0.1101,591.903,FUNC_L d=4
+eca_121_shuf,self,,2,500,375,125,17,0,neither,75.47,500.00,0.1509,614.751,WIDE_BIT nr=3 bit=255
+eca_122_shuf,self,,2,500,375,125,16,0,neither,48.12,500.00,0.0962,613.590,FUNC_L d=4
+eca_149_shuf,self,,2,500,375,125,17,0,neither,75.47,500.00,0.1509,600.087,WIDE_BIT nr=3 bit=255
+eca_163_shuf,self,,2,500,375,125,21,0,neither,85.92,500.00,0.1718,592.584,NESTED_LOOP L=4
+eca_178_shuf,self,,2,500,375,125,23,0,neither,74.87,500.00,0.1497,600.070,WIDE_BIT nr=3 bit=187
+eca_193_shuf,self,,2,500,375,125,16,0,neither,70.11,500.00,0.1402,600.078,WIDE_BIT nr=3 bit=187
+eca_214_shuf,self,,2,500,375,125,27,0,neither,82.75,500.00,0.1655,592.272,NESTED_LOOP L=4

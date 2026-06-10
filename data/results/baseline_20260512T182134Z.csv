@@ -1,0 +1,8 @@
+id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
+arith_d_n,arithmetic,,4,200,150,50,5,0,neither,53.91,400.00,0.1348,0.722,STEP off=97 halt=0
+arith_phi_n,arithmetic,,4,200,150,50,7,0,neither,56.48,400.00,0.1412,0.702,STEP off=113 halt=2
+arith_sigma_n,arithmetic,,4,200,150,50,1,0,neither,8.25,400.00,0.0206,0.540,CONCAT d=2 off=1
+arith_bigomega,arithmetic,,4,200,150,50,3,0,neither,7.25,400.00,0.0181,0.547,CONCAT d=2 off=0
+arith_smomega,arithmetic,,4,200,150,50,7,0,neither,52.69,400.00,0.1317,0.869,STEP off=35 halt=1
+arith_mobius,arithmetic,,4,200,150,50,1,0,neither,8.25,400.00,0.0206,0.554,CONCAT d=2 off=1
+arith_liouv,arithmetic,,2,200,150,50,5,0,neither,7.25,200.00,0.0362,1.267,CONCAT d=2 off=0

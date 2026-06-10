@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: "OMNIS — Observational Minimal-length Nonparametric Inductive Synthesis"
+message: "If you use OMNIS in your research, please cite it as below."
+type: software
+authors:
+  - family-names: Silva
+    given-names: Jorge Miguel
+abstract: >-
+  OMNIS is an empirical Solomonoff inductor for integer sequences. Given a
+  target sequence, it searches for the shortest register-machine program that
+  reproduces it exactly under a canonical instruction set, ranked by Minimum
+  Description Length. The engine enforces four design constraints (exact
+  match, MDL-faithful encoding, no human knowledge, and target-agnostic
+  generality) and provides hierarchical synthesis via SUB_CALL composition
+  over a persistent program library.
+keywords:
+  - solomonoff-induction
+  - minimum-description-length
+  - program-synthesis
+  - inductive-synthesis
+  - integer-sequences
+  - oeis
+  - kolmogorov-complexity
+license: MIT
+repository-code: "https://github.com/[user]/omnis"
+version: 0.1.0-pre
+date-released: 2026-05-06
+preferred-citation:
+  type: article
+  title: "[Paper title forthcoming]"
+  authors:
+    - family-names: Silva
+      given-names: Jorge Miguel
+  journal: "Science"
+  year: 2026
+  doi: "[forthcoming]"

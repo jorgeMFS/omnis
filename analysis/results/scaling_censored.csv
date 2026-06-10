@@ -1,0 +1,10 @@
+section,model,n,n_censored,slope_or_metric,ci_or_se,extra
+1_censored,OLS pooled,2383,0,0.0539,"[0.0525, 0.0554]",R²=0.6931
+1_censored,OLS no-CTX_X (deadline-free),1093,0,0.0566,"[0.0552, 0.0580]",R²=0.8547
+1_censored,AFT log-normal scheme A (≥500s),2383,2,0.0539,"[0.0525, 0.0554]",
+1_censored,AFT log-normal scheme B (per-family p90),2383,245,0.0546,"[0.0530, 0.0562]",
+1_censored,Tobit scheme B (per-family p90),2383,245,0.0546,"[0.0531, 0.0561]",sigma=0.7150
+2_model_compare,Exponential   log2(t) = a + b·|p|,1093,0,AIC=1965.15,BIC=1975.14,R²=0.855 CV-RMSE=0.5934
+2_model_compare,Power-law     log2(t) = c + d·log2|p|,1093,0,AIC=2218.05,BIC=2228.04,R²=0.817 CV-RMSE=0.6640
+2_model_compare,Polynomial(2) log2(t) = a + b·|p| + c·|p|²,1093,0,AIC=1936.82,BIC=1951.81,R²=0.859 CV-RMSE=0.5868
+2_model_compare,Polynomial(3) log2(t) = a + b·|p| + … + d·|p|³,1093,0,AIC=1844.07,BIC=1864.06,R²=0.870 CV-RMSE=0.5653

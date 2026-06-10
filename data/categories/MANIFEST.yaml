@@ -1,0 +1,133 @@
+# OMNIS categorical workload manifest.
+#
+# Single source of truth for the frozen workloads under data/categories/.
+# Every file listed here is committed; tools/gen_all.sh recreates them
+# bit-for-bit given the pinned snapshot SHAs.
+#
+# Reproducibility:
+#   - body_sha256 is computed by the emitter and embedded in each workload
+#     file's header (line "# body_sha256: ..."). It is invariant across
+#     runs given the generator + snapshot.
+#   - file_sha256 is the SHA-256 of the entire workload file (including
+#     comment headers). Stable across runs because gen_all.sh exports a
+#     fixed SOURCE_DATE_EPOCH so the # created_utc line is constant.
+#   - CHECKSUMS.sha256 (sibling file) verifies file_sha256 line-by-line.
+#
+# Schema version 1.
+
+schema_version: 1
+
+generator_sha:       "see gen_workload.cpp GENERATOR_VERSION + git rev-parse HEAD at gen_all.sh time"
+oeis_snapshot:
+  stripped_sha256:   "see data/oeis/SOURCES.md"
+  names_sha256:      "see data/oeis/SOURCES.md"
+  keywords_sha256:   "see data/oeis/snapshot/keywords.tsv.sha256"
+fixed_source_date_epoch: 1746576000   # 2026-05-07T00:00:00Z
+
+files:
+  - path: arithmetic.txt
+    category: arithmetic
+    source: local generator
+    count: 7
+    selection_rule: "OEIS A000005, A000010, A000203, A001222, A001221, A008683, A008836; mod A=4 except liouville at A=2"
+    body_sha256: 38607d9ab2c8c45ce31f51da7e82cbfb3b157ea31b22506d8f6e7c5a2c8f6896
+
+  - path: benchmark14.txt
+    category: benchmark14
+    source: local generator
+    count: 14
+    selection_rule: "14 hand-written reference targets — 12 ENARZ Table 1 + DivisorCount(A000005) + Sigma(A000203) as nested-loop smoke tests; padded so train_N == published_N under K=max(20,N/4) split"
+    body_sha256: see file header
+    expected_solve_rate_min: 0.78    # 11/14 = 0.79; pi-b4 + 2 nested-loop = expected misses
+
+  - path: collatz_grid.txt
+    category: collatz_grid
+    source: local generator
+    count: 60
+    selection_rule: "(k,c,base) in {3,5,7,9,11} x {1,3,5,7} x {2,3,4}; off=1; trajectory step count mod base"
+    body_sha256: 61fb635f970a678040374a6340155a964567dda8a5e3ebf45baa4a3d157b5a21
+
+  - path: eca256.txt
+    category: eca256
+    source: local generator
+    count: 256
+    selection_rule: "enumerate rule in [0,256); A=2; single_cell_ic; center_column; N=500"
+    body_sha256: ceddfd88a9c6f4f0d1b803e85593a36b0e4aacfb1659c605642a184265f383bf
+    expected_solve_rate_min: 0.93    # ENARZ baseline 244/256 = 0.953
+
+  - path: morphic.txt
+    category: morphic
+    source: local generator
+    count: 3
+    selection_rule: "Rudin-Shapiro A020985; Baum-Sweet A086747; period-doubling A035263; all binary"
+    body_sha256: d827f3431d812ac8d64c85cdbe5248fe8956344b5be23544771bf21917aa0889
+
+  - path: neg_controls.txt
+    category: neg_controls
+    source: local generator
+    count: 20
+    selection_rule: "Pi-base-4 (1) + seeded random (10, 5 per A in {2,4}) + seeded crypto-style (9, 5@A=2 + 4@A=4); all expected incompressible"
+    body_sha256: 96f5d13d6f868d623cf8a81faacbf37e1b05dccb293164b9f2233c797e34e4c8
+    expected_solve_rate_max: 0.05    # negative controls — must mostly reject
+
+  - path: oeis_base.txt
+    category: oeis_base
+    source: oeis_loader (filter)
+    count: 576
+    selection_rule: "keyword:base AND keyword:nonn; first ~200 reachable via OEIS API; alphabets {2,3,4}; N up to 500"
+    body_sha256: 5dd6c438b47cca05bb396becb0f9b24e3faf515fff529aec90702647bdb03da4
+
+  - path: oeis_cellular.txt
+    category: oeis_cellular
+    source: oeis_loader (filter)
+    count: 382
+    selection_rule: "name contains 'cellular automaton' / 'wolfram' / 'rule '; nonn enforced where keyword data available; first ~200 reachable"
+    body_sha256: 44fafd63ddf101818dfdc7beb4150b565032f3b8b2c7c754efefacdd76d59bd7
+
+  - path: oeis_core.txt
+    category: oeis_core
+    source: oeis_loader (filter)
+    count: 780
+    selection_rule: "Sloane's curated core (keyword:core AND keyword:nonn); alphabets {2,3,4,5,7}; N up to 500"
+    body_sha256: 75c578e50e00cf45a34a9d0ae6728c641ffb4341033a1606353fe5faa39e52be
+    expected_solve_rate_min: 0.55
+
+  - path: oeis_hard.txt
+    category: oeis_hard
+    source: oeis_loader (filter)
+    count: 267
+    selection_rule: "Hard sequences (keyword:hard AND keyword:nonn); first ~200 reachable via OEIS API; alphabets {2,3,4}; N up to 500"
+    body_sha256: 714f9212b9598c203e41c36b22ae4ed143b36f366e07b3ed9210465017de3b5c
+
+  - path: oeis_morphic.txt
+    category: oeis_morphic
+    source: oeis_loader (filter)
+    count: 30
+    selection_rule: "name contains 'morphic'; nonn enforced where keyword data available; alphabets {2,3}"
+    body_sha256: a74d72026ba5c5cc8433d49eb4efcfb0326ac0e8dc34dcf02f3d67530310e043
+
+  - path: prime.txt
+    category: prime
+    source: local generator
+    count: 3
+    selection_rule: "prime indicator A010051; prime gaps A001223 mod 4; primes A000040 mod 4"
+    body_sha256: 92796d6ae1c8ca3a04ae66a49a28db9ff0858e0fd60e413b8daf6df472247442
+
+  - path: selfref.txt
+    category: selfref
+    source: local generator
+    count: 3
+    selection_rule: "Kolakoski A000002 (binary); Recaman A005132 mod 4; bit-reversal A030101 mod 4"
+    body_sha256: d0d4e42249fa89396f390db51d7df9eb0adfbfcf1b0da1520ee6af1729d557fc
+
+  - path: totalistic_3state.txt
+    category: totalistic_3state
+    source: local generator
+    count: 2187
+    selection_rule: "enumerate totalistic 3-state 3-neighbor rules in [0, 3^7); A=3; single_cell_ic; center_column; N=500"
+    body_sha256: 61c211336655e5aad1df437737edcafa91c8f77492c5fc1052e32ec37a53c163
+
+# Aggregate.
+totals:
+  files: 14
+  candidates: 4588    # sum of counts above (12 → 14 in benchmark adds 2)

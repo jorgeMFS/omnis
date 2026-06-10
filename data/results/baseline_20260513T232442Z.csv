@@ -1,0 +1,257 @@
+id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
+eca_000,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.022,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_001,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,10.051,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_002,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.023,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_003,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,42.478,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_004,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.259,"DARY d=2 LOAD(R0,1) init=0"
+eca_005,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.276,"DARY d=2 LOAD(R0,1) init=0"
+eca_006,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,24.962,DARY d=2 DEC(R0) init=2
+eca_007,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,20.998,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_008,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.031,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_009,eca256,,2,500,375,125,375,125,discovered,22.07,500.00,0.0441,47.289,CTX_X nr=1 d=6 perm=(5) out=R0 L=1
+eca_010,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.023,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_011,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,47.071,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_012,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.282,"DARY d=2 LOAD(R0,1) init=0"
+eca_013,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.298,"DARY d=2 LOAD(R0,1) init=0"
+eca_014,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,34.629,DARY d=2 DEC(R0) init=2
+eca_015,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,21.950,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_016,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.028,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_017,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,45.296,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_018,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.027,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_019,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,45.190,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_020,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,31.961,DARY d=2 DEC(R0) init=2
+eca_021,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,22.757,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_022,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,29.942,DARY d=2 DEC(R0) init=2
+eca_023,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,20.268,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_024,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_025,eca256,,2,500,375,125,18,0,neither,43.09,500.00,0.0862,600.049,ITER d=3
+eca_026,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.022,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_027,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,42.867,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_028,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.263,"DARY d=2 LOAD(R0,1) init=0"
+eca_029,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.251,"DARY d=2 LOAD(R0,1) init=0"
+eca_030,eca256,,2,500,375,125,375,125,discovered,74.53,500.00,0.1491,67.298,WIDE_BIT nr=3 bit=187
+eca_031,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,16.708,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_032,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_033,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,16.917,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_034,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_035,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,43.598,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_036,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.267,"DARY d=2 LOAD(R0,1) init=0"
+eca_037,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,44.989,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_038,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,23.607,DARY d=2 DEC(R0) init=2
+eca_039,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,18.055,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_040,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_041,eca256,,2,500,375,125,375,125,discovered,21.35,500.00,0.0427,42.264,CTX_X nr=1 d=5 perm=(4) out=R0 L=1
+eca_042,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_043,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,43.489,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_044,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.262,"DARY d=2 LOAD(R0,1) init=0"
+eca_045,eca256,,2,500,375,125,16,0,neither,75.13,500.00,0.1503,600.040,WIDE_BIT nr=3 bit=255
+eca_046,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,23.494,DARY d=2 DEC(R0) init=2
+eca_047,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.117,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_048,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_049,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,43.273,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_050,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.810,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_051,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.471,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_052,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,24.034,DARY d=2 DEC(R0) init=2
+eca_053,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,16.719,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_054,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,15.987,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+eca_055,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,16.725,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_056,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_057,eca256,,2,500,375,125,375,125,discovered,25.73,500.00,0.0515,16.032,FUNC d=2
+eca_058,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.539,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_059,eca256,,2,500,375,125,375,125,discovered,20.43,500.00,0.0409,43.667,CTX_X nr=1 d=4 perm=(3) out=R0 L=1
+eca_060,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.254,"DARY d=2 LOAD(R0,1) init=0"
+eca_061,eca256,,2,500,375,125,375,125,discovered,39.91,500.00,0.0798,44.577,"CTX_X nr=2 d=9 perm=(6,8) out=R0 L=2"
+eca_062,eca256,,2,500,375,125,375,125,discovered,24.11,500.00,0.0482,16.762,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=1"
+eca_063,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,16.531,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_064,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_065,eca256,,2,500,375,125,375,125,discovered,22.07,500.00,0.0441,41.722,CTX_X nr=1 d=6 perm=(5) out=R0 L=1
+eca_066,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_067,eca256,,2,500,375,125,18,0,neither,43.09,500.00,0.0862,600.037,ITER d=3
+eca_068,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.256,"DARY d=2 LOAD(R0,1) init=0"
+eca_069,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.251,"DARY d=2 LOAD(R0,1) init=0"
+eca_070,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.254,"DARY d=2 LOAD(R0,1) init=0"
+eca_071,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_072,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_073,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.298,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_074,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.023,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_075,eca256,,2,500,375,125,19,0,neither,75.13,500.00,0.1503,600.043,WIDE_BIT nr=3 bit=255
+eca_076,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.278,"DARY d=2 LOAD(R0,1) init=0"
+eca_077,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.271,"DARY d=2 LOAD(R0,1) init=0"
+eca_078,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.266,"DARY d=2 LOAD(R0,1) init=0"
+eca_079,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.257,"DARY d=2 LOAD(R0,1) init=0"
+eca_080,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_081,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,43.610,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_082,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_083,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,41.331,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_084,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,21.865,DARY d=2 DEC(R0) init=2
+eca_085,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.076,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_086,eca256,,2,500,375,125,375,125,discovered,74.53,500.00,0.1491,63.869,WIDE_BIT nr=3 bit=187
+eca_087,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,16.809,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_088,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.022,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_089,eca256,,2,500,375,125,19,0,neither,75.13,500.00,0.1503,600.039,WIDE_BIT nr=3 bit=255
+eca_090,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.022,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_091,eca256,,2,500,375,125,375,125,discovered,33.90,500.00,0.0678,42.114,"CTX_X nr=2 d=3 perm=(0,2) out=R0 L=2"
+eca_092,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.267,"DARY d=2 LOAD(R0,1) init=0"
+eca_093,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.272,"DARY d=2 LOAD(R0,1) init=0"
+eca_094,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,21.919,DARY d=2 DEC(R0) init=2
+eca_095,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.679,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_096,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.025,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_097,eca256,,2,500,375,125,375,125,discovered,21.35,500.00,0.0427,43.186,CTX_X nr=1 d=5 perm=(4) out=R0 L=1
+eca_098,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_099,eca256,,2,500,375,125,375,125,discovered,25.73,500.00,0.0515,16.056,FUNC d=2
+eca_100,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.253,"DARY d=2 LOAD(R0,1) init=0"
+eca_101,eca256,,2,500,375,125,16,0,neither,75.13,500.00,0.1503,600.042,WIDE_BIT nr=3 bit=255
+eca_102,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.258,"DARY d=2 LOAD(R0,1) init=0"
+eca_103,eca256,,2,500,375,125,375,125,discovered,39.91,500.00,0.0798,42.972,"CTX_X nr=2 d=9 perm=(6,8) out=R0 L=2"
+eca_104,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_105,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,15.283,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_106,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_107,eca256,,2,500,375,125,375,125,discovered,75.13,500.00,0.1503,586.874,WIDE_BIT nr=3 bit=255
+eca_108,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_109,eca256,,2,500,375,125,375,125,discovered,26.03,500.00,0.0521,41.729,"CTX_X nr=2 d=3 perm=(1,2) out=R0 L=1"
+eca_110,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.266,"DARY d=2 LOAD(R0,1) init=0"
+eca_111,eca256,,2,500,375,125,375,125,discovered,23.18,500.00,0.0464,42.221,CTX_X nr=1 d=8 perm=(7) out=R0 L=1
+eca_112,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_113,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,42.627,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_114,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,19.448,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_115,eca256,,2,500,375,125,375,125,discovered,20.43,500.00,0.0409,41.717,CTX_X nr=1 d=4 perm=(3) out=R0 L=1
+eca_116,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,24.310,DARY d=2 DEC(R0) init=2
+eca_117,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,16.649,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_118,eca256,,2,500,375,125,375,125,discovered,24.11,500.00,0.0482,17.159,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=1"
+eca_119,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,16.859,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_120,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_121,eca256,,2,500,375,125,375,125,discovered,75.13,500.00,0.1503,586.279,WIDE_BIT nr=3 bit=255
+eca_122,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.654,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_123,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.657,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_124,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.272,"DARY d=2 LOAD(R0,1) init=0"
+eca_125,eca256,,2,500,375,125,375,125,discovered,23.18,500.00,0.0464,43.040,CTX_X nr=1 d=8 perm=(7) out=R0 L=1
+eca_126,eca256,,2,500,375,125,375,125,discovered,46.78,500.00,0.0936,13.051,FUNC_L d=4
+eca_127,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.061,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+eca_128,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_129,eca256,,2,500,375,125,375,125,discovered,54.73,500.00,0.1095,15.482,FUNC_L d=5
+eca_130,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_131,eca256,,2,500,375,125,375,125,discovered,25.73,500.00,0.0515,16.539,FUNC d=2
+eca_132,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.257,"DARY d=2 LOAD(R0,1) init=0"
+eca_133,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.254,"DARY d=2 LOAD(R0,1) init=0"
+eca_134,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,23.157,DARY d=2 DEC(R0) init=2
+eca_135,eca256,,2,500,375,125,20,0,neither,73.55,500.00,0.1471,600.042,WIDE_BIT nr=3 bit=255
+eca_136,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_137,eca256,,2,500,375,125,62,0,neither,25.73,500.00,0.0515,600.037,FUNC d=2
+eca_138,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_139,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.161,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_140,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_141,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.259,"DARY d=2 LOAD(R0,1) init=0"
+eca_142,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,23.695,DARY d=2 DEC(R0) init=2
+eca_143,eca256,,2,500,375,125,375,125,discovered,33.90,500.00,0.0678,44.099,"CTX_X nr=2 d=3 perm=(1,2) out=R0 L=2"
+eca_144,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_145,eca256,,2,500,375,125,375,125,discovered,25.73,500.00,0.0515,16.545,FUNC d=2
+eca_146,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_147,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.133,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+eca_148,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,22.526,DARY d=2 DEC(R0) init=2
+eca_149,eca256,,2,500,375,125,20,0,neither,73.55,500.00,0.1471,600.042,WIDE_BIT nr=3 bit=255
+eca_150,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.260,"DARY d=2 LOAD(R0,1) init=0"
+eca_151,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.273,"DARY d=2 LOAD(R0,1) init=0"
+eca_152,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_153,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_154,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_155,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.164,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_156,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.258,"DARY d=2 LOAD(R0,1) init=0"
+eca_157,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_158,eca256,,2,500,375,125,375,125,discovered,35.09,500.00,0.0702,43.479,FUNC d=3
+eca_159,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.265,"DARY d=2 LOAD(R0,1) init=0"
+eca_160,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_161,eca256,,2,500,375,125,375,125,discovered,54.73,500.00,0.1095,14.456,FUNC_L d=5
+eca_162,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_163,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,42.649,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_164,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_165,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.258,"DARY d=2 LOAD(R0,1) init=0"
+eca_166,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,23.729,DARY d=2 DEC(R0) init=2
+eca_167,eca256,,2,500,375,125,375,116,compressed_only,74.53,500.00,0.1491,64.263,WIDE_BIT nr=3 bit=187
+eca_168,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_169,eca256,,2,500,375,125,375,125,discovered,41.09,500.00,0.0822,43.295,ITER d=3
+eca_170,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_171,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.924,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_172,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.263,"DARY d=2 LOAD(R0,1) init=0"
+eca_173,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.281,"DARY d=2 LOAD(R0,1) init=0"
+eca_174,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,22.228,DARY d=2 DEC(R0) init=2
+eca_175,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,43.517,CTX_X nr=1 d=3 perm=(0) out=R0 L=1
+eca_176,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_177,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,42.695,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+eca_178,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.451,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_179,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.518,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_180,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,22.595,DARY d=2 DEC(R0) init=2
+eca_181,eca256,,2,500,375,125,375,116,compressed_only,74.53,500.00,0.1491,64.896,WIDE_BIT nr=3 bit=187
+eca_182,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.263,"DARY d=2 LOAD(R0,1) init=0"
+eca_183,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_184,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_185,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,15.969,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_186,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.162,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_187,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.112,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+eca_188,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.258,"DARY d=2 LOAD(R0,1) init=0"
+eca_189,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.258,"DARY d=2 LOAD(R0,1) init=0"
+eca_190,eca256,,2,500,375,125,375,125,discovered,35.09,500.00,0.0702,44.861,FUNC d=3
+eca_191,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.256,"DARY d=2 LOAD(R0,1) init=0"
+eca_192,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_193,eca256,,2,500,375,125,62,0,neither,25.73,500.00,0.0515,600.039,FUNC d=2
+eca_194,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_195,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_196,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.246,"DARY d=2 LOAD(R0,1) init=0"
+eca_197,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_198,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.259,"DARY d=2 LOAD(R0,1) init=0"
+eca_199,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.257,"DARY d=2 LOAD(R0,1) init=0"
+eca_200,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_201,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.484,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_202,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_203,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_204,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.256,"DARY d=2 LOAD(R0,1) init=0"
+eca_205,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.264,"DARY d=2 LOAD(R0,1) init=0"
+eca_206,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.248,"DARY d=2 LOAD(R0,1) init=0"
+eca_207,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.257,"DARY d=2 LOAD(R0,1) init=0"
+eca_208,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_209,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.391,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_210,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_211,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.809,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_212,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,21.800,DARY d=2 DEC(R0) init=2
+eca_213,eca256,,2,500,375,125,375,125,discovered,33.90,500.00,0.0678,42.221,"CTX_X nr=2 d=3 perm=(1,2) out=R0 L=2"
+eca_214,eca256,,2,500,375,125,375,125,discovered,35.09,500.00,0.0702,46.821,FUNC d=3
+eca_215,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.257,"DARY d=2 LOAD(R0,1) init=0"
+eca_216,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_217,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_218,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_219,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_220,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.259,"DARY d=2 LOAD(R0,1) init=0"
+eca_221,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.256,"DARY d=2 LOAD(R0,1) init=0"
+eca_222,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.257,"DARY d=2 LOAD(R0,1) init=0"
+eca_223,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.256,"DARY d=2 LOAD(R0,1) init=0"
+eca_224,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_225,eca256,,2,500,375,125,375,125,discovered,41.09,500.00,0.0822,43.434,ITER d=3
+eca_226,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_227,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.446,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_228,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.255,"DARY d=2 LOAD(R0,1) init=0"
+eca_229,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.258,"DARY d=2 LOAD(R0,1) init=0"
+eca_230,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.258,"DARY d=2 LOAD(R0,1) init=0"
+eca_231,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.256,"DARY d=2 LOAD(R0,1) init=0"
+eca_232,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.021,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_233,eca256,,2,500,375,125,375,125,discovered,20.43,500.00,0.0409,43.186,CTX_X nr=1 d=4 perm=(0) out=R0 L=1
+eca_234,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_235,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.660,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_236,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.306,"DARY d=2 LOAD(R0,1) init=0"
+eca_237,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.270,"DARY d=2 LOAD(R0,1) init=0"
+eca_238,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.273,"DARY d=2 LOAD(R0,1) init=0"
+eca_239,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.247,"DARY d=2 LOAD(R0,1) init=0"
+eca_240,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.019,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_241,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.128,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_242,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.353,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_243,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.511,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+eca_244,eca256,,2,500,375,125,375,125,discovered,15.70,500.00,0.0314,23.407,DARY d=2 DEC(R0) init=2
+eca_245,eca256,,2,500,375,125,375,125,discovered,19.20,500.00,0.0384,42.040,CTX_X nr=1 d=3 perm=(0) out=R0 L=1
+eca_246,eca256,,2,500,375,125,375,125,discovered,35.09,500.00,0.0702,44.573,FUNC d=3
+eca_247,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.254,"DARY d=2 LOAD(R0,1) init=0"
+eca_248,eca256,,2,500,375,125,375,125,discovered,15.03,500.00,0.0301,10.020,"DARY d=2 ISZERO(R1,R0) init=0"
+eca_249,eca256,,2,500,375,125,375,125,discovered,31.98,500.00,0.0640,16.309,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=2"
+eca_250,eca256,,2,500,375,125,375,125,discovered,15.61,500.00,0.0312,17.315,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+eca_251,eca256,,2,500,375,125,375,125,discovered,17.86,500.00,0.0357,17.236,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+eca_252,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.254,"DARY d=2 LOAD(R0,1) init=0"
+eca_253,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.256,"DARY d=2 LOAD(R0,1) init=0"
+eca_254,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.261,"DARY d=2 LOAD(R0,1) init=0"
+eca_255,eca256,,2,500,375,125,375,125,discovered,13.45,500.00,0.0269,10.261,"DARY d=2 LOAD(R0,1) init=0"

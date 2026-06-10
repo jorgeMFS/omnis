@@ -1,0 +1,8 @@
+id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
+arith_d_n,arithmetic,,4,200,150,50,150,50,discovered,97.72,400.00,0.2443,320.440,NESTED_LOOP L=5
+arith_phi_n,arithmetic,,4,200,150,50,8,0,neither,48.53,400.00,0.1213,600.117,ITER d=4
+arith_sigma_n,arithmetic,,4,200,150,50,150,50,discovered,116.78,400.00,0.2919,376.027,NESTED_LOOP L=6
+arith_bigomega,arithmetic,,4,200,150,50,10,0,neither,56.93,400.00,0.1423,600.082,STEP off=27 halt=9
+arith_smomega,arithmetic,,4,200,150,50,20,0,neither,103.72,400.00,0.2593,600.053,NESTED_LOOP L=5
+arith_mobius,arithmetic,,4,200,150,50,9,0,neither,53.41,400.00,0.1335,600.072,STEP off=48 halt=1
+arith_liouv,arithmetic,,2,200,150,50,20,0,neither,53.98,200.00,0.2699,600.053,FUNC_L d=5

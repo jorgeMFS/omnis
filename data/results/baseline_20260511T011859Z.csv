@@ -1,0 +1,44 @@
+id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
+bench_counting,benchmark14,,4,266,200,66,200,66,discovered,15.61,532.00,0.0294,10.089,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+bench_pow3mod7,benchmark14,,7,70,50,20,50,20,discovered,15.61,196.51,0.0795,21.477,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+bench_trimod8,benchmark14,,8,70,50,20,50,20,discovered,37.34,210.00,0.1778,15.048,FUNC_L d=3
+bench_fibmod4,benchmark14,,4,70,50,20,50,20,discovered,24.11,140.00,0.1722,27.733,"CTX_X nr=2 d=2 perm=(0,1) out=R0 L=1"
+bench_thuemorse,benchmark14,,2,341,256,85,256,85,discovered,16.62,341.00,0.0487,13.134,DARY d=2  init=0
+bench_digitsum4,benchmark14,,4,133,100,33,100,33,discovered,18.19,266.00,0.0684,16.058,"DARY d=4 ADD(R1,R0,R0) init=0"
+bench_collatz,benchmark14,,4,70,50,20,50,20,discovered,28.84,140.00,0.2060,22.349,CTX_X nr=1 d=1 perm=(0) out=R0 L=3
+bench_rule30,benchmark14,,2,266,200,66,200,66,discovered,73.26,266.00,0.2754,66.937,WIDE_BIT nr=3 bit=100
+bench_parityalt,benchmark14,,2,70,50,20,50,20,discovered,44.77,70.00,0.6396,42.996,FUNC_L d=3
+bench_champernowne,benchmark14,,4,133,100,33,100,33,discovered,8.82,266.00,0.0332,16.747,CONCAT d=4 off=0
+bench_collatzstop,benchmark14,,4,70,50,20,50,20,discovered,44.84,140.00,0.3203,48.854,STEP off=2 halt=1
+bench_pib4,benchmark14,,4,266,200,66,9,0,neither,57.10,532.00,0.1073,600.062,STEP off=94 halt=2
+bench_divisorcount,benchmark14,,4,70,50,20,50,20,discovered,97.72,140.00,0.6980,195.823,NESTED_LOOP L=5
+bench_sigma,benchmark14,,4,70,50,20,50,20,not_compressed_predicted,116.78,140.00,0.8341,316.370,NESTED_LOOP L=6
+neg_pi_b4,neg_controls,,4,500,375,125,9,0,neither,57.10,1000.00,0.0571,600.068,STEP off=94 halt=2
+neg_random_a2_s1992,neg_controls,,2,500,375,125,18,0,neither,72.94,500.00,0.1459,600.033,WIDE_BIT nr=3 bit=187
+neg_random_a2_s9245,neg_controls,,2,500,375,125,21,0,neither,116.78,500.00,0.2336,600.048,NESTED_LOOP L=6
+neg_random_a2_s16482,neg_controls,,2,500,375,125,18,0,neither,63.17,500.00,0.1263,600.038,WIDE_BIT nr=2 bit=187
+neg_random_a2_s27831,neg_controls,,2,500,375,125,20,0,neither,83.73,500.00,0.1675,600.050,NESTED_LOOP L=4
+neg_random_a2_s34972,neg_controls,,2,500,375,125,19,0,neither,75.13,500.00,0.1503,600.040,WIDE_BIT nr=3 bit=255
+neg_random_a4_s4078,neg_controls,,4,500,375,125,8,0,neither,49.11,1000.00,0.0491,600.053,ITER d=3
+neg_random_a4_s11323,neg_controls,,4,500,375,125,9,0,neither,53.73,1000.00,0.0537,600.050,FUNC_L d=5
+neg_random_a4_s18500,neg_controls,,4,500,375,125,10,0,neither,59.58,1000.00,0.0596,600.057,STEP off=147 halt=4
+neg_random_a4_s25745,neg_controls,,4,500,375,125,8,0,neither,52.68,1000.00,0.0527,600.052,STEP off=10 halt=3
+neg_random_a4_s32954,neg_controls,,4,500,375,125,11,0,neither,57.38,1000.00,0.0574,600.055,STEP off=67 halt=2
+neg_crypto_a2_s594281233,neg_controls,,2,500,375,125,22,0,neither,83.73,500.00,0.1675,600.057,NESTED_LOOP L=4
+neg_crypto_a2_s2521135452,neg_controls,,2,500,375,125,16,0,neither,54.73,500.00,0.1095,600.045,FUNC_L d=5
+neg_crypto_a2_s1228863371,neg_controls,,2,500,375,125,14,0,neither,62.17,500.00,0.1243,600.053,FUNC_L d=5
+neg_crypto_a2_s1007709686,neg_controls,,2,500,375,125,20,0,neither,82.15,500.00,0.1643,600.057,NESTED_LOOP L=4
+neg_crypto_a2_s4157205029,neg_controls,,2,500,375,125,18,0,neither,73.55,500.00,0.1471,600.033,WIDE_BIT nr=3 bit=255
+neg_crypto_a4_s3833693555,neg_controls,,4,500,375,125,11,0,neither,54.85,1000.00,0.0548,600.042,STEP off=94 halt=1
+neg_crypto_a4_s1370029886,neg_controls,,4,500,375,125,10,0,neither,58.27,1000.00,0.0583,600.054,STEP off=209 halt=4
+neg_crypto_a4_s2396221929,neg_controls,,4,500,375,125,8,0,neither,49.68,1000.00,0.0497,600.064,STEP off=10 halt=0
+neg_crypto_a4_s4227722132,neg_controls,,4,500,375,125,13,0,neither,57.56,1000.00,0.0576,600.068,STEP off=371 halt=0
+prime_indicator,prime,,2,200,150,50,150,50,discovered,103.72,200.00,0.5186,203.316,NESTED_LOOP L=5
+prime_gaps,prime,,4,200,150,50,15,0,neither,55.54,400.00,0.1389,600.071,ITER_F L=4
+prime_mod,prime,,4,200,150,50,10,0,neither,50.78,400.00,0.1269,600.065,ITER d=4
+selfref_kolakoski,selfref,,2,200,150,50,16,0,neither,51.78,200.00,0.2589,600.076,ITER d=4
+selfref_recaman,selfref,,4,200,150,50,24,0,neither,86.90,400.00,0.2173,600.078,NESTED_LOOP L=4
+selfref_bitrev,selfref,,4,200,150,50,150,50,discovered,55.13,400.00,0.1378,32.091,FUNC_L d=4
+morphic_rudshap,morphic,,2,200,150,50,150,50,discovered,56.71,200.00,0.2836,56.347,FUNC_L d=4
+morphic_baum,morphic,,2,200,150,50,20,0,neither,71.96,200.00,0.3598,600.030,WIDE_BIT nr=3 bit=255
+morphic_perdoub,morphic,,2,200,150,50,150,50,discovered,17.62,200.00,0.0881,13.708,DARY d=2  init=1

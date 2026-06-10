@@ -1,0 +1,5 @@
+tier,n,discoveries,predict_only,cp95_upper
+high,201,0,0,0.014794
+moderate,1,0,0,0.950000
+low,37,1,2,0.121905
+near-const,82,5,0,0.123936

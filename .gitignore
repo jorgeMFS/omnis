@@ -1,0 +1,46 @@
+# Build artifacts
+/build/omnis
+/build/*.profraw
+/build/*.profdata
+/build-cmake/
+/build-*/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Object files / archives / shared objects
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+
+# Editor / OS noise
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.cache/
+compile_commands.json
+
+# Scratch
+/tmp/
+/scratch/
+
+# OEIS bulk — fetched on demand via tools/oeis_fetch.sh + tools/oeis_keyword_fetch.sh.
+# SHA-pinned via *.sha256 sidecars (which ARE tracked) — see data/oeis/SOURCES.md.
+/data/oeis/snapshot/*.gz
+/data/oeis/snapshot/keywords.tsv
+/data/oeis/canary/b*.txt
+
+# Python
+__pycache__/
+*.pyc

@@ -1,0 +1,489 @@
+id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
+collatz_k3_c1_b2,collatz_grid,,2,200,150,50,15,0,neither,43.34,200.00,0.2167,600.102,ITER d=3
+collatz_k3_c1_b3,collatz_grid,,3,200,150,50,150,50,discovered,43.59,316.99,0.1375,128.701,STEP off=1 halt=1
+collatz_k3_c1_b4,collatz_grid,,4,200,150,50,8,0,neither,47.53,400.00,0.1188,600.112,FUNC_L d=4
+collatz_k3_c3_b2,collatz_grid,,2,200,150,50,150,50,discovered,47.78,200.00,0.2389,27.678,FUNC_L d=4
+collatz_k3_c3_b3,collatz_grid,,3,200,150,50,31,0,neither,101.72,316.99,0.3209,601.280,NESTED_LOOP L=5
+collatz_k3_c3_b4,collatz_grid,,4,200,150,50,31,0,neither,83.73,400.00,0.2093,600.102,NESTED_LOOP L=4
+collatz_k3_c5_b2,collatz_grid,,2,200,150,50,49,0,neither,97.72,200.00,0.4886,600.152,NESTED_LOOP L=5
+collatz_k3_c5_b3,collatz_grid,,3,200,150,50,11,0,neither,49.99,316.99,0.1577,600.463,STEP off=26 halt=0
+collatz_k3_c5_b4,collatz_grid,,4,200,150,50,8,0,neither,44.53,400.00,0.1113,600.107,FUNC d=4
+collatz_k3_c7_b2,collatz_grid,,2,200,150,50,16,0,neither,65.34,200.00,0.3267,600.097,FUNC_L d=5
+collatz_k3_c7_b3,collatz_grid,,3,200,150,50,12,0,neither,46.53,316.99,0.1468,600.107,FUNC_L d=4
+collatz_k3_c7_b4,collatz_grid,,4,200,150,50,9,0,neither,51.44,400.00,0.1286,600.205,STEP off=9 halt=3
+collatz_k5_c1_b2,collatz_grid,,2,200,150,50,21,0,neither,80.56,200.00,0.4028,600.092,NESTED_LOOP L=4
+collatz_k5_c1_b3,collatz_grid,,3,200,150,50,11,0,neither,52.99,316.99,0.1672,600.110,STEP off=26 halt=0
+collatz_k5_c1_b4,collatz_grid,,4,200,150,50,11,0,neither,55.98,400.00,0.1400,600.077,FUNC_L d=5
+collatz_k5_c3_b2,collatz_grid,,2,200,150,50,97,0,neither,83.73,200.00,0.4187,600.174,NESTED_LOOP L=4
+collatz_k5_c3_b3,collatz_grid,,3,200,150,50,11,0,neither,59.91,316.99,0.1890,600.527,STEP off=86 halt=7
+collatz_k5_c3_b4,collatz_grid,,4,200,150,50,31,0,neither,83.73,400.00,0.2093,600.115,NESTED_LOOP L=4
+collatz_k5_c5_b2,collatz_grid,,2,200,150,50,150,50,discovered,47.78,200.00,0.2389,26.312,FUNC_L d=4
+collatz_k5_c5_b3,collatz_grid,,3,200,150,50,13,0,neither,58.70,316.99,0.1852,600.146,STEP off=126 halt=2
+collatz_k5_c5_b4,collatz_grid,,4,200,150,50,31,0,neither,83.73,400.00,0.2093,600.085,NESTED_LOOP L=4
+collatz_k5_c7_b2,collatz_grid,,2,200,150,50,21,0,neither,85.32,200.00,0.4266,600.093,NESTED_LOOP L=4
+collatz_k5_c7_b3,collatz_grid,,3,200,150,50,10,0,neither,51.28,316.99,0.1618,600.243,STEP off=13 halt=0
+collatz_k5_c7_b4,collatz_grid,,4,200,150,50,11,0,neither,53.61,400.00,0.1340,600.095,STEP off=84 halt=0
+collatz_k7_c1_b2,collatz_grid,,2,200,150,50,31,0,neither,54.38,200.00,0.2719,600.061,FUNC_L d=4
+collatz_k7_c1_b3,collatz_grid,,3,200,150,50,15,0,neither,49.53,316.99,0.1562,600.044,FUNC_L d=4
+collatz_k7_c1_b4,collatz_grid,,4,200,150,50,9,0,neither,46.84,400.00,0.1171,600.055,STEP off=2 halt=0
+collatz_k7_c3_b2,collatz_grid,,2,200,150,50,150,50,discovered,47.78,200.00,0.2389,16.406,FUNC_L d=4
+collatz_k7_c3_b3,collatz_grid,,3,200,150,50,11,0,neither,45.53,316.99,0.1436,600.062,FUNC_L d=4
+collatz_k7_c3_b4,collatz_grid,,4,200,150,50,150,50,discovered,116.78,400.00,0.2919,306.393,NESTED_LOOP L=6
+collatz_k7_c5_b2,collatz_grid,,2,200,150,50,150,50,discovered,47.78,200.00,0.2389,16.092,FUNC_L d=4
+collatz_k7_c5_b3,collatz_grid,,3,200,150,50,12,0,neither,51.28,316.99,0.1618,600.045,STEP off=13 halt=0
+collatz_k7_c5_b4,collatz_grid,,4,200,150,50,150,50,discovered,116.78,400.00,0.2919,276.256,NESTED_LOOP L=6
+collatz_k7_c7_b2,collatz_grid,,2,200,150,50,150,50,discovered,47.78,200.00,0.2389,16.475,FUNC_L d=4
+collatz_k7_c7_b3,collatz_grid,,3,200,150,50,13,0,neither,55.73,316.99,0.1758,600.165,FUNC_L d=5
+collatz_k7_c7_b4,collatz_grid,,4,200,150,50,150,50,discovered,116.78,400.00,0.2919,377.788,NESTED_LOOP L=6
+collatz_k9_c1_b2,collatz_grid,,2,200,150,50,24,0,neither,53.98,200.00,0.2699,600.120,FUNC_L d=5
+collatz_k9_c1_b3,collatz_grid,,3,200,150,50,12,0,neither,48.53,316.99,0.1531,600.100,FUNC_L d=4
+collatz_k9_c1_b4,collatz_grid,,4,200,150,50,9,0,neither,61.14,400.00,0.1529,600.081,STEP off=96 halt=7
+collatz_k9_c3_b2,collatz_grid,,2,200,150,50,150,50,discovered,47.78,200.00,0.2389,32.971,FUNC_L d=4
+collatz_k9_c3_b3,collatz_grid,,3,200,150,50,29,0,neither,83.73,316.99,0.2641,600.122,NESTED_LOOP L=4
+collatz_k9_c3_b4,collatz_grid,,4,200,150,50,31,0,neither,83.73,400.00,0.2093,600.126,NESTED_LOOP L=4
+collatz_k9_c5_b2,collatz_grid,,2,200,150,50,31,0,neither,83.73,200.00,0.4187,600.085,NESTED_LOOP L=4
+collatz_k9_c5_b3,collatz_grid,,3,200,150,50,19,0,neither,57.02,316.99,0.1799,600.097,STEP off=148 halt=2
+collatz_k9_c5_b4,collatz_grid,,4,200,150,50,23,0,neither,62.81,400.00,0.1570,600.080,NESTED_LOOP L=3
+collatz_k9_c7_b2,collatz_grid,,2,200,150,50,112,0,neither,47.78,200.00,0.2389,600.103,FUNC_L d=4
+collatz_k9_c7_b3,collatz_grid,,3,200,150,50,29,0,neither,83.73,316.99,0.2641,600.095,NESTED_LOOP L=4
+collatz_k9_c7_b4,collatz_grid,,4,200,150,50,31,0,neither,83.73,400.00,0.2093,600.115,NESTED_LOOP L=4
+collatz_k11_c1_b2,collatz_grid,,2,200,150,50,92,0,neither,47.78,200.00,0.2389,600.095,FUNC_L d=4
+collatz_k11_c1_b3,collatz_grid,,3,200,150,50,29,0,neither,83.73,316.99,0.2641,600.116,NESTED_LOOP L=4
+collatz_k11_c1_b4,collatz_grid,,4,200,150,50,92,0,neither,114.45,400.00,0.2861,600.100,NESTED_LOOP L=6
+collatz_k11_c3_b2,collatz_grid,,2,200,150,50,31,0,neither,48.78,200.00,0.2439,600.052,FUNC_L d=4
+collatz_k11_c3_b3,collatz_grid,,3,200,150,50,34,0,neither,114.45,316.99,0.3611,600.092,NESTED_LOOP L=6
+collatz_k11_c3_b4,collatz_grid,,4,200,150,50,22,0,neither,64.09,400.00,0.1602,600.056,FUNC_L d=5
+collatz_k11_c5_b2,collatz_grid,,2,200,150,50,141,0,neither,47.78,200.00,0.2389,600.074,FUNC_L d=4
+collatz_k11_c5_b3,collatz_grid,,3,200,150,50,141,0,neither,114.45,316.99,0.3611,600.060,NESTED_LOOP L=6
+collatz_k11_c5_b4,collatz_grid,,4,200,150,50,141,0,neither,114.45,400.00,0.2861,600.051,NESTED_LOOP L=6
+collatz_k11_c7_b2,collatz_grid,,2,200,150,50,87,0,neither,47.78,200.00,0.2389,600.062,FUNC_L d=4
+collatz_k11_c7_b3,collatz_grid,,3,200,150,50,12,0,neither,55.10,316.99,0.1738,600.068,STEP off=66 halt=0
+collatz_k11_c7_b4,collatz_grid,,4,200,150,50,21,0,neither,83.73,400.00,0.2093,600.056,NESTED_LOOP L=4
+A033819_a2,oeis_morphic,A033819,2,47,27,20,23,0,neither,80.56,47.00,1.7141,600.056,NESTED_LOOP L=4
+A033819_a3,oeis_morphic,A033819,3,47,27,20,13,0,neither,57.73,74.49,0.7750,600.056,FUNC_L d=5
+A056033_a2,oeis_morphic,A056033,2,53,33,20,22,0,neither,53.98,53.00,1.0185,600.059,FUNC_L d=5
+A056033_a3,oeis_morphic,A056033,3,53,33,20,12,0,neither,52.78,84.00,0.6283,600.063,ITER d=4
+A056036_a2,oeis_morphic,A056036,2,47,27,20,27,17,neither,86.90,47.00,1.8489,169.238,NESTED_LOOP L=4
+A056036_a3,oeis_morphic,A056036,3,47,27,20,10,0,neither,50.78,74.49,0.6816,600.064,ITER d=4
+A068407_a2,oeis_morphic,A068407,2,57,37,20,29,0,neither,86.90,57.00,1.5246,600.058,NESTED_LOOP L=4
+A068407_a3,oeis_morphic,A068407,3,57,37,20,14,0,neither,48.53,90.34,0.5371,600.038,ITER d=4
+A068408_a2,oeis_morphic,A068408,2,47,27,20,20,0,neither,82.15,47.00,1.7478,600.055,NESTED_LOOP L=4
+A068408_a3,oeis_morphic,A068408,3,47,27,20,13,0,neither,56.73,74.49,0.7616,600.053,FUNC_L d=5
+A072495_a2,oeis_morphic,A072495,2,70,50,20,23,0,neither,85.32,70.00,1.2188,600.211,NESTED_LOOP L=4
+A072495_a3,oeis_morphic,A072495,3,70,50,20,14,0,neither,55.82,110.95,0.5031,600.288,STEP off=31 halt=5
+A072496_a2,oeis_morphic,A072496,2,60,40,20,26,0,neither,85.32,60.00,1.4219,600.056,NESTED_LOOP L=4
+A072496_a3,oeis_morphic,A072496,3,60,40,20,13,0,neither,43.53,95.10,0.4577,600.051,FUNC d=4
+A076650_a2,oeis_morphic,A076650,2,57,37,20,37,2,neither,40.09,57.00,0.7034,56.068,ITER d=3
+A076650_a3,oeis_morphic,A076650,3,57,37,20,11,0,neither,51.78,90.34,0.5731,600.412,ITER d=4
+A316344_a2,oeis_morphic,A316344,2,87,66,21,31,0,neither,83.73,87.00,0.9624,600.088,NESTED_LOOP L=4
+A316344_a3,oeis_morphic,A316344,3,87,66,21,10,0,neither,50.59,137.89,0.3669,600.066,STEP off=15 halt=0
+A316345_a2,oeis_morphic,A316345,2,87,66,21,20,0,neither,56.71,87.00,0.6519,600.055,FUNC_L d=4
+A316345_a3,oeis_morphic,A316345,3,87,66,21,20,0,neither,38.09,137.89,0.2763,600.053,FUNC d=3
+A316824_a2,oeis_morphic,A316824,2,87,66,21,66,21,discovered,54.38,87.00,0.6250,47.429,FUNC_L d=4
+A316824_a3,oeis_morphic,A316824,3,87,66,21,54,0,neither,82.15,137.89,0.5957,600.061,NESTED_LOOP L=4
+A316827_a2,oeis_morphic,A316827,2,91,69,22,20,0,neither,48.53,91.00,0.5333,600.047,ITER d=4
+A316827_a3,oeis_morphic,A316827,3,91,69,22,10,0,neither,44.53,144.23,0.3087,600.054,FUNC d=4
+A317189_a2,oeis_morphic,A317189,2,106,80,26,32,0,neither,59.75,106.00,0.5637,600.056,FUNC_L d=5
+A317189_a3,oeis_morphic,A317189,3,106,80,26,12,0,neither,52.41,168.01,0.3120,600.059,STEP off=15 halt=4
+A317948_a2,oeis_morphic,A317948,2,87,66,21,20,0,neither,88.49,87.00,1.0171,600.056,NESTED_LOOP L=4
+A317948_a3,oeis_morphic,A317948,3,87,66,21,11,0,neither,53.34,137.89,0.3869,600.038,STEP off=20 halt=0
+A006447_a2,oeis_cellular,A006447,2,52,32,20,24,0,neither,54.73,52.00,1.0525,600.053,FUNC_L d=5
+A006447_a3,oeis_cellular,A006447,3,52,32,20,10,0,neither,53.73,82.42,0.6519,600.045,FUNC_L d=5
+A051023_a2,oeis_cellular,A051023,2,102,77,25,77,25,discovered,71.17,102.00,0.6978,107.161,WIDE_BIT nr=3 bit=38
+A051023_a3,oeis_cellular,A051023,3,102,77,25,12,0,neither,54.07,161.67,0.3345,600.041,STEP off=18 halt=3
+A070886_a2,oeis_cellular,A070886,2,99,75,24,17,0,neither,71.08,99.00,0.7180,600.062,WIDE_BIT nr=3 bit=75
+A070886_a3,oeis_cellular,A070886,3,99,75,24,13,0,neither,42.09,156.91,0.2683,600.035,ITER d=3
+A070887_a2,oeis_cellular,A070887,2,99,75,24,20,0,neither,52.98,99.00,0.5352,600.013,FUNC_L d=5
+A070887_a3,oeis_cellular,A070887,3,99,75,24,20,0,neither,80.56,156.91,0.5134,600.063,NESTED_LOOP L=4
+A070909_a2,oeis_cellular,A070909,2,99,75,24,20,0,neither,73.55,99.00,0.7429,600.037,WIDE_BIT nr=3 bit=255
+A070909_a3,oeis_cellular,A070909,3,99,75,24,13,0,neither,45.53,156.91,0.2901,600.034,FUNC d=4
+A070950_a2,oeis_cellular,A070950,2,100,75,25,19,0,neither,73.55,100.00,0.7355,600.052,WIDE_BIT nr=3 bit=255
+A070950_a3,oeis_cellular,A070950,3,100,75,25,21,0,neither,80.56,158.50,0.5083,600.048,NESTED_LOOP L=4
+A071028_a2,oeis_cellular,A071028,2,99,75,24,25,0,neither,64.77,99.00,0.6543,600.070,WIDE_BIT nr=3 bit=37
+A071028_a3,oeis_cellular,A071028,3,99,75,24,17,0,neither,75.30,156.91,0.4799,600.048,ITER_F L=5
+A071029_a2,oeis_cellular,A071029,2,99,75,24,17,0,neither,54.73,99.00,0.5529,600.048,FUNC_L d=5
+A071029_a3,oeis_cellular,A071029,3,99,75,24,13,0,neither,51.13,156.91,0.3258,600.040,FUNC_F L=4
+A071030_a2,oeis_cellular,A071030,2,99,75,24,17,0,neither,54.73,99.00,0.5529,600.046,FUNC_L d=5
+A071030_a3,oeis_cellular,A071030,3,99,75,24,13,0,neither,51.13,156.91,0.3258,600.067,FUNC_F L=4
+A071031_a2,oeis_cellular,A071031,2,99,75,24,21,0,neither,73.55,99.00,0.7429,600.045,WIDE_BIT nr=3 bit=255
+A071031_a3,oeis_cellular,A071031,3,99,75,24,21,0,neither,82.15,156.91,0.5235,600.032,NESTED_LOOP L=4
+A071032_a2,oeis_cellular,A071032,2,99,75,24,17,0,neither,72.66,99.00,0.7340,600.043,WIDE_BIT nr=3 bit=75
+A071032_a3,oeis_cellular,A071032,3,99,75,24,17,0,neither,44.53,156.91,0.2838,600.050,FUNC d=4
+A071035_a2,oeis_cellular,A071035,2,100,75,25,20,0,neither,54.73,100.00,0.5473,600.042,FUNC_L d=5
+A071035_a3,oeis_cellular,A071035,3,100,75,25,20,0,neither,82.15,158.50,0.5183,600.029,NESTED_LOOP L=4
+A071036_a2,oeis_cellular,A071036,2,99,75,24,18,0,neither,53.98,99.00,0.5453,600.039,FUNC_L d=5
+A071036_a3,oeis_cellular,A071036,3,99,75,24,18,0,neither,49.28,156.91,0.3140,600.039,STEP off=13 halt=0
+A071037_a2,oeis_cellular,A071037,2,99,75,24,19,0,neither,52.79,99.00,0.5332,600.051,FUNC_L d=4
+A071037_a3,oeis_cellular,A071037,3,99,75,24,23,0,neither,82.15,156.91,0.5235,600.046,NESTED_LOOP L=4
+A071038_a2,oeis_cellular,A071038,2,99,75,24,23,0,neither,60.73,99.00,0.6135,600.052,ITER_L d=5
+A071038_a3,oeis_cellular,A071038,3,99,75,24,23,0,neither,60.31,156.91,0.3844,600.040,STEP off=42 halt=24
+A071047_a2,oeis_cellular,A071047,2,68,48,20,16,0,neither,76.72,68.00,1.1282,608.240,WIDE_BIT nr=3 bit=255
+A071047_a3,oeis_cellular,A071047,3,68,48,20,48,20,discovered,52.98,107.78,0.4916,50.884,FUNC_L d=5
+A072272_a2,oeis_cellular,A072272,2,64,44,20,44,20,discovered,13.45,64.00,0.2101,10.086,"DARY d=2 LOAD(R0,1) init=0"
+A072272_a3,oeis_cellular,A072272,3,64,44,20,12,0,neither,47.00,101.44,0.4634,600.036,STEP off=5 halt=0
+A075437_a2,oeis_cellular,A075437,2,102,77,25,16,0,neither,49.11,102.00,0.4815,600.069,ITER d=3
+A075437_a3,oeis_cellular,A075437,3,102,77,25,14,0,neither,55.50,161.67,0.3433,600.034,STEP off=50 halt=0
+A079314_a2,oeis_cellular,A079314,2,81,61,20,61,20,discovered,15.03,81.00,0.1856,10.010,"DARY d=2 ISZERO(R1,R0) init=0"
+A079314_a3,oeis_cellular,A079314,3,81,61,20,61,20,not_compressed_predicted,99.72,128.38,0.7767,233.207,NESTED_LOOP L=5
+A079315_a2,oeis_cellular,A079315,2,61,41,20,41,20,discovered,17.86,61.00,0.2929,16.221,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A079315_a3,oeis_cellular,A079315,3,61,41,20,10,0,neither,47.53,96.68,0.4916,600.030,ITER d=4
+A079316_a2,oeis_cellular,A079316,2,60,40,20,40,20,discovered,13.45,60.00,0.2242,10.088,"DARY d=2 LOAD(R0,1) init=0"
+A079316_a3,oeis_cellular,A079316,3,60,40,20,11,0,neither,43.53,95.10,0.4577,600.031,FUNC d=4
+A079317_a2,oeis_cellular,A079317,2,53,33,20,33,20,discovered,13.45,53.00,0.2538,10.086,"DARY d=2 LOAD(R0,1) init=0"
+A079317_a3,oeis_cellular,A079317,3,53,33,20,16,0,neither,55.72,84.00,0.6633,600.037,STEP off=25 halt=4
+A085587_a2,oeis_cellular,A085587,2,60,40,20,40,20,not_compressed_predicted,55.73,60.00,0.9289,34.733,FUNC_L d=5
+A085587_a3,oeis_cellular,A085587,3,60,40,20,10,0,neither,45.53,95.10,0.4787,600.033,FUNC_L d=4
+A093510_a2,oeis_cellular,A093510,2,67,47,20,32,0,neither,83.73,67.00,1.2497,600.037,NESTED_LOOP L=4
+A093510_a3,oeis_cellular,A093510,3,67,47,20,15,0,neither,41.34,106.19,0.3893,600.043,ITER d=3
+A093511_a2,oeis_cellular,A093511,2,70,50,20,22,0,neither,73.55,70.00,1.0507,600.050,WIDE_BIT nr=3 bit=255
+A093511_a3,oeis_cellular,A093511,3,70,50,20,17,0,neither,54.77,110.95,0.4936,600.036,STEP off=25 halt=6
+A093512_a2,oeis_cellular,A093512,2,61,41,20,21,0,neither,68.05,61.00,1.1155,600.053,WIDE_BIT nr=3 bit=20
+A093512_a3,oeis_cellular,A093512,3,61,41,20,17,0,neither,64.09,96.68,0.6629,600.043,FUNC_L d=5
+A093513_a2,oeis_cellular,A093513,2,66,46,20,46,20,discovered,17.86,66.00,0.2707,15.075,CTX_X nr=1 d=2 perm=(1) out=R0 L=1
+A093513_a3,oeis_cellular,A093513,3,66,46,20,21,0,neither,54.82,104.61,0.5241,600.042,STEP off=37 halt=3
+A093514_a2,oeis_cellular,A093514,2,62,42,20,42,20,discovered,19.20,62.00,0.3097,41.254,CTX_X nr=1 d=3 perm=(0) out=R0 L=1
+A093514_a3,oeis_cellular,A093514,3,62,42,20,16,0,neither,71.75,98.27,0.7302,600.050,ITER_L d=5
+A093516_a2,oeis_cellular,A093516,2,61,41,20,21,0,neither,71.96,61.00,1.1797,600.051,WIDE_BIT nr=3 bit=255
+A093516_a3,oeis_cellular,A093516,3,61,41,20,16,0,neither,54.73,96.68,0.5661,600.039,FUNC_L d=5
+A093517_a2,oeis_cellular,A093517,2,64,44,20,19,0,neither,71.96,64.00,1.1244,600.027,WIDE_BIT nr=3 bit=255
+A093517_a3,oeis_cellular,A093517,3,64,44,20,14,0,neither,54.73,101.44,0.5396,600.042,FUNC_L d=5
+A100053_a2,oeis_cellular,A100053,2,99,75,24,15,0,neither,45.53,99.00,0.4599,600.030,FUNC d=4
+A100053_a3,oeis_cellular,A100053,3,99,75,24,12,0,neither,44.53,156.91,0.2838,600.023,FUNC d=4
+A110267_a2,oeis_cellular,A110267,2,53,33,20,21,0,neither,73.55,53.00,1.3877,600.058,WIDE_BIT nr=3 bit=255
+A110267_a3,oeis_cellular,A110267,3,53,33,20,13,0,neither,50.56,84.00,0.6018,600.034,STEP off=33 halt=0
+A118102_a2,oeis_cellular,A118102,2,105,79,26,20,0,neither,51.98,105.00,0.4951,600.019,FUNC_L d=5
+A118102_a3,oeis_cellular,A118102,3,105,79,26,24,0,neither,54.31,166.42,0.3264,600.040,STEP off=46 halt=0
+A118111_a2,oeis_cellular,A118111,2,105,79,26,23,0,neither,68.06,105.00,0.6482,600.029,WIDE_BIT nr=3 bit=39
+A118111_a3,oeis_cellular,A118111,3,105,79,26,23,0,neither,80.56,166.42,0.4841,600.043,NESTED_LOOP L=4
+A118174_a2,oeis_cellular,A118174,2,105,79,26,16,0,neither,66.48,105.00,0.6331,600.019,WIDE_BIT nr=3 bit=39
+A118174_a3,oeis_cellular,A118174,3,105,79,26,15,0,neither,50.76,166.42,0.3050,600.034,STEP off=36 halt=0
+A122108_a2,oeis_cellular,A122108,2,55,35,20,35,20,discovered,15.03,55.00,0.2733,10.015,"DARY d=2 ISZERO(R1,R0) init=0"
+A122108_a3,oeis_cellular,A122108,3,55,35,20,10,0,neither,46.53,87.17,0.5337,600.034,ITER d=4
+A147562_a2,oeis_cellular,A147562,2,52,32,20,32,20,discovered,15.03,52.00,0.2891,10.016,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A147562_a3,oeis_cellular,A147562,3,52,32,20,32,20,not_compressed_predicted,62.15,82.42,0.7541,111.728,FUNC_L d=5
+A151723_a2,oeis_cellular,A151723,2,47,27,20,27,20,discovered,15.03,47.00,0.3199,10.015,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A151723_a3,oeis_cellular,A151723,3,47,27,20,27,20,discovered,15.03,74.49,0.2018,10.084,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A151725_a2,oeis_cellular,A151725,2,48,28,20,28,20,discovered,15.03,48.00,0.3132,10.017,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A151725_a3,oeis_cellular,A151725,3,48,28,20,14,0,neither,44.53,76.08,0.5853,600.034,FUNC d=4
+A151731_a2,oeis_cellular,A151731,2,48,28,20,28,20,discovered,13.45,48.00,0.2802,10.169,DARY d=2 INC(R1) init=0
+A151731_a3,oeis_cellular,A151731,3,48,28,20,10,0,neither,56.73,76.08,0.7457,600.028,FUNC_L d=5
+A151895_a2,oeis_cellular,A151895,2,49,29,20,29,20,discovered,15.03,49.00,0.3068,10.015,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A151895_a3,oeis_cellular,A151895,3,49,29,20,13,0,neither,44.53,77.66,0.5733,600.033,FUNC d=4
+A151896_a2,oeis_cellular,A151896,2,66,46,20,46,20,discovered,17.86,66.00,0.2707,16.050,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A151896_a3,oeis_cellular,A151896,3,66,46,20,12,0,neither,55.96,104.61,0.5350,600.042,FUNC_L d=4
+A151922_a2,oeis_cellular,A151922,2,48,28,20,28,20,discovered,13.45,48.00,0.2802,10.707,"DARY d=2 LOAD(R0,1) init=0"
+A151922_a3,oeis_cellular,A151922,3,48,28,20,28,20,not_compressed_predicted,60.58,76.08,0.7963,100.979,FUNC_L d=5
+A160117_a2,oeis_cellular,A160117,2,48,28,20,28,20,discovered,15.03,48.00,0.3132,10.017,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160117_a3,oeis_cellular,A160117,3,48,28,20,28,20,discovered,44.26,76.08,0.5818,47.687,"CTX_X nr=2 d=3 perm=(0,2) out=R0 L=3"
+A160118_a2,oeis_cellular,A160118,2,50,30,20,30,20,discovered,15.03,50.00,0.3007,10.017,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160118_a3,oeis_cellular,A160118,3,50,30,20,11,0,neither,53.80,79.25,0.6788,600.033,STEP off=24 halt=1
+A160119_a2,oeis_cellular,A160119,2,41,21,20,21,20,discovered,15.03,41.00,0.3667,10.017,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160119_a3,oeis_cellular,A160119,3,41,21,20,21,20,discovered,24.73,64.98,0.3805,15.372,CTX_X nr=1 d=2 perm=(1) out=R0 L=2
+A160239_a2,oeis_cellular,A160239,2,64,44,20,44,20,discovered,15.03,64.00,0.2349,10.009,"DARY d=2 ISZERO(R1,R0) init=0"
+A160239_a3,oeis_cellular,A160239,3,64,44,20,10,0,neither,47.41,101.44,0.4674,600.072,STEP off=4 halt=1
+A160410_a2,oeis_cellular,A160410,2,48,28,20,28,20,discovered,13.45,48.00,0.2802,10.260,DARY d=2 INC(R1) init=0
+A160410_a3,oeis_cellular,A160410,3,48,28,20,28,20,discovered,15.03,76.08,0.1976,10.131,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160412_a2,oeis_cellular,A160412,2,48,28,20,28,20,discovered,15.61,48.00,0.3253,10.013,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A160412_a3,oeis_cellular,A160412,3,48,28,20,28,20,discovered,13.45,76.08,0.1768,10.354,DARY d=2 INC(R1) init=0
+A160414_a2,oeis_cellular,A160414,2,47,27,20,27,20,discovered,15.03,47.00,0.3199,10.014,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160414_a3,oeis_cellular,A160414,3,47,27,20,27,20,discovered,30.73,74.49,0.4125,23.362,ITER d=2
+A160420_a2,oeis_cellular,A160420,2,49,29,20,29,20,discovered,15.03,49.00,0.3068,10.018,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160420_a3,oeis_cellular,A160420,3,49,29,20,13,0,neither,54.38,77.66,0.7002,600.052,FUNC_L d=4
+A160422_a2,oeis_cellular,A160422,2,49,29,20,29,20,discovered,15.03,49.00,0.3068,10.016,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160422_a3,oeis_cellular,A160422,3,49,29,20,12,0,neither,65.34,77.66,0.8413,600.030,FUNC_L d=5
+A160428_a2,oeis_cellular,A160428,2,40,20,20,20,20,discovered,13.45,40.00,0.3362,13.186,DARY d=2 INC(R1) init=0
+A160428_a3,oeis_cellular,A160428,3,40,20,20,20,20,discovered,18.19,63.40,0.2869,12.869,"DARY d=4 SUB(R0,R1,R0) init=0"
+A160720_a2,oeis_cellular,A160720,2,52,32,20,32,20,discovered,15.03,52.00,0.2891,10.016,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160720_a3,oeis_cellular,A160720,3,52,32,20,21,0,neither,88.49,82.42,1.0736,600.122,NESTED_LOOP L=4
+A160722_a2,oeis_cellular,A160722,2,54,34,20,34,20,discovered,15.03,54.00,0.2784,10.016,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A160722_a3,oeis_cellular,A160722,3,54,34,20,34,20,discovered,15.61,85.59,0.1824,11.661,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A160796_a2,oeis_cellular,A160796,2,51,31,20,31,20,discovered,15.61,51.00,0.3062,10.018,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A160796_a3,oeis_cellular,A160796,3,51,31,20,31,20,discovered,22.48,80.83,0.2781,11.844,CTX_X nr=1 d=1 perm=(0) out=R0 L=2
+A161340_a2,oeis_cellular,A161340,2,40,20,20,20,20,discovered,15.03,40.00,0.3759,13.283,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A161340_a3,oeis_cellular,A161340,3,40,20,20,20,20,discovered,24.73,63.40,0.3900,20.746,CTX_X nr=1 d=2 perm=(1) out=R0 L=2
+A161342_a2,oeis_cellular,A161342,2,45,25,20,25,20,discovered,15.61,45.00,0.3470,10.019,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A161342_a3,oeis_cellular,A161342,3,45,25,20,25,20,discovered,15.61,71.32,0.2189,10.151,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A161644_a2,oeis_cellular,A161644,2,51,31,20,31,20,discovered,17.86,51.00,0.3503,16.209,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A161644_a3,oeis_cellular,A161644,3,51,31,20,31,20,discovered,15.03,80.83,0.1860,10.110,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A161645_a2,oeis_cellular,A161645,2,68,48,20,48,20,discovered,28.73,68.00,0.4225,16.042,FUNC d=2
+A161645_a3,oeis_cellular,A161645,3,68,48,20,48,20,discovered,17.86,107.78,0.1658,16.257,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A161903_a2,oeis_cellular,A161903,2,101,76,25,76,25,discovered,15.61,101.00,0.1546,10.013,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A161903_a3,oeis_cellular,A161903,3,101,76,25,76,25,discovered,85.32,160.08,0.5330,105.962,NESTED_LOOP L=4
+A162340_a2,oeis_cellular,A162340,2,60,40,20,19,0,neither,66.46,60.00,1.1077,600.058,WIDE_BIT nr=3 bit=20
+A162340_a3,oeis_cellular,A162340,3,60,40,20,12,0,neither,52.47,95.10,0.5517,600.035,STEP off=21 halt=3
+A169648_a2,oeis_cellular,A169648,2,61,41,20,41,20,discovered,17.86,61.00,0.2929,17.648,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A169648_a3,oeis_cellular,A169648,3,61,41,20,13,0,neither,55.96,96.68,0.5788,600.040,FUNC_L d=4
+A169699_a2,oeis_cellular,A169699,2,52,32,20,32,20,not_compressed_predicted,46.78,52.00,0.8995,19.568,FUNC_L d=4
+A169699_a3,oeis_cellular,A169699,3,52,32,20,13,0,neither,69.75,82.42,0.8463,600.040,ITER_L d=5
+A169707_a2,oeis_cellular,A169707,2,51,31,20,31,20,discovered,13.45,51.00,0.2637,10.106,"DARY d=2 LOAD(R0,1) init=0"
+A169707_a3,oeis_cellular,A169707,3,51,31,20,10,0,neither,43.59,80.83,0.5393,601.966,STEP off=1 halt=0
+A169709_a2,oeis_cellular,A169709,2,51,31,20,31,20,discovered,13.45,51.00,0.2637,10.136,"DARY d=2 LOAD(R0,1) init=0"
+A169709_a3,oeis_cellular,A169709,3,51,31,20,10,0,neither,50.53,80.83,0.6251,611.447,ITER d=4
+A170896_a2,oeis_cellular,A170896,2,69,49,20,49,20,discovered,15.03,69.00,0.2179,10.019,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A170896_a3,oeis_cellular,A170896,3,69,49,20,13,0,neither,44.53,109.36,0.4071,600.067,FUNC d=4
+A170905_a2,oeis_cellular,A170905,2,80,60,20,60,20,discovered,17.86,80.00,0.2233,21.902,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A170905_a3,oeis_cellular,A170905,3,80,60,20,12,0,neither,36.09,126.80,0.2847,600.061,FUNC d=3
+A173456_a2,oeis_cellular,A173456,2,49,29,20,29,20,discovered,15.03,49.00,0.3068,10.270,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A173456_a3,oeis_cellular,A173456,3,49,29,20,11,0,neither,54.73,77.66,0.7047,600.105,FUNC_L d=5
+A173457_a2,oeis_cellular,A173457,2,61,41,20,41,20,discovered,17.86,61.00,0.2929,46.403,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A173457_a3,oeis_cellular,A173457,3,61,41,20,25,0,neither,85.32,96.68,0.8824,600.055,NESTED_LOOP L=4
+A173460_a2,oeis_cellular,A173460,2,48,28,20,28,20,discovered,15.03,48.00,0.3132,10.014,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A173460_a3,oeis_cellular,A173460,3,48,28,20,22,0,neither,82.15,76.08,1.0797,600.055,NESTED_LOOP L=4
+A177990_a2,oeis_cellular,A177990,2,55,35,20,27,0,neither,64.46,55.00,1.1720,600.023,WIDE_BIT nr=3 bit=17
+A177990_a3,oeis_cellular,A177990,3,55,35,20,14,0,neither,59.75,87.17,0.6854,600.070,FUNC_L d=5
+A180001_a2,oeis_cellular,A180001,2,61,41,20,21,0,neither,73.55,61.00,1.2057,622.964,WIDE_BIT nr=3 bit=255
+A180001_a3,oeis_cellular,A180001,3,61,41,20,11,0,neither,53.73,96.68,0.5558,600.100,FUNC_L d=5
+A226463_a2,oeis_cellular,A226463,2,86,65,21,22,0,neither,48.53,86.00,0.5643,601.004,FUNC_L d=4
+A226463_a3,oeis_cellular,A226463,3,86,65,21,22,0,neither,83.73,136.31,0.6143,600.052,NESTED_LOOP L=4
+A226464_a2,oeis_cellular,A226464,2,86,65,21,21,0,neither,82.15,86.00,0.9552,600.109,NESTED_LOOP L=4
+A226464_a3,oeis_cellular,A226464,3,86,65,21,17,0,neither,38.09,136.31,0.2795,600.066,FUNC d=3
+A231348_a2,oeis_cellular,A231348,2,65,45,20,45,20,discovered,15.03,65.00,0.2313,18.084,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A231348_a3,oeis_cellular,A231348,3,65,45,20,11,0,neither,46.41,103.02,0.4505,600.066,STEP off=4 halt=0
+A243566_a2,oeis_cellular,A243566,2,86,65,21,17,0,neither,71.96,86.00,0.8368,600.020,WIDE_BIT nr=3 bit=255
+A243566_a3,oeis_cellular,A243566,3,86,65,21,17,0,neither,56.25,136.31,0.4127,602.002,STEP off=63 halt=2
+A246316_a2,oeis_cellular,A246316,2,62,42,20,21,0,neither,54.73,62.00,0.8828,605.949,FUNC_L d=5
+A246316_a3,oeis_cellular,A246316,3,62,42,20,12,0,neither,55.70,98.27,0.5668,600.064,STEP off=38 halt=4
+A246318_a2,oeis_cellular,A246318,2,54,34,20,34,15,compressed_only,13.45,54.00,0.2491,10.150,"DARY d=2 LOAD(R0,1) init=0"
+A246318_a3,oeis_cellular,A246318,3,54,34,20,10,0,neither,51.58,85.59,0.6027,600.078,STEP off=22 halt=1
+A246325_a2,oeis_cellular,A246325,2,65,45,20,45,20,discovered,13.45,65.00,0.2069,10.144,"DARY d=2 LOAD(R0,1) init=0"
+A246325_a3,oeis_cellular,A246325,3,65,45,20,12,0,neither,52.15,103.02,0.5062,600.072,STEP off=11 halt=2
+A246326_a2,oeis_cellular,A246326,2,63,43,20,22,0,neither,68.17,63.00,1.0821,600.008,WIDE_BIT nr=3 bit=21
+A246326_a3,oeis_cellular,A246326,3,63,43,20,10,0,neither,61.98,99.85,0.6207,600.061,ITER_L d=5
+A246333_a2,oeis_cellular,A246333,2,73,53,20,53,20,discovered,13.45,73.00,0.1842,10.089,"DARY d=2 LOAD(R0,1) init=0"
+A246333_a3,oeis_cellular,A246333,3,73,53,20,11,0,neither,75.30,115.70,0.6508,600.079,ITER_F L=5
+A247640_a2,oeis_cellular,A247640,2,54,34,20,34,20,discovered,15.03,54.00,0.2784,10.013,"DARY d=2 ISZERO(R1,R0) init=0"
+A247640_a3,oeis_cellular,A247640,3,54,34,20,34,20,discovered,15.03,85.59,0.1757,10.094,"DARY d=2 ISZERO(R1,R0) init=0"
+A247666_a2,oeis_cellular,A247666,2,52,32,20,32,20,discovered,13.45,52.00,0.2586,10.092,"DARY d=2 LOAD(R0,1) init=0"
+A247666_a3,oeis_cellular,A247666,3,52,32,20,32,20,discovered,13.45,82.42,0.1632,10.109,"DARY d=2 LOAD(R0,1) init=0"
+A255366_a2,oeis_cellular,A255366,2,51,31,20,31,20,discovered,13.45,51.00,0.2637,10.092,"DARY d=2 LOAD(R0,1) init=0"
+A255366_a3,oeis_cellular,A255366,3,51,31,20,13,0,neither,41.59,80.83,0.5145,600.058,STEP off=1 halt=0
+A256250_a2,oeis_cellular,A256250,2,64,44,20,44,20,discovered,13.45,64.00,0.2101,10.084,"DARY d=2 LOAD(R0,1) init=0"
+A256250_a3,oeis_cellular,A256250,3,64,44,20,12,0,neither,54.05,101.44,0.5329,600.070,STEP off=41 halt=1
+A256260_a2,oeis_cellular,A256260,2,64,44,20,44,20,discovered,13.45,64.00,0.2101,10.087,"DARY d=2 LOAD(R0,1) init=0"
+A256260_a3,oeis_cellular,A256260,3,64,44,20,12,0,neither,54.05,101.44,0.5329,600.075,STEP off=41 halt=1
+A256530_a2,oeis_cellular,A256530,2,58,38,20,38,20,discovered,15.03,58.00,0.2592,10.011,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A256530_a3,oeis_cellular,A256530,3,58,38,20,38,20,discovered,30.73,91.93,0.3343,28.671,ITER d=2
+A256534_a2,oeis_cellular,A256534,2,57,37,20,37,20,discovered,13.45,57.00,0.2359,10.178,DARY d=2 INC(R1) init=0
+A256534_a3,oeis_cellular,A256534,3,57,37,20,37,20,discovered,15.03,90.34,0.1664,10.081,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A262448_a2,oeis_cellular,A262448,2,86,65,21,22,0,neither,71.96,86.00,0.8368,600.041,WIDE_BIT nr=3 bit=255
+A262448_a3,oeis_cellular,A262448,3,86,65,21,18,0,neither,49.34,136.31,0.3620,600.073,STEP off=20 halt=0
+A262808_a2,oeis_cellular,A262808,2,86,65,21,19,0,neither,73.55,86.00,0.8552,600.040,WIDE_BIT nr=3 bit=255
+A262808_a3,oeis_cellular,A262808,3,86,65,21,21,0,neither,80.56,136.31,0.5910,600.085,NESTED_LOOP L=4
+A263428_a2,oeis_cellular,A263428,2,86,65,21,19,0,neither,73.55,86.00,0.8552,600.031,WIDE_BIT nr=3 bit=255
+A263428_a3,oeis_cellular,A263428,3,86,65,21,13,0,neither,55.00,136.31,0.4035,600.067,STEP off=63 halt=0
+A264442_a2,oeis_cellular,A264442,2,86,65,21,18,0,neither,55.73,86.00,0.6481,600.030,FUNC_L d=5
+A264442_a3,oeis_cellular,A264442,3,86,65,21,13,0,neither,35.09,136.31,0.2575,600.068,FUNC d=3
+A265186_a2,oeis_cellular,A265186,2,86,65,21,18,0,neither,72.36,86.00,0.8414,600.034,WIDE_BIT nr=3 bit=65
+A265186_a3,oeis_cellular,A265186,3,86,65,21,14,0,neither,42.53,136.31,0.3120,600.072,FUNC d=4
+A265225_a2,oeis_cellular,A265225,2,53,33,20,33,20,discovered,26.73,53.00,0.5043,55.405,FUNC d=2
+A265225_a3,oeis_cellular,A265225,3,53,33,20,33,20,discovered,34.09,84.00,0.4059,42.194,FUNC d=3
+A265283_a2,oeis_cellular,A265283,2,66,46,20,46,20,discovered,15.70,66.00,0.2379,15.803,DARY d=2 DEC(R0) init=2
+A265283_a3,oeis_cellular,A265283,3,66,46,20,46,20,discovered,44.53,104.61,0.4257,55.379,FUNC d=4
+A265695_a2,oeis_cellular,A265695,2,86,65,21,21,0,neither,49.11,86.00,0.5710,600.056,ITER d=3
+A265695_a3,oeis_cellular,A265695,3,86,65,21,13,0,neither,47.78,136.31,0.3505,600.073,FUNC_L d=4
+A265718_a2,oeis_cellular,A265718,2,86,65,21,23,0,neither,76.72,86.00,0.8921,608.815,WIDE_BIT nr=3 bit=255
+A265718_a3,oeis_cellular,A265718,3,86,65,21,12,0,neither,45.53,136.31,0.3340,600.058,FUNC d=4
+A266070_a2,oeis_cellular,A266070,2,86,65,21,65,21,discovered,19.20,86.00,0.2233,49.258,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+A266070_a3,oeis_cellular,A266070,3,86,65,21,65,21,discovered,19.20,136.31,0.1409,50.770,CTX_X nr=1 d=3 perm=(2) out=R0 L=1
+A266178_a2,oeis_cellular,A266178,2,86,65,21,21,0,neither,73.55,86.00,0.8552,600.040,WIDE_BIT nr=3 bit=255
+A266178_a3,oeis_cellular,A266178,3,86,65,21,12,0,neither,51.13,136.31,0.3751,600.063,FUNC_F L=4
+A266216_a2,oeis_cellular,A266216,2,86,65,21,16,0,neither,51.21,86.00,0.5954,600.047,FUNC_L d=4
+A266216_a3,oeis_cellular,A266216,3,86,65,21,16,0,neither,53.73,136.31,0.3942,600.071,FUNC_L d=5
+A266223_a2,oeis_cellular,A266223,2,53,33,20,33,20,discovered,19.20,53.00,0.3623,40.805,CTX_X nr=1 d=3 perm=(1) out=R0 L=1
+A266223_a3,oeis_cellular,A266223,3,53,33,20,33,20,discovered,45.53,84.00,0.5420,49.521,FUNC d=4
+A266243_a2,oeis_cellular,A266243,2,86,65,21,17,0,neither,64.78,86.00,0.7532,600.013,WIDE_BIT nr=2 bit=255
+A266243_a3,oeis_cellular,A266243,3,86,65,21,20,0,neither,131.06,136.31,0.9615,600.071,NESTED_LOOP L=7
+A266253_a2,oeis_cellular,A266253,2,86,65,21,23,0,neither,53.73,86.00,0.6248,600.039,FUNC_L d=5
+A266253_a3,oeis_cellular,A266253,3,86,65,21,23,0,neither,53.73,136.31,0.3942,600.053,FUNC_L d=5
+A266282_a2,oeis_cellular,A266282,2,86,65,21,18,0,neither,59.33,86.00,0.6899,600.053,FUNC_L d=5
+A266282_a3,oeis_cellular,A266282,3,86,65,21,13,0,neither,56.31,136.31,0.4131,600.056,STEP off=46 halt=3
+A266300_a2,oeis_cellular,A266300,2,86,65,21,16,0,neither,73.55,86.00,0.8552,600.037,WIDE_BIT nr=3 bit=255
+A266300_a3,oeis_cellular,A266300,3,86,65,21,24,0,neither,116.78,136.31,0.8567,600.059,NESTED_LOOP L=6
+A266377_a2,oeis_cellular,A266377,2,86,65,21,16,0,neither,61.33,86.00,0.7132,600.035,FUNC_L d=5
+A266377_a3,oeis_cellular,A266377,3,86,65,21,16,0,neither,51.90,136.31,0.3807,600.063,STEP off=25 halt=0
+A266434_a2,oeis_cellular,A266434,2,86,65,21,25,0,neither,71.96,86.00,0.8368,600.045,WIDE_BIT nr=3 bit=255
+A266434_a3,oeis_cellular,A266434,3,86,65,21,16,0,neither,53.54,136.31,0.3928,600.066,STEP off=51 halt=0
+A266441_a2,oeis_cellular,A266441,2,86,65,21,17,0,neither,75.13,86.00,0.8736,600.043,WIDE_BIT nr=3 bit=255
+A266441_a3,oeis_cellular,A266441,3,86,65,21,13,0,neither,55.67,136.31,0.4084,600.051,STEP off=54 halt=1
+A266532_a2,oeis_cellular,A266532,2,68,48,20,48,20,discovered,15.61,68.00,0.2296,10.010,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A266532_a3,oeis_cellular,A266532,3,68,48,20,48,20,discovered,15.03,107.78,0.1395,10.078,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A266588_a2,oeis_cellular,A266588,2,86,65,21,16,0,neither,73.55,86.00,0.8552,600.040,WIDE_BIT nr=3 bit=255
+A266588_a3,oeis_cellular,A266588,3,86,65,21,11,0,neither,50.21,136.31,0.3684,600.058,STEP off=19 halt=0
+A266608_a2,oeis_cellular,A266608,2,86,65,21,18,0,neither,71.96,86.00,0.8368,607.844,WIDE_BIT nr=3 bit=255
+A266608_a3,oeis_cellular,A266608,3,86,65,21,13,0,neither,59.30,136.31,0.4350,600.063,STEP off=49 halt=9
+A266619_a2,oeis_cellular,A266619,2,86,65,21,16,0,neither,49.53,86.00,0.5759,600.045,ITER d=4
+A266619_a3,oeis_cellular,A266619,3,86,65,21,14,0,neither,55.05,136.31,0.4039,600.055,STEP off=41 halt=3
+A266659_a2,oeis_cellular,A266659,2,86,65,21,17,0,neither,59.42,86.00,0.6909,600.061,WIDE_BIT nr=2 bit=32
+A266659_a3,oeis_cellular,A266659,3,86,65,21,23,0,neither,99.72,136.31,0.7315,600.051,NESTED_LOOP L=5
+A266678_a2,oeis_cellular,A266678,2,86,65,21,65,21,discovered,19.20,86.00,0.2233,48.287,CTX_X nr=1 d=3 perm=(0) out=R0 L=1
+A266678_a3,oeis_cellular,A266678,3,86,65,21,65,21,discovered,19.20,136.31,0.1409,51.344,CTX_X nr=1 d=3 perm=(0) out=R0 L=1
+A266716_a2,oeis_cellular,A266716,2,86,65,21,19,0,neither,75.13,86.00,0.8736,600.042,WIDE_BIT nr=3 bit=255
+A266716_a3,oeis_cellular,A266716,3,86,65,21,13,0,neither,55.73,136.31,0.4089,600.071,FUNC_L d=5
+A266786_a2,oeis_cellular,A266786,2,86,65,21,18,0,neither,76.72,86.00,0.8921,600.057,WIDE_BIT nr=3 bit=255
+A266786_a3,oeis_cellular,A266786,3,86,65,21,11,0,neither,53.73,136.31,0.3942,600.066,FUNC_L d=5
+A266843_a2,oeis_cellular,A266843,2,86,65,21,19,0,neither,73.55,86.00,0.8552,600.082,WIDE_BIT nr=3 bit=255
+A266843_a3,oeis_cellular,A266843,3,86,65,21,11,0,neither,54.75,136.31,0.4016,600.051,STEP off=50 halt=2
+A266892_a2,oeis_cellular,A266892,2,86,65,21,17,0,neither,67.61,86.00,0.7861,600.082,WIDE_BIT nr=3 bit=32
+A266892_a3,oeis_cellular,A266892,3,86,65,21,11,0,neither,53.17,136.31,0.3901,600.042,STEP off=28 halt=0
+A267015_a2,oeis_cellular,A267015,2,86,65,21,21,0,neither,70.77,86.00,0.8229,600.075,WIDE_BIT nr=3 bit=65
+A267015_a3,oeis_cellular,A267015,3,86,65,21,13,0,neither,60.68,136.31,0.4452,600.066,STEP off=35 halt=22
+A267145_a2,oeis_cellular,A267145,2,86,65,21,18,0,neither,66.02,86.00,0.7677,600.076,WIDE_BIT nr=3 bit=32
+A267145_a3,oeis_cellular,A267145,3,86,65,21,12,0,neither,53.73,136.31,0.3942,600.049,FUNC_L d=5
+A267152_a2,oeis_cellular,A267152,2,86,65,21,18,0,neither,69.19,86.00,0.8045,600.097,WIDE_BIT nr=3 bit=32
+A267152_a3,oeis_cellular,A267152,3,86,65,21,11,0,neither,53.17,136.31,0.3901,600.119,STEP off=28 halt=0
+A267190_a2,oeis_cellular,A267190,2,64,44,20,44,20,discovered,15.03,64.00,0.2349,10.076,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A267190_a3,oeis_cellular,A267190,3,64,44,20,13,0,neither,44.53,101.44,0.4390,600.041,FUNC d=4
+A267253_a2,oeis_cellular,A267253,2,86,65,21,25,0,neither,75.13,86.00,0.8736,600.070,WIDE_BIT nr=3 bit=255
+A267253_a3,oeis_cellular,A267253,3,86,65,21,15,0,neither,54.73,136.31,0.4015,600.058,FUNC_L d=5
+A267349_a2,oeis_cellular,A267349,2,86,65,21,17,0,neither,56.42,86.00,0.6560,600.030,WIDE_BIT nr=3 bit=32
+A267349_a3,oeis_cellular,A267349,3,86,65,21,17,0,neither,55.30,136.31,0.4057,600.051,STEP off=19 halt=10
+A267417_a2,oeis_cellular,A267417,2,86,65,21,20,0,neither,54.73,86.00,0.6364,600.294,FUNC_L d=5
+A267417_a3,oeis_cellular,A267417,3,86,65,21,23,0,neither,82.15,136.31,0.6027,600.301,NESTED_LOOP L=4
+A267418_a2,oeis_cellular,A267418,2,86,65,21,16,0,neither,58.42,86.00,0.6793,600.037,WIDE_BIT nr=2 bit=32
+A267418_a3,oeis_cellular,A267418,3,86,65,21,11,0,neither,56.19,136.31,0.4122,600.091,STEP off=39 halt=2
+A267423_a2,oeis_cellular,A267423,2,86,65,21,20,0,neither,53.73,86.00,0.6248,600.009,FUNC_L d=5
+A267423_a3,oeis_cellular,A267423,3,86,65,21,20,0,neither,53.73,136.31,0.3942,600.044,FUNC_L d=5
+A267463_a2,oeis_cellular,A267463,2,86,65,21,18,0,neither,54.73,86.00,0.6364,600.096,FUNC_L d=5
+A267463_a3,oeis_cellular,A267463,3,86,65,21,15,0,neither,35.09,136.31,0.2575,600.090,FUNC d=3
+A267525_a2,oeis_cellular,A267525,2,86,65,21,20,0,neither,44.53,86.00,0.5178,600.093,FUNC d=4
+A267525_a3,oeis_cellular,A267525,3,86,65,21,16,0,neither,60.11,136.31,0.4410,600.078,STEP off=45 halt=9
+A267533_a2,oeis_cellular,A267533,2,86,65,21,18,0,neither,63.94,86.00,0.7435,600.080,WIDE_BIT nr=3 bit=255
+A267533_a3,oeis_cellular,A267533,3,86,65,21,13,0,neither,36.09,136.31,0.2648,600.045,FUNC_F L=3
+A267576_a2,oeis_cellular,A267576,2,86,65,21,20,0,neither,64.78,86.00,0.7532,600.014,WIDE_BIT nr=2 bit=255
+A267576_a3,oeis_cellular,A267576,3,86,65,21,12,0,neither,50.10,136.31,0.3675,600.047,STEP off=12 halt=0
+A267610_a2,oeis_cellular,A267610,2,58,38,20,38,20,discovered,13.45,58.00,0.2319,25.395,DARY d=2 INC(R1) init=0
+A267610_a3,oeis_cellular,A267610,3,58,38,20,21,0,neither,66.09,91.93,0.7189,607.846,FUNC_L d=5
+A267700_a2,oeis_cellular,A267700,2,70,50,20,50,20,discovered,15.61,70.00,0.2231,12.394,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A267700_a3,oeis_cellular,A267700,3,70,50,20,50,20,not_compressed_predicted,119.10,110.95,1.0735,361.927,NESTED_LOOP L=6
+A267800_a2,oeis_cellular,A267800,2,86,65,21,19,0,neither,71.96,86.00,0.8368,600.017,WIDE_BIT nr=3 bit=255
+A267800_a3,oeis_cellular,A267800,3,86,65,21,12,0,neither,44.78,136.31,0.3285,600.055,FUNC_L d=4
+A267810_a2,oeis_cellular,A267810,2,86,65,21,20,0,neither,54.73,86.00,0.6364,600.023,FUNC_L d=5
+A267810_a3,oeis_cellular,A267810,3,86,65,21,11,0,neither,48.53,136.31,0.3560,600.349,ITER d=4
+A267868_a2,oeis_cellular,A267868,2,86,65,21,13,0,neither,53.73,86.00,0.6248,600.034,FUNC_L d=5
+A267868_a3,oeis_cellular,A267868,3,86,65,21,17,0,neither,53.54,136.31,0.3928,600.045,STEP off=51 halt=0
+A267869_a2,oeis_cellular,A267869,2,86,65,21,65,21,discovered,27.68,86.00,0.3219,44.057,"CTX_X nr=2 d=4 perm=(0,1) out=R0 L=1"
+A267869_a3,oeis_cellular,A267869,3,86,65,21,65,21,discovered,27.68,136.31,0.2031,42.033,"CTX_X nr=2 d=4 perm=(0,1) out=R0 L=1"
+A267870_a2,oeis_cellular,A267870,2,86,65,21,65,21,discovered,20.43,86.00,0.2376,42.258,CTX_X nr=1 d=4 perm=(0) out=R0 L=1
+A267870_a3,oeis_cellular,A267870,3,86,65,21,65,21,discovered,20.43,136.31,0.1499,40.177,CTX_X nr=1 d=4 perm=(0) out=R0 L=1
+A269160_a2,oeis_cellular,A269160,2,67,47,20,47,20,discovered,15.61,67.00,0.2331,10.014,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A269160_a3,oeis_cellular,A269160,3,67,47,20,47,20,discovered,47.53,106.19,0.4476,27.170,FUNC d=4
+A269161_a2,oeis_cellular,A269161,2,68,48,20,48,20,discovered,15.61,68.00,0.2296,17.919,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A269161_a3,oeis_cellular,A269161,3,68,48,20,48,20,discovered,57.98,107.78,0.5380,48.043,FUNC_L d=5
+A269163_a2,oeis_cellular,A269163,2,68,48,20,23,0,neither,83.73,68.00,1.2313,600.087,NESTED_LOOP L=4
+A269163_a3,oeis_cellular,A269163,3,68,48,20,14,0,neither,55.30,107.78,0.5131,600.043,STEP off=41 halt=2
+A269174_a2,oeis_cellular,A269174,2,73,53,20,53,20,discovered,15.61,73.00,0.2139,19.957,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A269174_a3,oeis_cellular,A269174,3,73,53,20,53,20,discovered,66.81,115.70,0.5774,166.779,NESTED_LOOP L=3
+A269175_a2,oeis_cellular,A269175,2,121,91,30,23,0,neither,52.79,121.00,0.4363,600.017,FUNC_L d=4
+A269175_a3,oeis_cellular,A269175,3,121,91,30,20,0,neither,101.72,191.78,0.5304,600.045,NESTED_LOOP L=5
+A273299_a2,oeis_cellular,A273299,2,47,27,20,22,0,neither,75.13,47.00,1.5985,600.013,WIDE_BIT nr=3 bit=255
+A273299_a3,oeis_cellular,A273299,3,47,27,20,9,0,neither,58.73,74.49,0.7884,600.056,ITER_L d=5
+A277799_a2,oeis_cellular,A277799,2,43,23,20,23,20,discovered,15.61,43.00,0.3631,12.253,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A277799_a3,oeis_cellular,A277799,3,43,23,20,23,20,discovered,15.61,68.15,0.2291,20.484,CTX_X nr=1 d=1 perm=(0) out=R0 L=1
+A294020_a2,oeis_cellular,A294020,2,66,46,20,46,20,discovered,15.03,66.00,0.2278,11.840,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A294020_a3,oeis_cellular,A294020,3,66,46,20,11,0,neither,54.73,104.61,0.5232,601.140,FUNC_L d=5
+A294021_a2,oeis_cellular,A294021,2,89,67,22,67,22,discovered,17.86,89.00,0.2007,22.595,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A294021_a3,oeis_cellular,A294021,3,89,67,22,20,0,neither,56.46,141.06,0.4003,600.040,STEP off=19 halt=7
+A299477_a2,oeis_cellular,A299477,2,49,29,20,29,20,discovered,15.03,49.00,0.3068,21.244,"DARY d=2 ISZERO(R1,R0) init=0"
+A299477_a3,oeis_cellular,A299477,3,49,29,20,10,0,neither,51.59,77.66,0.6643,600.042,STEP off=15 halt=0
+A299479_a2,oeis_cellular,A299479,2,50,30,20,30,20,discovered,15.03,50.00,0.3007,11.592,"DARY d=2 ISZERO(R1,R0) init=0"
+A299479_a3,oeis_cellular,A299479,3,50,30,20,11,0,neither,42.53,79.25,0.5366,600.332,FUNC d=4
+A327980_a2,oeis_cellular,A327980,2,103,78,25,15,0,neither,55.73,103.00,0.5411,600.042,FUNC_L d=5
+A327980_a3,oeis_cellular,A327980,3,103,78,25,9,0,neither,49.53,163.25,0.3034,600.078,ITER d=4
+A327981_a2,oeis_cellular,A327981,2,111,84,27,21,0,neither,76.72,111.00,0.6911,600.017,WIDE_BIT nr=3 bit=255
+A327981_a3,oeis_cellular,A327981,3,111,84,27,11,0,neither,52.21,175.93,0.2968,600.162,STEP off=19 halt=1
+A327983_a2,oeis_cellular,A327983,2,105,79,26,14,0,neither,54.38,105.00,0.5179,600.043,FUNC_L d=4
+A327983_a3,oeis_cellular,A327983,3,105,79,26,10,0,neither,53.59,166.42,0.3220,600.051,STEP off=20 halt=7
+A327984_a2,oeis_cellular,A327984,2,76,56,20,23,0,neither,62.17,76.00,0.8180,600.034,FUNC_L d=5
+A327984_a3,oeis_cellular,A327984,3,76,56,20,11,0,neither,53.11,120.46,0.4409,600.265,STEP off=42 halt=0
+A334496_a2,oeis_cellular,A334496,2,42,22,20,17,0,neither,71.96,42.00,1.7134,600.057,WIDE_BIT nr=3 bit=255
+A334496_a3,oeis_cellular,A334496,3,42,22,20,9,0,neither,45.84,66.57,0.6886,601.230,STEP off=2 halt=0
+A334499_a2,oeis_cellular,A334499,2,40,20,20,20,14,neither,37.09,40.00,0.9273,33.064,FUNC d=3
+A334499_a3,oeis_cellular,A334499,3,40,20,20,12,0,neither,43.34,63.40,0.6837,607.137,ITER d=3
+A334515_a2,oeis_cellular,A334515,2,40,20,20,20,13,neither,46.53,40.00,1.1632,106.155,FUNC_L d=4
+A334515_a3,oeis_cellular,A334515,3,40,20,20,11,0,neither,52.78,63.40,0.8325,600.091,ITER d=4
+A363343_a2,oeis_cellular,A363343,2,91,69,22,19,0,neither,71.96,91.00,0.7908,600.070,WIDE_BIT nr=3 bit=255
+A363343_a3,oeis_cellular,A363343,3,91,69,22,14,0,neither,56.61,144.23,0.3925,600.104,STEP off=47 halt=2
+A363344_a2,oeis_cellular,A363344,2,91,69,22,19,0,neither,69.33,91.00,0.7619,604.037,WIDE_BIT nr=3 bit=34
+A363344_a3,oeis_cellular,A363344,3,91,69,22,13,0,neither,43.53,144.23,0.3018,600.101,FUNC d=4
+A363345_a2,oeis_cellular,A363345,2,86,65,21,28,0,neither,52.79,86.00,0.6139,600.087,FUNC_L d=4
+A363345_a3,oeis_cellular,A363345,3,86,65,21,20,0,neither,47.00,136.31,0.3448,600.099,STEP off=5 halt=0
+A363346_a2,oeis_cellular,A363346,2,70,50,20,20,0,neither,52.79,70.00,0.7542,600.102,FUNC_L d=4
+A363346_a3,oeis_cellular,A363346,3,70,50,20,15,0,neither,53.98,110.95,0.4866,600.130,FUNC_L d=5
+A000001_a2,oeis_hard,A000001,2,94,71,23,16,0,neither,60.58,94.00,0.6445,600.078,FUNC_L d=5
+A000001_a3,oeis_hard,A000001,3,94,71,23,11,0,neither,51.09,148.99,0.3429,600.084,STEP off=7 halt=2
+A000001_a4,oeis_hard,A000001,4,94,71,23,12,0,neither,62.15,188.00,0.3306,774.384,FUNC_L d=5
+A000043_a2,oeis_hard,A000043,2,50,30,20,30,20,discovered,15.03,50.00,0.3007,10.015,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A000043_a3,oeis_hard,A000043,3,50,30,20,10,0,neither,47.19,79.25,0.5954,2637.698,ITER d=3
+A000043_a4,oeis_hard,A000043,4,50,30,20,9,0,neither,47.90,100.00,0.4790,600.054,STEP off=11 halt=0
+A000945_a2,oeis_hard,A000945,2,43,23,20,23,20,discovered,15.03,43.00,0.3496,10.018,"DARY d=2 MUL_C(R1,R0,1) init=0"
+A000945_a3,oeis_hard,A000945,3,43,23,20,12,0,neither,69.42,68.15,1.0185,600.060,ITER_L d=5
+A000945_a4,oeis_hard,A000945,4,43,23,20,11,0,neither,50.78,86.00,0.5904,600.060,ITER d=4
+A000978_a2,oeis_hard,A000978,2,41,21,20,21,20,discovered,13.45,41.00,0.3280,11.585,"DARY d=2 LOAD(R0,1) init=0"
+A000978_a3,oeis_hard,A000978,3,41,21,20,12,0,neither,45.53,64.98,0.7006,600.063,FUNC d=4
+A000978_a4,oeis_hard,A000978,4,41,21,20,10,0,neither,52.07,82.00,0.6350,600.071,STEP off=18 halt=1
+A001605_a2,oeis_hard,A001605,2,51,31,20,31,20,discovered,17.86,51.00,0.3503,14.900,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A001605_a3,oeis_hard,A001605,3,51,31,20,15,0,neither,55.55,80.83,0.6872,600.060,FUNC_L d=5
+A001605_a4,oeis_hard,A001605,4,51,31,20,8,0,neither,52.71,102.00,0.5168,600.068,FUNC_F L=4
+A001606_a2,oeis_hard,A001606,2,64,44,20,44,20,not_compressed_predicted,48.53,64.00,0.7582,27.900,FUNC_L d=4
+A001606_a3,oeis_hard,A001606,3,64,44,20,13,0,neither,53.73,101.44,0.5297,600.125,FUNC_L d=5
+A001606_a4,oeis_hard,A001606,4,64,44,20,8,0,neither,45.53,128.00,0.3557,600.099,FUNC d=4
+A002106_a2,oeis_hard,A002106,2,47,27,20,16,0,neither,49.53,47.00,1.0538,600.093,ITER d=4
+A002106_a3,oeis_hard,A002106,3,47,27,20,10,0,neither,51.58,74.49,0.6925,600.051,STEP off=22 halt=0
+A002106_a4,oeis_hard,A002106,4,47,27,20,8,0,neither,55.73,94.00,0.5929,600.098,FUNC_L d=5
+A002253_a2,oeis_hard,A002253,2,44,24,20,17,0,neither,65.78,44.00,1.4949,603.911,WIDE_BIT nr=2 bit=255
+A002253_a3,oeis_hard,A002253,3,44,24,20,10,0,neither,51.53,69.74,0.7389,600.041,ITER d=4
+A002253_a4,oeis_hard,A002253,4,44,24,20,9,0,neither,55.01,88.00,0.6251,600.036,STEP off=14 halt=8
+A005265_a2,oeis_hard,A005265,2,53,33,20,33,20,discovered,17.86,53.00,0.3371,14.794,CTX_X nr=1 d=2 perm=(0) out=R0 L=1
+A005265_a3,oeis_hard,A005265,3,53,33,20,14,0,neither,54.98,84.00,0.6545,600.042,FUNC_L d=5
+A005265_a4,oeis_hard,A005265,4,53,33,20,8,0,neither,44.53,106.00,0.4201,600.068,FUNC d=4
+A023055_a2,oeis_hard,A023055,2,73,53,20,25,0,neither,34.09,73.00,0.4670,600.051,FUNC d=3
+A023055_a3,oeis_hard,A023055,3,73,53,20,25,0,neither,42.53,115.70,0.3676,600.044,FUNC d=4
+A023055_a4,oeis_hard,A023055,4,73,53,20,25,0,neither,41.09,146.00,0.2815,600.053,ITER d=3
+A039951_a2,oeis_hard,A039951,2,46,26,20,26,20,not_compressed_predicted,28.73,46.00,0.6245,50.998,FUNC d=2
+A039951_a3,oeis_hard,A039951,3,46,26,20,12,0,neither,47.41,72.91,0.6503,600.058,STEP off=4 halt=0
+A039951_a4,oeis_hard,A039951,4,46,26,20,9,0,neither,50.68,92.00,0.5509,600.051,STEP off=10 halt=0
+A051783_a2,oeis_hard,A051783,2,47,27,20,21,0,neither,85.32,47.00,1.8152,600.047,NESTED_LOOP L=4
+A051783_a3,oeis_hard,A051783,3,47,27,20,13,0,neither,56.73,74.49,0.7616,600.032,FUNC_L d=5
+A051783_a4,oeis_hard,A051783,4,47,27,20,12,0,neither,56.73,94.00,0.6035,600.029,FUNC_L d=5
+A068934_a2,oeis_hard,A068934,2,86,65,21,19,0,neither,80.35,86.00,0.9342,600.045,WIDE_BIT nr=4 bit=255
+A068934_a3,oeis_hard,A068934,3,86,65,21,12,0,neither,56.32,136.31,0.4132,600.067,STEP off=50 halt=4
+A068934_a4,oeis_hard,A068934,4,86,65,21,9,0,neither,41.09,172.00,0.2389,600.041,ITER d=3
+A103300_a2,oeis_hard,A103300,2,61,41,20,41,20,discovered,35.09,61.00,0.5753,61.580,FUNC d=3
+A103300_a3,oeis_hard,A103300,3,61,41,20,13,0,neither,54.73,96.68,0.5661,600.039,FUNC_L d=5
+A103300_a4,oeis_hard,A103300,4,61,41,20,9,0,neither,54.73,122.00,0.4486,600.037,FUNC_L d=5
+A119714_a2,oeis_hard,A119714,2,49,29,20,29,15,neither,57.38,49.00,1.1709,85.814,WIDE_BIT nr=2 bit=14
+A119714_a3,oeis_hard,A119714,3,49,29,20,11,0,neither,49.53,77.66,0.6377,600.034,ITER d=4
+A119714_a4,oeis_hard,A119714,4,49,29,20,10,0,neither,50.69,98.00,0.5172,600.044,STEP off=9 halt=2
+A127816_a2,oeis_hard,A127816,2,47,27,20,23,0,neither,34.09,47.00,0.7254,600.050,FUNC d=3
+A127816_a3,oeis_hard,A127816,3,47,27,20,11,0,neither,51.34,74.49,0.6892,600.035,STEP off=20 halt=0
+A127816_a4,oeis_hard,A127816,4,47,27,20,10,0,neither,44.84,94.00,0.4770,600.043,STEP off=0 halt=2
+A127817_a2,oeis_hard,A127817,2,51,31,20,31,16,neither,83.73,51.00,1.6418,196.354,NESTED_LOOP L=4
+A127817_a3,oeis_hard,A127817,3,51,31,20,11,0,neither,54.38,80.83,0.6727,600.039,FUNC_L d=4
+A127817_a4,oeis_hard,A127817,4,51,31,20,14,0,neither,53.33,102.00,0.5229,600.042,STEP off=30 halt=1
+A127818_a2,oeis_hard,A127818,2,47,27,20,27,18,neither,41.53,47.00,0.8835,39.826,FUNC d=4
+A127818_a3,oeis_hard,A127818,3,47,27,20,22,0,neither,103.72,74.49,1.3923,600.040,NESTED_LOOP L=5
+A127818_a4,oeis_hard,A127818,4,47,27,20,9,0,neither,46.59,94.00,0.4957,600.046,STEP off=3 halt=0
+A128154_a2,oeis_hard,A128154,2,50,30,20,23,0,neither,56.53,50.00,1.1305,600.058,WIDE_BIT nr=2 bit=15
+A128154_a3,oeis_hard,A128154,3,50,30,20,13,0,neither,49.11,79.25,0.6197,600.037,ITER d=3
+A128154_a4,oeis_hard,A128154,4,50,30,20,8,0,neither,51.90,100.00,0.5190,1146.841,STEP off=25 halt=1
+A128155_a2,oeis_hard,A128155,2,49,29,20,29,18,neither,49.78,49.00,1.0158,2291.352,ITER d=4
+A128155_a3,oeis_hard,A128155,3,49,29,20,10,0,neither,50.78,77.66,0.6538,1073.587,ITER d=4
+A128155_a4,oeis_hard,A128155,4,49,29,20,11,0,neither,48.78,98.00,0.4977,972.340,ITER d=4
+A128156_a2,oeis_hard,A128156,2,50,30,20,18,0,neither,51.53,50.00,1.0305,2254.846,ITER d=4
+A128156_a3,oeis_hard,A128156,3,50,30,20,15,0,neither,52.98,79.25,0.6686,600.080,FUNC_L d=5
+A128156_a4,oeis_hard,A128156,4,50,30,20,10,0,neither,52.84,100.00,0.5284,600.057,STEP off=15 halt=2
+A128157_a2,oeis_hard,A128157,2,48,28,20,28,15,neither,97.72,48.00,2.0357,386.782,NESTED_LOOP L=5
+A128157_a3,oeis_hard,A128157,3,48,28,20,10,0,neither,42.34,76.08,0.5566,600.065,ITER d=3
+A128157_a4,oeis_hard,A128157,4,48,28,20,8,0,neither,52.73,96.00,0.5493,600.079,FUNC_L d=5
+A128159_a2,oeis_hard,A128159,2,53,33,20,28,0,neither,101.72,53.00,1.9192,600.050,NESTED_LOOP L=5
+A128159_a3,oeis_hard,A128159,3,53,33,20,13,0,neither,46.78,84.00,0.5568,600.072,FUNC_L d=4
+A128159_a4,oeis_hard,A128159,4,53,33,20,9,0,neither,56.47,106.00,0.5327,600.026,STEP off=11 halt=8
+A128160_a2,oeis_hard,A128160,2,48,28,20,22,0,neither,68.73,48.00,1.4319,600.277,WIDE_BIT nr=3 bit=14
+A128160_a3,oeis_hard,A128160,3,48,28,20,23,0,neither,99.72,76.08,1.3107,600.033,NESTED_LOOP L=5
+A128160_a4,oeis_hard,A128160,4,48,28,20,8,0,neither,54.73,96.00,0.5701,600.041,FUNC_L d=5
+A128166_a2,oeis_hard,A128166,2,50,30,20,19,0,neither,65.78,50.00,1.3155,600.047,WIDE_BIT nr=2 bit=255
+A128166_a3,oeis_hard,A128166,3,50,30,20,11,0,neither,49.53,79.25,0.6250,600.050,ITER d=4
+A128166_a4,oeis_hard,A128166,4,50,30,20,10,0,neither,53.73,100.00,0.5373,600.049,FUNC_L d=5
+A226529_a2,oeis_hard,A226529,2,46,26,20,26,20,discovered,15.03,46.00,0.3268,10.016,"DARY d=2 ISZERO(R1,R0) init=0"
+A226529_a3,oeis_hard,A226529,3,46,26,20,12,0,neither,68.17,72.91,0.9350,600.043,ITER_L d=5
+A226529_a4,oeis_hard,A226529,4,46,26,20,11,0,neither,49.11,92.00,0.5338,600.193,ITER d=3

@@ -1,0 +1,10 @@
+claim,label,alphabet,discovered,n,rate_or_p
+progression_54_33_27,S3 oeis_base,2,87,161,0.5404
+progression_54_33_27,S3 oeis_base,3,53,161,0.3292
+progression_54_33_27,S3 oeis_base,4,43,161,0.2671
+hardest_subset,S1 oeis_hard,2,7,26,0.2692
+hardest_subset,S1 oeis_hard,3,0,26,0.0000
+hardest_subset,S1 oeis_hard,4,0,26,0.0000
+fisher_exact_2x2_NOT_VALID,S1 oeis_hard binary vs A≥3,test,7,78,p=0.000249
+mcnemar_exact_binary_vs_ternary,S1 oeis_hard (paired),test,7,26,p=0.0156
+mcnemar_exact_binary_vs_quaternary,S1 oeis_hard (paired),test,7,26,p=0.0156
