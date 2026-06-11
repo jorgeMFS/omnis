@@ -28,6 +28,7 @@ Statistics, any order once the builders have run:
 ```bash
 python3 null_tiers.py               # entropy-stratified null table + headline
 python3 alphabet_separation.py      # alphabet-scaling rates, McNemar test
+python3 alphabet_cohorts.py         # hard-subset + inversion lists (SC-3)
 python3 scaling_censored.py         # censored scaling fit, model comparison
 python3 generate_sc_tables.py --results ../sc_input.csv   # SI Appendix C LaTeX
 ```

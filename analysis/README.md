@@ -49,7 +49,26 @@ PNG preview and a data side-car next to itself.
 `results/` holds `sc_tables.tex` (the seven SI Appendix C tables,
 paste-ready), the two R-rendered companion figures, and the CSV
 side-cars from the statistical scripts (`null_tiers.csv`,
-`alphabet_separation.csv`, `scaling_censored.csv`).
+`alphabet_separation.csv`, `alphabet_cohorts.csv`,
+`scaling_censored.csv`).
+
+## Which file backs which table or figure
+
+| paper item | data | script |
+|---|---|---|
+| Fig. 1 (architecture) | -- | drawn, no data |
+| Fig. 2 / fig6 (landscape) | `figures/fig6_data.csv` | `figures/fig6_render.R` |
+| Fig. 3 (cliff strip) | `figures/fig3_strip_data.csv` | `figures/fig3_render.R` |
+| Fig. 4 (cost vs length) | `discoveries.csv` | `figures/fig4_render.R` |
+| Fig. S1 / fig5 (ECA grid) | `figures/fig5_data.csv` | `figures/fig5_render.R` |
+| Fig. S2 / fig8 (S4 heatmap) | `figures/fig8_data.csv` | `figures/fig8_render.R` |
+| Fig. S3 (fig4 SI variant) | `discoveries.csv` | `figures/fig4_si_scatter_render.R` |
+| Tables SC-1..SC-7 | `sc_input.csv` | `scripts/generate_sc_tables.py` |
+| SC-3 hard subset + inversions | `results/alphabet_cohorts.csv` | `scripts/alphabet_cohorts.py` |
+| Section 3.3 slopes | `discoveries.csv` | `analyze_omnis.py`, `scripts/scaling_censored.py` |
+| Section 3.5 McNemar | `data/results/baseline_*.csv` | `scripts/alphabet_separation.py` |
+| Null table (tab:snull) | `null_sweep/null_raw.csv` | `scripts/null_tiers.py` |
+| Gate-surplus bound (SI-B) | `discoveries.csv` | `analyze_omnis.py` |
 
 ## Reproducing
 

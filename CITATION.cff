@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: Silva
     given-names: Jorge Miguel
+    orcid: "https://orcid.org/0000-0002-6331-6091"
     affiliation: "IEETA / DETI, University of Aveiro, Portugal"
 abstract: >-
   OMNIS is an empirical Solomonoff inductor for integer sequences. Given a
@@ -30,6 +31,7 @@ preferred-citation:
   authors:
     - family-names: Silva
       given-names: Jorge Miguel
+      orcid: "https://orcid.org/0000-0002-6331-6091"
   journal: "Proceedings of the National Academy of Sciences"
   year: 2026
   doi: "[forthcoming]"

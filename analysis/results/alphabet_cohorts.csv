@@ -1,0 +1,57 @@
+cohort,sequence_id,bases_present,gate_class_per_base,note
+hard_subset,A000001,2;3;4,neither;neither;neither,
+hard_subset,A000043,2;3;4,discovered;neither;neither,discordant
+hard_subset,A000945,2;3;4,discovered;neither;neither,discordant
+hard_subset,A000978,2;3;4,discovered;neither;neither,discordant
+hard_subset,A001605,2;3;4,discovered;neither;neither,discordant
+hard_subset,A001606,2;3;4,not_compressed_predicted;neither;neither,
+hard_subset,A002106,2;3;4,neither;neither;neither,
+hard_subset,A002253,2;3;4,neither;neither;neither,
+hard_subset,A005265,2;3;4,discovered;neither;neither,discordant
+hard_subset,A023055,2;3;4,neither;neither;neither,
+hard_subset,A039951,2;3;4,not_compressed_predicted;neither;neither,
+hard_subset,A051783,2;3;4,neither;neither;neither,
+hard_subset,A068934,2;3;4,neither;neither;neither,
+hard_subset,A103300,2;3;4,discovered;neither;neither,discordant
+hard_subset,A119714,2;3;4,neither;neither;neither,
+hard_subset,A127816,2;3;4,neither;neither;neither,
+hard_subset,A127817,2;3;4,neither;neither;neither,
+hard_subset,A127818,2;3;4,neither;neither;neither,
+hard_subset,A128154,2;3;4,neither;neither;neither,
+hard_subset,A128155,2;3;4,neither;neither;neither,
+hard_subset,A128156,2;3;4,neither;neither;neither,
+hard_subset,A128157,2;3;4,neither;neither;neither,
+hard_subset,A128159,2;3;4,neither;neither;neither,
+hard_subset,A128160,2;3;4,neither;neither;neither,
+hard_subset,A128166,2;3;4,neither;neither;neither,
+hard_subset,A226529,2;3;4,discovered;neither;neither,discordant
+inversion,A000005,2;3;4;5;7,predicted_only;discovered;discovered;discovered;discovered,"easier at larger base: 2->3,2->4,2->5,2->7"
+inversion,A000045,2;3;4;5;7,predicted_only;discovered;discovered;discovered;discovered,"easier at larger base: 2->3,2->4,2->5,2->7"
+inversion,A000203,2;3;4;5;7,neither;predicted_only;predicted_only;predicted_only;discovered,"easier at larger base: 2->7,3->7,4->7,5->7"
+inversion,A000292,2;3;4;5;7,predicted_only;discovered;discovered;discovered;predicted_only,"easier at larger base: 2->3,2->4,2->5"
+inversion,A001065,2;3;4;5;7,neither;neither;neither;discovered;neither,"easier at larger base: 2->5,3->5,4->5"
+inversion,A001227,2;3;4;5;7,neither;discovered;discovered;discovered;discovered,"easier at larger base: 2->3,2->4,2->5,2->7"
+inversion,A002487,2;3;4;5;7,discovered;predicted_only;discovered;discovered;discovered,"easier at larger base: 3->4,3->5,3->7"
+inversion,A003052,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A003132,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A004018,2;3;4;5;7,discovered;neither;discovered;neither;neither,easier at larger base: 3->4
+inversion,A004159,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A004207,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A004488,2;3;4,predicted_only;discovered;neither,easier at larger base: 2->3
+inversion,A007931,2;3;4,discovered;predicted_only;discovered,easier at larger base: 3->4
+inversion,A010785,2;3;4,predicted_only;discovered;neither,easier at larger base: 2->3
+inversion,A011539,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A011540,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A049345,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A051885,2;3;4,predicted_only;discovered;neither,easier at larger base: 2->3
+inversion,A052224,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A056964,2;3;4,predicted_only;discovered;neither,easier at larger base: 2->3
+inversion,A057889,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A102370,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A117828,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A136522,2;3;4,neither;discovered;neither,easier at larger base: 2->3
+inversion,A156552,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A235461,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A265509,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A276150,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
+inversion,A278222,2;3;4,discovered;neither;discovered,easier at larger base: 3->4
