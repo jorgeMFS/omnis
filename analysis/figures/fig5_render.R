@@ -1,9 +1,9 @@
 #!/usr/bin/env Rscript
-# Figure 5 — The ECA grid.
+# Figure 5 - The ECA grid.
 # 16 x 16 cells, one per elementary-CA rule (0..255). Rule 0 sits at
 # top-left, rule 255 at bottom-right, row-major. Cells are coloured
 # by Solomonoff class. Rules 30 and 110 carry a thin dark outline and
-# bold rule number — quiet highlights, not stamps.
+# bold rule number - quiet highlights, not stamps.
 
 suppressPackageStartupMessages({
   library(ggplot2)

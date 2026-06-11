@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Figure 8 — S4 discoverability by rule structure.
+# Figure 8 - S4 discoverability by rule structure.
 # Each totalistic 3-state CA rule is a 7-digit base-3 number
 # (d0 d1 d2 d3 d4 d5 d6), where d_i is the output when the
 # neighborhood-state sum equals i. We bin rules by

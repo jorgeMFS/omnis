@@ -1,5 +1,5 @@
 #!/bin/bash
-# OMNIS — basic build. For PGO, use build_pgo.sh. For CMake, see CMakeLists.txt.
+# OMNIS - basic build. For PGO, use build_pgo.sh. For CMake, see CMakeLists.txt.
 set -e
 cd "$(dirname "$0")"
 

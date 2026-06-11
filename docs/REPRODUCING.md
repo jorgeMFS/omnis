@@ -47,7 +47,7 @@ tools/oeis_keyword_fetch.sh
 ```
 
 Both scripts SHA-pin every artefact into `data/oeis/SOURCES.md`. The pinned
-SHAs are part of the reproduction contract — if upstream OEIS has updated,
+SHAs are part of the reproduction contract - if upstream OEIS has updated,
 the verification step will fail and you must either re-pin (`--refresh`)
 or check out a matching revision of OMNIS.
 
@@ -126,8 +126,8 @@ END {
 
 ## 6. What can drift legitimately
 
-- `time_s` — wall-clock per sequence; varies with hardware load.
-- `solver_desc` — the engine may discover any of several equivalent programs
+- `time_s` - wall-clock per sequence; varies with hardware load.
+- `solver_desc` - the engine may discover any of several equivalent programs
   for one target; the `(sc, pred_sc, mdl)` triple is what the determinism
   contract pins.
 
@@ -135,7 +135,7 @@ END {
 
 - Workload-file SHAs (verified via `data/categories/CHECKSUMS.sha256`).
 - The OEIS snapshot SHAs (`data/oeis/SOURCES.md`).
-- The CSV header (the binary itself emits it via `--csv-header` — single
+- The CSV header (the binary itself emits it via `--csv-header` - single
   source of truth for the schema).
 - The Solomonoff cell of any sequence at the same budget on the same
   hardware (within MDL ± 0.5 bits).

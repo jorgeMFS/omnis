@@ -35,7 +35,7 @@ files:
     category: benchmark14
     source: local generator
     count: 14
-    selection_rule: "14 hand-written reference targets — 12 curated targets + DivisorCount(A000005) + Sigma(A000203) as nested-loop smoke tests; padded so train_N == published_N under K=max(20,N/4) split"
+    selection_rule: "14 hand-written reference targets - 12 curated targets + DivisorCount(A000005) + Sigma(A000203) as nested-loop smoke tests; padded so train_N == published_N under K=max(20,N/4) split"
     body_sha256: see file header
     expected_solve_rate_min: 0.78    # 11/14 = 0.79; pi-b4 + 2 nested-loop = expected misses
 
@@ -67,7 +67,7 @@ files:
     count: 20
     selection_rule: "Pi-base-4 (1) + seeded random (10, 5 per A in {2,4}) + seeded crypto-style (9, 5@A=2 + 4@A=4); all expected incompressible"
     body_sha256: 96f5d13d6f868d623cf8a81faacbf37e1b05dccb293164b9f2233c797e34e4c8
-    expected_solve_rate_max: 0.05    # negative controls — must mostly reject
+    expected_solve_rate_max: 0.05    # negative controls - must mostly reject
 
   - path: oeis_base.txt
     category: oeis_base

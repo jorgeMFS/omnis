@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Companion to analyze_omnis.py — publication-quality redraw of the
+# Companion to analyze_omnis.py - publication-quality redraw of the
 # gate false-acceptance surplus histogram.
 #
 # Per-discovery surplus  Δ = m · log₂|Σ| − L   (in bits)
@@ -90,7 +90,7 @@ y_max <- max(h$counts)
 
 p <- ggplot(d, aes(x = surplus)) +
 
-  # Histogram — single neutral fill, no per-bar outlines, breathes against grid.
+  # Histogram - single neutral fill, no per-bar outlines, breathes against grid.
   geom_histogram(breaks = brk,
                  fill = BAR_FILL, color = NA, alpha = 0.92) +
 
@@ -137,7 +137,7 @@ fraction Δ > 0 (sound bound):  %.1f %%        n = %s",
 pdf_path <- file.path(outdir, "fig_gate_surplus.pdf")
 png_path <- file.path(outdir, "fig_gate_surplus.png")
 
-# Same envelope as fig6 — keeps intra-paper consistency.
+# Same envelope as fig6 - keeps intra-paper consistency.
 FIG_W_MM <- 114
 FIG_H_MM <- 85
 

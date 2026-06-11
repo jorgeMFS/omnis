@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# gen_all.sh — Regenerate every committed workload file from scratch.
+# gen_all.sh - Regenerate every committed workload file from scratch.
 #
 # Calls:
 #   - gen_workload  for the 9 local categories
@@ -48,14 +48,14 @@ esac
 # --verify-only path is fast: just shasum -c, no rewrites, no binary needs.
 if [ "$VERIFY_ONLY" = "1" ]; then
     if [ ! -f "$CAT_DIR/CHECKSUMS.sha256" ]; then
-        echo "gen_all: $CAT_DIR/CHECKSUMS.sha256 missing — nothing to verify" >&2
+        echo "gen_all: $CAT_DIR/CHECKSUMS.sha256 missing - nothing to verify" >&2
         exit 1
     fi
     if ( cd "$CAT_DIR" && shasum -a 256 -c CHECKSUMS.sha256 >/dev/null 2>&1 ); then
         echo "gen_all: --verify-only OK ($(wc -l < "$CAT_DIR/CHECKSUMS.sha256" | tr -d ' ') files)"
         exit 0
     else
-        echo "gen_all: --verify-only FAILED — workload file(s) drifted from pin:" >&2
+        echo "gen_all: --verify-only FAILED - workload file(s) drifted from pin:" >&2
         ( cd "$CAT_DIR" && shasum -a 256 -c CHECKSUMS.sha256 2>&1 | grep -v ': OK' )
         exit 2
     fi
@@ -71,13 +71,13 @@ GEN_WL="$BUILD_DIR/gen_workload"
 OEIS_LD="$BUILD_DIR/oeis_loader"
 for bin in "$GEN_WL" "$OEIS_LD"; do
     if [ ! -x "$bin" ]; then
-        echo "gen_all: missing binary '$bin' — run cmake + make first" >&2
+        echo "gen_all: missing binary '$bin' - run cmake + make first" >&2
         exit 1
     fi
 done
 for f in stripped.gz names.gz keywords.tsv; do
     if [ ! -f "$SNAPSHOT_DIR/$f" ]; then
-        echo "gen_all: missing snapshot file '$SNAPSHOT_DIR/$f' — run tools/oeis_fetch.sh and tools/oeis_keyword_fetch.sh first" >&2
+        echo "gen_all: missing snapshot file '$SNAPSHOT_DIR/$f' - run tools/oeis_fetch.sh and tools/oeis_keyword_fetch.sh first" >&2
         exit 1
     fi
 done
@@ -122,7 +122,7 @@ emit oeis  oeis_base
 emit oeis  oeis_morphic
 emit oeis  oeis_cellular
 
-# Recompute CHECKSUMS.sha256 (when explicitly requested, or always — small
+# Recompute CHECKSUMS.sha256 (when explicitly requested, or always - small
 # enough that the side-effect of overwriting is harmless).
 if [ "$REFRESH_CHECKSUMS" = "1" ] || [ ! -f "$CHECKSUMS" ]; then
     (
@@ -138,7 +138,7 @@ else
     if ( cd "$CAT_DIR" && shasum -a 256 -c "$CHECKSUMS" >/dev/null 2>&1 ); then
         echo "gen_all: CHECKSUMS.sha256 verified"
     else
-        echo "gen_all: CHECKSUMS.sha256 MISMATCH — re-run with --refresh-checksums if intentional" >&2
+        echo "gen_all: CHECKSUMS.sha256 MISMATCH - re-run with --refresh-checksums if intentional" >&2
         exit 2
     fi
 fi

@@ -1,4 +1,4 @@
-// omnis_validate.cpp — Train/test wrapper that validates compression-implies-prediction.
+// omnis_validate.cpp - Train/test wrapper that validates compression-implies-prediction.
 //
 // Reads one candidate, splits into train + held-out, runs solve() on the
 // training prefix, then asks the discovered program to extend it. Records
@@ -54,7 +54,7 @@
 //   "self" / empty so direct CLI use remains valid.
 // - Other §5 fields (omnis_sha, generator_sha, oeis_snapshot_sha, run_id,
 //   run_date_utc, host, budget_s, freeze_db) are sweep-level CONSTANTS across
-//   all rows of a run — kept in the sibling `.manifest.txt` (DB normalization;
+//   all rows of a run - kept in the sibling `.manifest.txt` (DB normalization;
 //   no replication × N rows).
 static constexpr const char* CSV_HEADER =
     "id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,"
@@ -64,7 +64,7 @@ static constexpr const char* CSV_HEADER =
 
 static void printUsage() {
     std::fprintf(stderr,
-        "omnis_validate — train/test wrapper for compression-implies-prediction.\n"
+        "omnis_validate - train/test wrapper for compression-implies-prediction.\n"
         "\n"
         "Usage: omnis_validate [options] [input_file]\n"
         "\n"
@@ -289,7 +289,7 @@ int main(int argc, char* argv[]) {
 
     // Compute pred_sc.
     //
-    // Two strategies, both AUTOREGRESSIVE (program's own output feeds back —
+    // Two strategies, both AUTOREGRESSIVE (program's own output feeds back -
     // strict Solomonoff: "the program continues correctly"):
     //
     //   1. Non-CTX: runProgram(r, train_N + K, A) generates a fresh
@@ -300,7 +300,7 @@ int main(int argc, char* argv[]) {
     //      We replicate verifyCTX's autoregressive loop here: seed `gen` with
     //      the full training prefix, then for each test step compute R from
     //      gen[t-ds+perm[k]], run body, push the program's output back into
-    //      gen. This is open-loop — we feed the PROGRAM's output back, not
+    //      gen. This is open-loop - we feed the PROGRAM's output back, not
     //      the test target. Matches the strict Solomonoff prediction
     //      semantics from the engine's canonical interpreter.
     //
@@ -359,7 +359,7 @@ int main(int argc, char* argv[]) {
         }
         // If we got here without entering either branch, prediction is 0
         // (e.g., a deductive mode whose runProgram returned the wrong size
-        // — should not happen in practice).
+        // - should not happen in practice).
     }
     // If sc < train_N (didn't compress training), pred_sc stays 0.
 

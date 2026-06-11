@@ -6,8 +6,8 @@ OMNIS = Observational Minimal-length Nonparametric Inductive Synthesis.
 
 ## Architecture
 
-- `src/omnis.cpp` — the engine, as a single translation unit. No `main()`. Anyone can include it from their own driver.
-- `src/cli.cpp` — a minimal command-line wrapper around the engine. ~190 lines.
+- `src/omnis.cpp` - the engine, as a single translation unit. No `main()`. Anyone can include it from their own driver.
+- `src/cli.cpp` - a minimal command-line wrapper around the engine. ~190 lines.
 
 The engine and the CLI are separate. The engine is the contribution; the CLI is a thin demonstration tool.
 
@@ -90,20 +90,20 @@ analysis/   everything behind the paper's figures and tables: the
             rendered outputs (see analysis/README.md)
 docs/       architecture + integration documentation
 tools/      auxiliary binaries and scripts:
-              gen_workload    — deterministic categorical workload generator
-              oeis_loader     — OEIS-snapshot streamer with named filters
-              omnis_validate  — train/test wrapper with Solomonoff classification
-              gen_all.sh      — regenerate every committed workload file
-              oeis_fetch.sh   — fetch + SHA-pin OEIS snapshot
+              gen_workload    - deterministic categorical workload generator
+              oeis_loader     - OEIS-snapshot streamer with named filters
+              omnis_validate  - train/test wrapper with Solomonoff classification
+              gen_all.sh      - regenerate every committed workload file
+              oeis_fetch.sh   - fetch + SHA-pin OEIS snapshot
 ```
 
 In addition to the main `omnis` CLI, the build produces `omnis_validate`,
 `gen_workload`, and `oeis_loader` for reproducible categorical sweeps. See:
 
-- `docs/REPRODUCING.md` — clone → build → fetch → run → CSV recipe
-- `docs/CATEGORIES.md` — workload-category overview + pre-registered targets
-- `docs/SOLOMONOFF_VALIDATION.md` — formal classification specification
-- `docs/ARCHITECTURE.md` — engine internals (instruction set, modes, MDL)
+- `docs/REPRODUCING.md` - clone → build → fetch → run → CSV recipe
+- `docs/CATEGORIES.md` - workload-category overview + pre-registered targets
+- `docs/SOLOMONOFF_VALIDATION.md` - formal classification specification
+- `docs/ARCHITECTURE.md` - engine internals (instruction set, modes, MDL)
 
 ## Citation
 
@@ -111,7 +111,7 @@ In addition to the main `omnis` CLI, the build produces `omnis_validate`,
 
 ## License
 
-MIT — see `LICENSE`.
+MIT - see `LICENSE`.
 
 ## Status
 

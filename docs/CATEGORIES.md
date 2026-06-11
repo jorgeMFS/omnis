@@ -66,7 +66,7 @@ Three independent paths must agree (the reproducibility contract):
 ## Editorial notes
 
 - `keywords.tsv` in `data/oeis/snapshot/` is itself derived (search
-  `keyword:{core,hard,base}`, paginated, `%K` extracted) — NOT a bulk
+  `keyword:{core,hard,base}`, paginated, `%K` extracted) - NOT a bulk
   dump. `oeis_loader.cpp` joins on this file when filtering.
 - The `oeis_cellular` and `oeis_morphic` categories use *name* substring
   matching (since `keyword:cellular` is not a standard OEIS keyword).

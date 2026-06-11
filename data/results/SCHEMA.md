@@ -48,7 +48,7 @@ those constants in the sibling `<csv>.manifest.txt` file written by
 distributed alongside the CSV.
 
 The two fields that ARE per-row (because they vary across rows of the same
-sweep) — `category` and `oeis_xref` — were added to the CSV as columns 2
+sweep) - `category` and `oeis_xref` - were added to the CSV as columns 2
 and 3.
 
 ## Manifest companion file

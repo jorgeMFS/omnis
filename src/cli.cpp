@@ -1,4 +1,4 @@
-// cli.cpp — minimal command-line wrapper around the OMNIS engine.
+// cli.cpp - minimal command-line wrapper around the OMNIS engine.
 //
 // Reads one sequence (from a file or stdin), runs solve(), prints the result.
 // Multi-target processing is left to shell composition (xargs, while loops).
@@ -19,7 +19,7 @@
 
 static void printUsage() {
     fprintf(stderr,
-        "OMNIS — Observational Minimal-length Nonparametric Inductive Synthesis\n"
+        "OMNIS: Observational Minimal-length Nonparametric Inductive Synthesis\n"
         "\n"
         "Usage: omnis [options] [input_file]\n"
         "\n"

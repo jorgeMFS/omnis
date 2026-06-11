@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# aggregate_results.sh — produces per-category and aggregate Solomonoff
+# aggregate_results.sh - produces per-category and aggregate Solomonoff
 # contingency counts from one or more baseline_*.csv files.
 #
 # Usage:
@@ -32,7 +32,7 @@ NR==1 || $1=="id" {next}
 {
     # 15-column schema: id, category, oeis_xref, A, total_n, train_n, k,
     # sc, pred_sc, solomonoff_class, mdl, raw_bits, ratio, time_s, solver_desc
-    # category is column 2 (1-indexed) — explicit per-row provenance,
+    # category is column 2 (1-indexed) - explicit per-row provenance,
     # no longer derived from id.
     cat = $2
     cell = $10

@@ -1,4 +1,4 @@
-// oeis_loader.cpp — Streaming OEIS workload emitter.
+// oeis_loader.cpp - Streaming OEIS workload emitter.
 //
 // Pure C++17. No engine link.
 //
@@ -37,14 +37,14 @@
 #include <zlib.h>
 
 // =============================================================================
-// Loader versioning — bump if any filter's output for fixed snapshot changes.
+// Loader versioning - bump if any filter's output for fixed snapshot changes.
 // =============================================================================
 
 static constexpr int LOADER_VERSION = 1;
 static constexpr const char* WORKLOAD_SCHEMA = "omnis-workload v1";
 
 // =============================================================================
-// Filter registry — pre-registered, frozen.
+// Filter registry - pre-registered, frozen.
 // =============================================================================
 
 struct OeisFilter {
@@ -181,7 +181,7 @@ namespace sha256_impl {
 // =============================================================================
 
 // Compute |s| mod m for decimal string s (digits only, no sign).
-// O(len(s)) — process one digit at a time.
+// O(len(s)) - process one digit at a time.
 static int absStrMod(const char* s, size_t len, int m) {
     int r = 0;
     for (size_t i = 0; i < len; i++) {
@@ -327,13 +327,13 @@ static bool nameContainsAny(const std::string& name,
 
 // Keyword-set predicate: ALL required must be present, NONE excluded.
 // If keyword set is empty (sequence not in keywords.tsv), apply
-// "permissive on missing" — required_kws cannot be enforced; excluded_kws
+// "permissive on missing" - required_kws cannot be enforced; excluded_kws
 // also cannot be detected. Caller distinguishes via keyword_known.
 static bool keywordsOk(const std::unordered_set<std::string>* kws,
                        const std::vector<std::string>& required,
                        const std::vector<std::string>& excluded) {
     if (!kws) {
-        // No keyword data — only honor name-based filtering. Return true to
+        // No keyword data - only honor name-based filtering. Return true to
         // allow caller's name match to be the deciding factor.
         return true;
     }
@@ -418,7 +418,7 @@ static std::string isoDateUtc() {
 
 static void printUsage() {
     std::fprintf(stderr,
-        "oeis_loader — emit OMNIS workloads sourced from the pinned OEIS snapshot.\n"
+        "oeis_loader - emit OMNIS workloads sourced from the pinned OEIS snapshot.\n"
         "\n"
         "Usage:\n"
         "  oeis_loader --filter <name> [--snapshot-dir DIR] [--out PATH]\n"
@@ -530,7 +530,7 @@ int main(int argc, char* argv[]) {
             if (nit == name_map.end()) continue;
             if (!nameContainsAny(nit->second, filt->name_substrs)) continue;
             // Also: if filter has required keywords AND we have no keyword
-            // data for this id, refuse — we can't claim the constraint holds.
+            // data for this id, refuse - we can't claim the constraint holds.
             if (!kws && !filt->required_kws.empty()) continue;
         } else {
             // Pure keyword filter: must have keyword data and pass.

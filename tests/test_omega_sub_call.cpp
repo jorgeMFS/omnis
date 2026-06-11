@@ -60,7 +60,7 @@ static bool test_empty_library_no_op() {
     return pass;
 }
 
-// Test 2: basic invocable entry — INC R0 body. SUB_CALL(L0) increments R0.
+// Test 2: basic invocable entry - INC R0 body. SUB_CALL(L0) increments R0.
 static bool test_basic_inline() {
     resetLibrary();
     Ins inc = {0, 0, {0, 0, 0, 0}, 1};   // INC R0
@@ -77,7 +77,7 @@ static bool test_basic_inline() {
     return pass;
 }
 
-// Test 3: recursion guard — entry containing ti=32 is filtered, so SUB_CALL is no-op.
+// Test 3: recursion guard - entry containing ti=32 is filtered, so SUB_CALL is no-op.
 static bool test_recursion_guard() {
     resetLibrary();
     Ins inner_subcall = {32, 0, {0, 0, 0, 0}, 0}; // body uses SUB_CALL itself
@@ -142,7 +142,7 @@ static bool test_typeAr_writerArgIdx() {
     return pass;
 }
 
-// Test 7: catalog accounting — buildL1 emits one Ins per invocable library entry.
+// Test 7: catalog accounting - buildL1 emits one Ins per invocable library entry.
 static bool test_catalog_invocable_count() {
     resetLibrary();
 
@@ -164,7 +164,7 @@ static bool test_catalog_invocable_count() {
     return pass;
 }
 
-// Test 8: wide-int (W) variant — SUB_CALL via exW propagates writes.
+// Test 8: wide-int (W) variant - SUB_CALL via exW propagates writes.
 static bool test_subcallW() {
     resetLibrary();
     Ins inc = {0, 0, {0, 0, 0, 0}, 1};
@@ -184,7 +184,7 @@ static bool test_subcallW() {
 
 int main() {
     printf("=========================================================\n");
-    printf("SUB_CALL — Canonical engine verification\n");
+    printf("SUB_CALL - Canonical engine verification\n");
     printf("=========================================================\n\n");
 
     int passed = 0, total = 0;

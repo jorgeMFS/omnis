@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# chain_sweeps.sh — sequential launcher. Runs sweeps one at a time so
+# chain_sweeps.sh - sequential launcher. Runs sweeps one at a time so
 # the engine's worker pool gets the full CPU per candidate and the
 # determinism contract isn't contaminated by concurrent sweeps.
 #

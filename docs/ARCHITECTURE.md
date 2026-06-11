@@ -1,4 +1,4 @@
-# OMNIS — Architecture
+# OMNIS Architecture
 
 This document describes the implementation of the OMNIS engine. For the user-facing CLI, see `README.md`. For citation metadata, see `CITATION.cff`.
 
@@ -50,22 +50,22 @@ Eighteen primitive opcodes plus one hierarchical opcode:
 
 `mod_E` denotes Euclidean modulus (always non-negative). All arithmetic is saturating with bound `SAT = 1e15`. The thread-local flag `g_sat` is set on overflow; saturated programs are rejected.
 
-There are 8 general-purpose registers `R[0..7]`. SUB_CALL invokes a previously-discovered library entry whose body is purely primitive (no nested SUB_CALL — enforced by a recursion guard at catalog-build time).
+There are 8 general-purpose registers `R[0..7]`. SUB_CALL invokes a previously-discovered library entry whose body is purely primitive (no nested SUB_CALL - enforced by a recursion guard at catalog-build time).
 
 ## 3. Execution modes
 
 A discovered program (`Res`) carries an execution mode:
 
-- **MODE_ITER** — `R = init`, persistent across iterations; output is `R[outr] mod A` per iteration.
-- **MODE_FUNC** — `R = {n, 0, ..., 0}` per iteration `n`; output is `R[outr] mod A`.
-- **MODE_EMIT** — body emits via OUT; collected in `g_emit_buf`.
-- **MODE_CTX** — registers reload from target history each iteration (used by Phase 1B's deductive context search).
+- **MODE_ITER** - `R = init`, persistent across iterations; output is `R[outr] mod A` per iteration.
+- **MODE_FUNC** - `R = {n, 0, ..., 0}` per iteration `n`; output is `R[outr] mod A`.
+- **MODE_EMIT** - body emits via OUT; collected in `g_emit_buf`.
+- **MODE_CTX** - registers reload from target history each iteration (used by Phase 1B's deductive context search).
 
 Plus a small set of "deductive" forms used by certain accelerator phases:
 
-- **CONCAT** — base-`b` digit concatenation generator (parameters `concat_base`, `concat_off`, `concat_msb`).
-- **DARY** — base-`b` per-digit recurrence (parameters `dary_base`, `dary_init_val`, `dary_op`).
-- **STEP** — count-iterations-to-halt wrapper around a branched body.
+- **CONCAT** - base-`b` digit concatenation generator (parameters `concat_base`, `concat_off`, `concat_msb`).
+- **DARY** - base-`b` per-digit recurrence (parameters `dary_base`, `dary_init_val`, `dary_op`).
+- **STEP** - count-iterations-to-halt wrapper around a branched body.
 
 ## 4. MDL encoding
 
@@ -87,31 +87,31 @@ Plus a small set of "deductive" forms used by certain accelerator phases:
 
 `solve()` runs seven phases sequentially. Each phase produces an updated `best` `Res` and may record additional candidates into `g_progs` (the per-call mixture pool).
 
-### Phase 0 — Library extension (~ms)
+### Phase 0 - Library extension (~ms)
 
 If the persistent library is non-empty, `g_progdb.testExtensions()` tests extensions of stored programs against the target. Cheap deductive pre-filter.
 
-### Phase 1 — T-table deduction (instant)
+### Phase 1 - T-table deduction (instant)
 
 `isaMatchUnary`, `isaMatchBinary`, `isaMatchPair`, `isaMatchBranched`, and `verifyCTX` deduce programs whose structure is captured by simple algebraic relations on observed transitions.
 
-### Phase 2A — Flat sieve (sub-second to seconds)
+### Phase 2A - Flat sieve (sub-second to seconds)
 
 Enumerate primitive bodies of length L=1..3 and verify against the target. Pool construction via `buildDDB` and `composeDDB`.
 
-### Phase 2B — Branched cascade (seconds)
+### Phase 2B - Branched cascade (seconds)
 
 `cascadeSearch` finds programs of the form `if R[0] mod m == 0 then body_then else body_else`. Searches over `m ∈ {2..min(A,10)}` and pre-body pools.
 
-### Phase 2C — Wide-bit sieve (binary alphabet only)
+### Phase 2C - Wide-bit sieve (binary alphabet only)
 
 For `A == 2`, programs that operate on 512-bit packed integers (`W` type) and extract bit `bit_pos`. Useful for cellular-automaton-class targets.
 
-### Phase 2F — Unified WSBP, wire-space backward propagation (deep search)
+### Phase 2F - Unified WSBP, wire-space backward propagation (deep search)
 
 Enumerates type-tuples for body lengths L=1..10, propagates demand wires backward, probes loop-counter registers, and tests every (pre-body, inner body, mode) combination. The phase has a per-level Levin budget allocation and a hard deadline derived from the per-target wall budget.
 
-### Phase 2H — Hierarchical synthesis
+### Phase 2H - Hierarchical synthesis
 
 Builds compose-pools `p2..p8` of bodies containing at least one SUB_CALL slot, then tests each composed body in MODE_FUNC, MODE_ITER, and MODE_EMIT. Uses a witness-trajectory pre-filter to skip MODE_FUNC enumerations that cannot match `tgt[0]`. Tests are gated by a deadline check between modes to bound per-candidate runtime.
 
@@ -126,7 +126,7 @@ count (4 bytes)
 N × ProgramRecord (sizeof(ProgramRecord) bytes each)
 ```
 
-The library is loaded at `solve()` entry and (under default behaviour) saved when a new program is recorded. The `--freeze-db` CLI flag suppresses writes — useful for evaluation runs that need a stable catalog.
+The library is loaded at `solve()` entry and (under default behaviour) saved when a new program is recorded. The `--freeze-db` CLI flag suppresses writes - useful for evaluation runs that need a stable catalog.
 
 Dedup at insertion uses `programRecordHash`, which hashes all fields that distinguish programs structurally (body, mode, registers, init values, branch parameters, special-mode parameters).
 
@@ -150,9 +150,9 @@ The SUB_CALL memoization cache is per-thread (`g_subcall_cache`), cleared at `so
 CMake (`CMakeLists.txt`) builds one binary, `omnis`, from `src/cli.cpp` (which `#include`s `src/omnis.cpp`). Tests live under `tests/` and are wired into CTest.
 
 A small set of shell scripts under `build/`:
-- `build.sh` — direct g++ build
-- `build_pgo.sh` — profile-guided optimization
-- `mine.sh` — shell loop over a workload file (composes `omnis -` per line)
+- `build.sh` - direct g++ build
+- `build_pgo.sh` - profile-guided optimization
+- `mine.sh` - shell loop over a workload file (composes `omnis -` per line)
 
 ## 9. Tests
 

@@ -1,4 +1,4 @@
-# OEIS snapshot — pinned sources
+# OEIS snapshot: pinned sources
 
 Pinned: 2026-05-06T23:32:21Z
 

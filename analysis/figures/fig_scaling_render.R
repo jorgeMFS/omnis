@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Companion to analyze_omnis.py — publication-quality redraw of the
+# Companion to analyze_omnis.py - publication-quality redraw of the
 # per-instance scaling scatter (the analyze_omnis "scaling" figure),
 # colored by POPULATION (S1–S4). Distinct from fig4_conservation, which
 # colors the same data by solver_family.

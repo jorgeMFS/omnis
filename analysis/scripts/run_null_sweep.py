@@ -25,7 +25,7 @@ BIN          = os.path.join(REPO_ROOT, "build-cmake", "omnis_validate")
 WORKLOAD     = os.path.join(ANALYSIS_DIR, "null_sweep", "null_shuffled.workload")
 DEFAULT_OUT  = os.path.join(ANALYSIS_DIR, "null_sweep", "null_raw.csv")
 
-# Columns omnis_validate emits — same as the baseline CSV schema.
+# Columns omnis_validate emits - same as the baseline CSV schema.
 SCHEMA = ["id","category","oeis_xref","A","total_n","train_n","k","sc","pred_sc",
           "solomonoff_class","mdl","raw_bits","ratio","time_s","solver_desc"]
 
@@ -71,9 +71,9 @@ def main():
     args = ap.parse_args()
 
     if not os.path.isfile(BIN):
-        sys.exit(f"missing engine binary {BIN} — build with cmake first")
+        sys.exit(f"missing engine binary {BIN} - build with cmake first")
     if not os.path.isfile(args.workload):
-        sys.exit(f"missing workload {args.workload} — run null_make_workload.py")
+        sys.exit(f"missing workload {args.workload} - run null_make_workload.py")
 
     seqs = load_workload(args.workload)
     if args.limit is not None:

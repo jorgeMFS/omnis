@@ -36,7 +36,7 @@ static ProgramRecord makeRecordWithBody(const Ins* ops, int n) {
     for (int i = 0; i < n; i++) pr.body[i] = ops[i];
     pr.nr = 1;
     pr.outr = 0;
-    pr.mode_u = 0;        // MODE_ITER — pure body, invocable
+    pr.mode_u = 0;        // MODE_ITER - pure body, invocable
     pr.ointerp_u = 0;
     pr.branched = 0;
     pr.concat_base = 0;
@@ -46,7 +46,7 @@ static ProgramRecord makeRecordWithBody(const Ins* ops, int n) {
 }
 
 // =========================================================================
-// Test 1: Bug 1 fix — Opt B cache must not pollute MODE_EMIT context.
+// Test 1: Bug 1 fix - Opt B cache must not pollute MODE_EMIT context.
 //
 // Scenario: library entry with body {INC(R0); OUT(R0); INC(R0)} (3 instructions
 // → meets Opt B threshold). When invoked in MODE_EMIT context (g_emit_A>0),
@@ -97,7 +97,7 @@ static bool test_opt_b_no_cache_in_emit_context() {
 }
 
 // =========================================================================
-// Test 2: Bug 2 fix — WSBP-2H scan must detect indirect OUT via SUB_CALL.
+// Test 2: Bug 2 fix - WSBP-2H scan must detect indirect OUT via SUB_CALL.
 //
 // We replicate the scan logic here (the inline scan in the Phase 2H worker
 // is not directly callable from a test, so we duplicate the predicate).
@@ -148,12 +148,12 @@ static bool test_wsbp_2h_indirect_out_detection() {
     Ins body_a[1] = {out0};
     bool a = emit_possible_replica(body_a, 1);
 
-    // Scenario B: top-level has SUB_CALL(L0) — L0 has OUT
+    // Scenario B: top-level has SUB_CALL(L0) - L0 has OUT
     Ins sc_l0 = {32, 0, {0, 0, 0, 0}, 0};  // SUB_CALL idx=0
     Ins body_b[1] = {sc_l0};
     bool b = emit_possible_replica(body_b, 1);
 
-    // Scenario C: top-level has SUB_CALL(L1) — L1 has no OUT
+    // Scenario C: top-level has SUB_CALL(L1) - L1 has no OUT
     Ins sc_l1 = {32, 1, {0, 0, 0, 0}, 0};  // SUB_CALL idx=1
     Ins body_c[1] = {sc_l1};
     bool c = emit_possible_replica(body_c, 1);
@@ -174,12 +174,12 @@ static bool test_wsbp_2h_indirect_out_detection() {
 }
 
 // =========================================================================
-// Test 3: Bug 3 fix — resFingerprint distinguishes DARY ops.
+// Test 3: Bug 3 fix - resFingerprint distinguishes DARY ops.
 //
 // Scenario: two Res records with same dary_base, dary_init_val, mode, etc.
 // but different dary_op (the per-digit transform Ins). Before the fix, both
 // would produce the same fingerprint and the second would be deduplicated
-// as a "duplicate" — but they're functionally distinct programs.
+// as a "duplicate" - but they're functionally distinct programs.
 //
 // After the fix: dary_op is hashed when dary_base >= 2, so the fingerprints
 // differ and both programs are kept.
@@ -206,7 +206,7 @@ static bool test_resFingerprint_dary_op_distinction() {
 }
 
 // =========================================================================
-// Test 4: Sanity — when dary_base < 2, dary_op shouldn't affect fingerprint
+// Test 4: Sanity - when dary_base < 2, dary_op shouldn't affect fingerprint
 // (DARY mode not active, so dary_op is irrelevant state).
 // Ensures the conditional gate `if (r.dary_base >= 2)` works correctly.
 // =========================================================================
@@ -266,7 +266,7 @@ static bool test_resFingerprint_field_coverage() {
 }
 
 // =========================================================================
-// Test 6: Bug 4 fix — computeMDL distinguishes CONCAT programs by concat_base.
+// Test 6: Bug 4 fix - computeMDL distinguishes CONCAT programs by concat_base.
 //
 // CONCAT mode is pure deductive (predictNext uses concat_base/off/msb directly,
 // never reads body). Before the fix, MDL formula didn't include these fields,
@@ -297,7 +297,7 @@ static bool test_computeMDL_concat_distinct() {
 }
 
 // =========================================================================
-// Test 7: Bug 4 fix — computeMDL distinguishes DARY programs by dary_base.
+// Test 7: Bug 4 fix - computeMDL distinguishes DARY programs by dary_base.
 // Same C2 rationale as CONCAT.
 // =========================================================================
 static bool test_computeMDL_dary_distinct() {
@@ -328,7 +328,7 @@ static bool test_computeMDL_dary_distinct() {
 //
 // With nr=1, register selectors cost log2(1)=0 bits, so arity contributes nothing.
 // All opcodes have same opcode-encoding cost (log2(ncat)). So with nr=1, two
-// different ti values can produce identical MDL — this is correct under the
+// different ti values can produce identical MDL - this is correct under the
 // canonical encoding.
 //
 // To verify dary_op IS distinguished by MDL, use nr > 1 so register selectors
@@ -358,7 +358,7 @@ static bool test_computeMDL_dary_op_distinct_with_arity() {
 }
 
 // =========================================================================
-// Test 9: Bug 7 fix — programRecordHash distinguishes branched programs by
+// Test 9: Bug 7 fix - programRecordHash distinguishes branched programs by
 // branch_m. The pre-fix bodyHash() in ProgramDB only included
 // (body, n, nr, outr, mode), missing branch params. Two distinct branched
 // programs with same body but different branch_m would collide → second

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run_paper_baseline.sh — full categorical reproduction sweep.
+# run_paper_baseline.sh - full categorical reproduction sweep.
 #
 # Runs omnis_validate over every workload in data/categories/, writing one
 # CSV row per candidate to data/results/baseline_<date>.csv. Emits a run
@@ -11,7 +11,7 @@
 #   - freeze-db is enforced (omnis_validate's default; never write to library)
 #   - per-sequence budget is uniform (default 600s)
 #   - every classification uses the canonical Solomonoff cell (compresses
-#     AND predicts) — see docs/SOLOMONOFF_VALIDATION.md
+#     AND predicts) - see docs/SOLOMONOFF_VALIDATION.md
 #   - manifest captures the environment so others can verify their reroll
 #     reproduces the (sc, pred_sc, MDL ± 0.5) determinism contract
 #
@@ -68,7 +68,7 @@ if [ ! -d "$CAT_DIR" ]; then
     exit 1
 fi
 
-# Verify checksums first — refuses to run on drifted workloads.
+# Verify checksums first - refuses to run on drifted workloads.
 if [ -f "$CAT_DIR/CHECKSUMS.sha256" ]; then
     ( cd "$CAT_DIR" && shasum -a 256 -c CHECKSUMS.sha256 >/dev/null 2>&1 ) || {
         echo "run_paper_baseline: data/categories/ workloads drifted from CHECKSUMS pin." >&2
@@ -172,7 +172,7 @@ SNAPSHOT_NAMES_SHA="$( (test -f "$SNAPSHOT_DIR/names.gz" \
 
 {
     echo "# omnis baseline run manifest (schema + provenance contract)"
-    echo "# CHECKPOINT WRITE — fields below are valid; completion_status updates at end."
+    echo "# CHECKPOINT WRITE - fields below are valid; completion_status updates at end."
     echo "run_id:                 baseline_${DATE_TAG}"
     echo "csv_path:               $CSV_PATH"
     echo "csv_schema_columns:     15  # id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc"

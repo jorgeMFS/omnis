@@ -8,7 +8,7 @@ Output columns: null_type, population, compressed, predicted
   compressed = 1 iff sc == train_n  (the compression gate)
   predicted  = 1 iff pred_sc == k   (the prediction gate)
 
-A trial is counted as a "discovery" only when both are 1 — that's the
+A trial is counted as a "discovery" only when both are 1 - that's the
 Solomonoff cell.  This script *only* assembles columns from data; it never
 fabricates an outcome.
 """

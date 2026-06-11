@@ -1,19 +1,19 @@
 #!/usr/bin/env Rscript
-# Figure 6 — The Compression-Prediction Landscape.
+# Figure 6 - The Compression-Prediction Landscape.
 #
 # Single panel, full four-population corpus:
 #   S1 (mixed OEIS) + S2 (elementary CA) + S3-deduped (OEIS base+core)
 #   + S4 (totalistic 3-state CA)  =  3,914 sequences.
 #
 # The figure's load-bearing classes are the 17 compressed-only and
-# 27 predicted-only points — the off-diagonal counts quoted directly
+# 27 predicted-only points - the off-diagonal counts quoted directly
 # in the paper text. Drawing order and styling are tuned so those
 # two small classes stay legible against the dense (~1,500-point)
 # `neither` background.
 #
 # Z-order, back to front:
-#   neither     — light gray, low alpha, small         (background)
-#   discovered  — blue,  medium alpha, medium          (diagonal band)
+#   neither     - light gray, low alpha, small         (background)
+#   discovered  - blue,  medium alpha, medium          (diagonal band)
 #   predicted_only \  full opacity, larger, thin dark  (off-diagonal,
 #   compressed_only /  stroke around each marker        story-relevant)
 #
@@ -164,11 +164,11 @@ p <- ggplot() +
 
   # --- Z-order, back to front ---
   #
-  # 1) `neither` — light gray cloud, recedes.
+  # 1) `neither` - light gray cloud, recedes.
   geom_point(data = d_neither,
              aes(x = train_ratio, y = total_ratio, color = class),
              alpha = 0.20, size = 0.45, na.rm = TRUE) +
-  # 2) `discovered` — the diagonal band.
+  # 2) `discovered` - the diagonal band.
   geom_point(data = d_disc,
              aes(x = train_ratio, y = total_ratio, color = class),
              alpha = 0.55, size = 0.95, na.rm = TRUE) +
@@ -200,7 +200,7 @@ p <- ggplot() +
            size = 2.2, fontface = "italic", family = "Helvetica") +
 
   # On-plot annotations for the two off-diagonal regions.
-  # Counts come from the asserted count table (N_PRED, N_COMP) — they
+  # Counts come from the asserted count table (N_PRED, N_COMP) - they
   # cannot drift from the data even if the sweep is rerun.
   annotate("text",
            x = 2.05, y = 0.55,
@@ -257,7 +257,7 @@ p <- ggplot() +
   )
 
 # --- Save --------------------------------------------------------------
-# 1.5-column PNAS width — ~3,900 points would feel cramped at
+# 1.5-column PNAS width - ~3,900 points would feel cramped at
 # single-column (87 mm), and the two small off-diagonal classes need
 # room to read. Gentle near-square aspect so the unit box has vertical
 # presence rather than being squished into a wide band.

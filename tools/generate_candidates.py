@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-generate_candidates.py — Generate input files for oeis_miner.
+generate_candidates.py - Generate input files for oeis_miner.
 
 Usage:
     python3 generate_candidates.py D > candidates_D.txt   # p-adic valuations

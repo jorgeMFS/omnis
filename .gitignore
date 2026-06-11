@@ -35,8 +35,8 @@ compile_commands.json
 /tmp/
 /scratch/
 
-# OEIS bulk — fetched on demand via tools/oeis_fetch.sh + tools/oeis_keyword_fetch.sh.
-# SHA-pinned via *.sha256 sidecars (which ARE tracked) — see data/oeis/SOURCES.md.
+# OEIS bulk - fetched on demand via tools/oeis_fetch.sh + tools/oeis_keyword_fetch.sh.
+# SHA-pinned via *.sha256 sidecars (which ARE tracked) - see data/oeis/SOURCES.md.
 /data/oeis/snapshot/*.gz
 /data/oeis/snapshot/keywords.tsv
 /data/oeis/canary/b*.txt

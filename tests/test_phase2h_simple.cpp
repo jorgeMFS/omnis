@@ -9,7 +9,7 @@
 //   1. Phase 2H code path executes without crashing.
 //   2. Pools p4..p8 are built with non-zero entries.
 //   3. Phase 2H emits a P2H_FUNC/ITER/EMIT HIT line (or doesn't, if the
-//      target solves in earlier phases — both are acceptable).
+//      target solves in earlier phases - both are acceptable).
 //
 // Build:
 //   g++ -std=c++17 -O2 -I../src test_phase2h_simple.cpp -o /tmp/test_phase2h
@@ -52,7 +52,7 @@ static bool test_phase2h_executes() {
     Ins inc = {0, 0, {0, 0, 0, 0}, 1};
     g_progdb.records.push_back(makeRecord(&inc, 1));
 
-    // Use canonical Counting benchmark (50 elements, A=4) — known well-behaved input.
+    // Use canonical Counting benchmark (50 elements, A=4) - known well-behaved input.
     auto tgt = genCounting(50);
 
     printf("  phase2h_executes: starting solve(%d, A=4, dl=8s)\n", (int)tgt.size());
@@ -68,7 +68,7 @@ static bool test_phase2h_executes() {
 }
 
 // Test 2: Phase 2H can find a SUB_CALL-using program for a compositional target.
-// Library: INC R0. Target: counting sequence (n mod 4) — Phase 2A's INC body
+// Library: INC R0. Target: counting sequence (n mod 4) - Phase 2A's INC body
 // is the trivial baseline, but a pool body containing SUB_CALL(INC) at any
 // position should also match. We just verify some program with sc==N is found.
 static bool test_phase2h_finds_solution() {
@@ -92,7 +92,7 @@ static bool test_phase2h_finds_solution() {
 // Test 3: Phase 2H is dormant when library has no invocable entries.
 // Without invocable entries, Phase 2H gates itself off (lib_invocable < 1).
 // solve() should still complete cleanly.
-// We use an empty library (resetLibrary leaves it empty) — simplest case
+// We use an empty library (resetLibrary leaves it empty) - simplest case
 // of "no invocable entries." Constructing a malformed branched record
 // would trigger runtime divide-by-zero in unrelated phase logic, so we
 // just leave the library empty.
@@ -114,11 +114,11 @@ static bool test_phase2h_dormant_no_lib() {
     return pass;
 }
 
-// Test 4: direct pool-build exercise — verify composeDDB + subcall_filter
+// Test 4: direct pool-build exercise - verify composeDDB + subcall_filter
 // produces SUB_CALL-containing pools at L=4..8.
 static bool test_phase2h_pool_build() {
     resetLibrary();
-    // Library entry: 2-op program R0 = (R0 + 1) * 3 — NOT expressible as a single L1 op.
+    // Library entry: 2-op program R0 = (R0 + 1) * 3 - NOT expressible as a single L1 op.
     // Fingerprint dedup will not unify this with any L1 instruction (different R-state map).
     Ins body[2];
     body[0] = {0, 0, {0, 0, 0, 0}, 1};      // INC R0
@@ -178,7 +178,7 @@ static bool test_phase2h_pool_build() {
 
 int main() {
     printf("=========================================================\n");
-    printf("Phase 2H — Hierarchical synthesis verification (canonical)\n");
+    printf("Phase 2H - Hierarchical synthesis verification (canonical)\n");
     printf("=========================================================\n\n");
 
     int passed = 0, total = 0;

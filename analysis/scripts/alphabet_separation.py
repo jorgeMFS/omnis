@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-alphabet_separation.py — substantiate the §3.5 alphabet-scaling claim
+alphabet_separation.py - substantiate the §3.5 alphabet-scaling claim
 with Fisher's exact test, named subset, named n, and an exact p-value.
 
 The §3.5 paragraph contains two distinct numerical claims about how the
 engine's discovery rate scales with alphabet size on OEIS-derived rows:
 
   (1) Rate progression "54 % binary → 33 % ternary → 27 % in the next"
-      — verified against S3 oeis_base (161 sequences at each of A=2/3/4,
+      - verified against S3 oeis_base (161 sequences at each of A=2/3/4,
       deduplicated, the same population fig6 uses).
 
   (2) Hardest OEIS subset: binary rate "near thirty percent" collapsing
       to zero at larger alphabets, separation significant beyond 1e-6
-      — verified against S1 oeis_hard (26 sequences at each of A=2/3/4),
+      - verified against S1 oeis_hard (26 sequences at each of A=2/3/4),
       via Fisher's exact two-tailed test on a 2x2 contingency table.
 
 Read-only on the baselines; writes a single side-car to
@@ -113,7 +113,7 @@ def main():
     s1 = load(S1_CSV, apply_dedupe=False)
     s3 = load(S3_CSV, apply_dedupe=True)
 
-    # ----- Claim (1): the 54/33/27 progression — S3 oeis_base ---------
+    # ----- Claim (1): the 54/33/27 progression - S3 oeis_base ---------
     print("=" * 72)
     print(" Claim (1): rate progression 54% binary → 33% ternary → 27% A=4")
     print(" Source: S3 oeis_base (deduped, 161 sequences per alphabet A=2,3,4)")
@@ -129,10 +129,10 @@ def main():
         print(f"    A={A}: empirical {p*100:.2f}% vs paper {paper_targets[A]*100:.0f}% "
               f"→ {'CONFIRMED' if match else 'differs'}")
 
-    # ----- Claim (2): the hardest OEIS subset — S1 oeis_hard ----------
+    # ----- Claim (2): the hardest OEIS subset - S1 oeis_hard ----------
     print()
     print("=" * 72)
-    print(" Claim (2): hardest OEIS subset — binary ≈ 30%, larger A → 0%")
+    print(" Claim (2): hardest OEIS subset - binary ≈ 30%, larger A → 0%")
     print(" Source: S1 oeis_hard (26 sequences per alphabet A=2,3,4)")
     print("=" * 72)
     hard = [r for r in s1 if r["cat"] == "oeis_hard"]
@@ -170,7 +170,7 @@ def main():
 
     # --- Fisher reported for completeness; not the correct test here ---
     table, odds, p_fisher = fisher_2x2(disc_bin, n_bin, disc_lg, n_lg)
-    print(f"\n  [Fisher's exact two-tailed — for completeness only; not valid here]")
+    print(f"\n  [Fisher's exact two-tailed - for completeness only; not valid here]")
     print(f"     odds ratio: {'∞ (zero discoveries in larger A)' if odds == float('inf') else f'{odds:.4g}'}")
     print(f"     exact p:    {p_fisher:.4g}")
 
@@ -191,7 +191,7 @@ def main():
     disc_2_only_v4 = [x for x in shared if by_A_xref_outcome[(x, 2)] and not by_A_xref_outcome[(x, 4)]]
     disc_4_only    = [x for x in shared if not by_A_xref_outcome[(x, 2)] and by_A_xref_outcome[(x, 4)]]
 
-    print(f"\n  McNemar's exact (binomial) two-sided — the correct test")
+    print(f"\n  McNemar's exact (binomial) two-sided - the correct test")
     print(f"  ────────────────────────────────────────────────────────")
     print(f"  Binary vs Ternary (n = {len(shared)} paired sequences)")
     print(f"    disc at A=2 but fail at A=3: {n10_23}  (ids: {disc_2_only_v3})")

@@ -34,7 +34,7 @@ def seed_for(original_id, salt=b"omnis-null-shuffled"):
 
 
 def multiset_sha(terms):
-    # Hash of the sorted symbol counts — invariant under permutation.
+    # Hash of the sorted symbol counts - invariant under permutation.
     cnt = sorted(Counter(terms).items())
     s = ",".join(f"{k}:{v}" for k, v in cnt)
     return hashlib.sha256(s.encode()).hexdigest()[:16]
@@ -63,7 +63,7 @@ def index_category(cat):
 
 def main():
     if not os.path.exists(SAMPLE_CSV):
-        sys.exit("null_sample.csv missing — run null_sample.py first")
+        sys.exit("null_sample.csv missing - run null_sample.py first")
 
     sample = list(csv.DictReader(open(SAMPLE_CSV)))
     print(f"loaded {len(sample)} sampled sequences")

@@ -1,5 +1,5 @@
 // =========================================================================
-// test_engine_determinism — 30-candidate determinism canary.
+// test_engine_determinism - 30-candidate determinism canary.
 //
 // Determinism contract:
 //   "Engine determinism. Thread-pool may produce non-identical
@@ -15,7 +15,7 @@
 //     fresh in-process from tests/benchmarks.h or short closed-forms.
 //   - Each candidate run with --budget 60 (sufficient for the selected
 //     30 candidates to converge; the §3 contract is conditional on
-//     sufficient budget — at tight budget the worker pool can fail to
+//     sufficient budget - at tight budget the worker pool can fail to
 //     find a solution that exists, which is by design of bounded search,
 //     not an engine determinism violation). Empirical convergence
 //     floor for the canary candidate set (rule30 & divisorcount at

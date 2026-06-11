@@ -69,7 +69,7 @@ its prior weight is `2^{-mdl(r)}`. If that hypothesis additionally
 predicts every held-out symbol, the data is consistent with the
 hypothesis being the *generator*, not merely a descriptor.
 
-The combination — compression AND prediction — is the operational
+The combination - compression AND prediction - is the operational
 analogue of "this hypothesis explains the past *and* extrapolates to
 the future". Either alone is insufficient:
 
@@ -94,7 +94,7 @@ the future". Either alone is insufficient:
 `bench_sigma` is informative: the engine finds a 6-deep nested LOOP
 that matches every held-out term but its 102.3-bit description exceeds
 the raw 100-bit baseline (training prefix of 50 symbols at A=4). The
-engine is reporting "I cannot describe this short" — appropriately.
+engine is reporting "I cannot describe this short" - appropriately.
 
 ## 6. Determinism contract
 
@@ -117,6 +117,6 @@ sequence.
 
 ## 7. References
 
-- `tools/omnis_validate.cpp` — the binary that computes the cell per row.
-- Internal validation report — empirical validation on the 14-benchmark suite
+- `tools/omnis_validate.cpp` - the binary that computes the cell per row.
+- Internal validation report - empirical validation on the 14-benchmark suite
   used here as `benchmark14`.

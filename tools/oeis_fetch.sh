@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# oeis_fetch.sh — Pin a reproducible OEIS snapshot.
+# oeis_fetch.sh - Pin a reproducible OEIS snapshot.
 #
 # Downloads:
 #   - stripped.gz  (numerical sequences, ~31 MB)
@@ -11,7 +11,7 @@
 #   - On subsequent runs: redownloads, verifies SHA matches the committed pin,
 #     fails fast if OEIS has updated since pinning.
 #
-#   The bulk files (stripped.gz, names.gz) are NOT committed to git — they are
+#   The bulk files (stripped.gz, names.gz) are NOT committed to git - they are
 #   30+ MB and recreatable from the pinned SHA. The pinned SHA + this script
 #   ARE the reproducibility contract.
 #
@@ -21,7 +21,7 @@
 # Exit codes:
 #   0  snapshot present and verified
 #   1  download failed
-#   2  SHA mismatch (OEIS upstream has changed since pin) — see SOURCES.md
+#   2  SHA mismatch (OEIS upstream has changed since pin) - see SOURCES.md
 #   3  prerequisite missing (curl, shasum)
 
 set -eu
@@ -58,7 +58,7 @@ sha256_of() {
 http_get() {
     # $1 = URL, $2 = output path
     # Robust: 5 retries, exponential backoff via --retry, max 120s per attempt.
-    # Plain UA — oeis.org's WAF rejects some custom strings; a vanilla browser
+    # Plain UA - oeis.org's WAF rejects some custom strings; a vanilla browser
     # UA is the documented contract for the bulk download endpoints.
     curl -fsSL --retry 5 --retry-delay 2 --max-time 120 \
          -A "Mozilla/5.0 (compatible; omnis/0.1)" \
@@ -160,7 +160,7 @@ done
 
 if [ "$REFRESH" = "1" ] || [ ! -f "$SOURCES_MD" ]; then
     {
-        echo "# OEIS snapshot — pinned sources"
+        echo "# OEIS snapshot - pinned sources"
         echo ""
         echo "Pinned: $now_iso"
         echo ""

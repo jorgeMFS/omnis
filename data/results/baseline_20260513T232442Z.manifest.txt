@@ -1,5 +1,5 @@
 # omnis baseline run manifest (schema + provenance contract)
-# CHECKPOINT WRITE — fields below are valid; completion_status updates at end.
+# CHECKPOINT WRITE - fields below are valid; completion_status updates at end.
 run_id:                 baseline_20260513T232442Z
 csv_path:               <REPO_ROOT>/data/results/baseline_20260513T232442Z.csv
 csv_schema_columns:     15  # id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc

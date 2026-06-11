@@ -1,4 +1,4 @@
-// gen_workload.cpp — Deterministic workload generator for OMNIS categorical sweep.
+// gen_workload.cpp - Deterministic workload generator for OMNIS categorical sweep.
 //
 // Pure C++17. No engine link. Emits omnis-workload v1 format on stdout.
 //
@@ -435,7 +435,7 @@ static std::vector<int> genPiDigitsMod(int N, int A) {
     return out;
 }
 
-// Benchmark 12 — hand-written reference set. Each maps to a specific
+// Benchmark 12 - hand-written reference set. Each maps to a specific
 // closed-form known to the engine (see tests/benchmarks.h).
 static std::vector<int> genBmCounting(int N) { std::vector<int> o(N); for(int i=0;i<N;i++) o[i]=i%4; return o; }
 static std::vector<int> genBmPow3Mod7(int N) { std::vector<int> o; int x=1; for(int i=0;i<N;i++){o.push_back(x); x=(x*3)%7;} return o; }
@@ -485,7 +485,7 @@ static std::vector<int> genBmCollatzStop(int N) {
 // Pi-base-4 (uses same hex source as genPiDigitsMod).
 static std::vector<int> genBmPiB4(int N) { return genPiDigitsMod(N, 4); }
 
-// Smoke tests — number-theoretic functions requiring nested loops (trial
+// Smoke tests - number-theoretic functions requiring nested loops (trial
 // division). Per the standard benchmark list, these expose
 // engine ability to discover NESTED_LOOP shapes. DivisorCount = OEIS A000005,
 // Sigma = OEIS A000203. Both use mod A=4 by convention.
@@ -688,7 +688,7 @@ static std::vector<Emit> buildMorphic(int N) {
 
 static std::vector<Emit> buildNegControls(int N, uint32_t seed) {
     std::vector<Emit> v;
-    // Pi-base-4 — proven hard at the engine's ISA (BBP spigot exceeds int64
+    // Pi-base-4 - proven hard at the engine's ISA (BBP spigot exceeds int64
     // saturation at N >= 20; consistent with the coupling-barrier analysis).
     v.push_back({"neg_pi_b4", 4, genPiDigitsMod(N, 4)});
 
@@ -703,7 +703,7 @@ static std::vector<Emit> buildNegControls(int N, uint32_t seed) {
         }
     }
 
-    // "Crypto-style" — random with an additional XOR mask. Still random; a
+    // "Crypto-style" - random with an additional XOR mask. Still random; a
     // labeled variant for the negative-control band. 5 at A=2, 4 at A=4 = 9
     // candidates. Total: 1 + 10 + 9 = 20.
     {
@@ -734,7 +734,7 @@ static std::vector<Emit> buildNegControls(int N, uint32_t seed) {
 static std::vector<Emit> buildBenchmark14() {
     // The 14 standard benchmarks:
     // 12 "Table 1" reference programs PLUS DivisorCount + Sigma. The latter
-    // two are smoke tests for nested-loop discovery — they expose engine
+    // two are smoke tests for nested-loop discovery - they expose engine
     // ability to find OEIS A000005 / A000203 shapes (trial-division loops).
     //
     // Each benchmark emits (published_N + K_at_published_N) terms total. The
@@ -764,7 +764,7 @@ static std::vector<Emit> buildBenchmark14() {
     v.push_back({"bench_champernowne",  4, genBmChampernowne(pad(100))});
     v.push_back({"bench_collatzstop",   4, genBmCollatzStop( pad(50))});
     v.push_back({"bench_pib4",          4, genBmPiB4(        pad(200))});
-    // Smoke tests — standard benchmark definitions.
+    // Smoke tests - standard benchmark definitions.
     v.push_back({"bench_divisorcount",  4, genBmDivisorCount(pad(50))});
     v.push_back({"bench_sigma",         4, genBmSigma(       pad(50))});
     return v;
@@ -790,7 +790,7 @@ static const char* RULE_BENCHMARK14        = "12 hand-written reference targets 
 
 static void printUsage() {
     std::fprintf(stderr,
-        "gen_workload — deterministic workload generator for OMNIS categorical sweeps.\n"
+        "gen_workload - deterministic workload generator for OMNIS categorical sweeps.\n"
         "\n"
         "Usage:\n"
         "  gen_workload --category <name> [--n N] [--seed S] [--out PATH]\n"

@@ -1,5 +1,5 @@
 #!/bin/bash
-# OMNIS — multi-sequence shell wrapper.
+# OMNIS - multi-sequence shell wrapper.
 #
 # Default mode: runs `omnis` over each line of a workload file and writes a
 # TSV row per result.

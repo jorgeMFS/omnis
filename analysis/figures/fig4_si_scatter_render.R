@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Figure 4 — Per-instance scaling law (single panel).
+# Figure 4 - Per-instance scaling law (single panel).
 #
 # Replaces the prior two-panel figure (Panel A: family-mean Spearman;
 # Panel B: NESTED_LOOP nesting-depth stair). Both panels are gone.
@@ -12,7 +12,7 @@
 #   overlay: pooled OLS fit (primary, solid). Theil-Sen (secondary,
 #            dashed, lighter) for the robust-fit footnote.
 #
-# Source: same as analyze_omnis.py — the four baseline CSVs in
+# Source: same as analyze_omnis.py - the four baseline CSVs in
 # data/results/, filtered to solomonoff_class == "discovered", with
 # the S3 dedupe rule applied. Self-contained; no /tmp dependency.
 #
@@ -41,15 +41,15 @@ NC_LINE     <- "#A8332C"     # OLS (no CTX_X subset): secondary, solid dark red
 TS_LINE     <- "#B8B0A4"     # Theil-Sen: tertiary, dashed, faint
 DEADLINE_LN <- "#C8C0B4"     # CTX_X 30s phase deadline reference
 
-# Per-population aesthetic: S4 is the densest cloud (1,683 pts) — lower alpha
-# so the cluster does not visually swamp S1/S2/S3. S1 (120 pts) is sparsest —
+# Per-population aesthetic: S4 is the densest cloud (1,683 pts) - lower alpha
+# so the cluster does not visually swamp S1/S2/S3. S1 (120 pts) is sparsest -
 # higher alpha to keep individual points readable.
 STAGE_ALPHA <- c(S1 = 0.70, S2 = 0.55, S3 = 0.55, S4 = 0.32)
 STAGE_SIZE  <- c(S1 = 0.55, S2 = 0.55, S3 = 0.55, S4 = 0.50)
 
 DROP_XREF <- c("A000069", "A000120", "A001969", "A002113")
 
-# Manuscript numbers — TWO regressions reported in Section 3.3.
+# Manuscript numbers - TWO regressions reported in Section 3.3.
 # Pooled: all 2,383 discoveries.
 # Conditional: same regression restricted to discoveries NOT produced by
 # the CTX_X solver family. CTX_X has an engine-internal 30s phase deadline
@@ -143,8 +143,8 @@ if (nrow(d) != nrow(fig4)) {
 }
 
 # --- OLS regression: two fits side by side -----------------------------
-# (A) all 2,383 discoveries — the headline empirical scaling.
-# (B) same regression restricted to NOT-CTX_X — strips the engine-internal
+# (A) all 2,383 discoveries - the headline empirical scaling.
+# (B) same regression restricted to NOT-CTX_X - strips the engine-internal
 #     30s phase-deadline variance and reveals the structural slope.
 d$log2t <- log2(d$time_s)
 d$is_ctx <- d$solver_family == "CTX_X"
@@ -199,7 +199,7 @@ slope <- fA$slope; intc <- fA$intc; ci <- c(fA$lo, fA$hi); r2 <- fA$r2; n <- fA$
 
 # --- Theil-Sen slope on a deterministic subsample ---------------------
 # Full pairwise Theil-Sen on n=2,383 = ~2.8M pairs, ~tens of seconds in R.
-# Use a fixed-seed random subsample of 800 points (≈ 320k pairs) — slope
+# Use a fixed-seed random subsample of 800 points (≈ 320k pairs) - slope
 # stabilises well before the asymptote. Manuscript reports 0.066; we
 # annotate the canonical value below the fitted line, but the visual
 # overlay is drawn from the recomputed subsample slope.
@@ -222,7 +222,7 @@ cat(sprintf("Theil-Sen slope (subsample n=%d): %.4f   (manuscript: 0.0660)\n",
 
 # --- Plot data --------------------------------------------------------
 # Slight per-stage jitter on a single tied x (program_bits is integer-like
-# in the engine — many ties) is unnecessary because we plot on float bits.
+# in the engine - many ties) is unnecessary because we plot on float bits.
 # Order populations so S4 (densest, dark navy) is drawn first/underneath.
 d$population <- factor(d$population, levels = c("S4","S3","S2","S1"))
 d <- d[order(d$population), ]
@@ -291,7 +291,7 @@ p <- ggplot() +
   geom_abline(slope = fA$slope, intercept = fA$intc,
               color = OLS_LINE, linewidth = 0.55) +
 
-  # Stat block — two regressions reported side-by-side, italic, soft ink.
+  # Stat block - two regressions reported side-by-side, italic, soft ink.
   annotate("text",
            x = x_min + 0.035 * (x_max - x_min),
            y = y_max - 0.02  * (y_max - y_min),
@@ -356,7 +356,7 @@ Theil–Sen         β = %.4f",
 pdf_path <- file.path(here, "fig4_si_scatter.pdf")
 png_path <- file.path(here, "fig4_si_scatter.png")
 
-# 1.5-column PNAS width, near-square — same envelope as fig6 so the two
+# 1.5-column PNAS width, near-square - same envelope as fig6 so the two
 # scatter-style figures sit at the same scale. Room for the 3-line stat
 # block + deadline label + bottom legend without crowding.
 FIG_W_MM <- 114

@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Figure 3 — Resolution-time strip plot, one column per population.
+# Figure 3 - Resolution-time strip plot, one column per population.
 #
 # Visualises the "cliff" argument of Section 3.2: discoveries land
 # fast and below the budget; everything else piles up against the
@@ -191,7 +191,7 @@ p <- ggplot() +
            hjust = 1, vjust = -0.5,
            size = 2.1, fontface = "italic", family = "Helvetica") +
 
-  # 1) Non-discoveries first/underneath — muted gray, low alpha.
+  # 1) Non-discoveries first/underneath - muted gray, low alpha.
   #    Vast majority sit at the wall; a few early-stop below it.
   geom_point(data = other_d,
              aes(x = stage, y = time_s),
@@ -200,7 +200,7 @@ p <- ggplot() +
              alpha = 0.25, size = 0.45, stroke = 0.10,
              position = jit_other) +
 
-  # 2) Discoveries on top — stage colour, more saturated.
+  # 2) Discoveries on top - stage colour, more saturated.
   geom_point(data = disc_d,
              aes(x = stage, y = time_s, fill = stage),
              shape = 21, color = "white",

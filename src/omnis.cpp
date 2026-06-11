@@ -1,5 +1,5 @@
 // ============================================================
-// omnis.cpp — OMNIS Solomonoff induction approximator: 3-mode sieve
+// omnis.cpp - OMNIS Solomonoff induction approximator: 3-mode sieve
 //
 // Three execution MODES (not representations):
 // MODE_ITER: R=init, persist, output R[outr]%A before body
@@ -39,7 +39,7 @@ static double now_s(){using C=std::chrono::steady_clock;static auto t0=C::now();
 return std::chrono::duration<double>(C::now()-t0).count();}
 
 // ================================================================
-// Section 1: ISA Execution — One interpreter, reused everywhere
+// Section 1: ISA Execution - One interpreter, reused everywhere
 // ================================================================
 static constexpr int64_t SAT=(int64_t)1e15;
 // Fast hash mixer (wyhash-inspired). Replaces FNV-1a in hot fingerprinting paths.
@@ -95,10 +95,10 @@ static constexpr int kStepIterCap = kIsaMaxConstantConstexpr * kIsaMaxConstantCo
 static constexpr int kQuickCheckLen = 2 * kIsaMaxConstantConstexpr;
 
 // hash-set initial bucket reserve for Phase 2F
-// fingerprint dedup. Derivation: isaMaxConstant⁵ — five levels of ISA
+// fingerprint dedup. Derivation: isaMaxConstant⁵ - five levels of ISA
 // compositional reachability (matches the order of magnitude of expected
 // fingerprint counts at L≤8 multiset enumeration). With current ISA (max=10)
-// this evaluates to 100000 — identical to the prior magic literal. Sets
+// this evaluates to 100000 - identical to the prior magic literal. Sets
 // initial bucket count; over-shoots merely allocate slightly more memory but
 // avoid rehashing on the hot path.
 static const int kFpHashReserve = isaMaxConstant()*isaMaxConstant()*isaMaxConstant()*isaMaxConstant()*isaMaxConstant();
@@ -131,12 +131,12 @@ struct Deadline{
     double increment_D=0.0;     // extension granted per observed progress (window_W / kRegisterCount)
 
     // derive both timing parameters structurally from
-    // the phase budget and ISA register count — no magic seconds.
+    // the phase budget and ISA register count - no magic seconds.
     // window_W = ceiling - baseline (full patience: phase's allotted span;
     // stagnated longer than this → give up)
     // increment_D= window_W / kRegisterCount (one-eighth of patience per progress;
     // caps total extensions to ≤ kRegisterCount
-    // before hitting t_max — ISA-bounded)
+    // before hitting t_max - ISA-bounded)
     Deadline(double baseline,double ceiling,int N,int A):
         t_end(baseline),t_max(ceiling),best_sc_seen(0),N_target(N),A_target(A),
         t_last_improve(now_s()),
@@ -159,9 +159,9 @@ struct Deadline{
         if(now-t_last_improve.load(std::memory_order_relaxed)>window_W)return;
         // meaningful-progress threshold derived
         // from ISA structurals.
-        // N_target/(kDDBBodyMaxEarly/2) = N/4 — at least 1/(half-body-length)
+        // N_target/(kDDBBodyMaxEarly/2) = N/4 - at least 1/(half-body-length)
         // of sequence shown; ties cascade-meaningfulness to ISA body cap.
-        // (isaMaxConstant/2)*A_target = 5*A — at least half-max-constant
+        // (isaMaxConstant/2)*A_target = 5*A - at least half-max-constant
         // samples per alphabet class; ties to ISA value-range.
         // Both ISA-derived; numerically identical to prior magic 4 and 5.
         int meaningful=std::max(N_target/(kDDBBodyMaxEarly/2),
@@ -190,7 +190,7 @@ struct Ins{int ti,c;int8_t args[4];int ar; // A6: args packed to int8_t (registe
         std::string s=name;s+="(";for(int i=0;i<ar;i++){if(i)s+=",";s+="R"+std::to_string(args[i]);}
         if(ti==5||ti==6||ti==8||ti==10||ti==17)s+=","+std::to_string(c);
         s+=")";return s;}};
-// SUB_CALL extension (SUB_CALL, ID=8): hierarchical synthesis primitive — CANONICAL.
+// SUB_CALL extension (SUB_CALL, ID=8): hierarchical synthesis primitive - CANONICAL.
 // Inline-expands a library program (g_progdb entry at index i.c) into the current
 // execution context. Forward-declared here so ex()/exW() can call it; defined after
 // g_progdb in Section 6b.
@@ -344,8 +344,8 @@ static int typeAr(int t){switch(t){case 0:case 1:case 10:return 1;case 5:case 6:
 // Precomputed wide-int initial values for fingerprinting (eliminates 150 wide adds per fp call)
 // fingerprint-shift bit positions for wide-int hashing.
 // Derivation:
-// shift1 = 5 × isaMaxConstant — half of isaMaxConstant² (lower limb sample)
-// shift2 = isaMaxConstant² — full isaMaxConstant² (next-limb sample)
+// shift1 = 5 × isaMaxConstant - half of isaMaxConstant² (lower limb sample)
+// shift2 = isaMaxConstant² - full isaMaxConstant² (next-limb sample)
 // With current ISA (max=10): shift1=50, shift2=100. Two distinct bit positions
 // in different W limbs (limb 0 covers bits 0-63, limb 1 covers 64-127), giving
 // the fingerprint diversity across limbs. Numerically identical to prior magic.
@@ -390,7 +390,7 @@ static int isaMaxConstant(){
 // registers R0..R7 (matches int64_t R[kRegisterCount] and W::w[8] throughout the engine).
 
 // fingerprint emission alphabet derived from number
-// theory — smallest prime > isaMaxConstant guarantees coprimality with every
+// theory - smallest prime > isaMaxConstant guarantees coprimality with every
 // ISA constant c ∈ [1, isaMaxConstant], so emissions retain full information
 // regardless of which mod-c relationship the program expresses. The previous
 // magic value 7 was NOT coprime with itself (gcd(7,7)=7), causing fingerprint
@@ -430,7 +430,7 @@ static size_t availableMemoryBytes(){
 
 // query current FREE memory at runtime (free + inactive +
 // reusable pages on Darwin; available memory on Linux). This is the actual
-// headroom available for new allocations — strictly more accurate than
+// headroom available for new allocations - strictly more accurate than
 // dividing total memory by an assumed concurrency factor.
 static size_t currentFreeMemoryBytes(){
 #if defined(__APPLE__)
@@ -458,19 +458,19 @@ static size_t currentFreeMemoryBytes(){
 // We take N = kCascadePoolLevels = 3 samples (smallest quorum giving outlier
 // rejection across two contaminated samples) and return their minimum. The
 // static-init invocation below (kCalibratedPerOpCostInit) forces the first
-// call to occur during namespace-scope initialization — strictly before main()
-// and before any worker threads — guaranteeing the cached value is captured
+// call to occur during namespace-scope initialization - strictly before main()
+// and before any worker threads - guaranteeing the cached value is captured
 // in a single-threaded, low-load context. Subsequent calls reuse the cache.
 static double calibratePerOpCost(){
     static double cached=-1.0;
     if(cached>0.0)return cached;
     // calibration iteration count = kStepIterCap.
-    // Reuses isaMaxConstant⁴ = 10000 for runtime-cost measurement precision —
+    // Reuses isaMaxConstant⁴ = 10000 for runtime-cost measurement precision -
     // same numerical value as before, ISA-derived.
     const int K=kStepIterCap;
     // number of independent samples = kCascadePoolLevels = 3.
     // Three is the smallest quorum that survives two contaminated samples
-    // (k-out-of-n robustness with k=1, n=3). Structural ISA constant — no
+    // (k-out-of-n robustness with k=1, n=3). Structural ISA constant - no
     // magic number introduced.
     const int kCalibSamples = kCascadePoolLevels;
     double best = std::numeric_limits<double>::infinity();
@@ -482,7 +482,7 @@ static double calibratePerOpCost(){
         // Minimal-information seed = first kRegisterCount positive integers.
         int64_t R[kRegisterCount];
         for(int i=0;i<kRegisterCount;i++) R[i]=(int64_t)(i+1);
-        Ins inc{0,0,{0,0,0,0},1};  // INC R0 — minimal canonical instruction
+        Ins inc{0,0,{0,0,0,0},1};  // INC R0 - minimal canonical instruction
         auto t0=std::chrono::steady_clock::now();
         for(int i=0;i<K;i++)ex(R,inc);
         auto t1=std::chrono::steady_clock::now();
@@ -496,13 +496,13 @@ static double calibratePerOpCost(){
 
 // force calibratePerOpCost() to execute during namespace-scope
 // static initialization (single-threaded, before main()). The cached value
-// is then served from cache for all subsequent calls — including those from
-// worker threads — guaranteeing a noise-free baseline.
+// is then served from cache for all subsequent calls - including those from
+// worker threads - guaranteeing a noise-free baseline.
 static const double kCalibratedPerOpCostInit = calibratePerOpCost();
 
 // Returns the register-index the instruction writes to (i.args[<idx>]), or -1
 // for non-writer opcodes (OUT writes to g_emit_buf; SUB_CALL writes through
-// inlined library body — both opaque to direct register dataflow).
+// inlined library body - both opaque to direct register dataflow).
 // Used by buildPool depth-3 to bucket "writer-of-R0" candidates correctly.
 static int writerArgIdx(const Ins& i) {
     int t = i.ti;
@@ -534,7 +534,7 @@ static std::vector<Ins> buildL1(int nr){
                 out.push_back(ins);}}}
     // SUB_CALL extension SUB_CALL (canonical): emit one Ins per current INVOCABLE library entry.
     // ar=0 (no register operands); index stored in c. Catalog grows by invocable
-    // library size — that growth is the Solomonoff-correct selector cost (log2(ncat)
+    // library size - that growth is the Solomonoff-correct selector cost (log2(ncat)
     // per slot). If library is empty, no entries emitted and SUB_CALL is dormant.
     {
         int lib_size = subCallCatalogSize();
@@ -551,7 +551,7 @@ static std::vector<Ins> buildL1(int nr){
 struct DDB{Ins ops[8];int n;bool has_loop=false; // ops[8]: kDDBBodyMax derives below
     void computeLoop(){has_loop=false;for(int i=0;i<n;i++)if(ops[i].ti==17){has_loop=true;return;}}};
 // body length cap derives from struct DDB::ops
-// buffer size — same numeric value, structurally tied to the type definition.
+// buffer size - same numeric value, structurally tied to the type definition.
 static constexpr int kDDBBodyMax=sizeof(DDB::ops)/sizeof(Ins);
 static_assert(kDDBBodyMaxEarly == kDDBBodyMax, "kDDBBodyMaxEarly forward-decl must match canonical kDDBBodyMax");
 // Res::body and ProgramRecord::body buffer size.
@@ -559,7 +559,7 @@ static_assert(kDDBBodyMaxEarly == kDDBBodyMax, "kDDBBodyMaxEarly forward-decl mu
 // - branched MODE_ITER: then-branch + else-branch (≤ 2 × kDDBBodyMax)
 // - Phase 2H hierarchical: pre-body + library entry + post-body (≤ 3 × kDDBBodyMax)
 // 3 × kDDBBodyMax = 24 with current ISA, identical to the previous magic 24.
-// Numerically unchanged — binary format of program_db.bin is preserved.
+// Numerically unchanged - binary format of program_db.bin is preserved.
 static constexpr int kProgramBodyMax = 3 * kDDBBodyMax;
 static_assert(kProgramBodyMax <= 32, "kProgramBodyMax must fit in uint32_t bitmasks (BodyDesc::in_loop_mask, loop_inner_mask)");
 typedef std::pair<uint64_t,uint64_t> FP128;
@@ -677,7 +677,7 @@ static std::vector<DDB>buildDDB(const std::vector<Ins>&fL1,int depth,int nr,doub
     else if(depth==3){auto d2=buildDDB(fL1,2,nr,dl);
     // Interleaved composition: L1-outer, d2-inner. Each L1 tail instruction is
     // tried with ALL depth-2 bodies before moving to the next L1 instruction.
-    // This gives every depth-2 body equal access to the pool cap — prevents
+    // This gives every depth-2 body equal access to the pool cap - prevents
     // early-generated bodies (INC/DEC/ADD) from monopolizing the cap over
     // later-generated ones (AND/OR/XOR). ISA-fair: no type preference.
     int nd2=(int)d2.size();
@@ -689,7 +689,7 @@ static std::vector<DDB>buildDDB(const std::vector<Ins>&fL1,int depth,int nr,doub
     for(auto&b:pool)b.computeLoop();return pool;}
 
 // ================================================================
-// Section 2: T-table Construction — Observation, O(N)
+// Section 2: T-table Construction - Observation, O(N)
 // ================================================================
 static int computeDStar(const std::vector<int>&tgt,int A){
     // information-theoretic upper bound on d*.
@@ -704,7 +704,7 @@ static int computeDStar(const std::vector<int>&tgt,int A){
     if(det)return d;}return-1;}
 
 static int detectPeriod(const std::vector<int>&s){int N=(int)s.size();
-    // max-strict period test — check entire sequence [p, N)
+    // max-strict period test - check entire sequence [p, N)
     // for s[t] == s[t%p]. Tighter than the previous 3*p threshold (magic),
     // never rejects true periods, strictly fewer false positives.
     // Outer p ≤ N/2 (period must allow ≥1 full repetition to verify).
@@ -760,7 +760,7 @@ static std::vector<int>buildBinaryPeriodTable(const std::vector<int>&s,
     if(T[idx]==-1)T[idx]=b;else if(T[idx]!=b)return{};}return T;}
 
 // ================================================================
-// Section 3: ISA Matching — The Deductive Core
+// Section 3: ISA Matching - The Deductive Core
 // ================================================================
 struct ISAMatch{bool found=false;Ins ins;std::string desc;};
 
@@ -850,7 +850,7 @@ static int verifyCTX(const Ins*body,int nb,int A,int outr,int nr,int ds,
     return sc;}
 
 // ================================================================
-// Section 5: Cascade Filter — Collatz, ParityAlt (small enumeration)
+// Section 5: Cascade Filter - Collatz, ParityAlt (small enumeration)
 // ================================================================
 struct DB{Ins ops[3];int n;bool has_loop=false;
     void computeLoop(){has_loop=false;for(int i=0;i<n;i++)if(ops[i].ti==17){has_loop=true;return;}}};
@@ -864,14 +864,14 @@ static std::vector<DB>buildPool(const std::vector<Ins>&L1,int depth,int nr,doubl
     // G is the per-register probe count for fingerprint dedup.
     // Derived from isaMaxConstant() (= max constant in the ISA's opcode ranges)
     // so that probes cover all residue classes for MOD_C, all loaded values
-    // for LOAD, etc. — guarantees no false equivalence between bodies that
+    // for LOAD, etc. - guarantees no false equivalence between bodies that
     // differ only at value-specific positions. For our ISA, max_c=10 → G=11.
     const int G=isaMaxConstant()+1;
     auto fp=[&](const Ins*ops,int n)->uint64_t{uint64_t h=0xcbf29ce484222325ULL;
     for(int r0=0;r0<G;r0++)for(int r1=0;r1<(nr>1?G:1);r1++){int64_t R[kRegisterCount]={};R[0]=r0;if(nr>1)R[1]=r1;
     g_sat=false;for(int i=0;i<n;i++){ex(R,ops[i]);if(g_sat)return 0;}
     h^=(uint64_t)(R[0]*1000003+R[1]*1000033);h*=0x9e3779b97f4a7c15ULL;}return h;};
-    // No eager reserve — pool_cap can be up to |L1|^3 (millions); allocator
+    // No eager reserve - pool_cap can be up to |L1|^3 (millions); allocator
     // grows naturally to actual size (typically much smaller after dedup).
     std::unordered_set<uint64_t>seen;
     std::vector<DB>pool;
@@ -913,7 +913,7 @@ static std::vector<DB>buildPoolDS(const std::vector<Ins>&L1,int depth,int nr,dou
     // pool_cap = |L1|^depth (theoretical max). Same derivation as buildPool.
     int pool_cap=(int)std::min((double)INT_MAX,std::pow((double)L1.size(),depth));
     int nL1=(int)L1.size();
-    // G derives from isaMaxConstant() universally — no nr-specific
+    // G derives from isaMaxConstant() universally - no nr-specific
     // magic. Yao's principle: deterministic fingerprint dedup needs G^nr probes
     // covering all ISA-induced behaviors; G = max_c+1 is the structural minimum.
     // Cost grows as G^nr but is deadline-bounded by buildPoolDS's dl arg.
@@ -928,7 +928,7 @@ static std::vector<DB>buildPoolDS(const std::vector<Ins>&L1,int depth,int nr,dou
             for(int k=0;k<nr;k++)h^=(uint64_t)(R[k]*(1000003+k*7919));
             h*=0x9e3779b97f4a7c15ULL;}
         return h;};
-    // No eager reserve — same rationale as buildPool.
+    // No eager reserve - same rationale as buildPool.
     std::unordered_set<uint64_t>seen;
     std::vector<DB>pool;
     if(depth==1){for(int i=0;i<nL1;i++){Ins o[1]={L1[i]};auto f=fp(o,1);
@@ -964,11 +964,11 @@ static std::vector<int> modFilter(const std::vector<DB>&pool,int A,int m,bool ze
         int divc_prod=1;for(int i=0;i<pool[bi].n;i++)
             if(pool[bi].ops[i].ti==8)divc_prod*=std::max(1,pool[bi].ops[i].c);
         // range bounds derived structurally.
-        // min = 2 × (isaMaxConstant + 1) — twice the fingerprint probe count
+        // min = 2 × (isaMaxConstant + 1) - twice the fingerprint probe count
         // G = isaMaxConstant + 1 (residue-coverage requirement).
-        // max = 1 << kRegisterCount — full byte-equivalent residue space
+        // max = 1 << kRegisterCount - full byte-equivalent residue space
         // (with kRegisterCount=8, this is 256 distinct R0 values tested).
-        // With current ISA (max=10, regs=8): min=22, max=256 — identical to prior.
+        // With current ISA (max=10, regs=8): min=22, max=256 - identical to prior.
         int range=A*std::max(1,divc_prod);
         if(range<2*(isaMaxConstant()+1))range=2*(isaMaxConstant()+1);
         if(range>(1<<kRegisterCount))range=(1<<kRegisterCount);
@@ -996,7 +996,7 @@ static bool cascadeSearch(const std::vector<int>&tgt,int A,
     // Simplified cascade: returns branched programs via out-params
     // Deadline d allows adaptive extension when sc is climbing.
     int N=(int)tgt.size();
-    // R10: Cascade threading — parallel across m values
+    // R10: Cascade threading - parallel across m values
     std::mutex cas_mtx;
     std::atomic<bool>cas_found(false);
     std::atomic<int>next_m(2);
@@ -1050,8 +1050,8 @@ static bool cascadeSearch(const std::vector<int>&tgt,int A,
             return idx_fp(Po,a)<idx_fp(Po,b);});
     }
     // r0 iterates unbounded ascending (Solomonoff prior),
-    // truncated by deadline d.alive() — no magic upper bound.
-    // r1, r2 bounded by A: alphabet-equivalence — output is mod A and r1,r2
+    // truncated by deadline d.alive() - no magic upper bound.
+    // r1, r2 bounded by A: alphabet-equivalence - output is mod A and r1,r2
     // effects on first body cycle are bounded by A residue classes.
     const int kR1Max=(nr>1)?A:0;
     const int kR2Max=(nr>2)?A:0;
@@ -1179,7 +1179,7 @@ static double uInt(int64_t n){if(n<=0)return 1.0;double L=log2(n+1.0),s=L;
 static double computeMDL(const Res&r,int ncat){
     // pure-deductive CONCAT/DARY have minimum-MDL encoding.
     // The 2-bit program-type tag (#95.11) fully determines mode, branched,
-    // ointerp, nr, and body for these types — they are canonical:
+    // ointerp, nr, and body for these types - they are canonical:
     // CONCAT: mode=MODE_EMIT, branched=false, ointerp=OUT_MOD, nr=3, body=canonical 5-instr
     // DARY: mode=MODE_FUNC, branched=false, ointerp=OUT_MOD, nr=3, body=canonical 7-instr
     // So encoding is just type tag + deductive params. Early-return for these.
@@ -1203,7 +1203,7 @@ static double computeMDL(const Res&r,int ncat){
     }
     // program-type tag (2 bits, uniform). Distinguishes
     // REGULAR / CONCAT / DARY / STEP. Replaces the previous implicit
-    // detection where CONCAT/DARY/STEP blocks fired only when set —
+    // detection where CONCAT/DARY/STEP blocks fired only when set -
     // a self-delimiting prefix code requires the type to be encoded
     // unconditionally. STEP's pre-#95.11 "+2 bits for STEP tag" was
     // already this type marker, but inconsistently paid only when set;
@@ -1228,7 +1228,7 @@ static double computeMDL(const Res&r,int ncat){
     if(r.mode == MODE_ITER) mdl+=1; // branched flag (MODE_ITER only)
     // pure-deductive CONCAT/DARY have body uniquely determined
     // by their deductive params (concat_base/off/msb or dary_base/init_val/op).
-    // predictNext and runProgram never read r.body for these types — body bits
+    // predictNext and runProgram never read r.body for these types - body bits
     // are dead weight. Skip bodyMDL for them.
     bool is_pure_deductive = (r.concat_base >= 2) || (r.dary_base >= 2);
     if(r.branched){
@@ -1245,7 +1245,7 @@ static double computeMDL(const Res&r,int ncat){
     // ointerp + bit_pos are only used for MODE_ITER (verified in
     // predictNext line 1481-1494: only MODE_ITER branches on r.ointerp; MODE_FUNC,
     // MODE_EMIT, MODE_CTX always use the OUT_MOD path). Skip the flag for non-ITER
-    // modes — dead weight, paid 1 bit per program for nothing.
+    // modes - dead weight, paid 1 bit per program for nothing.
     if(r.mode==MODE_ITER){
         if(r.ointerp==OUT_BIT){
             mdl+=1; // output interp flag
@@ -1271,7 +1271,7 @@ static double computeMDL(const Res&r,int ncat){
     // MODE_FUNC needs nr + outr encoded for prefix-code consistency.
     // bodyMDL pays lr=log2(nr) per register-selector slot, so decoder needs nr to
     // interpret body bits. ITER/EMIT/CTX encode this; MODE_FUNC was missing it,
-    // causing K (nr, outr) MODE_FUNC programs with same body to share one MDL —
+    // causing K (nr, outr) MODE_FUNC programs with same body to share one MDL -
     // a Kraft inequality violation.
     if(r.mode==MODE_FUNC){
         mdl+=uInt(r.nr);
@@ -1284,7 +1284,7 @@ static double computeMDL(const Res&r,int ncat){
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// review (C3 tie-break — lex-best update over (sc, -mdl)):
+// review (C3 tie-break - lex-best update over (sc, -mdl)):
 //
 // Solomonoff prior P(h) ∝ 2^(-|h|) prefers shorter (lower-MDL) programs among
 // those that explain the data equally well. The operational best-update rule
@@ -1293,16 +1293,16 @@ static double computeMDL(const Res&r,int ncat){
 //
 // Pre-#95, every best-update site used `if (sc > best.sc)` (strict greater),
 // so once any sc=N candidate landed, subsequent sc=N candidates with smaller
-// MDL were silently rejected — visible as run-to-run MDL variance (parityalt
+// MDL were silently rejected - visible as run-to-run MDL variance (parityalt
 // 38.2 vs 38.4, trimod8 32.1 vs 40.3) caused by parallel-thread scheduling
 // determining which equal-sc candidate happened to land first.
 //
 // Constraints:
-// C1 (Accuracy): improved or equal — no candidate previously accepted is
+// C1 (Accuracy): improved or equal - no candidate previously accepted is
 // now rejected; outer admits a strict superset.
-// C2 (Generality): uniform — comparison logic is identical across every
+// C2 (Generality): uniform - comparison logic is identical across every
 // benchmark, every phase, every code path.
-// C3 (Solomonoff): repaired — lex-(sc, -mdl) is the operational form of
+// C3 (Solomonoff): repaired - lex-(sc, -mdl) is the operational form of
 // Solomonoff preference.
 // C4 (No magic): helper introduces no constants; uses existing fields.
 //
@@ -1352,10 +1352,10 @@ static std::mutex g_progs_mutex; // A1: thread-safe collection
 // with g_progs to maintain per-benchmark scope.
 // soundness: a duplicate program at equal MDL contributes nothing new to the mixture;
 // deduplication preserves Solomonoff exactness.
-// C2 — corrects an under-tightening of MDL accounting (over-counting equal-MDL programs
+// C2 - corrects an under-tightening of MDL accounting (over-counting equal-MDL programs
 // was a bias against C2's "equal MDL = equal prior" intent).
-// C3 — fingerprint is a structural property of the Res record; target-independent.
-// C4 — applies uniformly to any target.
+// C3 - fingerprint is a structural property of the Res record; target-independent.
+// C4 - applies uniformly to any target.
 static std::unordered_set<uint64_t>g_progs_fingerprints; // protected by g_progs_mutex
 static int g_bench_prog_start=0;
 static void recordProg(const Res&r,int ncat,const std::vector<int>&tgt,int A);
@@ -1529,7 +1529,7 @@ static void recordProg(const Res&r,int ncat,const std::vector<int>&tgt,int A){
     // a mixture term with relative weight 2^{-Δ} is below precision (cannot
     // affect the floating-point sum) when Δ > 53. Pruning at this threshold
     // is bit-equivalent to including the term.
-    // Structural, not hand-picked — derives from the
+    // Structural, not hand-picked - derives from the
     // IEEE 754 standard, not a hand-picked constant.
     constexpr double kMDLTailBits = static_cast<double>(std::numeric_limits<double>::digits);
     {std::lock_guard<std::mutex>lk(g_progs_mutex);
@@ -1604,7 +1604,7 @@ static std::vector<int> runProgram(const Res&r,int K,int A){
     case MODE_CTX:{
         // Reload registers from history each iteration. K must be >= ctx_dstar to seed.
         if(r.ctx_dstar<=0)break;
-        // Caller must provide seed via Res — here we use 0s (caller in solve() seeds from tgt).
+        // Caller must provide seed via Res - here we use 0s (caller in solve() seeds from tgt).
         // For runProgram during prediction (predictNext), seeding is handled there.
         // For independent runProgram: cannot generate without seed. Return empty.
         break;}
@@ -1641,15 +1641,15 @@ static std::vector<int> runProgram(const Res&r,int K,int A){
 // [train_N, train_N + K).
 //
 // Constraints:
-// C1 — Sound: each program's prediction is computed identically to single-
+// C1 - Sound: each program's prediction is computed identically to single-
 // best validation; mixture only changes how votes are aggregated.
 // Programs that fail to generate K outputs are skipped (no spurious
 // prediction). Empty mixture returns -1 sentinels.
-// C2 — Uniform: same algorithm applied across all benchmarks, all targets.
-// C3 — Solomonoff-correct: weights = 2^(-mdl) reflect the prior P(h) ∝
+// C2 - Uniform: same algorithm applied across all benchmarks, all targets.
+// C3 - Solomonoff-correct: weights = 2^(-mdl) reflect the prior P(h) ∝
 // 2^(-|h|). Min-MDL anchor is a numerical stability transform; the
 // argmax over weighted votes is invariant under this anchor.
-// C4 — No constants beyond the IEEE-754 53-bit precision tail (already
+// C4 - No constants beyond the IEEE-754 53-bit precision tail (already
 // structurally derived in recordProg's truncation at kMDLTailBits).
 //
 // Returns vector of K predicted symbols (one per future step). Symbol -1
@@ -1746,12 +1746,12 @@ static inline std::vector<int> predictMixture(
 // codeword); strict < for INCOMPLETE codes (some bit strings unused).
 // Σ > 1 → over-loaded encoding (multiple programs at same codeword) → INVALID.
 //
-// IMPORTANT CAVEATS — diagnostic, not a proof:
+// IMPORTANT CAVEATS - diagnostic, not a proof:
 // 1. g_progs is a SUBSET of all programs in the encoding space:
 // - Only sc==N programs are recorded.
 // - Fingerprint-deduped (true structural duplicates collapsed).
 // - MDL-tail truncated at best_mdl + kMDLTailBits = best_mdl + 53
-// (recordProg line 1531) — programs whose MDL exceeds the threshold
+// (recordProg line 1531) - programs whose MDL exceeds the threshold
 // are pruned to stay within IEEE-754 precision.
 // 2. Σ over g_progs is therefore a LOWER BOUND on Σ over all valid programs.
 // 3. Σ_g_progs > 1 → DEFINITIVE Kraft violation (subset is bigger than the
@@ -1770,16 +1770,16 @@ static inline std::vector<int> predictMixture(
 // for small terms doesn't affect the >1 / ≤1 boundary check.
 //
 // Constraints:
-// C1 — read-only diagnostic; cannot regress sc-correctness.
-// C2 — applies uniformly to any g_progs collection from any benchmark.
-// C3 — uses computed MDLs verbatim; doesn't alter Solomonoff ordering.
-// C4 — no constants. Uses kMDLTailBits indirectly via recordProg's filter,
+// C1 - read-only diagnostic; cannot regress sc-correctness.
+// C2 - applies uniformly to any g_progs collection from any benchmark.
+// C3 - uses computed MDLs verbatim; doesn't alter Solomonoff ordering.
+// C4 - no constants. Uses kMDLTailBits indirectly via recordProg's filter,
 // which is structurally derived from IEEE-754 precision.
 // inline: cross-TU usage (called from omnis_validate.cpp).
 static inline double kraftSum(const std::vector<ProgEntry>& progs) {
     double s = 0.0;
     for (const auto& p : progs) {
-        // exp2(-mdl): underflows to 0 for mdl > ~1023; that's fine — programs
+        // exp2(-mdl): underflows to 0 for mdl > ~1023; that's fine - programs
         // with such MDLs would be pruned by the kMDLTailBits filter anyway.
         s += std::exp2(-p.mdl);
     }
@@ -1796,7 +1796,7 @@ static inline bool kraftSmokeCheck(const std::vector<ProgEntry>& progs, FILE* ou
     if (out) {
         fprintf(out, "kraft_check: progs=%zu sum=%.6e %s\n",
                 progs.size(), s,
-                ok ? "OK (necessary; not sufficient — subset of program space)"
+                ok ? "OK (necessary; not sufficient - subset of program space)"
                    : "VIOLATION (subset-sum > 1 ⇒ encoding over-loaded)");
     }
     return ok;
@@ -1842,7 +1842,7 @@ struct ProgramRecord{
 // equivalent identity criteria.
 // soundness: dropping wrongly-deduped programs from the library was a real
 // loss of distinct programs. Fix recovers full coverage.
-// C3 — predicate is purely structural over Res/ProgramRecord fields;
+// C3 - predicate is purely structural over Res/ProgramRecord fields;
 // target-independent.
 static uint64_t programRecordHash(const ProgramRecord& pr) {
     uint64_t h = 0xcbf29ce484222325ULL;
@@ -2009,7 +2009,7 @@ struct ProgramDB{
             // soundness: testExtensions could not validate MODE_CTX entries
             // anyway (runProgram returns empty). Skip is functionally
             // equivalent to running and scoring 0.
-            // C3 — predicate is structural (mode field), target-independent.
+            // C3 - predicate is structural (mode field), target-independent.
             if(pr.mode_u==(uint8_t)MODE_CTX)continue;
             if(pr.nbody>=kProgramBodyMax-1)continue; // = 23: must allow ≥1 instruction extension
             Res base=toRes(pr);
@@ -2168,12 +2168,12 @@ static ProgramDB g_progdb;
 static const char*G_PROGDB_PATH=nullptr;
 
 // ================================================================
-// SUB_CALL extension (SUB_CALL, canonical): hierarchical synthesis primitive — definitions
+// SUB_CALL extension (SUB_CALL, canonical): hierarchical synthesis primitive - definitions
 // ================================================================
 // SUB_CALL inline-expands a library entry into the calling context. Library entries
 // must be:
 // 1. Pure body (no branched, no concat/dary/step special modes)
-// 2. Free of nested SUB_CALL (recursion guard — prevents non-termination)
+// 2. Free of nested SUB_CALL (recursion guard - prevents non-termination)
 // 3. Bounded body length (≤24 by global constraint)
 // Non-invocable entries are skipped at catalog-build time (subCallLibraryEntryInvocable)
 // AND at execution time (defensive double-check via subCallLibraryEntryPure). The runtime
@@ -2182,18 +2182,18 @@ static const char*G_PROGDB_PATH=nullptr;
 // Solomonoff cost is paid via catalog size growth: every SUB_CALL slot costs log2(ncat),
 // identical to any other instruction. Hence SUB_CALL adds no MDL surcharge beyond
 // catalog occupation. Non-invocable library entries do not occupy catalog slots, so
-// they pay zero MDL — they simply don't participate in search.
+// they pay zero MDL - they simply don't participate in search.
 //
 // ===== SUB_CALL state memoization =====
 // Phase 2H tests every (pre_body, library_entry) pair against target. When two
 // candidates share a SUB_CALL invocation with the same pre-state R[8], the body
-// execution produces identical results — wasted work. Memoize on (idx, R[8]).
+// execution produces identical results - wasted work. Memoize on (idx, R[8]).
 //
 // Constraint compliance:
-// C1 — pure compute cache; programs with same input produce same output.
-// C2 — MDL accounting unchanged; cache only affects search rate, not coverage.
-// C3 — cache key is internal register state, no target peek; uniform across targets.
-// C4 — applies to any target; cache is target-agnostic.
+// C1 - pure compute cache; programs with same input produce same output.
+// C2 - MDL accounting unchanged; cache only affects search rate, not coverage.
+// C3 - cache key is internal register state, no target peek; uniform across targets.
+// C4 - applies to any target; cache is target-agnostic.
 //
 // Cache discipline:
 // - thread_local (no mutex contention; per-thread state)
@@ -2201,7 +2201,7 @@ static const char*G_PROGDB_PATH=nullptr;
 // - bounded at SUBCALL_CACHE_LIMIT; over limit, new entries skipped (cache stays valid)
 // - only stores results for non-saturated executions (g_sat=false on body completion)
 //
-// The cache is a structural improvement, not a tactical one — it does not violate
+// The cache is a structural improvement, not a tactical one - it does not violate
 // Solomonoff: equal MDL programs are still tested in equal-priority order. The cache
 // merely amortizes shared SUB_CALL evaluations across the candidate space.
 struct SubCallCacheKey {
@@ -2232,7 +2232,7 @@ struct SubCallCacheKeyHash {
 // limit = (free_mem / kRegisterCount / nt) / per_entry_bytes
 // Floor: 1024 entries (smallest useful cache; below this, lookup overhead exceeds
 // amortization benefit). The 1024 floor is a structural minimum, not target-tuned.
-// Queried once at process startup (before pools eat memory) — value is stable
+// Queried once at process startup (before pools eat memory) - value is stable
 // across solve() calls within a process, while still adapting to host capacity.
 static size_t computeSubCallCacheLimit() {
     size_t free_mem = currentFreeMemoryBytes();
@@ -2253,7 +2253,7 @@ static inline void clearSubCallCache() {
 }
 
 // calibrate SubCall cache lookup cost at startup.
-// Returns seconds per unordered_map find() — used to derive the cache
+// Returns seconds per unordered_map find() - used to derive the cache
 // eligibility threshold structurally rather than via empirical hardcoded value.
 // Uses a representative-sized populated map (kStepIterCap entries with diverse
 // keys) to mimic real-cache lookup geometry; pure-1-entry timing would
@@ -2311,7 +2311,7 @@ static inline bool subCallLibraryEntryPure(const ProgramRecord& pr) {
     if (pr.step_off > 0 || pr.step_halt > 0) return false;
     // MODE_CTX entries assume registers are reloaded from history (R[k] = history[T - perm[k]])
     // each iteration. Inline expansion skips this reload, so the body executes against the
-    // caller's register state instead — semantically different from the library's intended
+    // caller's register state instead - semantically different from the library's intended
     // behavior. Filter out to preserve inline-call faithfulness. (MODE_ITER, MODE_FUNC, and
     // MODE_EMIT bodies are pure register transformers and inline cleanly.)
     if (pr.mode_u == (uint8_t)MODE_CTX) return false;
@@ -2378,7 +2378,7 @@ static void exSubCallW(W* R, int idx) {
 }
 
 // ================================================================
-// Section 7: solve() — Phase 1 (T-table) + Phase 2 (3-mode sieve)
+// Section 7: solve() - Phase 1 (T-table) + Phase 2 (3-mode sieve)
 // ================================================================
 static Res solve(const std::vector<int>&tgt,int A,double dl){
     // Entry hook: reset extension-specific state at the start of each
@@ -2406,7 +2406,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
 
     // ══════════════════════════════════════════════════════════════
     // PHASE 0: Extension search from persistent database
-    // Records hits to g_progs for the mixture. Does NOT update 'best' —
+    // Records hits to g_progs for the mixture. Does NOT update 'best' -
     // Phase 1+ comparisons use strict > so Phase 0's high-MDL hits must
     // not block lower-MDL Phase 1 discoveries. Merged at end of solve().
     Res phase0_best;phase0_best.sc=0;
@@ -2420,9 +2420,9 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
         }
     }
 
-    // PHASE 1: T-table deduction (instant — ISA matching)
+    // PHASE 1: T-table deduction (instant - ISA matching)
     if(ds>0){
-        // 1A: DEDUCTIVE — ISA matching on period tables
+        // 1A: DEDUCTIVE - ISA matching on period tables
         if(period>0){
             auto T1=buildUnaryPeriodTable(tgt,A,period);
             if(!T1.empty()){
@@ -2480,8 +2480,8 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
         }
         // 1A extended: multi-register ISA matching.
         // nr loop runs to full kCascadePoolLevels regardless of
-        // best.sc — different nr can find tighter MDL after an earlier phase
-        // produced a sc=N candidate. Loop body cost is O(nr × A_max × N) — bounded.
+        // best.sc - different nr can find tighter MDL after an earlier phase
+        // produced a sc=N candidate. Loop body cost is O(nr × A_max × N) - bounded.
         for(int nr=2;nr<=kCascadePoolLevels;nr++){
             auto T1=buildUnaryPeriodTable(tgt,A,period>0?period:(int)tgt.size());
             if(T1.empty())continue;
@@ -2581,7 +2581,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     // ══════════════════════════════════════════════════════════════
     // DEDUCTIVE ACCELERATORS (fast O(1)-O(N) checks, not templates)
     // These produce 3-mode Res results. They don't define exec models.
-    // If removed, the sieve finds the same programs — just slower.
+    // If removed, the sieve finds the same programs - just slower.
     // ══════════════════════════════════════════════════════════════
     // ── Digital factorization: detects d-ary digit recurrences ──
     // deductive accelerators (CONCAT/DARY) run regardless of
@@ -2670,7 +2670,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     }
 
     // ══════════════════════════════════════════════════════════════
-    // PHASE 2A: Flat sieve — test all DDB pool bodies in all 3 modes
+    // PHASE 2A: Flat sieve - test all DDB pool bodies in all 3 modes
     // ══════════════════════════════════════════════════════════════
     // Levin cross-phase budget: equal share per remaining phase (2A, 2B, 2C+2F).
     // Removes target-conditioned heuristic (constraint 3 fix).
@@ -2681,7 +2681,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     // if Phase 0/1 already produced a sc==N candidate, grant
     // Phase 2 a bounded collection window so it can search for a shorter-MDL
     // program. Without this, Phase 2A/2H were bypassed entirely when an
-    // earlier phase solved — same Solomonoff lex-best gap that Pass 6 fixed
+    // earlier phase solved - same Solomonoff lex-best gap that Pass 6 fixed
     // for CTX. Window = kIsaMaxConstantConstexpr seconds (= 10s, ISA-derived,
     // matches Phase 2A's own collecting window). Phase 2A collecting-mode
     // semantics (see existing phase2_collecting plumbing at lines 2747+,
@@ -2827,7 +2827,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     }
 
     // ══════════════════════════════════════════════════════════════
-    // PHASE 2B: Branched sieve — cascade with modFilter
+    // PHASE 2B: Branched sieve - cascade with modFilter
     // ══════════════════════════════════════════════════════════════
     // Adaptive cascade: starts at budget_total*0.4, extends to dl-10 on progress.
     // Fully internal to Phase 2B. dl is NEVER modified.
@@ -2844,7 +2844,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     // though the answer was found seconds ago and only the 10s collection
     // window remains. This was the root cause of parityalt taking 290s
     // (budget-saturated) when standalone runs solve in ~32s. No hand-picked constants
-    // clean: no magic — the collection window is a structural deadline set
+    // clean: no magic - the collection window is a structural deadline set
     // at solve-time + 10s by Phase 2A's HIT logic (line 1963/1978/1999).
     if(phase2_collecting){
         double pdl=p2c_dl_get();
@@ -2856,7 +2856,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     if(ds>0&&(best.sc<N||phase2_collecting)&&cascade_dl.alive()){
         printf("    phase2b_branched %.1fs\n",now_s());
         //
-        // Cascade nr range capped at kCascadePoolLevels+1 (= 4, structural —
+        // Cascade nr range capped at kCascadePoolLevels+1 (= 4, structural -
         // one more level than cascade pool depth, reflecting cascade's
         // ability to use one fresh register beyond pre-built pools).
         // Widening to kRegisterCount (relying on AdaptiveDeadline to
@@ -2892,7 +2892,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                 tryUpdateBestLex(best, h, cas_sc);
                 if(cas_sc==N){recordProg(h,ncat,tgt,A);
                 if(!phase2_collecting){phase2_collecting=true;p2c_dl_set(std::min(dl,now_s()+(double)kIsaMaxConstantConstexpr));}
-                // Shrink cascade_dl to honor the (just-set) collection window —
+                // Shrink cascade_dl to honor the (just-set) collection window -
                 // mirrors the at-construction cap above. Keeps cascade workers
                 // from running through full cascade_dl after the collection
                 // deadline expires.
@@ -2905,7 +2905,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             // have fired (no worker advanced past `best_sc>=N` initial state),
             // leaving cas_init/cas_even/cas_odd empty and cas_m at its initial 0.
             // The original `else if(cas_sc>=best.sc)` branch then created a Res
-            // with sc=cas_sc (=outer best.sc=N) but empty body and branch_m=0 —
+            // with sc=cas_sc (=outer best.sc=N) but empty body and branch_m=0 -
             // a syntactically invalid program with artificially small MDL that
             // would replace the true sc==N program in best via lex-best. Bug
             // surfaced during a correctness review of
@@ -2931,9 +2931,9 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     // dl is unchanged. All subsequent phases use the original dl.
     // ── Step-count accelerator (uses discovered convergent bodies from cascade) ──
     // Step-count: only run long scan for A>2 (step-count outputs mod A, useful for A>2)
-    // For A=2: step-count gives binary output, same as the target — not informative
+    // For A=2: step-count gives binary output, same as the target - not informative
     // Budget: 30% of remaining time. The direct convergence scan IS the primary
-    // mechanism for step-count sequences — the cascade can't discover them (it tests
+    // mechanism for step-count sequences - the cascade can't discover them (it tests
     // direct output, not step counts), so discovered.empty() is expected and must NOT
     // penalize budget.
     if((best.sc<N||phase2_collecting)&&A>2&&now_s()<dl){
@@ -2944,7 +2944,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
         // numerator 3 = kCascadePoolLevels (Phase 2 cascade depth, structural).
         double step_dl=std::min(dl,now_s()+remaining*((double)kCascadePoolLevels/(double)kIsaMaxConstantConstexpr));
         // MDL-sort `discovered` so step_count_accel iterates simplest bodies
-        // first (Solomonoff prior). Same set as before — sort is deterministic,
+        // first (Solomonoff prior). Same set as before - sort is deterministic,
         // C1-C4 clean. Sort key: instruction count, then m, then canonical body
         // fingerprint (FNV-1a-style hash) for a deterministic tiebreaker.
         {
@@ -3050,7 +3050,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     }
 
     // ══════════════════════════════════════════════════════════════
-    // PHASE 2C: Wide-integer sieve — A=2, OUT_BIT at various bit positions
+    // PHASE 2C: Wide-integer sieve - A=2, OUT_BIT at various bit positions
     // ══════════════════════════════════════════════════════════════
     // Wide sieve: gets ALL remaining time if cascade didn't solve and A=2
     double p2c_dl=(A<=2&&best.sc<N)?dl:std::min(dl,now_s()+(dl-now_s())*0.5);
@@ -3096,7 +3096,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             // Removed time_cost-based break. The time_cost estimate uses
             // calibratePerOpCost() which inflates under thread load, causing
             // the same kind of spurious break as in Phase 2A.
-            // Memory-cost check retained — the mem_bound protection prevents
+            // Memory-cost check retained - the mem_bound protection prevents
             // genuine OOM and uses currentFreeMemoryBytes() (not calibration).
             // With our hard nr cap at kCascadePoolLevels+1, the
             // time-bound was structurally redundant anyway.
@@ -3122,7 +3122,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             // Dedup collisions from int64-only hash are harmless: duplicates tested and fail fast.
             //
             // library-bootstrap Option H: SUB_CALL slots whose library body CONTAINS a LOOP are also
-            // excluded — analogous to ti=17 exclusion. Phase 2C streams MILLIONS of
+            // excluded - analogous to ti=17 exclusion. Phase 2C streams MILLIONS of
             // candidates per second under the assumption that per-candidate verification
             // cost is bounded (flat body executes O(L) ops). A SUB_CALL invocation whose
             // library body contains a LOOP runs up to 200 inner iterations per call,
@@ -3132,17 +3132,17 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             // start (where Rule30's solution lives).
             //
             // Constraint compliance:
-            // C1 — exact match unchanged; the exclusion is at the search-enumeration
+            // C1 - exact match unchanged; the exclusion is at the search-enumeration
             // level, not at the verification semantics level.
-            // C2 — global ncat unchanged. Excluded SUB_CALL slots remain in the
+            // C2 - global ncat unchanged. Excluded SUB_CALL slots remain in the
             // catalog and their MDL cost is paid by every program slot, exactly
             // as for ti=17 (which is also globally counted but locally excluded).
             // Programs found in Phase 2C still pay log₂(ncat_with_subcall) per
-            // slot — no per-phase catalog redefinition.
-            // C3 — uniform criterion: a library body's LOOP-presence is a STRUCTURAL
+            // slot - no per-phase catalog redefinition.
+            // C3 - uniform criterion: a library body's LOOP-presence is a STRUCTURAL
             // property of the entry, not a target characteristic. The rule
             // applies identically to every Phase 2C target.
-            // C4 — Phase 2C still runs on every applicable target (A=2, OUT_BIT).
+            // C4 - Phase 2C still runs on every applicable target (A=2, OUT_BIT).
             // (fL1_noloop and nfL1_nl built above the cost-feasibility check.)
             // Depth-3 pool: fast fingerprint (int64 only, no wide-int hash)
             // cap=0 → buildDDB uses pow(|fL1|, depth) default.
@@ -3177,7 +3177,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             // counter (sequential prefix preserved). Identical to Phase 2A pattern.
             std::atomic<int>p2c_best_sc(best.sc);
             std::mutex p2c_mtx;
-            // Loop 1: depth-3 bodies tested directly — parallelized
+            // Loop 1: depth-3 bodies tested directly - parallelized
             {std::atomic<int>next_fi(0);
             auto loop1_worker=[&](){
                 while(true){
@@ -3205,7 +3205,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             if(nt<=1)loop1_worker();
             else{std::vector<std::thread>thr;for(int t=0;t<nt;t++)thr.emplace_back(loop1_worker);
                 for(auto&t:thr)t.join();}}
-            // Loop 2: depth-4 streaming — parallelized
+            // Loop 2: depth-4 streaming - parallelized
             // LOOP bodies skipped (tested via pool above). Non-LOOP cheap to stream.
             std::atomic<long long>d4_tested(0),d4_hits(0);
             {std::atomic<int>next_fi(0);
@@ -3262,9 +3262,9 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
         }
     }}
 
-    // Phases 2D/2E removed — subsumed by Phase 2F (L=1..8 unified WSBP).
+    // Phases 2D/2E removed - subsumed by Phase 2F (L=1..8 unified WSBP).
     // ══════════════════════════════════════════════════════════════
-    // PHASE 2F: Unified WSBP — Wire-Space Backward Propagation
+    // PHASE 2F: Unified WSBP - Wire-Space Backward Propagation
     // ══════════════════════════════════════════════════════════════
     // Discovers ALL LOOP programs: pre_body + inner_body[L] + LOOP(kr, L)
     // for L=1..8 via backward demand-driven register inference.
@@ -3286,7 +3286,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     // See: Coupling Barrier Theorem (Appendix C), WSBP_INTEGRATION.md
     // ══════════════════════════════════════════════════════════════
     // Phase 2F runs in collecting mode when an earlier phase
-    // produced sc=N — matching the lex-best collection the other phases use.
+    // produced sc=N - matching the lex-best collection the other phases use.
     if((best.sc<N||(phase2_collecting&&now_s()<p2c_dl_get()))&&now_s()<dl&&(dl-now_s())>(double)kIsaMaxConstantConstexpr){
         // library-bootstrap fix: reserve Phase 2H budget (compositional/hierarchical synthesis runs after
         // Phase 2F) IFF the library has invocable entries. Without invocable entries
@@ -3319,7 +3319,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             int ar=typeAr(ti);if(!ar)continue;
             for(int c:consts)tyCat.push_back({ti,c,ar});}
         // nested LOOP inner body lengths bound.
-        // Derivation: kDDBBodyMax / 2 — half the max DDB body length, so the
+        // Derivation: kDDBBodyMax / 2 - half the max DDB body length, so the
         // outer body has equal room for the LOOP instruction itself plus one
         // reducing instruction. With current ISA (kDDBBodyMax=8) this evaluates
         // to 4, identical to the previous magic literal.
@@ -3373,7 +3373,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                 for(int j=0;j<(int)fL1.size()&&(int)pools[nr].all.size()<cap2;j++){
                     PreF e;e.ops[0]=fL1[i];e.ops[1]=fL1[j];e.n=2;pools[nr].all.push_back(e);}
             // A4: Cache pre-body register states once, reuse across kr iterations.
-            // Body execution is independent of kr — saves (nr-1) × pool_size × kQuickCheckLen exBodyFlat calls.
+            // Body execution is independent of kr - saves (nr-1) × pool_size × kQuickCheckLen exBodyFlat calls.
             struct PSCache{bool ok[kQuickCheckLen];int64_t S[kQuickCheckLen][kRegisterCount];};
             std::vector<PSCache>pcache(pools[nr].all.size());
             for(int pi=0;pi<(int)pools[nr].all.size();pi++){
@@ -3409,12 +3409,12 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
         std::atomic<int>best_sc_shared(best.sc);
         std::mutex best_mtx;
         double dl_L=p2f_dl;
-        // L_max derives from isaMaxConstant() — same ISA-structural
+        // L_max derives from isaMaxConstant() - same ISA-structural
         // bound used in review. NESTED_LOOP body length bound matches
         // ISA constant magnitude.
         const int kLMax=isaMaxConstant();
         for(int L=1;L<=kLMax&&now_s()<p2f_dl&&(best.sc<N||(phase2_collecting&&now_s()<p2c_dl_get()));L++){
-            // R15/D1: Adaptive Levin budget — equal share of remaining per L level.
+            // R15/D1: Adaptive Levin budget - equal share of remaining per L level.
             {double rem=p2f_dl-now_s();
             int levels_left=kLMax-L+1;
             dl_L=std::min(p2f_dl,now_s()+rem/std::max(1,levels_left));}
@@ -3433,7 +3433,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             std::vector<MS>msets;
             if(use_multisets){
                 // ISA-derived filters only (no human knowledge):
-                // 1. ADD (ti=2): structural — WSBP traces from accumulator
+                // 1. ADD (ti=2): structural - WSBP traces from accumulator
                 // 2. Can-reduce: at least one instruction that can drive R[kr]→0
                 // DEC(1), SUB(3), MOD_C(6), MOD_R(7), DIVC_R(8), ISZERO(16), LOOP(17)
                 // 3. popcount ≥ 2: computation theory (single-type body is trivial)
@@ -3593,7 +3593,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                     // • ch == nrr: leave unr[i] unmerged → adds a new class
                     // (See URC encoding at the for-loop two scopes below.)
                     //
-                    // We use nc_est = nrr — the LOWER bound on nc_actual — yielding the
+                    // We use nc_est = nrr - the LOWER bound on nc_actual - yielding the
                     // most permissive nperm and largest nurc_cap. The cap thus admits URC
                     // configs whose mean cost may exceed the budget fraction; the dl_L
                     // deadline poll INSIDE the URC loop (`now_s()<dl_L`, just below) then
@@ -3603,7 +3603,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                     // C3 alignment: a permissive structural cap + deadline backstop
                     // explores more URC configs in available time, preserving Solomonoff
                     // ordering by not artificially cutting off enumeration. review
-                    // attempted nc_est = nrr+nunr (worst case) but regressed sigma — the
+                    // attempted nc_est = nrr+nunr (worst case) but regressed sigma - the
                     // worst-case bound is artificially restrictive given typical merge
                     // rates.
                     //
@@ -3652,7 +3652,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                         if(seed_var==0){
                         // Execution-based kr discovery (ISA-derived: LOOP terminates
                         // when R[kr]==0. Execute identity-permutation body, observe which
-                        // registers reach 0. No type-based kr guessing — discovered from
+                        // registers reach 0. No type-based kr guessing - discovered from
                         // execution semantics. Also serves as termination check.)
                         {Ins qb[kProgramBodyMax/2];for(int i=0;i<L;i++){qb[i].ti=wb[i].ti;qb[i].c=wb[i].c;qb[i].ar=wb[i].ar;
                             for(int a=0;a<qb[i].ar;a++){int w=ufFc(wb[i].args[a]);
@@ -3678,10 +3678,10 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                                     else exBodyFlat(R,qb2,L);}
                                 if(!g_sat)for(int r=0;r<nr;r++)if(R[r]==0)kr_candidates|=(1<<r);}}
                         // kr_candidates may be empty for non-LOOP programs.
-                        // Don't skip — E3 multi-mode tests don't need kr.
+                        // Don't skip - E3 multi-mode tests don't need kr.
                         // NESTED_LOOP testing (below) is gated by kr_candidates internally.
                         }
-                        } // end if(seed_var==0) — kr probe
+                        } // end if(seed_var==0) - kr probe
 
                         // Ensure pre-body pool exists for this nr (needed for NESTED_LOOP testing)
                         if(kr_candidates&&seed_var==0)ensurePool(nr);
@@ -3697,7 +3697,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                         // half-DDB body length.
                         int nsw=1<<nnc;if(nsw>(1<<(kDDBBodyMax/2)))nsw=(1<<(kDDBBodyMax/2));
 
-                        // Register permutation: P(nr, nc) — all distinct assignments
+                        // Register permutation: P(nr, nc) - all distinct assignments
                         int pm2[kProgramBodyMax/2];for(int i=0;i<nc;i++)pm2[i]=i;
                         auto np=[&]()->bool{for(int i=nc-1;i>=0;i--){pm2[i]++;
                             rr2:if(pm2[i]>=nr){pm2[i]=0;if(i==0)return false;continue;}
@@ -3784,7 +3784,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                                                 if(!phase2_collecting){phase2_collecting=true;p2c_dl_set(std::min(dl,now_s()+(double)kIsaMaxConstantConstexpr));}
                                                 if(now_s()>p2c_dl_get())return;}}}}
 
-                                // Try each kr candidate — NESTED_LOOP testing
+                                // Try each kr candidate - NESTED_LOOP testing
                                 // Skip for non-self-ref seed (E1) or if no kr candidates
                                 if(kr_candidates&&seed_var==0){
                                 for(int kr=0;kr<nr&&now_s()<dl_L;kr++){
@@ -3792,7 +3792,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                                 if(kr==outr||pools[nr].rpref[kr].empty())continue;
 
                                 // Pre-body sweep + verification.
-                                // library-bootstrap fix: deadline check inside ps loop (was missing — caused
+                                // library-bootstrap fix: deadline check inside ps loop (was missing - caused
                                 // Phase 2F overrun by 2-5x in library-bootstrap first attempt; Phase 2H got
                                 // skipped because Phase 2F never returned within budget).
                                 int ps_check=0;
@@ -3814,7 +3814,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                                         if(pm(R[outr],A)!=tgt[n2])break;sq++;}
                                     if(sq<n_quick_f)continue;
                                     // Quick check passed: verify remaining N-n_quick_f values.
-                                    // MODE_FUNC is stateless — first n_quick_f already confirmed.
+                                    // MODE_FUNC is stateless - first n_quick_f already confirmed.
                                     auto&pre=pools[nr].all[ps.idx];
                                     int sc=n_quick_f;
                                     for(int n2=n_quick_f;n2<N;n2++){
@@ -3858,7 +3858,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
             }; // end processTuple lambda
 
             // Pre-build all pools before parallel section (read-only during search).
-            // Parallelized: each pools[nr] slot is independent — pure work distribution.
+            // Parallelized: each pools[nr] slot is independent - pure work distribution.
             {std::vector<std::thread>thr;
             for(int pnr=2;pnr<=kRegisterCount;pnr++)thr.emplace_back([&,pnr](){ensurePool(pnr);});
             for(auto&t:thr)t.join();}
@@ -3922,16 +3922,16 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
     }
 
     // ══════════════════════════════════════════════════════════════
-    // PHASE 2H: Hierarchical synthesis — deep SUB_CALL-containing bodies (L=4..8).
+    // PHASE 2H: Hierarchical synthesis - deep SUB_CALL-containing bodies (L=4..8).
     // ══════════════════════════════════════════════════════════════
     // Bodies without any SUB_CALL slot are already enumerated by Phase 2A at L≤4.
     // Phase 2H is purely additive: composeDDB chain extending to L=8, output filtered
     // to bodies containing >=1 SUB_CALL. Each pool entry verified across MODE_FUNC,
     // MODE_ITER, MODE_EMIT × outr ∈ [0..nr-1]. Constraint compliance:
-    // C1 — exact match verification, no approximation.
-    // C2 — MDL via existing computeMDL, log₂(ncat) per slot identical to baseline.
-    // C3 — uniform enumeration over meta_L1 = L1 ∪ SUB_CALL_invocable; no target tactics.
-    // C4 — applies to any target.
+    // C1 - exact match verification, no approximation.
+    // C2 - MDL via existing computeMDL, log₂(ncat) per slot identical to baseline.
+    // C3 - uniform enumeration over meta_L1 = L1 ∪ SUB_CALL_invocable; no target tactics.
+    // C4 - applies to any target.
     // Phase 2H minimum-startup buffer = isaMaxConstant/2
     // seconds (= 5.0 with current ISA). ISA-derived; below this Phase 2H is skipped.
     // Phase 2H also runs in collecting mode (Phase 0/1 solved,
@@ -3960,10 +3960,10 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                 // cap_time = (p2h_dl - now) / per_test_cost_d
                 // cap_mem = available_memory / (kDDBBodyMax × sizeof(DDB))
                 // cap_d = min(cap_time, cap_mem)
-                // All inputs structural — no magic ladder.
+                // All inputs structural - no magic ladder.
                 const double p2h_per_op=calibratePerOpCost();
                 // use currentFreeMemoryBytes for actual free memory
-                // (not total system memory) — consistent with review in
+                // (not total system memory) - consistent with review in
                 // composeDDB and Phase 2F. Phase 2H runs late in search; by then
                 // earlier phases have allocated pool memory, so free << total.
                 const long long p2h_cap_mem=(long long)(currentFreeMemoryBytes()/(size_t)kDDBBodyMax/sizeof(DDB));
@@ -4004,15 +4004,15 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                             // register value matches tgt[0]. If none match, MODE_FUNC cannot
                             // succeed for any outr (the per-outr early-exit would fire at n=0
                             // for every choice). Saves (nr-1) × N body executions per skipped
-                            // candidate — bounded by min(nr,3) - 1 = 2.
+                            // candidate - bounded by min(nr,3) - 1 = 2.
                             // soundness: if filter rejects, no outr would have produced a
                             // non-zero score in MODE_FUNC; any candidate that the existing
                             // per-output early-exit would have accepted also passes filter.
-                            // C2 — MDL accounting unchanged; filter only changes search rate.
-                            // C3 — predicate (does any outr match tgt[0]?) is uniform across
+                            // C2 - MDL accounting unchanged; filter only changes search rate.
+                            // C3 - predicate (does any outr match tgt[0]?) is uniform across
                             // targets; no curation. Each target's tgt[0] is the same
                             // constraint applied identically.
-                            // C4 — applies to any target; same code path everywhere.
+                            // C4 - applies to any target; same code path everywhere.
                             bool func_viable = false;
                             {
                                 int64_t Rf[kRegisterCount]={};Rf[0]=0;g_sat=false;
@@ -4053,7 +4053,7 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                                         p2c_dl_set(std::min(dl,now_s()+(double)kIsaMaxConstantConstexpr));}}
                                 }
                             }
-                            // Phase 2H deadline check between modes — bounds per-candidate
+                            // Phase 2H deadline check between modes - bounds per-candidate
                             // overrun (each mode can run nested SUB_CALL bodies for seconds with
                             // library size ≥30). Constraint-clean: deadline check is uniform
                             // across all targets, no curation. Prevents the wall-time blow-up
@@ -4102,16 +4102,16 @@ static Res solve(const std::vector<int>&tgt,int A,double dl){
                             // and scan its body for OUT. A SUB_CALL'd library entry has nbody
                             // length up to ~24 and recursion-guarded (subCallLibraryEntryPure
                             // rejects entries containing SUB_CALL), so this is a single-level
-                            // scan. The subtle failure mode — the
+                            // scan. The subtle failure mode - the
                             // initial implementation was scanning only top-level body and was
                             // cutting valid candidates whose SUB_CALL'd entries had OUT.
                             // soundness: emit_possible=true admits any body that COULD emit
                             // (top-level OUT or indirectly via SUB_CALL). Bodies set false
                             // provably cannot emit at all.
-                            // C2 — MDL accounting unchanged.
-                            // C3 — predicate is structural over body and known library;
+                            // C2 - MDL accounting unchanged.
+                            // C3 - predicate is structural over body and known library;
                             // target-independent.
-                            // C4 — applies uniformly to any target.
+                            // C4 - applies uniformly to any target.
                             bool emit_possible = false;
                             for (int i = 0; i < nb && !emit_possible; i++) {
                                 if (body[i].ti == 12) { emit_possible = true; break; }

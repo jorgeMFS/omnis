@@ -1,5 +1,5 @@
 # =============================================================================
-# OMNIS — Observational Minimal-length Nonparametric Inductive Synthesis
+# OMNIS - Observational Minimal-length Nonparametric Inductive Synthesis
 # =============================================================================
 # Build:
 #   mkdir build-cmake && cd build-cmake
@@ -60,7 +60,7 @@ target_link_libraries(omnis PRIVATE Threads::Threads)
 # gen_workload: deterministic categorical workload generator. Pure C++17,
 # no engine link. Emits omnis-workload v1 format to stdout. See
 # tools/gen_workload.cpp for the generator design.
-# Compiled at -O2 — data emission is not perf-critical and -O2 keeps
+# Compiled at -O2 - data emission is not perf-critical and -O2 keeps
 # debugging tractable for the determinism contract.
 set(OMNIS_TOOLS_DIR ${CMAKE_SOURCE_DIR}/tools)
 add_executable(gen_workload ${OMNIS_TOOLS_DIR}/gen_workload.cpp)
@@ -112,7 +112,7 @@ target_link_libraries(test_correctness_fixes PRIVATE Threads::Threads)
 add_test(NAME test_correctness_fixes COMMAND test_correctness_fixes)
 
 # test_engine_determinism: 30-candidate × 3-rerun canary asserting the §3
-# reproducibility contract — (sc, pred_sc) identical, MDL within ±0.5 bits
+# reproducibility contract - (sc, pred_sc) identical, MDL within ±0.5 bits
 # AT SUFFICIENT BUDGET. 60s/run; total ≤ 30 × 3 × 60s = 90 min worst case
 # (easy candidates solve in <10s; realistic total ~25-40 min).
 add_executable(test_engine_determinism ${OMNIS_TESTS_DIR}/test_engine_determinism.cpp)

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# oeis_keyword_fetch.sh — Build the frozen keywords.tsv snapshot.
+# oeis_keyword_fetch.sh - Build the frozen keywords.tsv snapshot.
 #
 # Queries the OEIS search API for each of {core, hard, base}, paginates
 # through all results, parses the %K keyword line of each record, and
@@ -145,7 +145,7 @@ fetch_name_query() {
 
 # Read OEIS text format on stdin, emit "<A-number><TAB><keyword,csv>" pairs.
 # Note: the %K line lists keywords for the matching record, including the
-# canonical "nonn"/"sign" classification — we get that side-info free.
+# canonical "nonn"/"sign" classification - we get that side-info free.
 extract_pairs() {
     awk '
         /^%I A[0-9]/ { id = $2 }
@@ -187,12 +187,12 @@ TMP_BODY=$(mktemp)
 trap 'rm -f "$TMP_ACCUM" "$TMP_BODY"' EXIT
 sort -u "$TMP_ACCUM" > "$TMP_BODY"
 
-# Compute body-only SHA — invariant across runs of identical OEIS state.
+# Compute body-only SHA - invariant across runs of identical OEIS state.
 body_sha=$(shasum -a 256 "$TMP_BODY" | cut -d' ' -f1)
 
 # Compose the final file: headers (incl. body_sha256) + body. The wall-clock
 # timestamp in the header is informational only; reproducibility lives in
-# body_sha256 — that is what we pin and verify.
+# body_sha256 - that is what we pin and verify.
 {
     echo "# omnis-oeis-keywords v1"
     echo "# fetched_utc: $now_iso"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-scaling_censored.py — Task 3 of the §3.3 / Fig. S3 review response.
+scaling_censored.py - Task 3 of the §3.3 / Fig. S3 review response.
 
 Two analyses:
 
@@ -49,7 +49,7 @@ DROP_XREF = {"A000069","A000120","A001969","A002113"}
 # complementary schemes:
 #
 #   (A) GLOBAL: censor any discovery with time_s ≥ 500 s (very tail-only).
-#   (B) PER-FAMILY: censor at each family's p90 — the natural deadline
+#   (B) PER-FAMILY: censor at each family's p90 - the natural deadline
 #       proxy. This is the more honest deadline-aware censoring.
 GLOBAL_CENSOR_S    = 500.0
 PER_FAMILY_PERCENTILE = 90.0
@@ -210,7 +210,7 @@ def main():
 
     # OLS baselines (reproduce the manuscript)
     print("=" * 72)
-    print(" (1) Censored fit — refit log2(time) ~ bits on all discoveries")
+    print(" (1) Censored fit - refit log2(time) ~ bits on all discoveries")
     print("=" * 72)
     print(f"  Max observed discovery time: {df.time_s.max():.1f} s (no discovery hit the 600 s wall)")
     print(f"  Censoring scheme (A) GLOBAL:     time_s ≥ {GLOBAL_CENSOR_S:.0f} s")
@@ -235,7 +235,7 @@ def main():
 
     n_cens_global = int(df["censored_global"].sum())
     n_cens_pf     = int(df["censored_per_family"].sum())
-    print(f"\n  Total censored — scheme A: {n_cens_global} ({100*n_cens_global/n_total:.1f}%)"
+    print(f"\n  Total censored - scheme A: {n_cens_global} ({100*n_cens_global/n_total:.1f}%)"
           f"   scheme B: {n_cens_pf} ({100*n_cens_pf/n_total:.1f}%)")
 
     # OLS pooled (baseline)
@@ -251,7 +251,7 @@ def main():
     # Censored fits via lifelines AFT log-normal (proper CIs via Fisher information).
     try:
         aft_a = aft_lognormal(df, "censored_global")
-        print(f"\n  AFT log-normal — scheme A (censor at {GLOBAL_CENSOR_S:.0f} s tail):")
+        print(f"\n  AFT log-normal - scheme A (censor at {GLOBAL_CENSOR_S:.0f} s tail):")
         print(f"    slope = {aft_a['beta_log2']:.4f}   95% CI [{aft_a['ci_log2_lo']:.4f}, {aft_a['ci_log2_hi']:.4f}]"
               f"   n = {aft_a['n']}, n_cens = {aft_a['n_cens']}")
     except Exception as e:
@@ -260,7 +260,7 @@ def main():
 
     try:
         aft_b = aft_lognormal(df, "censored_per_family")
-        print(f"\n  AFT log-normal — scheme B (censor at per-family p{PER_FAMILY_PERCENTILE:.0f}):")
+        print(f"\n  AFT log-normal - scheme B (censor at per-family p{PER_FAMILY_PERCENTILE:.0f}):")
         print(f"    slope = {aft_b['beta_log2']:.4f}   95% CI [{aft_b['ci_log2_lo']:.4f}, {aft_b['ci_log2_hi']:.4f}]"
               f"   n = {aft_b['n']}, n_cens = {aft_b['n_cens']}")
     except Exception as e:
@@ -269,7 +269,7 @@ def main():
 
     # Tobit with per-family censoring (sanity-check the AFT result)
     tobit_b = tobit_right_censored(y, X, df["censored_per_family"].values)
-    print(f"\n  Tobit right-censored normal — scheme B (sanity check):")
+    print(f"\n  Tobit right-censored normal - scheme B (sanity check):")
     print(f"    slope = {tobit_b['beta'][1]:.4f}   95% CI [{tobit_b['ci_lo'][1]:.4f}, {tobit_b['ci_hi'][1]:.4f}]"
           f"   n_cens = {tobit_b['n_cens']}")
 
@@ -294,7 +294,7 @@ def main():
     slopes["Tobit scheme B"] = tobit_b["beta"][1]
 
     print()
-    print("  ── Verdict (a) — censored slope vs OLS, order-of-magnitude check ──")
+    print("  ── Verdict (a) - censored slope vs OLS, order-of-magnitude check ──")
     print(f"  Slope summary:")
     for label, sl in slopes.items():
         print(f"    {label:18s} = {sl:.4f}")
@@ -306,7 +306,7 @@ def main():
     elif band_hi < 0.99:
         print(f"  → All estimators give slope < 1; order-of-magnitude claim SURVIVES.")
     else:
-        print(f"  → Censored slope crosses 0.99 — order-of-magnitude claim does NOT survive cleanly.")
+        print(f"  → Censored slope crosses 0.99 - order-of-magnitude claim does NOT survive cleanly.")
 
     # ───────────────────────────────────────────────────────────────────
     # (2) Model comparison on the deadline-free subset (n=1093)
@@ -357,7 +357,7 @@ def main():
 
     # Verdict on (b)
     print()
-    print("  ── Verdict (b) — exponential vs polynomial discrimination ──")
+    print("  ── Verdict (b) - exponential vs polynomial discrimination ──")
     best = by_aic[0]
     second_aic = by_aic[1]["AIC"]
     delta = second_aic - best["AIC"]

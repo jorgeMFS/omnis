@@ -6,7 +6,7 @@ Picks N sequences per population (defaults: S1=37, S2=20, S3=76, S4=168, total
 301 ≈ the 300 the prompt asks for, rounded up to fully consume the S4 share).
 Uses a fixed seed so the sample reproduces across reruns.
 
-Filters out sequences whose multiset entropy is 0 (constant sequences) — the
+Filters out sequences whose multiset entropy is 0 (constant sequences) - the
 shuffle is identity-equivalent on those, so they cannot inform a null
 calibration. The methodology requires "order to destroy"; constant sequences
 have none.
@@ -85,7 +85,7 @@ def main():
                 cat_cache[cat] = index_category(cat)
             terms = cat_cache[cat].get(r["id"])
             if terms is None:
-                sys.exit(f"{stage}: id {r['id']} not in {cat}.txt — cannot compute multiset H")
+                sys.exit(f"{stage}: id {r['id']} not in {cat}.txt - cannot compute multiset H")
             H = multiset_entropy(terms)
             if H == 0.0:
                 n_const += 1

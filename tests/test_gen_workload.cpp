@@ -2,17 +2,17 @@
 // Regression tests for the categorical workload pipeline.
 //
 // Coverage (one test per pipeline stage where viable as an offline check):
-//   1. A1 — gen_workload determinism: same (category, n, seed, SDE) -> byte-identical
-//   2. A2 — gen_workload output parses cleanly (id A N + N terms, term in [0,A))
-//   3. A3 — gen_workload eca_030 == in-tree benchmarks.h::genRule30 (cross-impl)
-//   4. C1 — omnis_validate emits the exact CSV header schema
-//   5. C2 — omnis_validate determinism: 3 reruns yield identical (sc, pred_sc),
+//   1. A1 - gen_workload determinism: same (category, n, seed, SDE) -> byte-identical
+//   2. A2 - gen_workload output parses cleanly (id A N + N terms, term in [0,A))
+//   3. A3 - gen_workload eca_030 == in-tree benchmarks.h::genRule30 (cross-impl)
+//   4. C1 - omnis_validate emits the exact CSV header schema
+//   5. C2 - omnis_validate determinism: 3 reruns yield identical (sc, pred_sc),
 //          MDL within 0.5 bits
-//   6. checksums — committed data/categories/CHECKSUMS.sha256 verifies if
+//   6. checksums - committed data/categories/CHECKSUMS.sha256 verifies if
 //          binaries are present; SKIP if data/categories/ is absent
 //
 // Tests that require the OEIS snapshot (stripped.gz, names.gz, keywords.tsv)
-// are SKIP'd when the snapshot directory is missing — keeps the test suite
+// are SKIP'd when the snapshot directory is missing - keeps the test suite
 // runnable on a clean clone before tools/oeis_fetch.sh.
 //
 // Build: wired into CMakeLists.txt as test_gen_workload (CTest target).
@@ -76,7 +76,7 @@ static bool fileExists(const std::string& path) {
 }
 
 // =========================================================================
-// Test 1 — A1: gen_workload determinism
+// Test 1 - A1: gen_workload determinism
 // =========================================================================
 
 static void test_gen_determinism(TestResult& tr) {
@@ -92,7 +92,7 @@ static void test_gen_determinism(TestResult& tr) {
 }
 
 // =========================================================================
-// Test 2 — A2: format conformance (id A N + N terms, term in [0, A))
+// Test 2 - A2: format conformance (id A N + N terms, term in [0, A))
 // =========================================================================
 
 static void test_gen_format(TestResult& tr) {
@@ -125,7 +125,7 @@ static void test_gen_format(TestResult& tr) {
 }
 
 // =========================================================================
-// Test 3 — A3: eca_030 (rule-number lookup) == benchmarks.h genRule30 (XOR)
+// Test 3 - A3: eca_030 (rule-number lookup) == benchmarks.h genRule30 (XOR)
 // =========================================================================
 
 static void test_gen_eca030_xref(TestResult& tr) {
@@ -160,7 +160,7 @@ static void test_gen_eca030_xref(TestResult& tr) {
 }
 
 // =========================================================================
-// Test 4 — C1: omnis_validate emits the canonical CSV header
+// Test 4 - C1: omnis_validate emits the canonical CSV header
 // =========================================================================
 
 static void test_validate_csv_header(TestResult& tr) {
@@ -178,14 +178,14 @@ static void test_validate_csv_header(TestResult& tr) {
     // Frozen schema (matches CSV_HEADER in tools/omnis_validate.cpp).
     // The CSV schema has 15 columns. `category` and
     // `oeis_xref` are per-row provenance; sweep-level provenance lives in
-    // the run manifest (DB normalization — see comment on CSV_HEADER).
+    // the run manifest (DB normalization - see comment on CSV_HEADER).
     const std::string expected =
         "id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc";
     CHECK("header matches frozen 15-column schema", header == expected);
 }
 
 // =========================================================================
-// Test 5 — C2: omnis_validate determinism on a deterministic candidate
+// Test 5 - C2: omnis_validate determinism on a deterministic candidate
 // =========================================================================
 
 static void test_validate_determinism(TestResult& tr) {
@@ -241,14 +241,14 @@ static void test_validate_determinism(TestResult& tr) {
 }
 
 // =========================================================================
-// Test 6 — committed CHECKSUMS.sha256 still verifies (whole-file SHA pin)
+// Test 6 - committed CHECKSUMS.sha256 still verifies (whole-file SHA pin)
 // =========================================================================
 
 static void test_checksums_pin(TestResult& tr) {
     std::printf("[D2] data/categories/CHECKSUMS.sha256 verifies\n");
     std::string ck = CATEGORIES_DIR + "/CHECKSUMS.sha256";
     if (!fileExists(ck)) {
-        SKIP("CHECKSUMS.sha256 present", "data/categories/ not populated — run tools/gen_all.sh");
+        SKIP("CHECKSUMS.sha256 present", "data/categories/ not populated - run tools/gen_all.sh");
         return;
     }
     std::string out;
@@ -259,7 +259,7 @@ static void test_checksums_pin(TestResult& tr) {
 }
 
 // =========================================================================
-// Test 7 — CTX prediction regression: trimod8 must classify as `discovered`
+// Test 7 - CTX prediction regression: trimod8 must classify as `discovered`
 //
 // Why: a 2nd-order Markov sequence (T(n) mod 8 has 16-period determined by
 // last 2 values) MUST predict perfectly when the engine finds a CTX_X
@@ -327,7 +327,7 @@ static void test_ctx_prediction_regression(TestResult& tr) {
 }
 
 // =========================================================================
-// Test 8 (optional) — OEIS canary cross-check (SKIP if no snapshot)
+// Test 8 (optional) - OEIS canary cross-check (SKIP if no snapshot)
 // =========================================================================
 
 static void test_oeis_canary(TestResult& tr) {
@@ -335,7 +335,7 @@ static void test_oeis_canary(TestResult& tr) {
     std::string stripped = SNAPSHOT_DIR + "/stripped.gz";
     std::string bfile    = REPO_ROOT + "/data/oeis/canary/b000005.txt";
     if (!fileExists(stripped) || !fileExists(bfile)) {
-        SKIP("snapshot + canary files present", "OEIS data not pinned — run tools/oeis_fetch.sh");
+        SKIP("snapshot + canary files present", "OEIS data not pinned - run tools/oeis_fetch.sh");
         return;
     }
 

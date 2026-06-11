@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# launch_sweep.sh — multi-day-safe wrapper around tools/run_paper_baseline.sh.
+# launch_sweep.sh - multi-day-safe wrapper around tools/run_paper_baseline.sh.
 #
 # Why this exists: the bare runner gets killed by macOS power management
 # during idle sleep (overnight runs lose hours and the manifest doesn't
@@ -45,7 +45,7 @@ case "${1:-}" in
                     echo "    rows so far: $n"
                 fi
             else
-                echo "  (stale) $(basename "$pidfile" .pid) — PID $pid not running"
+                echo "  (stale) $(basename "$pidfile" .pid) - PID $pid not running"
             fi
         done
         exit 0 ;;
@@ -142,7 +142,7 @@ fi
 
 # `caffeinate -i` prevents idle sleep. -s would prevent system sleep entirely
 # (heavier); -i is enough for nohup'd background work.
-# Disowned subshell carries `caffeinate` as the PID we track — caffeinate
+# Disowned subshell carries `caffeinate` as the PID we track - caffeinate
 # inherits SIGTERM and forwards it to the runner child cleanly.
 if command -v caffeinate >/dev/null 2>&1; then
     nohup caffeinate -i "${CMD[@]}" > "$LOG" 2>&1 &

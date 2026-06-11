@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Figure 4 — Per-instance scaling, coloured by engine phase.
+# Figure 4 - Per-instance scaling, coloured by engine phase.
 #
 # Replot of analysis/figures/fig4_data.csv (2,383 discoveries). Does not
 # re-run the engine, does not read baseline CSVs, does not touch the null
@@ -8,7 +8,7 @@
 #
 # Visual hypothesis: the horizontal bands in the cloud are phase
 # deadlines. Colouring by solver_family makes that architecture explicit
-# — CTX_X sits at the 30 s phase deadline, NESTED_LOOP at the Phase 2H
+# - CTX_X sits at the 30 s phase deadline, NESTED_LOOP at the Phase 2H
 # budget around 200 s. What looked like noise on a slope is the engine's
 # scheduler.
 
@@ -57,7 +57,7 @@ EXPECT_N_NC       <- 1093L
 TOL_SLOPE         <- 0.001
 TOL_R2            <- 0.005
 
-# Phase-deadline reference (s) — only the CTX_X line is derivable from
+# Phase-deadline reference (s) - only the CTX_X line is derivable from
 # the engine source (omnis.cpp:2519, ctx_budget clamped to 30s plus
 # prior-phase startup ≈ 42s wall). The ~200s NESTED_LOOP cluster is left
 # unlabelled: it is the empirical median wall of Phase-2F WSBP enumeration
@@ -147,7 +147,7 @@ fam_counts <- as.integer(table(d$family)[FAM_ORDER])
 legend_labels <- vapply(seq_along(FAM_ORDER), function(i) {
   n <- fam_counts[i]
   if (FAM_ORDER[i] %in% c("CTX_X","NESTED_LOOP")) {
-    # the two named phase bands — slightly emphasised label
+    # the two named phase bands - slightly emphasised label
     sprintf("%s  (n = %s)", FAM_ORDER[i], format(n, big.mark = ","))
   } else {
     sprintf("%s  (n = %s)", FAM_ORDER[i], format(n, big.mark = ","))
@@ -161,12 +161,12 @@ y_min <- min(d$log2t);        y_max <- max(d$log2t)
 
 p <- ggplot() +
 
-  # Phase-deadline reference — only CTX_X, the one constant derivable from
+  # Phase-deadline reference - only CTX_X, the one constant derivable from
   # the engine source. Faint dotted line + short italic label.
   geom_hline(yintercept = log2(CTX_DEADLINE_S),
              color = DEADLINE_LN, linewidth = 0.22, linetype = "dotted") +
 
-  # Points — drawn in family order with stage-tuned alpha/size, plus a
+  # Points - drawn in family order with stage-tuned alpha/size, plus a
   # small horizontal jitter to break the vertical stripes of discrete
   # program-length values.
   geom_jitter(data = d[d$family == "CTX_X", ],
