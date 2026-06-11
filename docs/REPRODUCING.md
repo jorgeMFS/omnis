@@ -1,8 +1,7 @@
 # Reproducing the OMNIS baseline
 
 This document is the operational recipe for reproducing the categorical baseline
-(`data/results/baseline_<date>.csv`) on a clean checkout. It is the Phase F
-acceptance gate of `INTEGRATION_PLAN.md` §10.
+(`data/results/baseline_<date>.csv`) on a clean checkout.
 
 ## Prerequisites
 
@@ -94,11 +93,11 @@ tools/run_paper_baseline.sh --categories oeis_core,oeis_hard
 
 ## 5. Acceptance gates
 
-The Phase E acceptance contract (see `INTEGRATION_PLAN.md` §10):
+The acceptance contract:
 
 | Gate | Check |
 |---|---|
-| E1   | `eca256` rows: count of `discovered ≥ 240`. (ENARZ baseline 244/256.) |
+| E1   | `eca256` rows: count of `discovered ≥ 240`. (Paper baseline 244/256.) |
 | E2   | aggregate `compressed_only / discovered ≤ 0.01`. |
 | E3   | `neg_controls` rows: 0 `discovered`. `bench_pib4`: `neither`. |
 | E4   | A second sweep on a fresh checkout reproduces every `(sc, pred_sc)` exactly and every `mdl` within ±0.5 bits. |

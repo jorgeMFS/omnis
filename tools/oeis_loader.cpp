@@ -16,7 +16,7 @@
 // int64 range) are still handled losslessly. Negative terms are reduced
 // via Euclidean modulus.
 //
-// Determinism: same (snapshot SHAs, filter, target_n, alphabets, gen-sha)
+// Determinism: same (snapshot SHAs, filter, target_n, alphabets)
 // produces byte-identical body. Wall-clock timestamp lives in the header
 // only.
 
@@ -44,7 +44,7 @@ static constexpr int LOADER_VERSION = 1;
 static constexpr const char* WORKLOAD_SCHEMA = "omnis-workload v1";
 
 // =============================================================================
-// Filter registry (Phase B.3) — pre-registered, frozen.
+// Filter registry — pre-registered, frozen.
 // =============================================================================
 
 struct OeisFilter {
@@ -63,8 +63,8 @@ struct OeisFilter {
 // sequences (Bell, Fibonacci-large-mod, etc.) are truncated below that.
 // min_n=20 captures ~91% of keyword:core; lower bound chosen so binary
 // alphabet emissions still carry ≥20 bits = enough for trivial-pattern
-// detection. target_n=500 truncates the long tail. For paper-grade Phase E
-// runs that need longer sequences, run tools/oeis_bfile_fetch.sh (Phase B.5)
+// detection. target_n=500 truncates the long tail. For runs
+// that need longer sequences, run tools/oeis_bfile_fetch.sh
 // to extend coverage from authoritative per-sequence b-files.
 
 static const std::vector<OeisFilter> FILTERS = {
@@ -422,7 +422,7 @@ static void printUsage() {
         "\n"
         "Usage:\n"
         "  oeis_loader --filter <name> [--snapshot-dir DIR] [--out PATH]\n"
-        "             [--gen-sha SHA] [--snapshot-sha SHA] [--max N]\n"
+        "             [--snapshot-sha SHA] [--max N]\n"
         "\n"
         "Filters (pre-registered in oeis_loader.cpp):\n"
         "  oeis_core, oeis_hard, oeis_base, oeis_morphic, oeis_cellular\n"
@@ -432,7 +432,7 @@ static void printUsage() {
         "  --snapshot-dir DIR     directory containing stripped.gz, names.gz, keywords.tsv\n"
         "                         (default: data/oeis/snapshot relative to CWD)\n"
         "  --out PATH             output file (default: stdout)\n"
-        "  --gen-sha SHA          recorded in workload header (use git rev-parse HEAD)\n"
+        
         "  --snapshot-sha SHA     recorded in workload header (use stripped.gz body sha)\n"
         "  --max N                cap to first N matching sequences (0 = filter default)\n"
         "  --list-filters         print filter table and exit\n"
@@ -443,7 +443,6 @@ int main(int argc, char* argv[]) {
     std::string filter_name;
     std::string snapshot_dir = "data/oeis/snapshot";
     std::string out_path;
-    std::string gen_sha;
     std::string snapshot_sha;
     int max_override = -1;
 
@@ -466,8 +465,7 @@ int main(int argc, char* argv[]) {
         else if (a == "--filter"        && i + 1 < argc) filter_name = argv[++i];
         else if (a == "--snapshot-dir"  && i + 1 < argc) snapshot_dir = argv[++i];
         else if (a == "--out"           && i + 1 < argc) out_path = argv[++i];
-        else if (a == "--gen-sha"       && i + 1 < argc) gen_sha = argv[++i];
-        else if (a == "--snapshot-sha"  && i + 1 < argc) snapshot_sha = argv[++i];
+            else if (a == "--snapshot-sha"  && i + 1 < argc) snapshot_sha = argv[++i];
         else if (a == "--max"           && i + 1 < argc) max_override = std::atoi(argv[++i]);
         else { std::fprintf(stderr, "oeis_loader: unknown option '%s'\n", a.c_str()); printUsage(); return 2; }
     }
@@ -579,7 +577,6 @@ int main(int argc, char* argv[]) {
     *out << "# " << WORKLOAD_SCHEMA << '\n';
     *out << "# category: " << filt->name << '\n';
     *out << "# loader_version: " << LOADER_VERSION << '\n';
-    *out << "# generator_sha: " << (gen_sha.empty() ? "unknown" : gen_sha) << '\n';
     *out << "# oeis_snapshot_sha: " << (snapshot_sha.empty() ? "unknown" : snapshot_sha) << '\n';
     *out << "# omnis_min_version: 0.1.0\n";
     *out << "# created_utc: " << isoDateUtc() << '\n';

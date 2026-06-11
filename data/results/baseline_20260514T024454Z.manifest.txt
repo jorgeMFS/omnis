@@ -1,10 +1,9 @@
-# omnis baseline run manifest (INTEGRATION_PLAN.md §3 + §5 contract)
+# omnis baseline run manifest (schema + provenance contract)
 # CHECKPOINT WRITE — fields below are valid; completion_status updates at end.
 run_id:                 baseline_20260514T024454Z
 csv_path:               <REPO_ROOT>/data/results/baseline_20260514T024454Z.csv
 csv_schema_columns:     15  # id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
 omnis_sha:              unknown
-generator_sha:          c0ba809b03ae9e1de96766c4fe76347498e23bfd
 oeis_stripped_sha256:   91d5c7ac357112c01677923f85c5f6a5b2178c700bab16da7bcc894a8e225079
 oeis_names_sha256:      da0ef2a597626dcb86b74d0839a9a275d56ade58692cec391be03f4fa1a2f043
 host:                   Mac

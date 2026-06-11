@@ -4,7 +4,7 @@
 # Downloads:
 #   - stripped.gz  (numerical sequences, ~31 MB)
 #   - names.gz     (sequence names, ~7.5 MB)
-#   - canary b-files for cross-validation (Gate B2)
+#   - canary b-files for cross-validation
 #
 # Behaviour:
 #   - On first run: downloads, computes SHA-256, writes data/oeis/SOURCES.md.
@@ -84,7 +84,7 @@ declare -a BULK_FILES=(
     "names.gz    https://oeis.org/names.gz"
 )
 
-# Canary b-files (per-sequence authoritative term lists for Gate B2).
+# Canary b-files (per-sequence authoritative term lists for cross-validation).
 declare -a CANARY_FILES=(
     "b000005.txt https://oeis.org/A000005/b000005.txt"
     "b000010.txt https://oeis.org/A000010/b000010.txt"

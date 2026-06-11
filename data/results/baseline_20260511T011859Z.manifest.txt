@@ -1,4 +1,4 @@
-# omnis baseline run manifest (INTEGRATION_PLAN.md §3 + §5 contract)
+# omnis baseline run manifest (schema + provenance contract)
 # REGENERATED post-hoc on 2026-05-11 morning. Original run completed (CSV
 # fully written, 43/43 rows) but the runner subshell terminated between
 # the loop end and manifest-write step (probably overnight system sleep
@@ -8,8 +8,7 @@
 run_id:                 baseline_20260511T011859Z
 csv_path:               data/results/baseline_20260511T011859Z.csv
 csv_schema_columns:     15  # id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc
-omnis_sha:              unknown  # omnis/ untracked in parent mdl1 git; populates once omnis is its own repo
-generator_sha:          c0ba809b03ae9e1de96766c4fe76347498e23bfd
+omnis_sha:              unknown  # recorded before the repository had its own git history
 oeis_stripped_sha256:   91d5c7ac357112c01677923f85c5f6a5b2178c700bab16da7bcc894a8e225079
 oeis_names_sha256:      da0ef2a597626dcb86b74d0839a9a275d56ade58692cec391be03f4fa1a2f043
 host:                   Mac

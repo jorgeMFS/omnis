@@ -31,8 +31,7 @@ Usage:
     python3 generate_sc_tables.py --results results.csv > sc_tables.tex
     python3 generate_sc_tables.py --results results.parquet --no-assert > sc_tables.tex
 
-Then paste sc_tables.tex into SI Appendix C, replacing the commented skeletons,
-and delete the bold placeholder paragraph.
+The output is the LaTeX for the seven SI Appendix C tables.
 """
 
 import argparse, sys, math

@@ -14,7 +14,7 @@
 #   mine.sh --validate <budget_seconds> <workload_file> [output_path]
 #
 # Examples:
-#   ./mine.sh 60 ../data/candidates_random.txt
+#   ./mine.sh 60 ../data/categories/benchmark14.txt
 #   ./mine.sh --validate 60 ../data/categories/oeis_core.txt results_oeis_core.csv
 #
 # In --validate mode the engine writes diagnostic printf to stdout during
@@ -30,7 +30,7 @@ if [ "${1:-}" = "--validate" ]; then
 fi
 
 BUDGET="${1:-60}"
-WORKLOAD="${2:-../data/candidates_random.txt}"
+WORKLOAD="${2:-../data/categories/benchmark14.txt}"
 
 if [ "$VALIDATE" = "1" ]; then
     OUT="${3:-validated_$(date +%Y%m%d_%H%M%S).csv}"

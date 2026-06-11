@@ -72,7 +72,7 @@ Exit codes: `0` solved, `1` partial, `2` usage, `3` I/O.
 cd build-cmake && ctest --output-on-failure
 ```
 
-Five test suites covering SUB_CALL semantics, Phase 2H pool building, Phase 2F budget enforcement, regression coverage for previously-found bugs, and the categorical workload pipeline (`gen_workload` + `omnis_validate` + frozen-checksum verification).
+Six test suites covering SUB_CALL semantics, Phase 2H pool building, Phase 2F budget enforcement, regression coverage for previously-found bugs, engine determinism (two runs must agree exactly on scores and classification), and the categorical workload pipeline (`gen_workload` + `omnis_validate` + frozen-checksum verification).
 
 ## Repository layout
 
@@ -81,7 +81,9 @@ src/        engine + CLI (omnis.cpp, cli.cpp)
 tests/      regression tests + benchmark generators (used by tests only)
 build/      build scripts (build.sh, build_pgo.sh, mine.sh)
 data/       workload files, OEIS snapshot pins, program database,
-            and the four baseline sweep results under data/results/
+            and the sweep results under data/results/: the four paper
+            populations plus a smoke run (benchmark targets and the
+            twenty negative controls, none of which pass the gate)
 analysis/   everything behind the paper's figures and tables: the
             per-discovery and null-calibration datasets, the Python
             analysis scripts, the R figure scripts, and the final
@@ -98,11 +100,9 @@ tools/      auxiliary binaries and scripts:
 In addition to the main `omnis` CLI, the build produces `omnis_validate`,
 `gen_workload`, and `oeis_loader` for reproducible categorical sweeps. See:
 
-- `docs/INTEGRATION_PLAN.md` — full pipeline + acceptance gates
 - `docs/REPRODUCING.md` — clone → build → fetch → run → CSV recipe
 - `docs/CATEGORIES.md` — workload-category overview + pre-registered targets
 - `docs/SOLOMONOFF_VALIDATION.md` — formal classification specification
-- `docs/COUPLING_BARRIER_APPENDIX.md` — instantiation of [Lavraga, *Time is the Coupling Barrier*] for OMNIS; data-dependence, ISA bias, MDL clustering
 - `docs/ARCHITECTURE.md` — engine internals (instruction set, modes, MDL)
 
 ## Citation

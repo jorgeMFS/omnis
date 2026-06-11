@@ -3,8 +3,7 @@
 This document is the formal specification of OMNIS's classification: how
 each candidate sequence is placed into one of four cells based on whether
 the engine's discovered program *compresses* its training prefix and
-*predicts* its held-out continuation. It is the Phase F documentation
-gate of `INTEGRATION_PLAN.md`.
+*predicts* its held-out continuation.
 
 ## 1. Setup
 
@@ -12,8 +11,8 @@ Let `S = (s_0, s_1, ..., s_{N-1})` be a finite alphabet sequence over
 `{0, 1, ..., A-1}`. Split `S` into a training prefix and a held-out test
 suffix:
 
-- `K = max(K_min, ⌈N/4⌉)` with `K_min = 20` (decision locked in
-  `INTEGRATION_PLAN.md` §9, item 2).
+- `K = max(K_min, ⌊N/4⌋)` with `K_min = 20`, fixed in advance and never
+  tuned to outcomes.
 - `train = (s_0, ..., s_{N-K-1})`, `train_N = |train|`
 - `test  = (s_{N-K}, ..., s_{N-1})`, `|test| = K`
 
@@ -44,8 +43,8 @@ verbatim under uniform prior.
 predicts(r, test) := (pred_sc == K)
 ```
 
-The decision was locked at strict equality (`pred_sc == K`) — see
-`INTEGRATION_PLAN.md` §9, item 3. A program that compresses must extend
+The criterion is strict equality (`pred_sc == K`), fixed in advance.
+A program that compresses must extend
 correctly *for every held-out symbol*, not just on average.
 
 ## 3. The Solomonoff contingency cell
@@ -112,14 +111,12 @@ The second is the operational consequence of the first plus the strict
 inequality in `compresses`: if `mdl` drift across reruns straddles the
 strict-compression threshold (`mdl < train_N · log_2 A`), the cell can
 flip even though `(sc, pred_sc)` is stable. We have not observed this
-in practice on `benchmark14`; the budgets in `INTEGRATION_PLAN.md` are
+in practice on `benchmark14`; the default budgets are
 conservative enough to keep `mdl` ≪ `raw_bits` on every `discovered`
 sequence.
 
 ## 7. References
 
 - `tools/omnis_validate.cpp` — the binary that computes the cell per row.
-- `INTEGRATION_PLAN.md` §2 — discovery semantics rationale.
-- `INTEGRATION_PLAN.md` §9 — locked decisions (K, strict prediction).
 - Internal validation report — empirical validation on the 14-benchmark suite
   used here as `benchmark14`.

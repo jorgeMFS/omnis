@@ -6,7 +6,7 @@
 // classifies the candidate into the Solomonoff contingency cell, and emits
 // a single data row.
 //
-// Definitions (per docs/INTEGRATION_PLAN.md §2):
+// Definitions (per docs/SOLOMONOFF_VALIDATION.md):
 //   K            = max(20, total_terms / 4)
 //   train_N      = total_terms - K
 //   compresses   = (sc == train_N) AND (mdl < train_N * log2(A))
@@ -48,7 +48,7 @@
 // their output CSV, then concatenate per-candidate data rows from each
 // omnis_validate invocation.
 
-// Provenance contract (INTEGRATION_PLAN.md §5):
+// Provenance columns:
 // - `category` and `oeis_xref` are per-row varying provenance (origin of the
 //   candidate). Caller passes them via --category / --oeis-xref; defaults are
 //   "self" / empty so direct CLI use remains valid.
@@ -98,7 +98,7 @@ static void printUsage() {
         "                        (Σ>1) indicates encoding bug; pass is a smoke test.\n"
         "  --category NAME       Per-row provenance: workload-family name (e.g. 'oeis_core',\n"
         "                        'eca256', 'benchmark14'). Default: 'self' for direct CLI use.\n"
-        "                        See INTEGRATION_PLAN.md §5.\n"
+        "                        Recorded verbatim in the output row.\n"
         "  --oeis-xref ID        Per-row provenance: OEIS A-number for OEIS-sourced rows\n"
         "                        (e.g. 'A000005'). Empty for local generators. §5.\n"
         "  --out PATH            Write the CSV row to PATH (append). Default: stdout.\n"
@@ -150,7 +150,7 @@ int main(int argc, char* argv[]) {
     int k_min = 20;
     int k_num = 1, k_den = 4;       // K = max(k_min, total_n * num/den)
     std::string out_path;
-    // Per-row provenance per INTEGRATION_PLAN.md §5.
+    // Per-row provenance columns.
     // category: which workload family this candidate came from (oeis_core,
     //           eca256, benchmark14, neg_controls, ...).
     // oeis_xref: OEIS A-number if applicable (e.g. "A000005"); empty for
@@ -158,11 +158,11 @@ int main(int argc, char* argv[]) {
     // Both default to "self" / empty for direct-invocation use.
     std::string category = "self";
     std::string oeis_xref = "";
-    // Audit #96: prediction mode. Default = mixture (rigorous Solomonoff).
+    // Prediction mode. Default = mixture (rigorous Solomonoff).
     // --single-best opts into the legacy lex-best-only path (faster, identical
     // results when the lex-best program dominates the mixture's prior).
     bool use_single_best = false;
-    // Audit #97: opt-in Kraft inequality smoke check on g_progs.
+    // Opt-in Kraft inequality smoke check on g_progs.
     bool do_kraft = false;
 
     for (int i = 1; i < argc; i++) {
@@ -280,7 +280,7 @@ int main(int argc, char* argv[]) {
     double dt = now_s() - t0;
     r.mdl = computeMDL(r, ncat);
 
-    // Audit #97: Kraft inequality smoke check on g_progs (opt-in via --kraft).
+    // Kraft inequality smoke check on g_progs (opt-in via --kraft).
     // Must run BEFORE pred_sc compute so the diagnostic appears in stdout
     // alongside other solve-time diagnostics, not interleaved with the CSV row.
     if (do_kraft) {
@@ -302,20 +302,20 @@ int main(int argc, char* argv[]) {
     //      gen[t-ds+perm[k]], run body, push the program's output back into
     //      gen. This is open-loop — we feed the PROGRAM's output back, not
     //      the test target. Matches the strict Solomonoff prediction
-    //      semantics from regmachine ENARZ.
+    //      semantics from the engine's canonical interpreter.
     //
     // EARLIER BUG: the previous version used predictNext as the CTX fallback.
     // predictNext bails out via `if (r.sc < N) return -1` at the top, where
     // N = ext.size(). Since r.sc is fixed at train_N, every step >= 1 (which
     // grows N) returned -1 instantly. Result: pred_sc capped at 1 for all
-    // CTX programs regardless of correctness. Found by user during Phase D
+    // CTX programs regardless of correctness. Found during a review
     // audit when trimod8/collatz showed pred_sc=1.
     int sc = r.sc;
     int pred_sc = 0;
     bool used_ctx_path = false;
 
     if (!use_single_best) {
-        // Audit #96 DEFAULT: Solomonoff weighted-mixture prediction.
+        // DEFAULT: Solomonoff weighted-mixture prediction.
         //
         // g_progs holds all sc=N programs found during solve() (Phase 0 / 1A /
         // 1B / 2A / 2B / 2C / 2F / 2H all call recordProg via #96 plumbing),
@@ -387,7 +387,7 @@ int main(int argc, char* argv[]) {
     // Compose CSV row. Column order matches CSV_HEADER exactly:
     //   id, category, oeis_xref, A, total_n, train_n, k, sc, pred_sc,
     //   solomonoff_class, mdl, raw_bits, ratio, time_s, solver_desc
-    // category and oeis_xref are per-row provenance (INTEGRATION_PLAN §5).
+    // category and oeis_xref are per-row provenance.
     char row_buf[1024];
     int row_len = std::snprintf(row_buf, sizeof(row_buf),
         "%s,%s,%s,%d,%d,%d,%d,%d,%d,%s,%.2f,%.2f,%.4f,%.3f,%s\n",

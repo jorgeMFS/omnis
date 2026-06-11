@@ -1,7 +1,6 @@
 # omnis-workload v1
 # category: prime
 # generator_version: 2
-# generator_sha: c0ba809b03ae9e1de96766c4fe76347498e23bfd
 # omnis_min_version: 0.1.0
 # created_utc: 2025-05-07T00:00:00Z
 # count: 3

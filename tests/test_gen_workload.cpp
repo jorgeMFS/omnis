@@ -1,7 +1,7 @@
 // =========================================================================
-// Phase D regression tests for the categorical workload pipeline.
+// Regression tests for the categorical workload pipeline.
 //
-// Coverage (one test per Phase A/B/C gate where viable as offline check):
+// Coverage (one test per pipeline stage where viable as an offline check):
 //   1. A1 — gen_workload determinism: same (category, n, seed, SDE) -> byte-identical
 //   2. A2 — gen_workload output parses cleanly (id A N + N terms, term in [0,A))
 //   3. A3 — gen_workload eca_030 == in-tree benchmarks.h::genRule30 (cross-impl)
@@ -175,8 +175,8 @@ static void test_validate_csv_header(TestResult& tr) {
     std::string header = out;
     while (!header.empty() && (header.back() == '\n' || header.back() == '\r')) header.pop_back();
 
-    // Frozen schema (matches CSV_HEADER in tools/omnis_validate.cpp). Pass-8
-    // PhD++ alignment: 15 columns per INTEGRATION_PLAN.md §5. `category` and
+    // Frozen schema (matches CSV_HEADER in tools/omnis_validate.cpp).
+    // The CSV schema has 15 columns. `category` and
     // `oeis_xref` are per-row provenance; sweep-level provenance lives in
     // the run manifest (DB normalization — see comment on CSV_HEADER).
     const std::string expected =
@@ -223,7 +223,7 @@ static void test_validate_determinism(TestResult& tr) {
         return std::string();
     };
 
-    // 15-column schema (Pass 8 PhD++): id, category, oeis_xref, A, total_n,
+    // 15-column schema: id, category, oeis_xref, A, total_n,
     // train_n, k, sc, pred_sc, solomonoff_class, mdl, raw_bits, ratio,
     // time_s, solver_desc. 0-indexed: sc=7, pred_sc=8, mdl=10.
     bool sc_eq    = field(rows[0], 7) == field(rows[1], 7) && field(rows[1], 7) == field(rows[2], 7);
@@ -312,7 +312,7 @@ static void test_ctx_prediction_regression(TestResult& tr) {
         }
         return std::string();
     };
-    // 15-column schema (Pass 8 PhD++): solomonoff_class=9, sc=7, pred_sc=8.
+    // 15-column schema: solomonoff_class=9, sc=7, pred_sc=8.
     std::string cls = field(out, 9);
     std::string sc  = field(out, 7);
     std::string ps  = field(out, 8);
@@ -366,7 +366,7 @@ static void test_oeis_canary(TestResult& tr) {
 
 int main() {
     std::printf("=========================================================\n");
-    std::printf("Phase D regression tests for the categorical pipeline\n");
+    std::printf("Regression tests for the categorical pipeline\n");
     std::printf("=========================================================\n\n");
 
     TestResult tr;

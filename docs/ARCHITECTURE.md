@@ -40,7 +40,7 @@ Eighteen primitive opcodes plus one hierarchical opcode:
 | 9 | DIVR | 4 | Register-divisor div+mod |
 | 10 | LOAD | 1+c | `R[a] = c` |
 | 11 | COPY | 2 | `R[b] = R[a]` |
-| 12 | OUT | 1 | Emit `R[a] mod g_emit_A` (EMIT mode only) |
+| 12 | OUT | 2 | Emit `R[a] mod g_emit_A` (EMIT mode only) |
 | 13 | AND | 3 | bitwise (non-negative operands) |
 | 14 | OR | 3 | bitwise |
 | 15 | XOR | 3 | bitwise |
@@ -107,7 +107,7 @@ Enumerate primitive bodies of length L=1..3 and verify against the target. Pool 
 
 For `A == 2`, programs that operate on 512-bit packed integers (`W` type) and extract bit `bit_pos`. Useful for cellular-automaton-class targets.
 
-### Phase 2F — Witness-stratified branch pruning (deep search)
+### Phase 2F — Unified WSBP, wire-space backward propagation (deep search)
 
 Enumerates type-tuples for body lengths L=1..10, propagates demand wires backward, probes loop-counter registers, and tests every (pre-body, inner body, mode) combination. The phase has a per-level Levin budget allocation and a hard deadline derived from the per-target wall budget.
 
@@ -156,7 +156,7 @@ A small set of shell scripts under `build/`:
 
 ## 9. Tests
 
-Four test files under `tests/`:
+Six test files under `tests/`:
 
 | Suite | Coverage |
 |---|---|
@@ -164,6 +164,8 @@ Four test files under `tests/`:
 | `test_phase2h_simple.cpp` | Phase 2H pool building (p2/p3/p4/p5) and SUB_CALL slot containment |
 | `test_phase2f_budget.cpp` | Phase 2F deadline enforcement (with and without library; dormant path) |
 | `test_correctness_fixes.cpp` | Regression coverage for fixes to bugs found during development (cross-mode cache, indirect-OUT detection, fingerprint completeness, MDL coverage) |
+| `test_engine_determinism.cpp` | Determinism canary: two runs over the reference benchmarks must agree on `(sc, pred_sc, class)` with `mdl` within ±0.5 bits |
+| `test_gen_workload.cpp` | Workload generator: format, determinism under fixed `SOURCE_DATE_EPOCH`, checksum stability, CSV schema of `omnis_validate` |
 
 Tests `#include "omnis.cpp"` directly to exercise internal functions. Build via CTest:
 

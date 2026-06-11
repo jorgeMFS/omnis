@@ -10,7 +10,7 @@ echo "=== PGO Step 1: Instrumented build ==="
 g++ -std=c++17 -O3 -march=native -flto -fprofile-generate -I../src ../src/cli.cpp -o omnis_pgo_gen
 
 echo "=== PGO Step 2: Training ==="
-for f in ../data/candidates_C_top10.txt; do
+for f in ../data/categories/benchmark14.txt; do
     echo "  Training on workload: $f"
     while IFS= read -r line; do
         case "$line" in ''|\#*) continue ;; esac

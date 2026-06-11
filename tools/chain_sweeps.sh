@@ -11,7 +11,7 @@
 #   tools/chain_sweeps.sh --status             # show chain progress
 #
 # Defaults are arranged paper-priority first:
-#   1. eca256              (Phase E1 headline number; ~3-6 h alone)
+#   1. eca256              (headline number; ~3-6 h alone)
 #   2. large               (oeis_base + oeis_core; 2-4 days)
 #   3. totalistic_3state   (2187 candidates; 3-5 days)
 #

@@ -62,7 +62,7 @@ END {
         agg["not_compressed_predicted"]+0, agg["neither"]+0
     if (disc_all > 0) {
         ratio = (co_all+0) / disc_all
-        printf "RATIO\tcompressed_only / discovered = %.4f  (Phase E2 target: <= 0.01)\n", ratio
+        printf "RATIO\tcompressed_only / discovered = %.4f  (acceptance target: <= 0.01)\n", ratio
     }
 }
 ' | (

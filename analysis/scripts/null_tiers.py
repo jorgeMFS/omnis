@@ -60,9 +60,9 @@ def main():
     hi = [x for x in rows if x["tier"] == "high"]
     n = len(hi); k = sum(x["disc"] for x in hi)
     print("\n=== H>=0.7 false-alarm headline ===")
-    print(f"[toinsert: shuffled discoveries] = {k}")
-    print(f"[toinsert: shuffled rate]        = {k/n:.4f}")
-    print(f"[toinsert: shuffled CP upper]    = {cp_upper(k,n):.4f} ({cp_upper(k,n)*100:.2f}%)")
+    print(f"[paper: shuffled discoveries] = {k}")
+    print(f"[paper: shuffled rate]        = {k/n:.4f}")
+    print(f"[paper: shuffled CP upper]    = {cp_upper(k,n):.4f} ({cp_upper(k,n)*100:.2f}%)")
     print("per-population within H>=0.7:")
     for p in ("S1", "S2", "S3", "S4"):
         sp = [x for x in hi if x["pop"] == p]

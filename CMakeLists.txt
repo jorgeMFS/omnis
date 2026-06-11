@@ -59,7 +59,7 @@ target_link_libraries(omnis PRIVATE Threads::Threads)
 
 # gen_workload: deterministic categorical workload generator. Pure C++17,
 # no engine link. Emits omnis-workload v1 format to stdout. See
-# tools/gen_workload.cpp and docs/INTEGRATION_PLAN.md (Phase A) for design.
+# tools/gen_workload.cpp for the generator design.
 # Compiled at -O2 — data emission is not perf-critical and -O2 keeps
 # debugging tractable for the determinism contract.
 set(OMNIS_TOOLS_DIR ${CMAKE_SOURCE_DIR}/tools)
@@ -122,7 +122,7 @@ add_test(NAME test_engine_determinism COMMAND test_engine_determinism)
 add_dependencies(test_engine_determinism omnis_validate)
 set_tests_properties(test_engine_determinism PROPERTIES TIMEOUT 5500)
 
-# test_gen_workload: Phase D regression tests for the categorical pipeline.
+# test_gen_workload: regression tests for the categorical pipeline.
 # Exercises the gen_workload + omnis_validate binaries via system() and
 # verifies committed CHECKSUMS.sha256. Requires gen_workload + omnis_validate
 # targets to be built before this test runs.

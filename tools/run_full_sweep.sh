@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run_full_sweep.sh — launches the Phase E paper-baseline sweep in the
+# run_full_sweep.sh — launches the full paper-baseline sweep in the
 # background via nohup so it survives terminal disconnection.
 #
 # Stages (sequential, each waits for previous to finish):

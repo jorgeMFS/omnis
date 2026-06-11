@@ -84,9 +84,6 @@ done
 
 mkdir -p "$CAT_DIR"
 
-# Optionally embed a generator git SHA into headers if we're inside a git repo.
-GEN_SHA="$(git -C "$REPO_ROOT" rev-parse HEAD 2>/dev/null || echo unknown)"
-
 # Snapshot SHA = body SHA of stripped.gz (the bulk source of OEIS terms).
 SNAPSHOT_SHA="$(shasum -a 256 "$SNAPSHOT_DIR/stripped.gz" | cut -d' ' -f1)"
 
@@ -96,12 +93,12 @@ emit() {
     echo "gen_all: -> $out"
     case "$kind" in
         local)
-            "$GEN_WL" --category "$1" --gen-sha "$GEN_SHA" --out "$out" \
+            "$GEN_WL" --category "$1" --out "$out" \
                 || { echo "gen_all: gen_workload failed for $1" >&2; exit 2; }
             ;;
         oeis)
             "$OEIS_LD" --filter "$1" --snapshot-dir "$SNAPSHOT_DIR" \
-                --gen-sha "$GEN_SHA" --snapshot-sha "$SNAPSHOT_SHA" --out "$out" \
+                --snapshot-sha "$SNAPSHOT_SHA" --out "$out" \
                 || { echo "gen_all: oeis_loader failed for $1" >&2; exit 2; }
             ;;
     esac

@@ -14,14 +14,14 @@
 //   prime               3 prime-related (indicator, gaps, primes mod), N=500/200
 //   morphic             3 morphic sequences (Rudin-Shapiro, Baum-Sweet, period-doubling), A=2, N=200
 //   neg_controls        20 negative controls (random, Pi-b4, etc.), N=500
-//   benchmark14         14 hand-written reference benchmarks (12 ENARZ Table 1 + 2 nested-loop smoke tests)
+//   benchmark14         14 hand-written reference benchmarks (12 curated targets + 2 nested-loop smoke tests)
 //   all_local           emit all the above into separate sections (sequential)
 //
 // OEIS-sourced categories (oeis_core, oeis_easy, etc.) are produced by
 // tools/oeis_loader.cpp, not this binary.
 //
 // Determinism: same (category, seed, n) -> byte-identical stdout.
-// Stable across runs as long as GENERATOR_SHA / GENERATOR_VERSION are unchanged.
+// Stable across runs as long as GENERATOR_VERSION is unchanged.
 
 #include <algorithm>
 #include <cstdint>
@@ -46,7 +46,7 @@
 // version.
 //
 // Version history:
-//   1  Initial port from regmachine/tests/discovery_candidates.cpp.
+//   1  Initial version of the local generators.
 //      ECA 256 + Collatz parameter grid (60) + arithmetic + selfref + prime
 //      + morphic + neg_controls + benchmark14 + totalistic 3-state CA (2187).
 //   2  Added DivisorCount + Sigma to benchmark; renamed benchmark12 -> benchmark14
@@ -130,10 +130,10 @@ static std::vector<bool> sieve_of_eratosthenes(int limit) {
 }
 
 // =============================================================================
-// Local sequence generators (faithful port from regmachine)
+// Local sequence generators
 // =============================================================================
 
-// Random with explicit seed (default seed = 42 reproduces regmachine baseline).
+// Random with explicit seed (default seed = 42 reproduces the baseline).
 static std::vector<int> genRandom(int N, int A, uint32_t seed = 42) {
     std::mt19937 rng(seed);
     std::uniform_int_distribution<int> dist(0, A - 1);
@@ -488,7 +488,7 @@ static std::vector<int> genBmPiB4(int N) { return genPiDigitsMod(N, 4); }
 // Smoke tests — number-theoretic functions requiring nested loops (trial
 // division). Per the standard benchmark list, these expose
 // engine ability to discover NESTED_LOOP shapes. DivisorCount = OEIS A000005,
-// Sigma = OEIS A000203. Both use mod A=4 by convention in regmachine.
+// Sigma = OEIS A000203. Both use mod A=4 by convention.
 static std::vector<int> genBmDivisorCount(int N) { return genDivisorCount(N, 4); }
 static std::vector<int> genBmSigma(int N)        { return genSigma(N, 4); }
 
@@ -590,8 +590,7 @@ static std::string isoDateUtc() {
 static int emitCategory(std::ostream& out,
                         const std::string& category,
                         const std::string& selection_rule,
-                        const std::vector<Emit>& items,
-                        const std::string& generator_sha)
+                        const std::vector<Emit>& items)
 {
     std::ostringstream body_oss;
     for (const auto& e : items) body_oss << formatLine(e) << '\n';
@@ -601,7 +600,6 @@ static int emitCategory(std::ostream& out,
     out << "# " << WORKLOAD_SCHEMA << '\n';
     out << "# category: " << category << '\n';
     out << "# generator_version: " << GENERATOR_VERSION << '\n';
-    out << "# generator_sha: " << (generator_sha.empty() ? "unknown" : generator_sha) << '\n';
     out << "# omnis_min_version: 0.1.0\n";
     out << "# created_utc: " << isoDateUtc() << '\n';
     out << "# count: " << items.size() << '\n';
@@ -691,7 +689,7 @@ static std::vector<Emit> buildMorphic(int N) {
 static std::vector<Emit> buildNegControls(int N, uint32_t seed) {
     std::vector<Emit> v;
     // Pi-base-4 — proven hard at the engine's ISA (BBP spigot exceeds int64
-    // saturation at N >= 20; documented Coupling Barrier C.7b in regmachine).
+    // saturation at N >= 20; consistent with the coupling-barrier analysis).
     v.push_back({"neg_pi_b4", 4, genPiDigitsMod(N, 4)});
 
     // Random sequences across alphabets and seeds, expected incompressible.
@@ -742,7 +740,7 @@ static std::vector<Emit> buildBenchmark14() {
     // Each benchmark emits (published_N + K_at_published_N) terms total. The
     // validator's split K = max(20, total_n/4) reserves K terms as held-out,
     // leaving exactly published_N for training. This matches the train sizes
-    // the regmachine ENARZ run used to discover the published programs.
+    // the original engine run used to discover the published programs.
     auto pad = [](int pub) {
         int total = pub + 20;
         for (int i = 0; i < 5; i++) {
@@ -773,7 +771,7 @@ static std::vector<Emit> buildBenchmark14() {
 }
 
 // =============================================================================
-// Selection rule strings (also pre-registered in INTEGRATION_PLAN.md §6)
+// Selection rule strings (recorded verbatim in each workload header)
 // =============================================================================
 
 static const char* RULE_ECA256             = "enumerate rule in [0,256); A=2; single_cell_ic; center_column";
@@ -795,7 +793,7 @@ static void printUsage() {
         "gen_workload — deterministic workload generator for OMNIS categorical sweeps.\n"
         "\n"
         "Usage:\n"
-        "  gen_workload --category <name> [--n N] [--seed S] [--out PATH] [--gen-sha SHA]\n"
+        "  gen_workload --category <name> [--n N] [--seed S] [--out PATH]\n"
         "\n"
         "Categories:\n"
         "  eca256              all 256 ECA rules (default N=500, A=2)\n"
@@ -813,7 +811,7 @@ static void printUsage() {
         "  --n N            override default sequence length\n"
         "  --seed S         seed for stochastic categories (default 42)\n"
         "  --out PATH       write to file instead of stdout\n"
-        "  --gen-sha SHA    record this string in the workload header (use git rev-parse HEAD)\n"
+        
         "\n"
         "Determinism: same (category, n, seed) -> byte-identical stdout.\n"
     );
@@ -824,7 +822,6 @@ int main(int argc, char* argv[]) {
     int n = -1;
     uint32_t seed = 42;
     std::string out_path;
-    std::string gen_sha;
 
     for (int i = 1; i < argc; i++) {
         std::string a = argv[i];
@@ -839,7 +836,6 @@ int main(int argc, char* argv[]) {
         }
         else if (a == "--seed"     && i + 1 < argc) seed = (uint32_t)std::strtoul(argv[++i], nullptr, 10);
         else if (a == "--out"      && i + 1 < argc) out_path = argv[++i];
-        else if (a == "--gen-sha"  && i + 1 < argc) gen_sha = argv[++i];
         else { std::fprintf(stderr, "gen_workload: unknown option '%s'\n", a.c_str()); printUsage(); return 2; }
     }
 
@@ -861,33 +857,33 @@ int main(int argc, char* argv[]) {
 
     int total = 0;
     if (category == "eca256") {
-        total = emitCategory(*out, "eca256", RULE_ECA256, buildEca256(pickN(500)), gen_sha);
+        total = emitCategory(*out, "eca256", RULE_ECA256, buildEca256(pickN(500)));
     } else if (category == "totalistic_3state") {
-        total = emitCategory(*out, "totalistic_3state", RULE_TOT3STATE, buildTotalistic3State(pickN(500)), gen_sha);
+        total = emitCategory(*out, "totalistic_3state", RULE_TOT3STATE, buildTotalistic3State(pickN(500)));
     } else if (category == "collatz_grid") {
-        total = emitCategory(*out, "collatz_grid", RULE_COLLATZ_GRID, buildCollatzGrid(pickN(200)), gen_sha);
+        total = emitCategory(*out, "collatz_grid", RULE_COLLATZ_GRID, buildCollatzGrid(pickN(200)));
     } else if (category == "arithmetic") {
-        total = emitCategory(*out, "arithmetic", RULE_ARITHMETIC, buildArithmetic(pickN(200)), gen_sha);
+        total = emitCategory(*out, "arithmetic", RULE_ARITHMETIC, buildArithmetic(pickN(200)));
     } else if (category == "selfref") {
-        total = emitCategory(*out, "selfref", RULE_SELFREF, buildSelfref(pickN(200)), gen_sha);
+        total = emitCategory(*out, "selfref", RULE_SELFREF, buildSelfref(pickN(200)));
     } else if (category == "prime") {
-        total = emitCategory(*out, "prime", RULE_PRIME, buildPrime(pickN(200)), gen_sha);
+        total = emitCategory(*out, "prime", RULE_PRIME, buildPrime(pickN(200)));
     } else if (category == "morphic") {
-        total = emitCategory(*out, "morphic", RULE_MORPHIC, buildMorphic(pickN(200)), gen_sha);
+        total = emitCategory(*out, "morphic", RULE_MORPHIC, buildMorphic(pickN(200)));
     } else if (category == "neg_controls") {
-        total = emitCategory(*out, "neg_controls", RULE_NEG_CONTROLS, buildNegControls(pickN(500), seed), gen_sha);
+        total = emitCategory(*out, "neg_controls", RULE_NEG_CONTROLS, buildNegControls(pickN(500), seed));
     } else if (category == "benchmark14") {
-        total = emitCategory(*out, "benchmark14", RULE_BENCHMARK14, buildBenchmark14(), gen_sha);
+        total = emitCategory(*out, "benchmark14", RULE_BENCHMARK14, buildBenchmark14());
     } else if (category == "all_local") {
-        total += emitCategory(*out, "eca256",            RULE_ECA256,        buildEca256(pickN(500)), gen_sha);
-        total += emitCategory(*out, "totalistic_3state", RULE_TOT3STATE,     buildTotalistic3State(pickN(500)), gen_sha);
-        total += emitCategory(*out, "collatz_grid",      RULE_COLLATZ_GRID,  buildCollatzGrid(pickN(200)), gen_sha);
-        total += emitCategory(*out, "arithmetic",        RULE_ARITHMETIC,    buildArithmetic(pickN(200)), gen_sha);
-        total += emitCategory(*out, "selfref",           RULE_SELFREF,       buildSelfref(pickN(200)), gen_sha);
-        total += emitCategory(*out, "prime",             RULE_PRIME,         buildPrime(pickN(200)), gen_sha);
-        total += emitCategory(*out, "morphic",           RULE_MORPHIC,       buildMorphic(pickN(200)), gen_sha);
-        total += emitCategory(*out, "neg_controls",      RULE_NEG_CONTROLS,  buildNegControls(pickN(500), seed), gen_sha);
-        total += emitCategory(*out, "benchmark14",       RULE_BENCHMARK14,   buildBenchmark14(), gen_sha);
+        total += emitCategory(*out, "eca256",            RULE_ECA256,        buildEca256(pickN(500)));
+        total += emitCategory(*out, "totalistic_3state", RULE_TOT3STATE,     buildTotalistic3State(pickN(500)));
+        total += emitCategory(*out, "collatz_grid",      RULE_COLLATZ_GRID,  buildCollatzGrid(pickN(200)));
+        total += emitCategory(*out, "arithmetic",        RULE_ARITHMETIC,    buildArithmetic(pickN(200)));
+        total += emitCategory(*out, "selfref",           RULE_SELFREF,       buildSelfref(pickN(200)));
+        total += emitCategory(*out, "prime",             RULE_PRIME,         buildPrime(pickN(200)));
+        total += emitCategory(*out, "morphic",           RULE_MORPHIC,       buildMorphic(pickN(200)));
+        total += emitCategory(*out, "neg_controls",      RULE_NEG_CONTROLS,  buildNegControls(pickN(500), seed));
+        total += emitCategory(*out, "benchmark14",       RULE_BENCHMARK14,   buildBenchmark14());
     } else {
         std::fprintf(stderr, "gen_workload: unknown category '%s'\n", category.c_str());
         printUsage();

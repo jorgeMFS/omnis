@@ -4,14 +4,14 @@
 # Runs omnis_validate over every workload in data/categories/, writing one
 # CSV row per candidate to data/results/baseline_<date>.csv. Emits a run
 # manifest alongside the CSV with: git SHA, OS/CPU/compiler, snapshot SHAs,
-# total runtime. Both files together constitute the Phase E acceptance
-# artefact (see docs/INTEGRATION_PLAN.md §10).
+# total runtime. Both files together constitute the acceptance
+# artefact (see docs/REPRODUCING.md, acceptance gates).
 #
 # Reproducibility contract:
 #   - freeze-db is enforced (omnis_validate's default; never write to library)
 #   - per-sequence budget is uniform (default 600s)
 #   - every classification uses the canonical Solomonoff cell (compresses
-#     AND predicts) — see docs/INTEGRATION_PLAN.md §2
+#     AND predicts) — see docs/SOLOMONOFF_VALIDATION.md
 #   - manifest captures the environment so others can verify their reroll
 #     reproduces the (sc, pred_sc, MDL ± 0.5) determinism contract
 #
@@ -131,7 +131,7 @@ done
 echo "run_paper_baseline: ${#CATEGORIES[@]} categories, $TOTAL_LINES candidates, ${BUDGET}s budget each."
 echo "                    output: $CSV_PATH"
 
-# Manifest contract per INTEGRATION_PLAN.md §3:
+# Manifest fields:
 # "All categorical runs use --freeze-db against an empty starting
 #  program_db.bin. Library state is never an implicit input."
 # Synthesize an empty db file per run (4-byte magic 'ENAR' + ver=2 + cnt=0).
@@ -140,7 +140,7 @@ echo "                    output: $CSV_PATH"
 EMPTY_DB="$OUTPUT_DIR/empty_db_${DATE_TAG}.bin"
 printf 'ENAR\x02\x00\x00\x00\x00\x00\x00\x00' > "$EMPTY_DB"
 
-# ===== Manifest CHECKPOINT (Pass-9 fix for overnight subshell death) =====
+# ===== Manifest CHECKPOINT (guards against overnight subshell death) =====
 # Write the static/known-at-start fields immediately. If the sweep is killed
 # mid-loop (mac sleep, terminal close, OOM), the manifest still exists and
 # points at the CSV; row-count from CSV reveals actual completion.
@@ -169,17 +169,14 @@ SNAPSHOT_NAMES_SHA="$( (test -f "$SNAPSHOT_DIR/names.gz" \
                           && shasum -a 256 "$SNAPSHOT_DIR/names.gz" | cut -d' ' -f1) \
                           2>/dev/null || true)"
 [ -z "$SNAPSHOT_NAMES_SHA" ] && SNAPSHOT_NAMES_SHA="not_present"
-GENERATOR_SHA="$(grep -h '^# generator_sha:' "$CAT_DIR"/*.txt 2>/dev/null | head -1 | sed 's/.*generator_sha: //' || true)"
-[ -z "$GENERATOR_SHA" ] && GENERATOR_SHA="unknown"
 
 {
-    echo "# omnis baseline run manifest (INTEGRATION_PLAN.md §3 + §5 contract)"
+    echo "# omnis baseline run manifest (schema + provenance contract)"
     echo "# CHECKPOINT WRITE — fields below are valid; completion_status updates at end."
     echo "run_id:                 baseline_${DATE_TAG}"
     echo "csv_path:               $CSV_PATH"
     echo "csv_schema_columns:     15  # id,category,oeis_xref,A,total_n,train_n,k,sc,pred_sc,solomonoff_class,mdl,raw_bits,ratio,time_s,solver_desc"
     echo "omnis_sha:              $GIT_SHA"
-    echo "generator_sha:          $GENERATOR_SHA"
     echo "oeis_stripped_sha256:   $SNAPSHOT_STRIPPED_SHA"
     echo "oeis_names_sha256:      $SNAPSHOT_NAMES_SHA"
     echo "host:                   $HOST_NAME"
@@ -216,7 +213,7 @@ for f in "${CATEGORIES[@]}"; do
             SKIPPED=$((SKIPPED + 1))
             continue
         fi
-        # Per-row provenance per INTEGRATION_PLAN §5.
+        # Per-row provenance columns.
         case "$id_field" in
             A[0-9]*) oeis_xref="$(printf '%s' "$id_field" | sed -E 's/_a[0-9]+$//')" ;;
             *)       oeis_xref="" ;;

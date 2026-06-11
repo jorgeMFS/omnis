@@ -17,7 +17,6 @@
 
 schema_version: 1
 
-generator_sha:       "see gen_workload.cpp GENERATOR_VERSION + git rev-parse HEAD at gen_all.sh time"
 oeis_snapshot:
   stripped_sha256:   "see data/oeis/SOURCES.md"
   names_sha256:      "see data/oeis/SOURCES.md"
@@ -36,7 +35,7 @@ files:
     category: benchmark14
     source: local generator
     count: 14
-    selection_rule: "14 hand-written reference targets — 12 ENARZ Table 1 + DivisorCount(A000005) + Sigma(A000203) as nested-loop smoke tests; padded so train_N == published_N under K=max(20,N/4) split"
+    selection_rule: "14 hand-written reference targets — 12 curated targets + DivisorCount(A000005) + Sigma(A000203) as nested-loop smoke tests; padded so train_N == published_N under K=max(20,N/4) split"
     body_sha256: see file header
     expected_solve_rate_min: 0.78    # 11/14 = 0.79; pi-b4 + 2 nested-loop = expected misses
 
@@ -53,7 +52,7 @@ files:
     count: 256
     selection_rule: "enumerate rule in [0,256); A=2; single_cell_ic; center_column; N=500"
     body_sha256: ceddfd88a9c6f4f0d1b803e85593a36b0e4aacfb1659c605642a184265f383bf
-    expected_solve_rate_min: 0.93    # ENARZ baseline 244/256 = 0.953
+    expected_solve_rate_min: 0.93    # paper baseline 244/256 = 0.953
 
   - path: morphic.txt
     category: morphic
@@ -130,4 +129,4 @@ files:
 # Aggregate.
 totals:
   files: 14
-  candidates: 4588    # sum of counts above (12 → 14 in benchmark adds 2)
+  candidates: 4588    # sum of counts above

@@ -3,8 +3,7 @@
 analyze_omnis.py  --  validation analyses for "The Program Is Still There".
 
 It computes ONLY from data you provide. It never assumes an outcome, and it
-prints each result next to the exact \toinsert{...} label it fills in
-omnis_validation_addenda.tex.
+prints each result next to the quantity it corresponds to in the paper.
 
 Three analyses:
   (1) Per-instance scaling regression: log2(time) ~ program_length_bits,
@@ -98,19 +97,19 @@ def regression(df, np, stats):
     ts = stats.theilslopes(y, x, 0.95)  # slope, intercept, lo, hi
 
     print(f"  n discoveries (usable)      : {n}")
-    print(f"  OLS slope (log2 time / bit) : {slope:.4f}   [toinsert: slope]")
-    print(f"  OLS slope 95% CI            : [{ci_lo:.4f}, {ci_hi:.4f}]   [toinsert: slope CI]")
-    print(f"  R^2                         : {r2:.4f}   [toinsert: R2]")
-    print(f"  p (slope != 0)              : {pval:.3e}   [toinsert: p value]")
-    print(f"  Theil-Sen slope (robust)    : {ts[0]:.4f}  CI [{ts[2]:.4f}, {ts[3]:.4f}]   [toinsert: theilsen slope]")
-    print(f"  Spearman rho (per-instance) : {rho:.4f}  (p={rho_p:.3e})   [toinsert: spearman]")
+    print(f"  OLS slope (log2 time / bit) : {slope:.4f}   [paper: slope]")
+    print(f"  OLS slope 95% CI            : [{ci_lo:.4f}, {ci_hi:.4f}]   [paper: slope CI]")
+    print(f"  R^2                         : {r2:.4f}   [paper: R2]")
+    print(f"  p (slope != 0)              : {pval:.3e}   [paper: p value]")
+    print(f"  Theil-Sen slope (robust)    : {ts[0]:.4f}  CI [{ts[2]:.4f}, {ts[3]:.4f}]   [paper: theilsen slope]")
+    print(f"  Spearman rho (per-instance) : {rho:.4f}  (p={rho_p:.3e})   [paper: spearman]")
     print(f"  PREDICTED slope band        : 0.94 (d=8) to 0.99 (d=53), up to per-candidate constant")
     verdict = ("consistent with" if ci_lo <= 0.99 and ci_hi >= 0.94
                else ("above" if ci_lo > 0.99 else "below"))
-    print(f"  -> measured slope is {verdict.upper()} the predicted band   [toinsert: one of consistent/above/below]")
+    print(f"  -> measured slope is {verdict.upper()} the predicted band   [paper: one of consistent/above/below]")
 
     # per-population fixed-effect slopes
-    print("  per-population OLS slopes      [toinsert: per-population slopes]:")
+    print("  per-population OLS slopes      [paper: per-population slopes]:")
     for p, sub in d.groupby(c["pop"]):
         if len(sub) >= 10 and sub[c["bits"]].nunique() >= 3:
             yy = np.log2(sub[c["time"]].to_numpy(float))
@@ -180,9 +179,9 @@ def fap_surplus(df, np, plt, outdir):
           f"median {np.median(surplus):.1f}, max {surplus.max():.1f}")
     frac_pos = float((surplus > 0).mean())
     print(f"  fraction with positive surplus (sound): {frac_pos:.4f}")
-    print(f"  median per-instance FAP bound: 2^({np.median(fap_log2):.1f})   [toinsert: median FAP]")
+    print(f"  median per-instance FAP bound: 2^({np.median(fap_log2):.1f})   [paper: median FAP]")
     worst = float(fap_log2.max())  # least-negative exponent = largest bound
-    print(f"  worst-case (largest) FAP bound: 2^({worst:.1f})   [toinsert: worst FAP]")
+    print(f"  worst-case (largest) FAP bound: 2^({worst:.1f})   [paper: worst FAP]")
     try:
         fig, ax = plt.subplots(figsize=(5.2, 3.6))
         ax.hist(surplus, bins=40)
@@ -214,7 +213,7 @@ def null_table(ndf):
         kp = int((sub[c["predicted"]].astype(int) == 1).sum())
         up = clopper_pearson_upper(k, n)
         print(f"  [{nt}] trials={n}  discoveries={k}  rate={k/n if n else float('nan'):.5f}  "
-              f"95% upper={up:.5f}   [toinsert: {nt} discoveries / {nt} rate / {nt} CP upper]")
+              f"95% upper={up:.5f}   [paper: {nt} discoveries / {nt} rate / {nt} CP upper]")
         print(f"        compress-only count={kc} ({kc/n if n else 0:.4f}), "
               f"predict-only count={kp} ({kp/n if n else 0:.4f})")
     print("  (compare to structured corpus: 2383/3914 = 0.609)")
@@ -254,10 +253,10 @@ def main():
     else:
         print("\n=== (3) Null tabulation ============================================")
         need("no --null CSV given; run the engine on shuffled/random sequences "
-             "(Protocol 1A) and pass the outcomes here")
+             "and pass the outcomes here")
 
-    print("\nDone. Paste the printed numbers into the matching \\toinsert{...} "
-          "fields of omnis_validation_addenda.tex.")
+    print("\nDone. The printed values correspond to the quantities quoted "
+          "in the paper.")
 
 
 if __name__ == "__main__":

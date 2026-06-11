@@ -5,14 +5,13 @@ type: software
 authors:
   - family-names: Silva
     given-names: Jorge Miguel
+    affiliation: "IEETA / DETI, University of Aveiro, Portugal"
 abstract: >-
   OMNIS is an empirical Solomonoff inductor for integer sequences. Given a
   target sequence, it searches for the shortest register-machine program that
   reproduces it exactly under a canonical instruction set, ranked by Minimum
-  Description Length. The engine enforces four design constraints (exact
-  match, MDL-faithful encoding, no human knowledge, and target-agnostic
-  generality) and provides hierarchical synthesis via SUB_CALL composition
-  over a persistent program library.
+  Description Length. A candidate counts as a discovery only when it both
+  compresses the training data and predicts a held-out continuation exactly.
 keywords:
   - solomonoff-induction
   - minimum-description-length
@@ -22,15 +21,15 @@ keywords:
   - oeis
   - kolmogorov-complexity
 license: MIT
-repository-code: "https://github.com/[user]/omnis"
-version: 0.1.0-pre
-date-released: 2026-05-06
+repository-code: "https://github.com/jorgeMFS/omnis"
+version: 1.0.0
+date-released: 2026-06-11
 preferred-citation:
   type: article
-  title: "[Paper title forthcoming]"
+  title: "The Program Is Still There: A Conservation Law for Program Discovery"
   authors:
     - family-names: Silva
       given-names: Jorge Miguel
-  journal: "Science"
+  journal: "Proceedings of the National Academy of Sciences"
   year: 2026
   doi: "[forthcoming]"

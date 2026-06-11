@@ -1,7 +1,7 @@
 // =========================================================================
 // test_engine_determinism — 30-candidate determinism canary.
 //
-// Plan §3 (INTEGRATION_PLAN.md):
+// Determinism contract:
 //   "Engine determinism. Thread-pool may produce non-identical
 //    solver-choice on ties. Contract: (sc, pred_sc, MDL +/- 0.5) is
 //    stable across reruns; solver_desc may vary on ties.
@@ -249,7 +249,7 @@ static void test_30_candidate_canary(TestResult& tr) {
 
 int main() {
     std::printf("=========================================================\n");
-    std::printf("Engine determinism canary (INTEGRATION_PLAN.md §3)\n");
+    std::printf("Engine determinism canary\n");
     std::printf("=========================================================\n\n");
     TestResult tr;
     test_30_candidate_canary(tr);
