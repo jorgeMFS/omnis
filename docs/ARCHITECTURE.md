@@ -67,6 +67,8 @@ Plus a small set of "deductive" forms used by certain accelerator phases:
 - **DARY** - base-`b` per-digit recurrence (parameters `dary_base`, `dary_init_val`, `dary_op`).
 - **STEP** - count-iterations-to-halt wrapper around a branched body.
 
+For CONCAT and DARY the program is defined by its parameters: for CONCAT the base, the offset and the digit order; for DARY the base, the initial value and one per-digit instruction applied to the base-`d` digits of the index, least significant first. `runProgram` and `predictNext` execute these forms directly, and `computeMDL` charges only the type tag and the parameters. The body stored in `Res` for these two types is illustrative only: it is never executed, it is not charged, and it may not reproduce the form exactly (CONCAT with most-significant-digit-first order; DARY when the per-digit instruction is not the identity on digit 0).
+
 ## 4. MDL encoding
 
 `computeMDL(r, ncat)` returns the program's description length in bits under the canonical encoding. The formula sums:

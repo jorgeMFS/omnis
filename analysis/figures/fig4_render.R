@@ -1,16 +1,15 @@
 #!/usr/bin/env Rscript
-# Figure 4 - Per-instance scaling, coloured by engine phase.
+# Figure S3 - Discovery time against description length, by solver family.
 #
-# Replot of analysis/figures/fig4_data.csv (2,383 discoveries). Does not
-# re-run the engine, does not read baseline CSVs, does not touch the null
-# sweep. Reads the CSV, recomputes the two OLS regressions, asserts they
-# match the manuscript, and writes the PDF + PNG.
+# Scatter of log2 discovery time against program description length for
+# the 2,383 discoveries in analysis/figures/fig4_data.csv, coloured by
+# solver family. Dotted horizontal lines mark the 10 s collection window
+# and the 600 s budget. No regression line is drawn. Does not re-run the
+# engine, read baseline CSVs or touch the null sweep.
 #
-# Visual hypothesis: the horizontal bands in the cloud are phase
-# deadlines. Colouring by solver_family makes that architecture explicit
-# - CTX_X sits at the 30 s phase deadline, NESTED_LOOP at the Phase 2H
-# budget around 200 s. What looked like noise on a slope is the engine's
-# scheduler.
+# The two OLS slopes (all discoveries, and without CTX_X) are recomputed
+# and printed only as a consistency check against the manuscript values;
+# the script stops if they disagree. Writes fig4_conservation.{pdf,png}.
 
 suppressPackageStartupMessages({
   library(ggplot2)
@@ -161,9 +160,8 @@ y_min <- min(d$log2t);        y_max <- max(d$log2t)
 
 p <- ggplot() +
 
-  # Phase-deadline reference - only CTX_X, the one constant derivable from
-  # the engine source. Faint dotted line + short italic label.
-  geom_hline(yintercept = log2(CTX_DEADLINE_S),
+  # Floor (10 s collection window) and ceiling (600 s budget).
+  geom_hline(yintercept = log2(c(10, 600)),
              color = DEADLINE_LN, linewidth = 0.22, linetype = "dotted") +
 
   # Points - drawn in family order with stage-tuned alpha/size, plus a
@@ -194,35 +192,10 @@ p <- ggplot() +
               width = 0.4, height = 0, stroke = 0, na.rm = TRUE,
               alpha = FAM_ALPHA[["Other"]], size = FAM_SIZE[["Other"]]) +
 
-  # OLS headline line.
-  geom_abline(slope = fA$slope, intercept = fA$intc,
-              color = OLS_LINE, linewidth = 0.55) +
-
-  # Stat block: two raw OLS measurements, italic soft ink, tight leading.
-  # The interpretive "cost rises ≈ X× per bit" line was removed because
-  # the manuscript body no longer states a precise per-bit multiplier
-  # (deliberate, after the time-axis censoring discussion). The two
-  # regressions stand on their own as raw measurements.
-  annotate("text",
-           x = x_min + 0.035 * (x_max - x_min),
-           y = y_max - 0.02  * (y_max - y_min),
-           label = sprintf(
-"OLS (all)         β = %.4f   95%% CI [%.4f, %.4f]   R² = %.2f   n = %s
-OLS (no CTX_X) β = %.4f                              R² = %.2f   n = %s",
-             fA$slope, fA$lo, fA$hi, fA$r2, format(fA$n, big.mark = ","),
-             fB$slope, fB$r2, format(fB$n, big.mark = ",")),
-           hjust = 0, vjust = 1,
-           size = 2.05, family = "Helvetica", color = SOFT_INK,
-           fontface = "italic", lineheight = 1.30) +
-
-  # Single phase-deadline label on the right edge of the reference line.
-  annotate("text",
-           x = x_max - 0.01 * (x_max - x_min),
-           y = log2(CTX_DEADLINE_S),
-           label = sprintf("CTX_X 30 s phase deadline  (≈%d s)", CTX_DEADLINE_S),
-           hjust = 1, vjust = -0.50,
-           size = 1.95, family = "Helvetica", color = SOFT_INK,
-           fontface = "italic") +
+  annotate("text", x = x_max - 0.01 * (x_max - x_min), y = log2(c(10, 600)),
+           label = c("10 s collection window", "600 s budget"),
+           hjust = 1, vjust = c(-0.5, 1.5),
+           size = 1.95, family = "Helvetica", color = SOFT_INK) +
 
   scale_color_manual(values = FAM_COL,
                      breaks = FAM_ORDER,
@@ -233,7 +206,7 @@ OLS (no CTX_X) β = %.4f                              R² = %.2f   n = %s",
                        override.aes = list(size = 1.7, alpha = 1, stroke = 0)
                      )) +
   scale_x_continuous(expand = expansion(mult = c(0.02, 0.03))) +
-  scale_y_continuous(expand = expansion(mult = c(0.02, 0.05))) +
+  scale_y_continuous(expand = expansion(mult = c(0.02, 0.05)), limits = c(NA, log2(600))) +
   labs(x = "Program description length (bits)",
        y = expression(log[2]~"discovery time (s)")) +
   theme_minimal(base_family = "Helvetica") +

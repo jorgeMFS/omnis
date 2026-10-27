@@ -26,6 +26,7 @@ analysis/
     null_tiers.py              entropy-stratified null table
     alphabet_separation.py     alphabet-scaling tests (McNemar)
     scaling_censored.py        censored fit and model comparison
+                               (not used by the current manuscript)
 
   null_sweep/             null-calibration sweep artefacts (see its README)
     null_raw.csv               engine output, one row per trial
@@ -39,11 +40,14 @@ analysis/
                           statistical side-cars
 ```
 
-The figure scripts produce the paper figures directly: fig3 is the
-resolution-time strip, fig4 the per-instance scaling colored by solver
-family, fig5 the ECA grid, fig6 the compression-prediction landscape,
-and fig8 the totalistic-CA heatmap. There is also an SI variant of fig4
-and one R companion to `analyze_omnis.py`. Each script writes a PDF, a
+The figure scripts produce the paper figures directly: fig6 is the
+compression-prediction landscape (Fig. 2), fig3 the resolution-time
+strip (Fig. 3), fig5 the ECA grid (Fig. S1), fig8 the totalistic-CA
+heatmap (Fig. S2), and fig4 the discovery time against description
+length, colored by solver family, with the 10 s collection window and
+the 600 s budget marked (Fig. S3). There is also one R companion to
+`analyze_omnis.py`. `fig4_si_scatter_render.R` is not used by the
+current manuscript and is kept for reference. Each script writes a PDF, a
 PNG preview and a data side-car next to itself.
 
 `results/` holds `sc_tables.tex` (the seven SI Appendix C tables,
@@ -53,6 +57,12 @@ side-cars from the statistical scripts (`null_tiers.csv`,
 `alphabet_separation.csv`, `alphabet_cohorts.csv`,
 `scaling_censored.csv`).
 
+`scripts/scaling_censored.py` and its side-car `results/scaling_censored.csv`
+are not used by the current manuscript. The current SI reports the
+relation between discovery time and description length descriptively
+(Spearman correlation, 10 s floor, 600 s cap) and no longer reports
+censored fits or model comparisons. The script is kept for reference.
+
 ## Which file backs which table or figure
 
 | paper item | data | script |
@@ -60,13 +70,12 @@ side-cars from the statistical scripts (`null_tiers.csv`,
 | Fig. 1 (architecture) | -- | drawn, no data |
 | Fig. 2 / fig6 (landscape) | `figures/fig6_data.csv` | `figures/fig6_render.R` |
 | Fig. 3 (cliff strip) | `figures/fig3_strip_data.csv` | `figures/fig3_render.R` |
-| Fig. 4 (cost vs length) | `discoveries.csv` | `figures/fig4_render.R` |
 | Fig. S1 / fig5 (ECA grid) | `figures/fig5_data.csv` | `figures/fig5_render.R` |
 | Fig. S2 / fig8 (S4 heatmap) | `figures/fig8_data.csv` | `figures/fig8_render.R` |
-| Fig. S3 (fig4 SI variant) | `discoveries.csv` | `figures/fig4_si_scatter_render.R` |
+| Fig. S3 / fig4 (time vs length) | `figures/fig4_data.csv` | `figures/fig4_render.R` |
 | Tables SC-1..SC-7 | `sc_input.csv` | `scripts/generate_sc_tables.py` |
 | SC-3 hard subset + inversions | `results/alphabet_cohorts.csv` | `scripts/alphabet_cohorts.py` |
-| Section 3.3 slopes | `discoveries.csv` | `analyze_omnis.py`, `scripts/scaling_censored.py` |
+| Section 3.3 slopes | `discoveries.csv` | `analyze_omnis.py` |
 | Section 3.5 McNemar | `data/results/baseline_*.csv` | `scripts/alphabet_separation.py` |
 | Null table (tab:snull) | `null_sweep/null_raw.csv` | `scripts/null_tiers.py` |
 | Gate false-acceptance bound (SI-B) | `discoveries.csv`, `sc_input.csv` | `analyze_omnis.py` |
@@ -93,7 +102,6 @@ python3 scripts/build_null_csv.py
 python3 analyze_omnis.py --discoveries discoveries.csv --null null.csv --outdir results/
 python3 scripts/null_tiers.py
 python3 scripts/alphabet_separation.py
-python3 scripts/scaling_censored.py
 
 # SI Appendix C tables
 python3 scripts/generate_sc_tables.py --results sc_input.csv > results/sc_tables.tex

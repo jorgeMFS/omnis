@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """
+NOT USED BY THE CURRENT MANUSCRIPT: the SI reports time vs description length descriptively (Spearman, 10 s floor, 600 s cap), without censored fits or model comparisons.
+
 scaling_censored.py - Task 3 of the §3.3 / Fig. S3 review response.
 
 Two analyses:
