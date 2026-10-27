@@ -47,8 +47,8 @@ EXPECT = {
     "pop_disc":  {"S1": 120, "S2": 244, "S3": 336, "S4": 1683},
     "family_total": {"CTX_X": 1290, "DARY": 804, "NESTED_LOOP": 131,
                      "FUNC": 67, "FUNC_L": 60},   # "Other" (=31) is the remainder
-    "surplus_median_bits": 173.4,
-    "surplus_pct_positive": 96.6,
+    "testbits_min": 20.0,
+    "testbits_median": 198.1,
 }
 
 POPS = ["S1", "S2", "S3", "S4"]
@@ -201,30 +201,30 @@ def main():
         emit(f"{cid} & {r['population']} & {fam_esc} & {cls_esc} & {fnum(defi,2)} \\\\")
     emit(r"\bottomrule\end{tabular}\end{table}"); emit("")
 
-    # ---- SC-6: held-out surplus -------------------------------------------
-    def surplus(r):
-        try: return r["holdout_len"]*math.log2(r["alphabet_size"]) - r["mdl_bits"]
+    # ---- SC-6: held-out test bits -----------------------------------------
+    def testbits(r):
+        try: return r["holdout_len"]*math.log2(r["alphabet_size"])
         except Exception: return float("nan")
     emit(r"\begin{table}[!ht]\centering")
-    emit(r"\caption{Held-out surplus $m\log_2|\Sigma|-|p|$ over the 2,383 discoveries, per population. Positive surplus is the regime where the false-acceptance bound of SI-B is informative; the corpus median is 173.4 bits with 96.6 percent of discoveries positive.}\label{tab:sc6}")
+    emit(r"\caption{Held-out test bits $n_y\log_2|\Sigma|$ over the 2,383 discoveries, per population. Each discovery's false-acceptance probability under $H_0$ is at most $2^{-n_y\log_2|\Sigma|}$ (\Cref{prop:gate-fap}).}\label{tab:sc6}")
     emit(r"\begin{tabular}{lrrrr}\toprule")
-    emit(r"Pop. & median & mean & \% positive & non-positive \\\midrule")
-    alls=[]
+    emit(r"Pop. & $n$ & min & median & max \\\midrule")
+    allb=[]
     for p in POPS:
-        ss=[surplus(r) for r in bypop[p] if r["gate_class"]=="discovered"]
-        ss=[s for s in ss if not math.isnan(s)]; alls+=ss
-        if ss:
-            pos=sum(1 for s in ss if s>0)
-            emit(f"{p} & {med(ss):.1f} & {sum(ss)/len(ss):.1f} & {100*pos/len(ss):.1f}\\% & {len(ss)-pos} \\\\")
+        bs=[testbits(r) for r in bypop[p] if r["gate_class"]=="discovered"]
+        bs=[b for b in bs if not math.isnan(b)]; allb+=bs
+        if bs:
+            emit(f"{p} & {len(bs):,} & {min(bs):.1f} & {med(bs):.1f} & {max(bs):.1f} \\\\")
         else:
-            emit(f"{p} & -- & -- & -- & -- \\\\")
+            emit(f"{p} & 0 & -- & -- & -- \\\\")
     emit(r"\midrule")
-    if alls:
-        pos=sum(1 for s in alls if s>0)
-        emit(f"total & {med(alls):.1f} & {sum(alls)/len(alls):.1f} & {100*pos/len(alls):.1f}\\% & {len(alls)-pos} \\\\")
-        check("surplus median (bits)", round(med(alls),1), EXPECT["surplus_median_bits"], A)
-        check("surplus %% positive", round(100*pos/len(alls),1), EXPECT["surplus_pct_positive"], A)
+    if allb:
+        emit(f"total & {len(allb):,} & {min(allb):.1f} & {med(allb):.1f} & {max(allb):.1f} \\\\")
+        check("test bits min", round(min(allb),1), EXPECT["testbits_min"], A)
+        check("test bits median", round(med(allb),1), EXPECT["testbits_median"], A)
     emit(r"\bottomrule\end{tabular}\end{table}"); emit("")
+    fap_sum = sum(r["alphabet_size"]**(-r["holdout_len"]) for r in rows)
+    sys.stderr.write(f"  sum of |Sigma|^(-n_y) over all {len(rows):,} rows: {fap_sum:.3g} (paper: 3.18e-4)\n")
 
     # ---- SC-7: total-ratio distribution -----------------------------------
     emit(r"\begin{table}[!ht]\centering")

@@ -8,8 +8,8 @@ prints each result next to the quantity it corresponds to in the paper.
 Three analyses:
   (1) Per-instance scaling regression: log2(time) ~ program_length_bits,
       pooled + per-population, OLS + Spearman + Theil-Sen, with CI/R^2/p/n.
-  (2) Gate false-acceptance surplus: m*log2(|Sigma|) - L per discovery, and the
-      implied per-instance bound 2^-(surplus-1)  (Proposition: gate-fap).
+  (2) Gate false-acceptance bound: test bits m*log2(|Sigma|) per discovery, and
+      the per-instance bound |Sigma|^-m = 2^-test_bits  (Proposition: gate-fap).
   (3) Null tabulation: discovery rate on shuffled / random sequences, with an
       exact (Clopper-Pearson) upper confidence bound.
 
@@ -18,7 +18,10 @@ EXPECTED INPUT (CSV). Column names are configurable via the constants below.
 
   discoveries.csv  (one row per DISCOVERY, i.e. both gate conditions passed)
     required for (1): time_s, program_bits, population
-    required for (2): holdout_len, alphabet_size, program_bits, population
+    required for (2): holdout_len, alphabet_size
+
+  sc_input.csv  (one row per CANDIDATE, all 3,914; optional, for (2))
+    required for (2): holdout_len, alphabet_size
     optional        : kappa, nesting_depth   (extra regressors for (1))
 
   null.csv  (one row per NULL TRIAL on a shuffled/random sequence)
@@ -32,7 +35,8 @@ USAGE
   python3 analyze_omnis.py --discoveries discoveries.csv --null null.csv \
       --outdir results/
 
-If --null is omitted, analysis (3) is skipped. If columns for (2) are absent,
+If --null is omitted, analysis (3) is skipped. --all defaults to sc_input.csv
+next to this script; if it is absent, the corpus-wide sum in (2) is skipped. If columns for (2) are absent,
 (2) is skipped. Nothing is fabricated; missing inputs produce a clear notice.
 """
 
@@ -157,43 +161,37 @@ def scaling_figure(d, y, x, np, plt, outdir):
         need(f"figure not produced ({e})")
 
 
-def fap_surplus(df, np, plt, outdir):
-    print("\n=== (2) Gate false-acceptance surplus (Proposition gate-fap) ========")
+def fap_bound(df, all_df, np):
+    print("\n=== (2) Gate false-acceptance bound (Proposition gate-fap) ==========")
     c = COL
-    miss = [c[x] for x in ("holdout", "alphabet", "bits") if c[x] not in df.columns]
+    miss = [c[x] for x in ("holdout", "alphabet") if c[x] not in df.columns]
     if miss:
-        need(f"need columns {miss} for the false-acceptance surplus")
+        need(f"need columns {miss} for the false-acceptance bound")
         return
-    d = df[[c["holdout"], c["alphabet"], c["bits"]]].dropna()
+    d = df[[c["holdout"], c["alphabet"]]].dropna()
     d = d[(d[c["holdout"]] > 0) & (d[c["alphabet"]] > 1)]
     if len(d) == 0:
-        need("no usable rows for the surplus")
+        need("no usable rows for the bound")
         return
     m = d[c["holdout"]].to_numpy(float)
     sig = d[c["alphabet"]].to_numpy(float)
-    L = d[c["bits"]].to_numpy(float)
-    surplus = m * np.log2(sig) - L  # bits the holdout carries beyond program length
-    fap_log2 = -(surplus - 1.0)     # log2 of the per-instance bound 2^-(surplus-1)
+    test_bits = m * np.log2(sig)  # log2 of 1 / per-instance bound |Sigma|^-m
     print(f"  discoveries scored          : {len(d)}")
-    print(f"  surplus  m*log2|S| - L (bits): min {surplus.min():.1f}, "
-          f"median {np.median(surplus):.1f}, max {surplus.max():.1f}")
-    frac_pos = float((surplus > 0).mean())
-    print(f"  fraction with positive surplus (sound): {frac_pos:.4f}")
-    print(f"  median per-instance FAP bound: 2^({np.median(fap_log2):.1f})   [paper: median FAP]")
-    worst = float(fap_log2.max())  # least-negative exponent = largest bound
-    print(f"  worst-case (largest) FAP bound: 2^({worst:.1f})   [paper: worst FAP]")
-    try:
-        fig, ax = plt.subplots(figsize=(5.2, 3.6))
-        ax.hist(surplus, bins=40)
-        ax.axvline(0, color="r", lw=1)
-        ax.set_xlabel(r"held-out surplus  $m\log_2|\Sigma| - |p|$  (bits)")
-        ax.set_ylabel("discoveries")
-        fig.tight_layout()
-        path = os.path.join(outdir, "fig_gate_surplus.pdf")
-        fig.savefig(path)
-        print(f"  figure written: {path}")
-    except Exception as e:
-        need(f"surplus figure not produced ({e})")
+    print(f"  test bits m*log2|S| (bits)  : min {test_bits.min():.1f}, "
+          f"median {np.median(test_bits):.1f}, max {test_bits.max():.1f}"
+          f"   [paper: min 20.0, median 198.1]")
+    print(f"  median per-instance FAP bound: 2^-{np.median(test_bits):.1f}")
+    print(f"  worst-case (largest) FAP bound: 2^-{test_bits.min():.1f}")
+    if all_df is None:
+        need("no --all CSV; corpus-wide sum of |Sigma|^-m not computed")
+        return
+    miss = [c[x] for x in ("holdout", "alphabet") if c[x] not in all_df.columns]
+    if miss:
+        need(f"need columns {miss} in --all for the corpus-wide sum")
+        return
+    a = all_df[[c["holdout"], c["alphabet"]]].dropna()
+    total = float(np.sum(a[c["alphabet"]].to_numpy(float) ** (-a[c["holdout"]].to_numpy(float))))
+    print(f"  sum of |S|^-m over {len(a)} rows : {total:.3g}   [paper: 3.18e-4]")
 
 
 def null_table(ndf):
@@ -223,6 +221,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--discoveries", required=True)
     ap.add_argument("--null", default=None)
+    ap.add_argument("--all", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "sc_input.csv"),
+                    help="per-candidate table (all 3,914 rows) for the corpus-wide sum in (2)")
     ap.add_argument("--outdir", default="results")
     args = ap.parse_args()
     os.makedirs(args.outdir, exist_ok=True)
@@ -244,7 +244,11 @@ def main():
     if out:
         d, y, x = out
         scaling_figure(d, y, x, np, plt, args.outdir)
-    fap_surplus(df, np, plt, args.outdir)
+    all_df = None
+    if args.all and os.path.exists(args.all):
+        all_df = pd.read_csv(args.all)
+        print(f"loaded {len(all_df)} candidate rows from {args.all}")
+    fap_bound(df, all_df, np)
 
     if args.null:
         ndf = pd.read_csv(args.null)

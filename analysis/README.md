@@ -9,7 +9,7 @@ reads only the deposited data under `data/`. Nothing here is hand-edited.
 ```
 analysis/
   analyze_omnis.py        main analysis script (scaling regression,
-                          gate-surplus tabulation, null tabulation)
+                          gate false-acceptance bound, null tabulation)
   discoveries.csv         2,383 discovered rows, one per discovery
   null.csv                321 null trials, gate outcomes in 4 columns
   sc_input.csv            3,914-row per-candidate table for SI Appendix C
@@ -43,11 +43,12 @@ The figure scripts produce the paper figures directly: fig3 is the
 resolution-time strip, fig4 the per-instance scaling colored by solver
 family, fig5 the ECA grid, fig6 the compression-prediction landscape,
 and fig8 the totalistic-CA heatmap. There is also an SI variant of fig4
-and two R companions to `analyze_omnis.py`. Each script writes a PDF, a
+and one R companion to `analyze_omnis.py`. Each script writes a PDF, a
 PNG preview and a data side-car next to itself.
 
 `results/` holds `sc_tables.tex` (the seven SI Appendix C tables,
-paste-ready), the two R-rendered companion figures, and the CSV
+paste-ready), the R-rendered companion figure
+(`fig_scaling_cost_vs_length`), and the CSV
 side-cars from the statistical scripts (`null_tiers.csv`,
 `alphabet_separation.csv`, `alphabet_cohorts.csv`,
 `scaling_censored.csv`).
@@ -68,7 +69,7 @@ side-cars from the statistical scripts (`null_tiers.csv`,
 | Section 3.3 slopes | `discoveries.csv` | `analyze_omnis.py`, `scripts/scaling_censored.py` |
 | Section 3.5 McNemar | `data/results/baseline_*.csv` | `scripts/alphabet_separation.py` |
 | Null table (tab:snull) | `null_sweep/null_raw.csv` | `scripts/null_tiers.py` |
-| Gate-surplus bound (SI-B) | `discoveries.csv` | `analyze_omnis.py` |
+| Gate false-acceptance bound (SI-B) | `discoveries.csv`, `sc_input.csv` | `analyze_omnis.py` |
 
 ## Reproducing
 
@@ -97,7 +98,7 @@ python3 scripts/scaling_censored.py
 # SI Appendix C tables
 python3 scripts/generate_sc_tables.py --results sc_input.csv > results/sc_tables.tex
 
-# Figures (the R companions overwrite the matplotlib versions in results/)
+# Figures (the R companion overwrites the matplotlib version in results/)
 cd figures && for f in *_render.R; do Rscript "$f"; done
 ```
 
