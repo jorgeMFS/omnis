@@ -122,11 +122,12 @@ so a stale or edited deposition cannot silently produce wrong tables.
 
 | file | produced by | consumed by |
 |---|---|---|
-| `discoveries.csv` | `scripts/build_discoveries_csv.py` | `analyze_omnis.py`, fig4 and the companion figure scripts |
+| `discoveries.csv` | `scripts/build_discoveries_csv.py` | `analyze_omnis.py`, `figures/fig_scaling_render.R` |
 | `null.csv` | `scripts/build_null_csv.py` | `analyze_omnis.py` |
 | `sc_input.csv` | `scripts/build_sc_input.py` | `scripts/generate_sc_tables.py` |
 | `null_sweep/null_raw.csv` | `scripts/run_null_sweep.py` | `scripts/build_null_csv.py`, `scripts/null_tiers.py` |
-| `figures/fig*_data.csv` | each figure render script | the same script |
+| `figures/fig4_data.csv` | deposited; no script in this directory writes it | `figures/fig4_render.R` (reads it only) |
+| other `figures/fig*_data.csv` | each figure render script (fig3, fig4_si_scatter, fig5, fig6, fig8) | the same script |
 
 The inputs all of this rests on are the four baseline sweep CSVs in
 `data/results/` (one per population, with their run manifests) and the

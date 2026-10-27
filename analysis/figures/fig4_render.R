@@ -56,15 +56,6 @@ EXPECT_N_NC       <- 1093L
 TOL_SLOPE         <- 0.001
 TOL_R2            <- 0.005
 
-# Phase-deadline reference (s) - only the CTX_X line is derivable from
-# the engine source (omnis.cpp:2519, ctx_budget clamped to 30s plus
-# prior-phase startup ≈ 42s wall). The ~200s NESTED_LOOP cluster is left
-# unlabelled: it is the empirical median wall of Phase-2F WSBP enumeration
-# reaching L=5..8 NESTED_LOOP bodies (omnis.cpp:3838), not a budget cap,
-# and so it would be misleading to draw it as a "phase deadline" line.
-# The cluster is visible by the terracotta NESTED_LOOP points themselves.
-CTX_DEADLINE_S    <- 42
-
 # --- Resolve paths ------------------------------------------------------
 script_path <- tryCatch({
   args <- commandArgs(trailingOnly = FALSE)
