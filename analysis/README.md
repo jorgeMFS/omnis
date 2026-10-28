@@ -47,8 +47,12 @@ heatmap (Fig. S2), and fig4 the discovery time against description
 length, colored by solver family, with the 10 s collection window and
 the 600 s budget marked (Fig. S3). There is also one R companion to
 `analyze_omnis.py`. `fig4_si_scatter_render.R` is not used by the
-current manuscript and is kept for reference. Each script writes a PDF, a
-PNG preview and a data side-car next to itself.
+current manuscript and is kept for reference. The fig3, fig4_si_scatter,
+fig5, fig6 and fig8 scripts each write a PDF, a PNG preview and a data
+side-car next to themselves. `fig4_render.R` reads the deposited
+`fig4_data.csv` and writes only the PDF and PNG next to itself;
+`fig_scaling_render.R` reads `../discoveries.csv` and writes only the
+PDF and PNG to `results/`. Neither writes a side-car.
 
 `results/` holds `sc_tables.tex` (the seven SI Appendix C tables,
 paste-ready), the R-rendered companion figure
