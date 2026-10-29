@@ -23,11 +23,11 @@ keywords:
   - kolmogorov-complexity
 license: MIT
 repository-code: "https://github.com/jorgeMFS/omnis"
-version: 1.0.0
-date-released: 2026-06-11
+version: 1.1.0
+date-released: 2026-10-29
 preferred-citation:
   type: article
-  title: "The Program Is Still There: A Conservation Law for Program Discovery"
+  title: "The program is still there, and searching for it obeys a conservation law"
   authors:
     - family-names: Silva
       given-names: Jorge Miguel

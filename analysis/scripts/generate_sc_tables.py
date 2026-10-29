@@ -130,7 +130,7 @@ def main():
     # ---- SC-2: solver portfolio -------------------------------------------
     fams = sorted({r["solver_family"] for r in rows if r["gate_class"]=="discovered"})
     emit(r"\begin{table}[!ht]\centering")
-    emit(r"\caption{Solver portfolio. Discoveries per solver family and per population; family totals match Fig.~S3. The final row gives the per-population ordinary-least-squares slope of $\log_2$ discovery time against description length (Section~3.3 of the main text).}\label{tab:sc2}")
+    emit(r"\caption{Solver portfolio. Discoveries per solver family and per population; family totals match Fig.~S3. The final row gives the per-population ordinary-least-squares slope of $\log_2$ discovery time against description length (Section~2.4 of the main text).}\label{tab:sc2}")
     emit(r"\begin{tabular}{l" + "r"*len(POPS) + r"r}\toprule")
     emit("Family & " + " & ".join(POPS) + r" & total \\\midrule")
     for fam in fams:
@@ -161,7 +161,7 @@ def main():
     multi = [r for r in rows if isinstance(r.get("alphabet_base"),(int,float)) and not math.isnan(r.get("alphabet_base",float("nan")))]
     bases = sorted({int(r["alphabet_base"]) for r in multi})[:3]
     emit(r"\begin{table}[!ht]\centering")
-    emit(r"\caption{Alphabet asymmetry. Discovery rate by alphabet base for the multi-alphabet OEIS cohort (the 54/33/27 percent decay of Section~3.5); the twenty-six-sequence hard subset; and the count of inversion sequences that become easier at a larger base. Rates are discoveries over candidates at that base.}\label{tab:sc3}")
+    emit(r"\caption{Alphabet asymmetry. Discovery rate by alphabet base for the multi-alphabet OEIS cohort (the 54/33/27 percent decay of Section~2.6); the twenty-six-sequence hard subset; and the count of inversion sequences that become easier at a larger base. Rates are discoveries over candidates at that base.}\label{tab:sc3}")
     emit(r"\begin{tabular}{l" + "r"*len(bases) + r"}\toprule")
     emit("Cohort & " + " & ".join(f"base {b}" for b in bases) + r" \\\midrule")
     def rate(recs, b):
@@ -190,7 +190,7 @@ def main():
     # ---- SC-5: off-diagonal characterization ------------------------------
     od=[r for r in rows if r["gate_class"] in ("predicted_only","compressed_only")]
     emit(r"\begin{table}[!ht]\centering")
-    emit(r"\caption{Off-diagonal characterization. The predicted-only (27) and compressed-only (17) candidates, with population, solver family, and the compression deficit $|p|-\text{train\_bits}$ in bits (positive for predicted-only, negative for compressed-only). Includes the divisor-counting instance that misses compression by about 0.45 bits (Section~3.4 of the main text).}\label{tab:sc5}")
+    emit(r"\caption{Off-diagonal characterization. The predicted-only (27) and compressed-only (17) candidates, with population, solver family, and the compression deficit $|p|-\text{train\_bits}$ in bits (positive for predicted-only, negative for compressed-only). Includes the divisor-counting instance that misses compression by about 0.45 bits (Section~2.5 of the main text).}\label{tab:sc5}")
     emit(r"\begin{tabular}{llllr}\toprule")
     emit(r"candidate & pop. & family & class & deficit (bits) \\\midrule")
     for r in sorted(od, key=lambda r:(r["gate_class"], r["population"])):
